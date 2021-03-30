@@ -1,0 +1,37 @@
+
+%white-form-control {
+	&.white {
+		color: #29292e;
+		background-color: #fff;
+		border: 1px solid #dfe0e5;
+		transition: border-color .2s ease;
+
+		&:focus {
+			border-color: $red;
+		}
+	}
+}
+
+%form-control {
+	&.form-control {
+		@extend %form-control-reset;
+		padding: 8px 16px;
+		display: block;
+		width: 100%;
+		line-height: 1.6;
+		font-size: .9rem;
+		@extend %white-form-control;
+	}
+}
+
+input {
+	&[type="text"],
+	&[type="email"],
+	&[type="password"] {
+		@extend %form-control;
+	}
+}
+textarea {
+	@extend %form-control;
+}
+
