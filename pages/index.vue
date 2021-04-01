@@ -16,7 +16,8 @@
 			</section>
 			<section id="section_projects">
 				<div class="section-header container">
-					<h2 class="section-red-title"">{{ $t('portfolio.title') }}</h2>
+					<p class="comic-text">Company portfolio</p>
+					<h2 class="section-title" v-html="$t('portfolio.title')"></h2>
 					<p class="section-description" v-html="$t('portfolio.description')"></p>
 				</div>
 				<portfolio />

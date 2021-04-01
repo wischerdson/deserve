@@ -39,7 +39,7 @@ export default {
 	},
 	portfolio: {
 		"go-to-site": "Go to site",
-		"title": "Latest projects",
+		"title": "Latest <span class=\"red-highlight\">projects</span>",
 		"description": "We have built a robust team, which is capable of delivering best quality of services <br>when it comes to website design, development and promotion.",
 	},
 	legal: {
