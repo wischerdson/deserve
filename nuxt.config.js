@@ -27,6 +27,7 @@ export default {
 		{src:  '@/plugins/smooth-scroll', ssr: false},
 		{src:  '@/plugins/cursor', ssr: false},
 		{src:  '@/plugins/slick', ssr: false},
+		{src:  '@/plugins/jarallax', ssr: false},
 		{src:  '@/plugins/router'},
 	],
 

@@ -119,4 +119,79 @@
 			}
 		}
 	}
+	.our-mission {
+		padding-top: 100px;
+
+		.row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 0 -30px;
+			margin-bottom: 100px;
+
+			@media (max-width: 900px) {
+				flex-direction: column;
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			img {
+				display: block;
+				width: 100%;
+				min-width: 360px;
+
+				@media (max-width: 900px) {
+					min-width: 0;
+				}
+			}
+			.left, .right {
+				width: 100%;
+				padding: 0 30px;
+
+				@media (max-width: 900px) {
+					padding: 0;
+				}
+			}
+			.left {
+				max-width: 740px;
+			}
+			.right {
+				max-width: 600px;
+
+				@media (max-width: 900px) {
+					margin-top: 40px;
+					max-width: 500px;
+				}
+			}
+			&.reverse {
+				flex-direction: row-reverse;
+
+				@media (max-width: 900px) {
+					flex-direction: column;
+				}
+			}
+		}
+		.comic-text {
+			font-size: 2rem;
+			font-family: "Reenie Beanie", cursive;
+			color: #a1a1a8;
+		}
+		.row-bold-text {
+			font-weight: 600;
+			font-size: 2.4rem;
+			margin-bottom: 40px;
+		}
+		.plain-text {
+			color: #a1a1a8;
+			line-height: 1.5;
+			font-size: 1.2rem;
+
+			@media (max-width: 900px) {
+				font-size: 1.05rem;
+			}
+		}
+	}
+	.parallax {
+		padding-top: 80px;
+	}
 }

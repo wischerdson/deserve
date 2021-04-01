@@ -31,10 +31,13 @@
 			color: #fff;
 			z-index: 100;
 
+			@media (max-width: 880px) {
+				top: 30px;
+				right: 30px;
+			}
 			&:hover {
 				background-color: $redDarken;
 			}
-
 			svg {
 				width: 10px;
 				height: 14px;

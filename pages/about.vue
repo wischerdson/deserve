@@ -11,14 +11,11 @@
 					</div>
 				</div>
 				<img class="cute-design-blob" src="@/assets/img/design-blob.svg" alt="">
-
-					<div class="overlay-dotted"></div>
-
-				
+				<div class="overlay-dotted"></div>
 				<div class="container">
 					<div class="column">
 						<p class="nice-text">
-							Добро пожаловать в наш мир. Мы - Deserve, <span class="outline-text">креативное цифровое агентство.</span> Мы предлагаем различные виды <span class="outline-text">цифровых услуг.</span>
+							Добро пожаловать в наш мир. Мы - Deserve, <span class="outline-text">креативное digital агентство.</span> Мы предлагаем различные виды <span class="outline-text">цифровых услуг.</span>
 						</p>
 						<p class="nice-text">Мы помогаем <span class="outline-text">нашим клиентам</span> начать, поддерживать и развивать свой бизнес.</p>
 						<p class="nice-text">Независимо от того, есть ли у вас срочная задача или вы хотите просто обсудить детали будущего проекта, мы можем помочь. <span class="outline-text">А теперь давайте познакомимся поближе.</span></p>
@@ -26,11 +23,41 @@
 				</div>
 			</div>
 		</section>
+		<section class="our-mission">
+			<div class="container">
+				<div class="row">
+					<div class="left">
+						<div class="comic-text">We are creating smart websites.</div>
+						<div class="row-bold-text">На рынке много агенств с впечатляющими результатами, но Deserve - это особенный путь. Хотите построить что-то, что будет жить вечно? Мы здесь.</div>
+					</div>
+					<div class="right">
+						<img src="@/assets/img/about-02.svg" alt="">
+					</div>
+				</div>
+				<div class="row reverse">
+					<div class="left">
+						<div class="row-bold-text">Наша миссия и видение</div>
+						<p class="plain-text">Также Deserve является креативным маркетинговым агентством, ориентированным на понимание и поведение. Полноценное Digital продвижение, cпециализирующееся на различных этапах рекламного размещения. Мы задействуем такие модули как: медиапланирование, сбор/анализ данных, креативная разработка/адаптация, медиаразмещение с оптимизацией в режиме реального времени, статистический анализ результата.</p>
+					</div>
+					<div class="right">
+						<img src="@/assets/img/about-04.svg" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="parallax">
+			<parallax />
+		</section>
 	</div>
 </template>
 
 <script>
-	export default {
 
+	import Parallax from '@/components/Parallax'
+
+	export default {
+		components: {
+			Parallax
+		}
 	}
 </script>
