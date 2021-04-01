@@ -13,6 +13,8 @@
 			<div class="scroll-line"></div>
 			<span class="scroll-text">{{ $t('scroll-top') }}</span>
 		</button>
+
+		<script></script>
 	</div>
 </template>
 
