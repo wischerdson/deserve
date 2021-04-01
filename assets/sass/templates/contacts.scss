@@ -1,12 +1,22 @@
 
 #template_contacts {
-	padding: 176px 0;
+	padding-top: 176px;
 	min-height: 100vh;
 
+	@media (max-width: 880px) {
+		padding-top: 100px;
+	}
 	.page-title {
 		font-size: 7rem;
 		color: $black;
 		font-weight: 600;
+
+		@media (max-width: 880px) {
+			font-size: 4rem;
+		}
+		@media (max-width: 490px) {
+			font-size: 3rem;
+		}
 	}
 	.typed {
 		display: flex;
@@ -14,6 +24,13 @@
 		.typed-cursor {
 			font-weight: 600;
 			font-size: 7rem;
+
+			@media (max-width: 880px) {
+				font-size: 4rem;
+			}
+			@media (max-width: 490px) {
+				font-size: 3rem;
+			}
 		}
 	}
 	.email {
@@ -29,6 +46,7 @@
 	}
 	.social-media {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		margin-top: 20px;
 
@@ -36,6 +54,7 @@
 			font-size: 1.2rem;
 			font-weight: 500;
 			margin-right: 20px;
+			margin-top: 10px;
 
 			&.fb {
 				color: #5d82d1;
@@ -64,7 +83,7 @@
 
 		.address-item {
 			width: 100%;
-			max-width: 302px;
+			max-width: 352px;
 
 			.item-title {
 				margin-bottom: 24px;

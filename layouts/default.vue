@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<Header />
-		<Nuxt />
+		<div class="page-content">
+			<Nuxt />
+		</div>
 		<Footer />
 
 		<div class="cursor-dot-outline"></div>
@@ -9,7 +11,7 @@
 
 		<button class="scroll-top btn btn-red hidden">
 			<div class="scroll-line"></div>
-			<span class="scroll-text">Наверх</span>
+			<span class="scroll-text">{{ $t('scroll-top') }}</span>
 		</button>
 	</div>
 </template>
