@@ -8,6 +8,9 @@
 	.red-section {
 		.top {
 			padding: 0 42px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
 
 			.title {
 				color: $red;
@@ -116,6 +119,17 @@
 				color: transparent;
 				-webkit-text-stroke-width: 1px;
 				-webkit-text-stroke-color: #fff;
+				transition: color .5s ease;
+
+				svg {
+					display: inline-block;
+					width: 25px;
+					color: #fff;
+					margin-bottom: 10px;
+				}
+			}
+			a:hover .outline-text {
+				color: #fff;
 			}
 		}
 	}

@@ -25,6 +25,7 @@
 <script>
 
 	import $ from 'jquery'
+	import AOS from 'aos'
 	import Header from '@/components/Header'
 
 	export default {
@@ -57,13 +58,21 @@
 				setTimeout(() => {
 					this.$cursor.refresh()
 				}, 1000)
+
+				AOS.init({
+					once: true,
+					duration: 800
+				})
 			})
 
 			this.$cursor.init()
 
 			setTimeout(() => {
 				$(this.$refs.preloader).addClass('hidden')
-
+				AOS.init({
+					once: true,
+					duration: 800
+				})
 			}, 1500)
 		}
 	}

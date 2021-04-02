@@ -3,6 +3,7 @@
 		<section class="red-section">
 			<div class="top">
 				<h2 class="title">Hello—</h2>
+				<div class="comic-text">Get to know us better</div>
 			</div>
 			<div class="main-red-content">
 				<div class="text-aside">
@@ -18,7 +19,8 @@
 							Добро пожаловать в наш мир. Мы - Deserve, <span class="outline-text">креативное digital агентство.</span> Мы предлагаем различные виды <span class="outline-text">цифровых услуг.</span>
 						</p>
 						<p class="nice-text">Мы помогаем <span class="outline-text">нашим клиентам</span> начать, поддерживать и развивать свой бизнес.</p>
-						<p class="nice-text">Независимо от того, есть ли у вас срочная задача или вы хотите просто обсудить детали будущего проекта, мы можем помочь. <span class="outline-text">А теперь давайте познакомимся поближе.</span></p>
+						<p class="nice-text">Независимо от того, есть ли у вас срочная задача или вы хотите просто обсудить детали будущего проекта, мы можем помочь. 
+						<nuxt-link :to="localePath('feedback')"><span class="outline-text">А теперь давайте познакомимся поближе.<span v-html="require('@/assets/icons/link.svg?raw')"></span></span></nuxt-link></p>
 					</div>
 				</div>
 			</div>

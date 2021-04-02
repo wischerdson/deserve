@@ -19,6 +19,7 @@ export default {
 	css: [
 		// "vue-slick-carousel/dist/vue-slick-carousel.css",
 		"slick-carousel/slick/slick.css",
+		"aos/dist/aos.css",
 		"@/assets/sass/app.scss",
 	],
 

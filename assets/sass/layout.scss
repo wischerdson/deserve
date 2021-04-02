@@ -68,13 +68,14 @@ body {
 	@media (max-width: 880px) {
 		text-align: left;
 	}
-	.comic-text {
+	
+}
+.comic-text {
 		font-size: 3.2rem;
 		font-family: "Reenie Beanie", cursive;
 		color: #a1a1a8;
 		margin-bottom: 13px;
 	}
-}
 .section-title {
 	color: #373838;
 	font-size: 4rem;
@@ -148,3 +149,4 @@ body {
 @import "./sections/footer.scss";
 @import "./sections/portfolio.scss";
 @import "./sections/parallax.scss";
+@import "./sections/services-range.scss";
