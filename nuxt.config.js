@@ -70,8 +70,7 @@ export default {
 			lang: 'en'
 		},
 		icon: {
-			source: '@/static/icon.png',
-			sizes: [16, 32, 57, 60, 72, 76, 96, 114, 120, 144, 152, 180, 192]
+			source: '@/static/icon.png'
 		},
 		meta: {
 			ogHost: 'deserve.ru',

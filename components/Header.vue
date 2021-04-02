@@ -6,7 +6,7 @@
 					<div class="left">
 						<div class="logo">
 							<nuxt-link :to="localePath('/')">
-								<img src="@/assets/img/logo-deserve-white-dot.svg" alt="">
+								<img src="@/static/img/logo-deserve-white-dot.svg" alt="">
 							</nuxt-link>
 						</div>
 						<div class="text" v-html="$t('header.digital-agency')"></div>
@@ -30,7 +30,7 @@
 				<div class="flex-content">
 					<div class="logo">
 						<nuxt-link to="/">
-							<img src="@/assets/img/logo-deserve-white-dot.svg" alt="">
+							<img src="@/static/img/logo-deserve-white-dot.svg" alt="">
 						</nuxt-link>
 					</div>
 					<div class="left">
@@ -52,14 +52,6 @@
 				<div class="scrollable-content">
 					<div class="container">
 						<ul class="link-list">
-							<!-- 
-								"": "Главная",
-			"about-agency": "Об агентстве",
-			"services": "Услуги",
-			"our-cases": "Портфолио",
-			"open-jobs": "Вакансии",
-			"contacts": "Контакты"
-							 -->
 							<li class="link-item">
 								<nuxt-link exact :to="localePath('/')" active-class="active">
 									{{ $t('navigation-links.home') }}
@@ -78,11 +70,16 @@
 								<p>— Perfect-reasonable</p>
 							</li>
 							<li class="link-item">
-								<a href="#">{{ $t('navigation-links.our-cases') }}</a>
+								<nuxt-link exact :to="localePath('/portfolio')" active-class="active">
+									{{ $t('navigation-links.our-cases') }}
+								</nuxt-link>
 								<p>— The completed path is the reward. ©S.J.</p>
 							</li>
 							<li class="link-item">
-								<a href="#">{{ $t('navigation-links.open-jobs') }}</a>
+								<nuxt-link exact :to="localePath('/vacancies')" active-class="active">
+									{{ $t('navigation-links.open-jobs') }}
+									<span class="index color-red">0</span>
+								</nuxt-link>
 								<p>— Join the crew</p>
 							</li>
 							<li class="link-item">

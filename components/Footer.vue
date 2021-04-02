@@ -5,7 +5,7 @@
 				<div class="columns">
 					<div class="column">
 						<div class="logo">
-							<img src="@/assets/img/logo-deserve-white-dot.svg" alt="Deserve logo">
+							<img src="@/static/img/logo-deserve-white-dot.svg" alt="Deserve logo">
 						</div>
 						<p class="short-about-company">{{ $t('footer.short-about-us') }}</p>
 						<div class="social-media">

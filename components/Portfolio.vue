@@ -10,7 +10,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_4030849595.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_4030849595.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://blcsand.com" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -23,7 +23,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_570309526.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_570309526.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://zefir.design" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -36,7 +36,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_1243195822.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_1243195822.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://tekhnokultura.com" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -49,7 +49,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_1295081776.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_1295081776.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://bestpayments.solutions" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -62,7 +62,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_1994154273.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_1994154273.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://buhanka.ru" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -75,7 +75,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_3913596754.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_3913596754.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://moskovsky65.legenda-dom.ru" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -88,7 +88,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_3460088364.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_3460088364.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://pride.marketing" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -101,7 +101,7 @@
 				<li class="slide">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/assets/img/projects/tg_image_2600237303.jpeg" alt="">
+							<img class="project-image" src="@/static/img/projects/tg_image_2600237303.jpeg" alt="">
 							<div class="overlay-on-hover">
 								<a href="https://adelinalazarova.com" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
@@ -114,7 +114,7 @@
 			</ul>
 
 			<div class="swipe-to-slide">
-				<img src="@/assets/img/swipe-to-slide.gif" alt="">
+				<img src="@/static/img/swipe-to-slide.gif" alt="">
 				<span>Смахните чтобы посмотреть <br>другие кейсы</span>
 			</div>
 		</div>
