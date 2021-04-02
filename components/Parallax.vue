@@ -10,9 +10,7 @@
 				</div>
 				<div class="text">
 					<h2><span class="blue-highlight">Свяжитесь с нами</span> <br>чтобы узнать, как мы <br>можем помочь вам <br>с вашим проектом.</h2>
-					<button class="banner-action see-video-feedback btn btn-red btn-line">
-						<span>Оставить заявку</span>
-					</button>
+					<nuxt-link class="btn btn-line btn-white btn-sm" :to="localePath('feedback')">Оставить заявку</nuxt-link>
 				</div>
 			</div>
 		</div>

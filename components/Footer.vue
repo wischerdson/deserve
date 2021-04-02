@@ -32,21 +32,36 @@
 						<ul class="link-list">
 							<div class="links-column">
 								<li class="link-item">
-									<a href="#">{{ $t('navigation-links.about-agency') }}</a>
+									<nuxt-link :to="localePath('/')">
+										{{ $t('navigation-links.home') }}
+									</nuxt-link>
 								</li>
 								<li class="link-item">
-									<a href="#">{{ $t('navigation-links.services') }}</a>
+									<nuxt-link :to="localePath('/about')">
+										{{ $t('navigation-links.about-agency') }}
+									</nuxt-link>
 								</li>
 								<li class="link-item">
-									<a href="#">{{ $t('navigation-links.our-cases') }}</a>
+									<nuxt-link :to="localePath('/services')">
+										{{ $t('navigation-links.services') }}
+									</nuxt-link>
 								</li>
 							</div>
 							<div class="links-column">
 								<li class="link-item">
-									<a href="#">{{ $t('navigation-links.open-jobs') }}</a>
+									<nuxt-link :to="localePath('/portfolio')">
+										{{ $t('navigation-links.our-cases') }}
+									</nuxt-link>
 								</li>
 								<li class="link-item">
-									<a href="#">{{ $t('navigation-links.contacts') }}</a>
+									<nuxt-link :to="localePath('/vacancies')">
+										{{ $t('navigation-links.open-jobs') }}
+									</nuxt-link>
+								</li>
+								<li class="link-item">
+									<nuxt-link :to="localePath('/contacts')">
+										{{ $t('navigation-links.contacts') }}
+									</nuxt-link>
 								</li>
 							</div>
 						</ul>

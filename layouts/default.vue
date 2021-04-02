@@ -1,5 +1,9 @@
 <template>
 	<div>
+		<div class="preloader" ref="preloader">
+			<img src="@/static/img/preloader.gif" alt="">
+		</div>
+
 		<Header />
 		<div class="page-content">
 			<Nuxt />
@@ -56,6 +60,11 @@
 			})
 
 			this.$cursor.init()
+
+			setTimeout(() => {
+				$(this.$refs.preloader).addClass('hidden')
+
+			}, 1500)
 		}
 	}
 </script>

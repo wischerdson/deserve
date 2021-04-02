@@ -28,7 +28,7 @@
 				<div class="row">
 					<div class="left">
 						<div class="comic-text">We are creating smart websites.</div>
-						<div class="row-bold-text">На рынке много агенств с впечатляющими результатами, но Deserve - это особенный путь. Хотите построить что-то, что будет жить вечно? Мы здесь.</div>
+						<div class="row-bold-text">На рынке много агентств с впечатляющими результатами, но Deserve - это особенный путь. Хотите построить что-то, что будет жить вечно? Мы здесь.</div>
 					</div>
 					<div class="right">
 						<img src="@/static/img/about-05.svg" alt="">
@@ -36,7 +36,7 @@
 				</div>
 				<div class="row reverse">
 					<div class="left">
-						<div class="row-bold-text">Наша миссия и видение</div>
+						<div class="row-bold-text">Digital маркетинг</div>
 						<p class="plain-text">Также Deserve является креативным маркетинговым агентством, ориентированным на понимание и поведение. Полноценное Digital продвижение, cпециализирующееся на различных этапах рекламного размещения. Мы задействуем такие модули как: медиапланирование, сбор/анализ данных, креативная разработка/адаптация, медиаразмещение с оптимизацией в режиме реального времени, статистический анализ результата.</p>
 					</div>
 					<div class="right">
@@ -58,6 +58,10 @@
 	export default {
 		components: {
 			Parallax
+		},
+		head: {
+			title: "Об агенстве - Deserve",
+			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг."
 		}
 	}
 </script>

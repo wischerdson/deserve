@@ -19,7 +19,7 @@
 							<nuxt-link class="lang" :class="{active: $i18n.locale == 'ru'}" :to="switchLocalePath('ru')">RU</nuxt-link>
 							<nuxt-link class="lang" :class="{active: $i18n.locale == 'en'}" :to="switchLocalePath('en')">EN</nuxt-link>
 						</div>
-						<a href="#" class="btn btn-line btn-white btn-sm">{{ $t('header.contact-us') }}</a>
+						<nuxt-link class="btn btn-line btn-white btn-sm" :to="localePath('feedback')">{{ $t('header.contact-us') }}</nuxt-link>
 						<button class="btn menu-btn" @click="menu = true" v-html="require('@/assets/icons/menu.svg?raw')"></button>
 					</div>
 				</div>
@@ -66,7 +66,9 @@
 								<p>— Get to know us better</p>
 							</li>
 							<li class="link-item">
-								<a href="#">{{ $t('navigation-links.services') }}</a>
+								<nuxt-link exact :to="localePath('/services')" active-class="active">
+									{{ $t('navigation-links.services') }}
+								</nuxt-link>
 								<p>— Perfect-reasonable</p>
 							</li>
 							<li class="link-item">

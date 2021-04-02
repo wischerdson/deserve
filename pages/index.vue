@@ -11,7 +11,7 @@
 						STRATEGY
 					</h1>
 					<p class="text-3">Let's build your dream together</p>
-					<a href="#" class="btn btn-primary btn-line">{{ $t('home.welcome.learn-more') }}</a>
+					<nuxt-link class="btn btn-primary btn-line" :to="localePath('feedback')">{{ $t('home.welcome.learn-more') }}</nuxt-link>
 				</div>
 			</section>
 			<section id="section_projects">
@@ -41,6 +41,10 @@
 		},
 		mounted () {
 			this.$store.commit('header/transparent', true)
+		},
+		head: {
+			title: "Главная - Deserve",
+			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг."
 		}
 	}
 

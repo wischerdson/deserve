@@ -24,6 +24,10 @@
 	export default {
 		components: {
 			Portfolio, Parallax
+		},
+		head: {
+			title: "Портфолио - Deserve",
+			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг."
 		}
 	}
 
