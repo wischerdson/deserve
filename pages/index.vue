@@ -27,7 +27,7 @@
 					<portfolio  />
 				</div>
 			</section>
-			<section style="padding: 100px 0" data-aos="fade-up" data-aos-delay="200">
+			<section style="padding: 100px 0; overflow: hidden;" data-aos="fade-up" data-aos-delay="200">
 				<services-range />
 			</section>
 			<section class="parallax-section">
@@ -54,6 +54,11 @@
 		head: {
 			title: "Главная - Deserve",
 			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг."
+		},
+		pwa: {
+			meta: {
+				ogTitle: 'Главная - Deserve',
+			}
 		}
 	}
 

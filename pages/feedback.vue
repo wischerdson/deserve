@@ -12,7 +12,7 @@
 						<input type="text" class="form-control" placeholder="Имя">
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" placeholder="Компания">
+						<input type="email" class="form-control" placeholder="Название компании">
 					</div>
 				</div>
 				<div class="row">
@@ -25,7 +25,7 @@
 				</div>
 				<div class="row">
 					<div class="form-group">
-						<textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Какую задачу Вы бы хотели решить вместе с нами?"></textarea>
+						<textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="У вас есть вопрос, проект? Вы хотели бы обсудить..."></textarea>
 					</div>
 				</div>
 				<div class="row">
