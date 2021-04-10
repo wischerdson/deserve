@@ -61,20 +61,12 @@
 		components: {
 			Parallax
 		},
-		head: {
-			title: "Об агенстве - Deserve",
-			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг.",
-			// meta: {
-			// 	name: 'og:title',
-			// 	content: 'Homepage'
-			// }
-		},
-		mounted () {
-			console.log(this.$pwa)
-		},
-		pwa: {
-			meta: {
-				ogTitle: 'Об агенстве - Deserve'
+		head () {
+			return {
+				title: this.$t('pages.about.title'),
+				meta: [
+					{ property: 'og:title', content: this.$t('pages.about.title'), hid: 'og-title' },
+				]
 			}
 		}
 	}

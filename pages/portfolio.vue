@@ -25,9 +25,13 @@
 		components: {
 			Portfolio, Parallax
 		},
-		head: {
-			title: "Портфолио - Deserve",
-			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг."
+		head () {
+			return {
+				title: this.$t('pages.portfolio.title'),
+				meta: [
+					{ property: 'og:title', content: this.$t('pages.portfolio.title'), hid: 'og-title' },
+				]
+			}
 		}
 	}
 

@@ -51,13 +51,12 @@
 		mounted () {
 			this.$store.commit('header/transparent', true)
 		},
-		head: {
-			title: "Главная - Deserve",
-			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг."
-		},
-		pwa: {
-			meta: {
-				ogTitle: 'Главная - Deserve',
+		head () {
+			return {
+				title: this.$t('pages.home.title'),
+				meta: [
+					{ property: 'og:title', content: this.$t('pages.home.title'), hid: 'og-title' },
+				]
 			}
 		}
 	}

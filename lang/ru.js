@@ -1,4 +1,27 @@
 export default {
+	pages: {
+		home: {
+			"title": "Главная - Deserve"
+		},
+		about: {
+			"title": "Об агенстве - Deserve"
+		},
+		contacts: {
+			"title": "Контакты - Deserve"
+		},
+		feedback: {
+			"title": "Оставить заявку - Deserve"
+		},
+		portfolio: {
+			"title": "Портфолио - Deserve"
+		},
+		services: {
+			"title": "Услуги - Deserve"
+		},
+		vacancies: {
+			"title": "Вакансии - Deserve"
+		}
+	},
 	header: {
 		"contact-us": "Связаться с нами",
 		"digital-agency": "Digital <br>Агентство"

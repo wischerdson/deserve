@@ -57,9 +57,13 @@
 
 			var typed = new Typed('#template_contacts .page-title', options)
 		},
-		head: {
-			title: "Контакты - Deserve",
-			description: "Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг."
+		head () {
+			return {
+				title: this.$t('pages.contacts.title'),
+				meta: [
+					{ property: 'og:title', content: this.$t('pages.contacts.title'), hid: 'og-title' },
+				]
+			}
 		}
 	}
 
