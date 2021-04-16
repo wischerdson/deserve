@@ -7,103 +7,13 @@
 			</div>
 			
 			<ul class="slides" ref="slides">
-				<li class="slide">
+				<li class="slide" v-for="project in projects">
 					<div class="slide-content container">
 						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_4030849595.jpeg" alt="">
+							<button class="next-slide-btn" @click="slider.slick('slickNext')"></button>
+							<img class="project-image" :src="require(`@/static/img/projects/${project.image}`)" alt="">
 							<div class="overlay-on-hover">
-								<a href="https://blcsand.com" class="see-project" target="_blank">
-									<span>Перейти на сайт</span>
-									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="slide">
-					<div class="slide-content container">
-						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_570309526.jpeg" alt="">
-							<div class="overlay-on-hover">
-								<a href="https://zefir.design" class="see-project" target="_blank">
-									<span>Перейти на сайт</span>
-									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="slide">
-					<div class="slide-content container">
-						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_1243195822.jpeg" alt="">
-							<div class="overlay-on-hover">
-								<a href="https://tekhnokultura.com" class="see-project" target="_blank">
-									<span>Перейти на сайт</span>
-									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="slide">
-					<div class="slide-content container">
-						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_1295081776.jpeg" alt="">
-							<div class="overlay-on-hover">
-								<a href="https://bestpayments.solutions" class="see-project" target="_blank">
-									<span>Перейти на сайт</span>
-									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="slide">
-					<div class="slide-content container">
-						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_1994154273.jpeg" alt="">
-							<div class="overlay-on-hover">
-								<a href="https://buhanka.ru" class="see-project" target="_blank">
-									<span>Перейти на сайт</span>
-									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="slide">
-					<div class="slide-content container">
-						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_3913596754.jpeg" alt="">
-							<div class="overlay-on-hover">
-								<a href="https://moskovsky65.legenda-dom.ru" class="see-project" target="_blank">
-									<span>Перейти на сайт</span>
-									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="slide">
-					<div class="slide-content container">
-						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_3460088364.jpeg" alt="">
-							<div class="overlay-on-hover">
-								<a href="https://pride.marketing" class="see-project" target="_blank">
-									<span>Перейти на сайт</span>
-									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="slide">
-					<div class="slide-content container">
-						<div class="project-preview">
-							<img class="project-image" src="@/static/img/projects/tg_image_2600237303.jpeg" alt="">
-							<div class="overlay-on-hover">
-								<a href="https://adelinalazarova.com" class="see-project" target="_blank">
+								<a :href="project.link" class="see-project" target="_blank">
 									<span>Перейти на сайт</span>
 									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
 								</a>
@@ -114,7 +24,7 @@
 			</ul>
 
 			<div class="swipe-to-slide">
-				<img src="@/static/img/swipe-to-slide.gif" alt="">
+				<img src="@/static/img/swipe-to-slide.svg" alt="">
 				<span>Смахните чтобы посмотреть <br>другие кейсы</span>
 			</div>
 		</div>
@@ -132,13 +42,29 @@
 	import $ from 'jquery'
 
 	export default {
+		data () {
+			return {
+				projects: [
+					{ image: 'tg_image_4030849595.jpeg', link: 'https://blcsand.com' },
+					{ image: 'tg_image_570309526.jpeg', link: 'https://zefir.design' },
+					{ image: 'tg_image_1243195822.jpeg', link: 'https://tekhnokultura.com' },
+					{ image: 'tg_image_1295081776.jpeg', link: 'https://bestpayments.solutions' },
+					{ image: 'tg_image_1994154273.jpeg', link: 'https://buhanka.ru' },
+					{ image: 'tg_image_3913596754.jpeg', link: 'https://moskovsky65.legenda-dom.ru' },
+					{ image: 'tg_image_3460088364.jpeg', link: 'https://pride.marketing' },
+					{ image: 'tg_image_2600237303.jpeg', link: 'https://adelinalazarova.com' },
+				],
+				slider: null
+			}
+		},
 		mounted () {
-			const slider = $(this.$refs.slides).slick({
+			this.slider = $(this.$refs.slides).slick({
 				infinite: true,
 				autoplay: false,
 				autoplaySpeed: 5000,
 				fade: true,
 				useTransform: false,
+				waitForAnimate: false,
 				speed: 700,
 				prevArrow: $(this.$refs.prevBtn),
 				nextArrow: $(this.$refs.nextBtn),
@@ -146,12 +72,12 @@
 				appendDots: $(this.$refs.navigationDots),
 			})
 
-			slider.on('afterChange', (event, slick, currentSlide) => {
+			this.slider.on('afterChange', (event, slick, currentSlide) => {
 				const link = $(`#section_portfolio [data-slick-index="${currentSlide}"] .see-project`).attr('href')
 				$('#section_portfolio .to-site').attr('href', link)
 			})
 
-			slider.on('beforeChange', (event, slick, currentSlide) => {
+			this.slider.on('beforeChange', (event, slick, currentSlide) => {
 				$('#section_portfolio .swipe-to-slide').addClass('hidden')
 			})
 		}

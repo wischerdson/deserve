@@ -41,12 +41,19 @@ export default {
 			{ rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
 
 			{ rel: 'manifest', href: '/favicon/manifest.json' },
-		]
+		],
+
+		script: [
+			{hid: 'amocrm', innerHTML: '!function(a,t,c){a[c]={id:"46269",hash:"4b55afe1e2cc10d9a3d76faba6d6e3add9123d3d09593a8ebc303e90e94ff209",locale:"ru",inline:!1,setMeta:function(a){this.params=(this.params||[]).concat([a])}},a[t]=a[t]||function(){(a[t].q=a[t].q||[]).push(arguments)};var e=a.document,n=e.createElement("script");n.async=!0,n.id=c+"_script",n.src="https://gso.amocrm.ru/js/button.js?1617295749",e.head&&e.head.appendChild(n)}(window,"amoSocialButton","amo_social_button");' }
+		],
+
+		__dangerouslyDisableSanitizersByTagID: {
+			'amocrm': ['innerHTML']
+		},
 	},
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
-		// "vue-slick-carousel/dist/vue-slick-carousel.css",
 		"slick-carousel/slick/slick.css",
 		"aos/dist/aos.css",
 		"@/assets/sass/app.scss",
@@ -66,15 +73,12 @@ export default {
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
-		'@nuxtjs/svg',
-		// '@nuxtjs/pwa'
+		'@nuxtjs/svg'
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [
-		// https://go.nuxtjs.dev/axios
 		'@nuxtjs/axios',
-		// '@nuxtjs/pwa',
 
 		[
 			'nuxt-i18n',
@@ -94,23 +98,6 @@ export default {
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {},
 
-	// PWA module configuration: https://go.nuxtjs.dev/pwa
-	// pwa: {
-	// 	manifest: {
-	// 		lang: 'en'
-	// 	},
-	// 	icon: {
-	// 		source: '/static/icon.png'
-	// 	},
-	// 	meta: {
-	// 		ogHost: 'deserve.ru',
-	// 		ogImage: {
-	// 			path: '/og-image.png',
-	// 			type: 'image/png'
-	// 		}
-	// 	}
-	// },
-
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
 		extractCSS: true,
@@ -126,5 +113,9 @@ export default {
 				}
 			}
 		}
+	},
+
+	server: {
+		// host: '192.168.0.101'
 	}
 }

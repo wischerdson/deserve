@@ -17,8 +17,6 @@
 			<div class="scroll-line"></div>
 			<span class="scroll-text">{{ $t('scroll-top') }}</span>
 		</button>
-
-		<script></script>
 	</div>
 </template>
 
@@ -65,14 +63,13 @@
 				})
 			})
 
-			this.$cursor.init()
-
 			setTimeout(() => {
 				$(this.$refs.preloader).addClass('hidden')
 				AOS.init({
 					once: true,
 					duration: 800
 				})
+				this.$cursor.init()
 			}, 1500)
 		}
 	}
