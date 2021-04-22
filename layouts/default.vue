@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="preloader" ref="preloader">
+		<div class="preloader" ref="preloader" v-if="isProduction">
 			<img src="@/static/img/preloader.gif" alt="">
 		</div>
 
@@ -32,6 +32,11 @@
 			$route () {
 				this.$store.commit('header/transparent', false)
 				
+			}
+		},
+		computed: {
+			isProduction () {
+				return process.env.NODE_ENV === 'production'
 			}
 		},
 		mounted () {

@@ -25,13 +25,4 @@
 			color: $red;
 		}
 	}
-	.dotted-pattern {
-		position: relative;
-		margin-top: 80px;
-		background-image: radial-gradient(#19191c 10%, transparent 0), radial-gradient(#19191c 10%, transparent 0);
-		background-size: 7px 5px;
-		background-position: 11px 13px, 0px 6px;
-		background-repeat: repeat;
-		height: 20px;
-	}
 }

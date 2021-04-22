@@ -71,11 +71,11 @@ body {
 	
 }
 .comic-text {
-		font-size: 3.2rem;
-		font-family: "Reenie Beanie", cursive;
-		color: #a1a1a8;
-		margin-bottom: 13px;
-	}
+	font-size: 3.2rem;
+	font-family: "Reenie Beanie", cursive;
+	color: #a1a1a8;
+	margin-bottom: 13px;
+}
 .section-title {
 	color: #373838;
 	font-size: 4rem;
@@ -143,6 +143,25 @@ body {
 	&.hidden {
 		transform: translateY(100%);
 	}
+}
+
+.amo-button-holder {
+	bottom: 30px !important;
+
+	@media (max-width: 800px) {
+		right: 20px !important;
+		bottom: 20px !important;
+	}
+}
+
+.dotted-pattern {
+	position: relative;
+	margin-top: 80px;
+	background-image: radial-gradient(#19191c 10%, transparent 0), radial-gradient(#19191c 10%, transparent 0);
+	background-size: 7px 5px;
+	background-position: 11px 13px, 0px 6px;
+	background-repeat: repeat;
+	height: 20px;
 }
 
 @import "./sections/header.scss";

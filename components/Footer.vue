@@ -17,11 +17,6 @@
 					</div>
 					<div class="column">
 						<div class="column-title">{{ $t('footer.our-offices') }}</div>
-						<!-- <div class="office-address">
-							<p class="short-addr">Смоленск, Россия (штаб-квартира)</p>
-							<p class="full-addr">Смоленск, Руновский переулок, 10с1, 115184 <br>
-							Телефон: +79101127174 (звонок бесплатный)</p>
-						</div> -->
 						<div class="office-address">
 							<p class="short-addr">{{ $t('offices.title') }}</p>
 							<p class="full-addr">{{ $t('offices.address') }} <br>{{ $t('offices.call') }}</p>
@@ -86,8 +81,8 @@
 						<p>© 2021 Deserve LLC. All rights reserved</p>
 					</div>
 					<div class="legal-links">
-						<a href="#">{{ $t('legal.data-processing-policy') }}</a>
-						<a href="#">{{ $t('legal.privacy-policy') }}</a>
+						<nuxt-link exact :to="localePath('/legal/data-processing-policy')" active-class="active">{{ $t('legal.data-processing-policy') }}</nuxt-link>
+						<nuxt-link exact :to="localePath('/legal/privacy-policy')" active-class="active">{{ $t('legal.privacy-policy') }}</nuxt-link>
 					</div>
 				</div>
 			</div>
