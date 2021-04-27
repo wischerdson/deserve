@@ -1,7 +1,7 @@
 .scroll-top {
 	position: fixed;
 	bottom: 0;
-	right: 0;
+	left: 0;
 	padding: 0;
 	padding-top: 20px;
 	padding-bottom: 15px;
@@ -49,7 +49,4 @@
    	&.hidden {
    		transform: translateY(100%);
    	}
-   	@media (max-width: 880px) {
-		display: none;
-	}
 }
