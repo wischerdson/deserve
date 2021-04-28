@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="template_promo">
 		<main>
 			<section id="section_projects" style="margin-top: 80px">
 				<div class="section-header container">
@@ -32,11 +32,11 @@
 					</div>
 					<div class="container slider-bottom" style="margin-right: auto; margin-top: -20px;">
 						<div class="dots" ref="navigationDots"></div>
+						<a href="https://blcsand.com" target="_blank" class="to-site btn btn-red btn-line">
+							<span>Перейти на сайт</span>
+						</a>
 					</div>
 				</div>
-				<!-- <script></script><script id="amoforms_script_773008" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1619386601"></script> -->
-				<!-- <div ref="amoscript"></div> -->
-				
 			</section>
 			<section class="section_feedback">
 				<div class="section-body container">
@@ -64,6 +64,49 @@
 						</div>
 					</div>
 				</div>
+				<div class="success-popup" v-if="successModal">
+					<div class="backdrop" @click="successModal = false"></div>
+					<div class="popup-body">
+						<div class="icon" v-html="require('@/assets/icons/check-solid.svg?raw')"></div>
+						<div class="popup-title">Успешно</div>
+						<p>Мы получили Вашу заявку и ответим <br>в ближайшее время</p>
+						<button class="btn btn-green" @click="successModal = false">Ok</button>
+					</div>
+				</div>
+			</section>
+			<section class="section_ourPrinciples">
+				<div class="dotted-pattern"></div>
+				<div class="container section-body">
+					<div>
+						<div class="comic-text">Our principles</div>
+						<h3 class="section-title">3 причины заказать разработку сайта именно у <span class="red-highlight">нас</span></h3>
+					</div>
+					<div>
+						<ul class="list">
+							<li>
+								<div class="num">01</div>
+								<div>
+									<div class="item-title">Фиксированные цены</div>
+									<p class="item-desc">Все условия прописываются в договоре. Никаких дополнительных платежей и подводных камней. Вы сразу получаете полный доступ к вашему проекту.</p>
+								</div>
+							</li>
+							<li>
+								<div class="num">02</div>
+								<div>
+									<div class="item-title">Никаких шаблонов</div>
+									<p class="item-desc">Мы не используем готовые дизайны сайтов - все элементы страницы будут уникальными и сделанные с нуля</p>
+								</div>
+							</li>
+							<li>
+								<div class="num">03</div>
+								<div>
+									<div class="item-title">Реклама в подарок</div>
+									<p class="item-desc">Если цель создания сайта - поиск новых клиентов для вашей компании, настройку рекламы мы предоставим в подарок</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</section>
 			<section class="parallax-section">
 				<Parallax />
@@ -71,161 +114,6 @@
 		</main>
 	</div>
 </template>
-
-<style lang="scss" scoped>
-	.section_feedback {
-		margin: 100px 0;
-
-		.black-block {
-			background-color: #19191c;
-			padding: 70px 100px;
-			padding-right: 150px;
-			position: relative;
-			overflow: hidden;
-			position: relative;
-			box-shadow: 0 40px 0 -20px #ea110c;
-		}
-		.or {
-			margin-top: 70px;
-
-			.title {
-				font-size: 1.6rem;
-				font-weight: 500;
-			}
-			.row {
-				max-width: 700px;
-				margin-top: 40px;
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-gap: 40px;
-			}
-			.btn {
-				width: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: #fff;
-				font-size: 1.2rem;
-				font-weight: 500;
-				height: 65px;
-				// padding: 0 40px;
-
-				&.green {
-					background-color: #00db74;
-					animation: pulse-green 1.9s ease infinite 1s;
-
-					@keyframes pulse-green {
-						0% {
-							box-shadow: 0 0 0 0 #00db74;
-						}
-						30% {
-							box-shadow: 0 0 0 14px rgba(#00db74, 0);
-						}
-					}
-				}
-				&.blue {
-					background-color: #00a7e7;
-					animation: pulse-blue 2s ease infinite;
-
-					@keyframes pulse-blue {
-						0% {
-							box-shadow: 0 0 0 0 #00a7e7;
-						}
-						30% {
-							box-shadow: 0 0 0 14px rgba(#00a7e7, 0);
-						}
-					}
-				}
-				&.purple {
-					background-color: #6a5bb0;
-					animation: pulse-purple 2.1s ease infinite 1s;
-
-					@keyframes pulse-purple {
-						0% {
-							box-shadow: 0 0 0 0 #6a5bb0;
-						}
-						30% {
-							box-shadow: 0 0 0 14px rgba(#6a5bb0, 0);
-						}
-					}
-				}
-			}
-		}
-		.decorative {
-			width: 270px;
-			position: absolute;
-			bottom: -76px;
-			right: -30px;
-			filter: invert(100%);
-			z-index: 1;
-		}
-		.text-red {
-			color: #ea110c;
-		}
-		h2 {
-			font-weight: 600;
-			font-size: 2.8rem;
-			color: #fff;
-
-			@media (max-width: 670px) {
-				font-size: 2rem;
-			}
-		}
-		form {
-			display: grid;
-			grid-template-columns: 1fr 1fr auto;
-			grid-gap: 30px;
-			max-width: 800px;
-			margin-top: 80px;
-
-			.btn {
-				padding: 18px 40px;
-				font-size: 1.2rem;
-				position: relative;
-				z-index: 2;
-				animation: pulse 2s ease infinite 1s;
-
-				// &:before {
-				// 	z-index: 0;
-				// 	content: "";
-				// 	position: absolute;
-				// 	top: -7px;
-				// 	left: -7px;
-				// 	right: -7px;
-				// 	bottom: -7px;
-				// 	background-color: rgba(#ea110c, 30%);
-				// 	border-radius: 7px;
-					
-				// }
-				@keyframes pulse {
-					0% {
-						box-shadow: 0 0 0 0 #ea110c;
-					}
-					30% {
-						box-shadow: 0 0 0 14px rgba(#ea110c, 0);
-					}
-				}
-			}
-			@media (max-width: 670px) {
-				grid-template-columns: 1fr;
-			}
-		}
-		.form-control1 {
-			border: none;
-			outline: none;
-			display: block;
-			width: 100%;
-			border: none;
-			padding: 14px 25px;
-			line-height: 1.6;
-			color: #000;
-			transition: border .2s ease;
-			background-color: #fff;
-			font-size: 1.2rem;
-		}
-	}
-
-</style>
 
 <script>
 	
@@ -245,7 +133,8 @@
 					{ image: 'tg_image_3460088364.jpeg', link: 'https://pride.marketing' },
 					{ image: 'tg_image_2600237303.jpeg', link: 'https://adelinalazarova.com' },
 				],
-				slider: null
+				slider: null,
+				successModal: false
 			}
 		},
 		methods: {
@@ -253,19 +142,11 @@
 				const form = e.target
 				const url = form.attributes.action.value
 				const formData = new FormData(form)
-				
-
-
-				// const iframe = this.$refs.iframe.contentDocument
-
-
-
-				// iframe.body.append(form)
 
 				this.$axios.post(url, formData).then(({data}) => {
-					alert('Успешно')
+					this.successModal = true
 				}).catch((e) => {
-					alert('Не успешно')
+					alert('Error occured')
 				})
 			}
 		},
@@ -273,8 +154,6 @@
 			Parallax
 		},
 		mounted () {
-			
-
 			this.slider = $(this.$refs.slides).slick({
 				infinite: true,
 				autoplay: true,
@@ -285,12 +164,17 @@
 				speed: 700,
 				prevArrow: $(this.$refs.prevBtn),
 				nextArrow: $(this.$refs.nextBtn),
-				dots: false,
+				dots: true,
 				appendDots: $(this.$refs.navigationDots),
 			})
 
 			this.slider.on('beforeChange', (event, slick, currentSlide) => {
 				$('#section_portfolio .swipe-to-slide').addClass('hidden')
+			})
+
+			this.slider.on('afterChange', (event, slick, currentSlide) => {
+				const link = $(`#section_portfolio [data-slick-index="${currentSlide}"] .see-project`).attr('href')
+				$('#section_portfolio .to-site').attr('href', link)
 			})
 
 			// const script1 = document.createElement('script')
