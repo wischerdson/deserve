@@ -4,6 +4,8 @@
 			<img src="@/static/img/preloader.gif" alt="">
 		</div>
 
+		<quiz />
+
 		<Header />
 		<div class="page-content">
 			<Nuxt />
@@ -25,9 +27,10 @@
 	import $ from 'jquery'
 	import AOS from 'aos'
 	import Header from '@/components/Header'
+	import Quiz from '@/components/Quiz'
 
 	export default {
-		components: {Header},
+		components: { Header, Quiz },
 		watch: {
 			$route () {
 				this.$store.commit('header/transparent', false)

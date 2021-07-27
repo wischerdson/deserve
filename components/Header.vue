@@ -13,7 +13,7 @@
 					</div>
 					<div class="right">
 						<div class="phone">
-							<a href="">+7 910 112 71-74</a>
+							<a href="tel:89958808484">8 (995) 880 84-84</a>
 						</div>
 						<div class="langs">
 							<nuxt-link class="lang" :class="{active: $i18n.locale == 'ru'}" :to="switchLocalePath('ru')">RU</nuxt-link>

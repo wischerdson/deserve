@@ -1,6 +1,23 @@
 #template_promo {
 	position: relative;
 
+	.jinudio {
+		display: flex;justify-content: space-between;align-items: center;margin-top: 50px; margin-bottom: -60px;
+
+		@media (min-width: 500px) {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	.swipe-to-slide {
+		width: 40px;display: block;margin-top: 15px;
+
+		@media (min-width: 500px) {
+			display: none !important;
+		}
+	}
+
 	.section_feedback {
 		margin: 100px 0;
 		position: relative;
@@ -13,7 +30,14 @@
 			position: relative;
 			overflow: hidden;
 			position: relative;
-			box-shadow: 0 40px 0 -20px #ea110c;
+			box-shadow: 0 40px 0 -20px #ea110c, 0 -40px 0 -20px #ea110c;
+
+			@media (max-width: 660px) {
+				box-shadow: 0 30px 0 -20px #ea110c;
+				padding-left: 40px;
+				padding-right: 40px;
+				margin: 0 -20px;
+			}
 		}
 		.or {
 			margin-top: 70px;
@@ -28,6 +52,11 @@
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-gap: 40px;
+
+				@media (max-width: 573px) {
+					grid-template-columns: 1fr;
+					grid-gap: 20px;
+				}
 			}
 			.btn {
 				width: 100%;
@@ -87,6 +116,10 @@
 			right: -30px;
 			filter: invert(100%);
 			z-index: 1;
+
+			@media (max-width: 660px) {
+				display: none;
+			}
 		}
 		.text-red {
 			color: #ea110c;
@@ -105,7 +138,7 @@
 			grid-template-columns: 1fr 1fr auto;
 			grid-gap: 30px;
 			max-width: 800px;
-			margin-top: 80px;
+			margin-top: 50px;
 
 			.btn {
 				padding: 22px 40px;
@@ -123,7 +156,7 @@
 					}
 				}
 			}
-			@media (max-width: 670px) {
+			@media (max-width: 899px) {
 				grid-template-columns: 1fr;
 			}
 		}
@@ -139,6 +172,7 @@
 			transition: border .2s ease;
 			background-color: #fff;
 			font-size: 1.3rem;
+			border-radius: 0;
 		}
 		.success-popup {
 			z-index: 10000000;
@@ -200,13 +234,22 @@
 		}
 	}
 	.section_ourPrinciples {
-		
-
 		.section-body {
-			padding: 80px 0;
+			padding: 80px 20px;
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-gap: 40px;
+
+			@media (max-width: 1111px) {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		.section-title {
+			@media (max-width: 666px) {
+				font-size: 2.7rem;
+				line-height: 1.3;
+			}
 		}
 		.list li {
 			display: grid;
@@ -215,6 +258,9 @@
 			margin-bottom: 30px;
 			min-height: 113px;
 
+			@media (max-width: 666px) {
+				margin-left: -20px;
+			}
 			.num {
 				width: 103px;
 				margin-right: 40px;
@@ -225,6 +271,10 @@
 				font-weight: 600;
 				line-height: 1;
 				text-align: right;
+
+				@media (max-width: 666px) {
+					margin-right: 20px;
+				}
 			}
 			.item-title {
 				font-size: 1.5rem;
@@ -235,6 +285,18 @@
 				color: grey;
 				line-height: 1.6;
 			}
+		}
+	}
+	.idontknowhownameit {
+		text-align: center;
+
+		p {
+			margin: 0 auto;
+			font-size: 1.4rem;
+			line-height: 1.6;
+			max-width: 700px;
+			margin-top: 20px;
+			color: darken(grey, 20%);
 		}
 	}
 }

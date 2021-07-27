@@ -9,7 +9,7 @@
 					<a href="mailto:corp@deserve.ru">corp@deserve.ru</a>
 				</div>
 				<div class="phone">
-					<a href="tel:89101127174">8 (910) 112 71-74</a>
+					<a href="tel:89958808484">8 (995) 880 84-84</a>
 				</div>
 				<div class="social-media">
 					<a href="#" class="social-media-link fb" target="_blank">Facebook</a>
@@ -24,7 +24,7 @@
 						<h3 class="item-title">г. Смоленск, Россия (штаб-квартира)</h3>
 						<div class="details">
 							<address>г. Смоленск, улица Ленина, 13Б, 214000</address>
-							<p>Телефон: +7 910 112 71-74 (звонок бесплатный)</p>
+							<p>Телефон: 8 (995) 880 84-84 (звонок бесплатный)</p>
 							<!-- <p>Support time: Monday to Saturday <br>9:00 am to 5:30 pm</p> -->
 							<p>Время работы: Ежедневно <br>с 9:00 до 19:00</p>
 						</div>

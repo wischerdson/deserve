@@ -4,7 +4,10 @@
 			<section id="section_projects" style="margin-top: 80px">
 				<div class="section-header container">
 					<h2 class="section-title">Оставить <span class="red-highlight">заявку</span></h2>
-					<h1 style="margin-top: 50px; margin-bottom: -60px; font-weight: 500; font-size: 1.3rem;">Последние наши работы</h1>
+					<div class="jinudio">
+						<h1 style="font-weight: 500; font-size: 1.3rem;">Последние наши работы</h1>
+						<img class="swipe-to-slide" src="/img/swipe-to-slide.svg" alt="">
+					</div>
 				</div>
 				<div id="section_portfolio">
 					<div class="slider">
@@ -43,20 +46,23 @@
 					<div class="black-block">
 						<img class="decorative" src="@/static/img/decorative-hedgehog.svg" alt="">
 						<h2>Расcчитайте стоимость сайта с <span class="text-red">экономией</span> <br>до <span class="text-red">25 000</span> рублей</h2>
-						<form @submit.prevent="sendForm" action="https://formsubmit.co/wischerdson@gmail.com" method="POST" enctype="multipart/form-data">
+						<form @submit.prevent="sendForm" action="https://formsubmit.co/2effa6e3ec6f0fe77fc9270a683bd2c7" method="POST" enctype="multipart/form-data">
+						<!-- <form action="https://formsubmit.co/2effa6e3ec6f0fe77fc9270a683bd2c7" method="POST" enctype="multipart/form-data"> -->
 							<div class="form-group">
 								<input class="form-control1" type="text" name="name" placeholder="Ваше имя">
 							</div>
 							<div class="form-group">
 								<input class="form-control1" type="phone" name="phone" placeholder="Телефон">
 							</div>
+
+							<input type="hidden" name="_captcha" value="false">
 							<div class="form-group">
 								<button type="submit" class="btn btn-red">Отправить</button>
 							</div>
 						</form>
 					</div>
 					<div class="or">
-						<div class="title">Или напишите нам в WhatsApp, Telegram или Viber</div>
+						<div class="title">Или напишите нам в WhatsApp, Telegram, Viber</div>
 						<div class="row">
 							<a class="btn green" href="">WhatsApp</a>
 							<a class="btn blue" href="">Telegram</a>
@@ -79,7 +85,7 @@
 				<div class="container section-body">
 					<div>
 						<div class="comic-text">Our principles</div>
-						<h3 class="section-title">3 причины заказать разработку сайта именно у <span class="red-highlight">нас</span></h3>
+						<h3 class="section-title"><span class="red-highlight">3 причины</span> заказать разработку сайта именно у нас</h3>
 					</div>
 					<div>
 						<ul class="list">
@@ -106,6 +112,12 @@
 							</li>
 						</ul>
 					</div>
+				</div>
+			</section>
+			<section class="idontknowhownameit">
+				<div class="container">
+					<div class="comic-text">We are creating smart websites</div>
+					<p>На рынке много агентств с впечатляющими результатами, но Deserve - это особенный путь. Хотите построить что-то, что будет жить вечно? Мы здесь.</p>
 				</div>
 			</section>
 			<section class="parallax-section">
@@ -158,6 +170,10 @@
 				infinite: true,
 				autoplay: true,
 				autoplaySpeed: 3000,
+				pauseOnFocus: true,
+				focusOnSelect: true,
+				pauseOnHover: false,
+				pauseOnDotsHover: true,
 				fade: true,
 				useTransform: true,
 				waitForAnimate: false,

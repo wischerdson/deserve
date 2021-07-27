@@ -56,7 +56,8 @@ export default {
 	css: [
 		"slick-carousel/slick/slick.css",
 		"aos/dist/aos.css",
-		"@/assets/sass/app.scss",
+		"@/assets/sass/theme.scss",
+		"@/assets/sass/app.scss"
 	],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -73,7 +74,8 @@ export default {
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
-		'@nuxtjs/svg'
+		'@nuxtjs/svg',
+		'@nuxtjs/tailwindcss'
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
