@@ -28,6 +28,9 @@
 			border-radius: 9999px;
 			background-color: $red;
 			transition: background-color .2s ease;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			color: #fff;
 			z-index: 100;
 
