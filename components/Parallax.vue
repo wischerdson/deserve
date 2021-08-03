@@ -1,7 +1,7 @@
 <template>
 	<div id="section_parallax">
 		<div class="container">
-			<div class="banner">
+			<div class="banner rounded-xl overflow-hidden">
 				<div class="bg-parallax" ref="bgWrapper">
 					<!-- <img class="bg" src="@/static/img/welcome-bg.png" alt="" ref="bg"> -->
 				</div>

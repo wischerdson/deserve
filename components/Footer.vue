@@ -66,9 +66,9 @@
 						<form action="#" class="subscribe-form">
 							<div class="form-group">
 								<label for="subscribe_form__email">{{ $t('footer.newsletter.label') }}</label>
-								<input class="form-control white" id="subscribe_form__email" type="email" :placeholder="$t('footer.newsletter.input-placeholder')">
+								<input class="form-control white !rounded-md" id="subscribe_form__email" type="email" :placeholder="$t('footer.newsletter.input-placeholder')">
 							</div>
-							<input class="btn btn-red" type="submit" :value="$t('footer.newsletter.button')">
+							<input class="btn btn-red !rounded-md" type="submit" :value="$t('footer.newsletter.button')">
 						</form>
 					</div>
 				</div>

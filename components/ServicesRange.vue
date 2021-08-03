@@ -1,6 +1,6 @@
 <template>
 	<div class="services-range container">
-		<div class="grey-block">
+		<div class="grey-block rounded-xl">
 			<div class="row">
 				<h4 class="block-title">Deserve предоставляет полноценный спектр услуг для вашего бизнеса.</h4>
 				<div class="list-column">

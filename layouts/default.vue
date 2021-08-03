@@ -4,8 +4,6 @@
 			<img src="@/static/img/preloader.gif" alt="">
 		</div>
 
-		<quiz />
-
 		<Header />
 		<div class="page-content">
 			<Nuxt />
@@ -15,7 +13,7 @@
 		<div class="cursor-dot-outline"></div>
 		<div class="cursor-dot"></div>
 
-		<button class="scroll-top btn btn-red hidden">
+		<button class="scroll-top btn btn-red hidden !rounded-b-none !rounded-tl-none">
 			<div class="scroll-line"></div>
 			<span class="scroll-text">{{ $t('scroll-top') }}</span>
 		</button>
@@ -27,10 +25,9 @@
 	import $ from 'jquery'
 	import AOS from 'aos'
 	import Header from '@/components/Header'
-	import Quiz from '@/components/Quiz'
 
 	export default {
-		components: { Header, Quiz },
+		components: { Header },
 		watch: {
 			$route () {
 				this.$store.commit('header/transparent', false)

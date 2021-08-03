@@ -13,7 +13,7 @@
 							<button class="next-slide-btn" @click="slider.slick('slickNext')"></button>
 							<img class="project-image" :src="require(`@/static/img/projects/${project.image}`)" alt="">
 							<div class="overlay-on-hover">
-								<a :href="project.link" class="see-project" target="_blank">
+								<a :href="project.link" class="see-project rounded-lg" target="_blank">
 									<span>Перейти на сайт</span>
 									<span class="icon" v-html="require('@/assets/icons/external-link.svg?raw')"></span>
 								</a>
