@@ -1,24 +1,29 @@
 <template>
 	<div class="videostory fixed bottom-6 left-6 transition-transform duration-500 z-30" :class="{
-		'transform translate-x-[-130%]': hidden
+		'transform translate-x-[calc(-100%-50px)]': hidden
 	}">
-		<div class="wrapper relative rounded-2xl shadow-xl transform transition-transform duration-300 origin-bottom-left" :class="{
-			'hover:scale-105': !scale,
-			'scale-[2.25]': scale
+		<div class=" rounded-2xl" :class="{
+			'anim-pulse': pulse
 		}">
-			<div class="w-28 relative z-30 pointer-events-none" v-html="require('@/assets/icons/iphone-11.svg?raw')"></div>
+			<div class="wrapper border-2 border-black ring ring-primary ring-opacity-50 shadow-xl transform transition-all duration-300 origin-bottom-left relative rounded-2xl overflow-hidden" :class="{
+				'hover:scale-105': !scale,
+				'rounded-3xl': scale
+			}" @mouseover="pulse = false">
+				<button class="block z-10 transition-all duration-300" :class="{
+					'w-64 h-[512px]': scale,
+					'w-20 h-40 md:w-28 md:h-56': !scale
+				}" @click="scale = true">
+					<video class="object-center object-cover w-full h-full" :src="require('~/static/video/story-2.mp4')" loop autoplay preload controlslist="nodownload" disablepictureinpicture playsinline preload="auto" muted ref="video"></video>
+				</button>
 
-			<button class="block absolute inset-0 rounded-2xl overflow-hidden z-10" @click="scale = true">
-				<video class="object-center object-cover w-full h-full" :src="require('~/static/video/story-2.mp4')" loop autoplay preload controlslist="nodownload" disablepictureinpicture playsinline preload="auto" muted ref="video"></video>
-			</button>
-
-			<button class="close absolute top-0 right-0 py-2 px-3 z-20" v-show="!scale" title="Закрыть" @click="closed = true">
-				<span class="block w-2.5 h-2.5 text-white" v-html="require('@/assets/icons/close.svg?raw')"></span>
-			</button>
-			<button class="rollup absolute top-0 right-0 py-2.5 px-3 z-20" v-show="scale" title="Свернуть" @click.prevent.stop="scale = false">
-				<span class="block w-2 h-px rounded-full bg-white"></span>
-			</button>
-		</div>			
+				<button class="close absolute top-0 right-0 py-2 px-2 z-20" v-show="!scale" title="Закрыть" @click="closed = true">
+					<span class="block w-2.5 h-2.5 text-white" v-html="require('@/assets/icons/close.svg?raw')"></span>
+				</button>
+				<button class="rollup absolute top-0 right-0 py-4 px-4 z-20" v-show="scale" title="Свернуть" @click.prevent.stop="scale = false">
+					<span class="block w-4 h-0.5 rounded-full bg-white"></span>
+				</button>
+			</div>	
+		</div>
 	</div>
 </template>
 
@@ -33,7 +38,8 @@
 			scrollLimit: false,
 			closed: false,
 			viewingProgress: 0,
-			$video: null
+			$video: null,
+			pulse: true
 		}),
 		computed: {
 			hidden () {
@@ -88,12 +94,25 @@
 <style lang="scss" scoped>
 	
 	.close {
-		opacity: 0;
-		transition: opacity .2s ease;
+		@media (min-width: 768px) {
+			opacity: 0;
+			transition: opacity .2s ease;
+		}
 	}
 	.wrapper {
 		&:hover .close {
 			opacity: 1;
+		}
+	}
+	.anim-pulse {
+		animation: pulse 2s ease-out infinite;
+	}
+	@keyframes pulse {
+		0% {
+			box-shadow: 0 0 0 0 rgba(#ea110c, 70%);
+		}
+		40% {
+			box-shadow: 0 0 0px 20px rgba(#ea110c, 0);
 		}
 	}
 

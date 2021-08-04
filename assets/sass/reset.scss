@@ -1,21 +1,7 @@
 
-* {
-	box-sizing: border-box;
-}
-
 body {
 	cursor: default;
 	overflow-y: scroll;
-}
-
-body, p, ul, h1, h2, h3, h4, h5, h6, button, input {
-	margin: 0;
-	padding: 0;
-}
-
-img {
-	pointer-events: none;
-	user-select: none;
 }
 
 div {
@@ -40,23 +26,23 @@ a {
 }
 
 button, input[type="button"], input[type="submit"] {
-	background: none;
-	box-shadow: none;
-	border: none;
-	outline: none;
-	border-radius: 0;
-	cursor: pointer;
-	font-family: inherit;
-	font-size: inherit;
+	// background: none;
+	// box-shadow: none;
+	// border: none;
+	// outline: none;
+	// border-radius: 0;
+	// cursor: pointer;
+	// font-family: inherit;
+	// font-size: inherit;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
 
-address {
-	font-style: normal;
-	line-height: inherit;
-}
+// address {
+// 	font-style: normal;
+// 	line-height: inherit;
+// }
 
 %form-control-reset {
 	background: none;

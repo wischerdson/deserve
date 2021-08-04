@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<main>
+		<main class="overflow-hidden">
 			<section id="section_welcome">
 				<div class="backdrop"></div>
 				<div class="red-overlay" data-aos-delay="200" data-aos="fade-left"></div>
