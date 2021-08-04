@@ -15,7 +15,9 @@
 
 		<story />
 
-		<button class="scroll-top btn btn-red hidden !rounded-b-none !rounded-tl-none" @click="scrollTop">
+		<button class="scroll-top btn btn-red !rounded-b-none !rounded-tl-none" :class="{
+			'hidden': !showScrollTopBtn
+		}" @click="scrollTop">
 			<div class="scroll-line"></div>
 			<span class="scroll-text">{{ $t('scroll-top') }}</span>
 		</button>
@@ -32,6 +34,9 @@
 
 	export default {
 		components: { Header, Footer, Story },
+		data: () => ({
+			showScrollTopBtn: false
+		}),
 		watch: {
 			$route () {
 				this.$store.commit('header/transparent', false)
@@ -49,26 +54,21 @@
 					easing: 'easeInOutQuint',
 					speed: 300
 				}).animateScroll(0)
+			},
+			scrollTopBtn () {
+				const scroll = window.pageYOffset
+				const docHeight = document.documentElement.clientHeight
+
+				this.showScrollTopBtn = scroll >= this.$scrollHeight() - docHeight - 300
 			}
 		},
 		mounted () {
-			$(document).scroll((e) => {
-				const scroll = $(window).scrollTop()
-
-				/* Scroll top button */
-				const scrollTop = $('.scroll-top')
-				scroll < $(window).height() ? scrollTop.addClass('hidden') : scrollTop.removeClass('hidden')
-			})
+			this.scrollTopBtn()
+			document.addEventListener('scroll', this.scrollTopBtn)
 
 			this.$router.afterEach(() => {
-				setTimeout(() => {
-					this.$cursor.refresh()
-				}, 1000)
-
-				AOS.init({
-					once: true,
-					duration: 800
-				})
+				setTimeout(this.$cursor.refresh, 1000)
+				AOS.init({ once: true, duration: 800 })
 			})
 
 			setTimeout(() => {

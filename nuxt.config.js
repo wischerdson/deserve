@@ -66,6 +66,7 @@ export default {
 		{src:  '@/plugins/cursor', ssr: false},
 		{src:  '@/plugins/slick', ssr: false},
 		{src:  '@/plugins/jarallax', ssr: false},
+		{src:  '@/plugins/scroll-height', ssr: false},
 		{src:  '@/plugins/router'},
 	],
 
