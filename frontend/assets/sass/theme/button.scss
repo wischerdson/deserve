@@ -1,0 +1,15 @@
+.btn {
+	@apply inline-flex items-center justify-center rounded-xl space-x-2 select-none transition duration-500;
+
+	&-primary {
+		@apply bg-blue-600 text-white text-lg tracking-wide h-12 px-10;
+	}
+	&-black {
+		@apply bg-gray-900 text-white h-12 px-10 h-12 px-10;
+	}
+
+	&:active {
+		opacity: .65;
+		transition: none;
+	}
+}

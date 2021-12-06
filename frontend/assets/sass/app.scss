@@ -1,0 +1,9 @@
+
+@import './theme/font.scss';
+@import './theme/reset.scss';
+@import './theme/container.scss';
+@import './theme/button.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

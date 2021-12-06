@@ -1,0 +1,56 @@
+*, *:before, *:after  {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-overflow-scrolling: touch;
+}
+
+body {
+	line-height: 1;
+	cursor: default;
+	position: relative;
+}
+
+input, textarea, select {
+	background: none;
+	appearance: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+input[type="checkbox"], input[type="radio"] {
+	display: none;
+}
+
+input:disabled {
+	@apply text-gray-500;
+}
+
+input[type='number'] {
+	appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+a, label, button, input, select {
+	-webkit-tap-highlight-color: transparent;
+}
+
+img {
+	pointer-events: none;
+	user-select: none;
+}
+
+cite {
+	font-style: normal;
+}
+
+hr {
+	display: block;
+	border: none;
+}

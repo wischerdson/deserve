@@ -1,3 +1,0 @@
-User-agent: *
-Sitemap: http://deserve.ru/sitemap.xml
-Host: deserve.ru

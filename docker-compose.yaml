@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  php:
+    container_name: deserve_php
+    image: php:8.0-fpm-alpine3.14
+    volumes:
+      - .:/usr/local/apache2/htdocs
+    working_dir: /usr/local/apache2/htdocs
+    ports:
+      - 9000:9000
+
+  apache:
+    container_name: deserve_apache
+    build: ./docker/apache
+    volumes:
+      - .:/usr/local/apache2/htdocs
+    working_dir: /usr/local/apache2/htdocs
+    ports:
+      - 80:80
+    links:
+      - php
+
+  nodejs:
+    container_name: deserve_nodejs
+    image: node:17-alpine3.14
+    volumes:
+      - ./frontend:/usr/app
+    working_dir: "/usr/app"
+    ports:
+      - 3000:3000
+    environment:
+      NODE_OPTIONS: --openssl-legacy-provider
+    command: npm run dev
