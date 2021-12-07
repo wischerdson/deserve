@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<WelcomeSection />
+		<div class="h-screen"></div>
 	</div>
 </template>
 

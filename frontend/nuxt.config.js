@@ -31,13 +31,14 @@ export default {
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
-		{ src:  '~/plugins/aos', ssr: false },
-		{ src:  '~/plugins/swiper.js', ssr: false },
-		{ src:  '~/plugins/smooth-scroll', ssr: false },
+		{ src: '~/plugins/components' },
+		{ src: '~/plugins/aos', ssr: false },
+		{ src: '~/plugins/swiper.js', ssr: false },
+		{ src: '~/plugins/smooth-scroll', ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
-	components: true,
+	components: false,
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
@@ -51,7 +52,8 @@ export default {
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
-		extractCSS: true
+		extractCSS: true,
+		transpile: ['gsap'],
 	},
 
 	generate: {
