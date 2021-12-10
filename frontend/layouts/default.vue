@@ -1,5 +1,5 @@
 <template>
-	<div class="font-light">
+	<div>
 		<HeaderSection />
 
 		<Nuxt />

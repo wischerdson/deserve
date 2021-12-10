@@ -3,22 +3,22 @@
 		<div class="container">
 			<div class="grid grid-cols-3">
 				<div class="h-full flex items-center">
-					<button class="btn text-gray-300 uppercase text-xs tracking-widest space-x-2" @click="menu = !menu">
-						<Icon class="mb-1" name="menu" />
+					<button class="btn text-gray-300 uppercase text-xs tracking-widest" @click="menu = !menu">
+						<v-icon class="mb-1" name="menu" />
 						<span>Menu</span>
 					</button>
 				</div>
 				<div class="flex justify-center">
 					<a class="flex justify-center items-center relative text-white h-[5.5rem]" ref="logoWrapper" href="/">
-						<Icon ref="fullLogo" name="deserve-full-logo" />
+						<v-icon ref="fullLogo" name="deserve-full-logo" />
 						<div class="absolute inset-y-0 flex items-center">
-							<Icon class="opacity-0" ref="miniLogo" name="deserve-mini-logo" />
+							<v-icon class="opacity-0" ref="miniLogo" name="deserve-mini-logo" />
 						</div>
 					</a>
 				</div>
 				<div class="flex justify-end items-center">
-					<a class="btn space-x-2 text-gray-300 uppercase text-xs tracking-widest rounded-md" href="#">
-						<Icon name="chat-bubble-outline" />
+					<a class="btn text-gray-300 uppercase text-xs tracking-widest" href="#">
+						<v-icon name="chat-bubble-outline" />
 						<span>Обсудить</span>
 					</a>
 				</div>
@@ -57,11 +57,10 @@
 			gsap.registerPlugin(ScrollTrigger)
 
 			const timeline = gsap.timeline()
-			timeline.to(this.$refs.fullLogo.$el, { opacity: 0 }, 0)
-			timeline.from(this.$refs.miniLogo.$el, { scale: .95 }, 0)
-			timeline.to(this.$refs.miniLogo.$el, { opacity: 1 }, 0)
-			timeline.to(this.$refs.miniLogo.$el, { scale: .7 }, '30%')
-			timeline.to(this.$refs.logoWrapper, { height: 58 }, '30%')
+			timeline.to(this.$refs.fullLogo.$el, { opacity: 0 }, 0).addLabel('start');
+			timeline.to(this.$refs.miniLogo.$el, { opacity: 1 }, 'start-=80%') // 20% after 'start'
+			timeline.to(this.$refs.logoWrapper, { height: 58 }, 'start-=50%')
+			timeline.to(this.$refs.miniLogo.$el, { scale: .7 }, 'start-=50%')
 
 			ScrollTrigger.create({
 				animation: timeline,

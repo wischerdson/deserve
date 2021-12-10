@@ -32,14 +32,14 @@
 
 	.anim-scroll-down {
 		transform-origin: 0 0;
-		animation: section_welcome__scroll_down 2.8s ease-in-out infinite;
+		animation: section_welcome__scroll_down 2.2s ease-in-out infinite;
 	}
 
 	@keyframes section_welcome__scroll_down {
 		0% {
 			transform: scaleY(.80) translateY(-85px);
 		}
-		75% {
+		85% {
 			transform-origin: 0 100%;
 			transform: scaleY(.70) translateY(80px);
 		}

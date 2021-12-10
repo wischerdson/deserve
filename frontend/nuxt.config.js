@@ -4,7 +4,6 @@ export default {
 
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
-		title: 'GetPods.ru - Купить наушники Apple AirPods',
 		htmlAttrs: {
 			lang: 'en'
 		},
@@ -63,5 +62,9 @@ export default {
 
 	generate: {
 		dir: '../public/dist'
-	}
+	},
+
+	server: {
+		host: '0.0.0.0'
+	},
 }
