@@ -1,5 +1,5 @@
 <template>
-	<header class="section-header fixed inset-x-0 top-0 z-30 bg-black/60 backdrop-filter backdrop-blur-lg">
+	<header class="section-header fixed inset-x-0 top-0 z-30 bg-black/30 backdrop-filter backdrop-blur-lg">
 		<div class="container">
 			<div class="grid grid-cols-3">
 				<div class="h-full flex items-center">
@@ -17,7 +17,10 @@
 					</a>
 				</div>
 				<div class="flex justify-end items-center">
-					<a class="text-gray-300 uppercase text-xs tracking-widest" href="#">Пока хз че</a>
+					<a class="btn space-x-2 text-gray-300 uppercase text-xs tracking-widest rounded-md" href="#">
+						<Icon name="chat-bubble-outline" />
+						<span>Обсудить</span>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -25,13 +28,12 @@
 			<div class="desktop-menu overflow-hidden h-12" v-if="menu">
 				<div class="container h-full">
 					<hr class="menu-separator block w-full h-px bg-white/20">
-					<div class="menu-content flex items-center h-full">
-						<a class="text-gray-300 uppercase text-xs tracking-widest" href="#">Пока хз че</a>
-						<nav class="ml-auto flex space-x-14 h-full">
-							<a class="flex items-center h-full text-gray-300 hover:text-gray-500 transition transition-colors" href="#">Link #1</a>
-							<a class="flex items-center h-full text-gray-300 hover:text-gray-500 transition transition-colors" href="#">Link #2</a>
-							<a class="flex items-center h-full text-gray-300 hover:text-gray-500 transition transition-colors" href="#">Link #3</a>
-							<a class="flex items-center h-full text-gray-300 hover:text-gray-500 transition transition-colors" href="#">Link #4</a>
+					<div class="menu-content flex items-center justify-center h-full">
+						<nav class="flex space-x-14 h-full uppercase tracking-rr text-xs font-light">
+							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Об агентстве</a>
+							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Порфолио</a>
+							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Вакансии</a>
+							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Контакты</a>
 						</nav>
 					</div>
 				</div>
@@ -58,14 +60,14 @@
 			timeline.to(this.$refs.fullLogo.$el, { opacity: 0 }, 0)
 			timeline.from(this.$refs.miniLogo.$el, { scale: .95 }, 0)
 			timeline.to(this.$refs.miniLogo.$el, { opacity: 1 }, 0)
-			timeline.to(this.$refs.miniLogo.$el, { scale: .7 }, '50%')
-			timeline.to(this.$refs.logoWrapper, { height: 58 }, '50%')
+			timeline.to(this.$refs.miniLogo.$el, { scale: .7 }, '30%')
+			timeline.to(this.$refs.logoWrapper, { height: 58 }, '30%')
 
 			ScrollTrigger.create({
 				animation: timeline,
 				trigger: this.$el,
 				start: 'center top',
-				end: '500%',
+				end: '300%',
 				scrub: true,
 			})
 		}
@@ -87,11 +89,13 @@
 				transition: height .5s ease;
 
 				.menu-content { transition: transform .5s ease .1s }
+				.menu-separator { transition: transform .5s ease .1s }
 			}
 			&.v-enter, &.v-leave-to {
 				height: 0;
 
 				.menu-content { transform: translateY(-50px) }
+				.menu-separator { transform: scaleX(0) }
 			}
 			&.v-leave-to .menu-separator { transform: scaleX(0) }
 		}

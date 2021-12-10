@@ -26,9 +26,9 @@ services:
     image: node:17-alpine3.14
     volumes:
       - ./frontend:/usr/app
-    working_dir: "/usr/app"
+    working_dir: /usr/app
     ports:
       - 3000:3000
     environment:
       NODE_OPTIONS: --openssl-legacy-provider
-    command: npm run dev
+    command: /bin/sh -c "npm install && npm run dev"

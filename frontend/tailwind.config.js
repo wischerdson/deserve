@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-	purge: [
+	content: [
 		'./components/**/*.{vue,js}',
 		'./layouts/**/*.vue',
 		'./pages/**/*.vue',
@@ -9,20 +9,21 @@ module.exports = {
 		'./plugins/**/*.js',
 		'./nuxt.config.js'
 	],
-	darkMode: false, // or 'media' or 'class'
-	mode: 'jit',
 	theme: {
 		extend: {
 			colors: {
-				gray: colors.trueGray
+				gray: colors.zinc
 			},
 			spacing: {
 				full: '100%',
 				'1/2': '50%'
+			},
+			letterSpacing: {
+				rr: '.1666rem'
 			}
 		},
 		fontFamily: {
-			sans: 'SF UI Display, sans-serif',
+			sans: 'Helvetica Neue, sans-serif',
 		},
 		screens: {
 			'2xl': {'max': '1535px'},
