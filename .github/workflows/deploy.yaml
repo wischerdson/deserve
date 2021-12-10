@@ -1,0 +1,46 @@
+name: Deploy application
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  DEPLOY_SERVER_USERNAME: capitalup
+  DEPLOY_SERVER_HOST: alt.deserve.ru
+  DEPLOY_PATH: /home/capitalup/domains/alt.deserve.ru
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install npm dependencies
+        run: |
+          cd ./frontend
+          npm ci
+
+      - name: Compile front
+        run: |
+          cd ./frontend
+          npm run generate
+
+      - name: Copy static content via rsync
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -azr --delete --include "public/***" --exclude "*"
+          remote_path: ${{ env.DEPLOY_PATH }}
+          remote_user: ${{ env.DEPLOY_SERVER_USERNAME }}
+          remote_host: ${{ env.DEPLOY_SERVER_HOST }}
+          remote_key: ${{ secrets.DEPLOY_SERVER_KEY }}
+
+      - name: Setup application
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_SERVER_HOST }}
+          username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
+          key: ${{ secrets.DEPLOY_SERVER_KEY }}
+          script: |
+            rm -rf ${{ env.DEPLOY_PATH }}/public_html
+            ln -s ${{ env.DEPLOY_PATH }}/public ${{ env.DEPLOY_PATH }}/public_html
