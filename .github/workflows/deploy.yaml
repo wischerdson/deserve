@@ -42,5 +42,4 @@ jobs:
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
           script: |
-            rm -rf ${{ env.DEPLOY_PATH }}/public_html
             ln -s ${{ env.DEPLOY_PATH }}/public ${{ env.DEPLOY_PATH }}/public_html

@@ -20,7 +20,7 @@
 				<h1 class="text-white text-center font-light text-6xl uppercase tracking-widest">Design. Strategy. Garmony.</h1>
 			</div>
 		</div>
-		<div class="absolute inset-x-0 bottom-0 flex justify-center">
+		<div class="absolute inset-x-0 bottom-0 flex justify-center z-10">
 			<div class="w-0.5 bg-white/20 h-20 overflow-hidden">
 				<div class="anim-scroll-down w-full h-full bg-white"></div>
 			</div>
@@ -31,13 +31,14 @@
 <style lang="scss" scoped>
 
 	.anim-scroll-down {
-		transform-origin: 0 0;
 		animation: section_welcome__scroll_down 2.2s ease-in-out infinite;
+		will-change: transform, transform-origin;
 	}
 
 	@keyframes section_welcome__scroll_down {
 		0% {
-			transform: scaleY(.80) translateY(-85px);
+			transform-origin: 0 0;
+			transform: scaleY(.90) translateY(-90px);
 		}
 		85% {
 			transform-origin: 0 100%;

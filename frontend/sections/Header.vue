@@ -30,10 +30,10 @@
 					<hr class="menu-separator block w-full h-px bg-white/20">
 					<div class="menu-content flex items-center justify-center h-full">
 						<nav class="flex space-x-14 h-full uppercase tracking-rr text-xs font-light">
-							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Об агентстве</a>
-							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Порфолио</a>
-							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Вакансии</a>
-							<a class="flex items-center h-full text-white hover:opacity-60 transition transition-opacity" href="#">Контакты</a>
+							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Об агентстве</a>
+							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Порфолио</a>
+							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Вакансии</a>
+							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Контакты</a>
 						</nav>
 					</div>
 				</div>
