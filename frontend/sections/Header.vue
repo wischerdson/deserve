@@ -64,10 +64,10 @@
 
 			ScrollTrigger.create({
 				animation: timeline,
-				trigger: this.$el,
-				start: 'center top',
-				end: '300%',
-				scrub: true,
+				trigger: document.getElementById('header_scroll_marker'),
+				start: 'top top',
+				end: '100%',
+				scrub: true
 			})
 		}
 	}
