@@ -1,9 +1,9 @@
 <template>
 	<header class="section-header fixed inset-x-0 top-0 z-30 bg-black/30 backdrop-filter backdrop-blur-lg">
 		<div class="container">
-			<div class="grid grid-cols-3">
+			<div class="grid grid-cols-3 font-normal">
 				<div class="h-full flex items-center">
-					<button class="btn text-gray-300 uppercase text-xs tracking-widest" @click="menu = !menu">
+					<button class="btn text-gray-300 uppercase text-xs tracking-[.25rem]" @click="menu = !menu">
 						<v-icon class="mb-1" name="menu" />
 						<span>Menu</span>
 					</button>
@@ -17,7 +17,7 @@
 					</a>
 				</div>
 				<div class="flex justify-end items-center">
-					<a class="btn text-gray-300 uppercase text-xs tracking-widest" href="#">
+					<a class="btn text-gray-300 uppercase text-xs tracking-[.25rem]" href="#">
 						<v-icon name="chat-bubble-outline" />
 						<span>Обсудить</span>
 					</a>
@@ -29,7 +29,7 @@
 				<div class="container h-full">
 					<hr class="menu-separator block w-full h-px bg-white/20">
 					<div class="menu-content flex items-center justify-center h-full">
-						<nav class="flex space-x-14 h-full uppercase tracking-rr text-xs font-light">
+						<nav class="flex space-x-14 h-full uppercase tracking-[.25rem] text-xs font-light">
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Об агентстве</a>
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Порфолио</a>
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Вакансии</a>

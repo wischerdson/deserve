@@ -12,23 +12,64 @@
 				disablePictureInPicture
 				playsinline
 			></video>
-			<div class="absolute inset-0 bg-black/40"></div>
+			<div class="absolute inset-0 bg-black/70"></div>
 		</div>
-		<div class="absolute inset-0 z-10 flex items-center">
+		<div ref="welcome_text" class="absolute inset-0 z-10 flex items-center">
 			<div class="container">
-				<p class="text-white text-center mb-10 text-xl uppercase tracking-widest">Ваш партнер в digital-среде</p>
-				<h1 class="text-white text-center font-light text-6xl uppercase tracking-widest">Design. Strategy. Garmony.</h1>
+				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem]">Ваш партнер в digital-среде</p>
+				<h1 class="text-white text-center font-light text-6xl uppercase tracking-widest">Design. Strategy. Harmony.</h1>
+				<div class="text-center">
+					<a class="details-action btn mt-10 text-white uppercase tracking-[.3rem] text-xs relative leading-none" href="#">
+						<span>Подробнее</span>
+						<v-icon width="14px" class="absolute -right-6 block mb-[3px]" name="chevron-right" />
+					</a>
+				</div>
 			</div>
 		</div>
 		<div class="absolute inset-x-0 bottom-0 flex justify-center z-10">
-			<div class="w-0.5 bg-white/20 h-20 overflow-hidden">
+			<div class="absolute inset-x-0 bottom-0 -top-20 bg-gradient-to-b from-transparent to-black"></div>
+			<div class="w-0.5 bg-white/20 h-20 overflow-hidden z-10">
 				<div class="anim-scroll-down w-full h-full bg-white"></div>
 			</div>
 		</div>
 	</section>
 </template>
 
+<script>
+
+	import gsap from 'gsap'
+	import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+	export default {
+		mounted () {
+			gsap.registerPlugin(ScrollTrigger)
+
+			const timeline = gsap.timeline()
+			timeline.to(this.$refs.welcome_text, { opacity: 0 })
+
+			ScrollTrigger.create({
+				animation: timeline,
+				trigger: this.$el,
+				start: '60% center',
+				end: 'center top',
+				scrub: true
+			})
+		}
+	}
+
+</script>
+
 <style lang="scss" scoped>
+
+	.details-action {
+		.icon {
+			transition: transform .2s ease;
+			will-change: transform;
+		}
+		&:hover .icon {
+			transform: translateX(4px);
+		}
+	}
 
 	.anim-scroll-down {
 		animation: section_welcome__scroll_down 2.2s ease-in-out infinite;
