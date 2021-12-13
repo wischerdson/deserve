@@ -17,7 +17,7 @@
 			</div>
 			<div>
 				<div ref="image" class="w-full relative after:block after:pt-[60%] will-change-transform">
-					<div class="absolute inset-0 rounded-lg" :style="`background-image:url('${image}')`"></div>
+					<div class="absolute inset-0 rounded-3xl" :style="`background-image:url('${image}')`"></div>
 					<!-- <div class="absolute inset-0 rounded-lg" :style="`background-image:url(${require('~/static/image/sdsds.png')})`"></div> -->
 				</div>
 			</div>

@@ -1,15 +1,12 @@
 
 @import './theme/font.scss';
 @import './theme/container.scss';
+@import './theme/reset.scss';
+@import './theme/settings.scss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-	@import './theme/reset.scss';
-	@import './theme/settings.scss';
-}
 
 @layer components {
 	@import './theme/button.scss';

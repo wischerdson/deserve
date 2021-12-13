@@ -1,5 +1,5 @@
 <template>
-	<section class="min-h-screen lg:min-h-0 flex items-center relative">
+	<section class="min-h-screen flex items-center relative">
 		<!-- Background -->
 		<div class="absolute inset-0">
 			<video
@@ -19,9 +19,9 @@
 				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem]">Ваш партнер в digital-среде</p>
 				<h1 class="text-white text-center font-light text-6xl uppercase tracking-widest">Design. Strategy. Harmony.</h1>
 				<div class="text-center">
-					<a class="details-action btn mt-10 text-white uppercase tracking-[.3rem] text-xs relative leading-none" href="#">
+					<a class="details-action btn mt-10 text-white uppercase tracking-[.3rem] text-xs relative leading-none px-4 py-2" href="#">
 						<span>Подробнее</span>
-						<v-icon width="14px" class="absolute -right-6 block mb-[3px]" name="chevron-right" />
+						<v-icon width="14px" class="absolute -right-2 block mb-[3px] pointer-events-none" name="chevron-right" />
 					</a>
 				</div>
 			</div>

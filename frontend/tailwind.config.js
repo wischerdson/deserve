@@ -29,6 +29,9 @@ module.exports = {
 				xl: ['1.25rem', '1'],
 				'2xl': ['1.5rem', '1'],
 			},
+			willChange: {
+				opacity: 'opacity',
+			}
 		},
 		fontFamily: {
 			sans: 'Helvetica Neue, sans-serif',
