@@ -1,5 +1,6 @@
 <template>
 	<header class="section-header fixed inset-x-0 top-0 z-30 bg-black/30 backdrop-blur-lg backdrop-saturate-150">
+		<!-- Desktop navigation bar -->
 		<div class="container relative z-10">
 			<div class="grid grid-cols-3">
 				<div class="h-full flex items-center">
@@ -24,6 +25,8 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Mobile menu button -->
 		<div class="absolute inset-0 z-30 max-h-[88px] hidden lg:block pointer-events-none">
 			<div class="container h-full">
 				<div class="h-full flex items-center">
@@ -34,6 +37,8 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Desktop menu -->
 		<transition :duration="1000">
 			<div class="desktop-menu overflow-hidden h-12 lg:hidden" v-if="menu">
 				<div class="container h-full">
@@ -49,28 +54,32 @@
 				</div>
 			</div>
 		</transition>
-		<div class="fixed inset-0 z-20 h-screen hidden lg:block" v-if="menu">
-			<div class="absolute inset-0 bg-black"></div>
-			<div class="container h-full">
-				<ul class="h-full flex flex-col items-end justify-center relative z-10 space-y-9">
-					<li class="text-right pr-4">
-						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Главная</a>
-					</li>
-					<li class="text-right pr-4">
-						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Об агентстве</a>
-					</li>
-					<li class="text-right pr-4">
-						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Порфолио</a>
-					</li>
-					<li class="text-right pr-4">
-						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Вакансии</a>
-					</li>
-					<li class="text-right pr-4">
-						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Контакты</a>
-					</li>
-				</ul>
+
+		<!-- Mobile menu -->
+		<transition :duration="2000">
+			<div class="mobile-menu fixed inset-0 z-20 h-screen hidden lg:block" v-if="menu">
+				<div class="menu-backdrop absolute inset-0 bg-black will-change-transform"></div>
+				<div class="container h-full">
+					<ul class="h-full flex flex-col items-end justify-center relative z-10 space-y-9">
+						<li class="menu-item text-right pr-4">
+							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Главная</a>
+						</li>
+						<li class="menu-item text-right pr-4">
+							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Об агентстве</a>
+						</li>
+						<li class="menu-item text-right pr-4">
+							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Порфолио</a>
+						</li>
+						<li class="menu-item text-right pr-4">
+							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Вакансии</a>
+						</li>
+						<li class="menu-item text-right pr-4">
+							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Контакты</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
+		</transition>
 	</header>
 </template>
 
@@ -83,12 +92,14 @@
 	export default {
 		data () {
 			return {
-				menu: true
+				menu: false
 			}
 		},
 		watch: {
 			menu (value) {
-				value ? disableScroll.on() : disableScroll.off()
+				if (document.body.offsetWidth <= 1023) {
+					value ? disableScroll.on() : disableScroll.off()
+				}
 			}
 		},
 		mounted () {
@@ -114,28 +125,56 @@
 
 <style lang="scss">
 
-	@media (min-width: 1023px) {
-		.section-header {
-			.desktop-menu {
-				&.v-leave-active {
-					transition: height .5s ease .4s;
+	.section-header {
+		.desktop-menu {
+			&.v-leave-active {
+				transition: height .5s ease .4s;
 
-					.menu-content { transition: transform .5s ease .2s }
-					.menu-separator { transition: transform .3s ease-in-out }
-				}
-				&.v-enter-active {
-					transition: height .5s ease;
+				.menu-content { transition: transform .5s ease .2s }
+				.menu-separator { transition: transform .3s ease-in-out }
+			}
+			&.v-enter-active {
+				transition: height .5s ease;
 
-					.menu-content { transition: transform .5s ease .1s }
-					.menu-separator { transition: transform .5s ease .1s }
-				}
-				&.v-enter, &.v-leave-to {
-					height: 0;
+				.menu-content { transition: transform .5s ease .1s }
+				.menu-separator { transition: transform .5s ease .1s }
+			}
+			&.v-enter, &.v-leave-to {
+				height: 0;
 
-					.menu-content { transform: translateY(-50px) }
-					.menu-separator { transform: scaleX(0) }
+				.menu-content { transform: translateY(-50px) }
+				.menu-separator { transform: scaleX(0) }
+			}
+			&.v-leave-to .menu-separator { transform: scaleX(0) }
+		}
+
+		@mixin menu-item($delay: 0) {
+			$items: 5;
+
+			@for $i from 1 through $items {
+				.menu-item:nth-child(#{$i}) {
+					transition-delay: #{$delay + (-$i + $items) * .1}s;
 				}
-				&.v-leave-to .menu-separator { transform: scaleX(0) }
+			}
+		}
+
+		.mobile-menu {
+			&.v-enter-active {
+				.menu-backdrop { transition: transform .6s cubic-bezier(.76,.27,.38,.89); }
+				.menu-item { transition: transform .7s cubic-bezier(0,.5,0,1), opacity .6s ease; }
+				@include menu-item(.2);
+			}
+			&.v-leave-active {
+				.menu-backdrop { transition: transform .6s cubic-bezier(.76,.27,.38,.89) .6s; }
+				.menu-item { transition: transform .6s cubic-bezier(1,0,1,.5), opacity 2s ease; }
+				@include menu-item();
+			}
+			&.v-enter, &.v-leave-to {
+				.menu-backdrop { transform: translate3d(-100%, 0, 0); }
+				.menu-item {
+					transform: translate3d(-200vw, 0, 0);
+					opacity: 0;
+				}
 			}
 		}
 	}
