@@ -25,10 +25,7 @@
 			</div>
 		</div>
 
-
-		<!--<PortfolioSection class="mt-48" />
-
-		<div class="h-screen"></div> -->
+		<PortfolioSection class="mt-48" />
 	</div>
 </template>
 

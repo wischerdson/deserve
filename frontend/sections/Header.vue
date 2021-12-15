@@ -10,12 +10,15 @@
 					</button>
 				</div>
 				<div class="flex justify-center">
-					<a class="flex justify-center items-center relative text-white h-[5.5rem]" ref="logoWrapper" href="/">
-						<v-icon ref="fullLogo" name="deserve-full-logo" />
-						<div class="absolute inset-y-0 flex items-center">
-							<v-icon class="opacity-0" ref="miniLogo" name="deserve-mini-logo" />
-						</div>
-					</a>
+					<div class="h-[5.5rem]" ref="logoWrapper">
+						<nuxt-link class="h-full flex justify-center items-center relative text-white" to="/">
+							<v-icon ref="fullLogo" name="deserve-full-logo" />
+							<div class="absolute inset-y-0 flex items-center">
+								<v-icon class="opacity-0" ref="miniLogo" name="deserve-mini-logo" />
+							</div>
+						</nuxt-link>
+					</div>
+
 				</div>
 				<div class="flex justify-end items-center">
 					<a class="btn text-gray-300 uppercase text-xs tracking-[.25rem]" href="#">
@@ -48,7 +51,7 @@
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Об агентстве</a>
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Порфолио</a>
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Вакансии</a>
-							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Контакты</a>
+							<nuxt-link class="flex items-center h-full text-white hover:opacity-60 transition-opacity" to="contacts">Контакты</nuxt-link>
 						</nav>
 					</div>
 				</div>
@@ -62,7 +65,7 @@
 				<div class="container h-full">
 					<ul class="h-full flex flex-col items-end justify-center relative z-10 space-y-9">
 						<li class="menu-item text-right pr-4">
-							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Главная</a>
+							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" to="/">Главная</nuxt-link>
 						</li>
 						<li class="menu-item text-right pr-4">
 							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Об агентстве</a>
@@ -74,7 +77,7 @@
 							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Вакансии</a>
 						</li>
 						<li class="menu-item text-right pr-4">
-							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Контакты</a>
+							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" to="contacts">Контакты</nuxt-link>
 						</li>
 					</ul>
 				</div>
@@ -118,6 +121,9 @@
 				end: '100%',
 				scrub: true
 			})
+		},
+		beforeRouteLeave () {
+			alert()
 		}
 	}
 
