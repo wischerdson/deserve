@@ -12,7 +12,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				gray: colors.zinc
+				gray: colors.zincNeutral
 			},
 			spacing: {
 				full: '100%',
