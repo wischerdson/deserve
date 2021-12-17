@@ -27,7 +27,7 @@
 					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Об агентстве</a>
 					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Порфолио</a>
 					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Вакансии</a>
-					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Контакты</a>
+					<nuxt-link class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" to="/contacts">Контакты</nuxt-link>
 				</nav>
 				<div class="flex justify-between mt-11 text-sm">
 					<div>

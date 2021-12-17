@@ -1,23 +1,12 @@
 <template>
 	<section class="min-h-screen flex items-center relative">
 		<!-- Background -->
-		<div class="absolute inset-0">
-			<video
-				class="w-full h-full object-cover object-center"
-				:src="require('~/static/video/welcome-background.mp4')"
-				autoplay="autoplay"
-				preload="auto"
-				loop="loop"
-				muted="muted"
-				disablePictureInPicture
-				playsinline
-			></video>
-			<div class="absolute inset-0 bg-black/70"></div>
-		</div>
+		<div class="welcome-video-background" data-vbg="https://youtu.be/yoVwN9I2wiA"></div>
+		<div class="absolute inset-0 bg-black/70"></div>
 		<div ref="welcome_text" class="absolute inset-0 z-10 flex items-center">
 			<div class="container">
-				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem]">Ваш партнер в digital-среде</p>
-				<h1 class="text-white text-center font-light text-6xl uppercase tracking-widest">Design. Strategy. Harmony.</h1>
+				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-base lg:tracking-[.4rem]">Ваш партнер в digital-среде</p>
+				<h1 class="text-white text-center font-light text-6xl uppercase tracking-widest lg:text-4xl md:leading-normal">Design. Strategy. Harmony.</h1>
 				<div class="text-center">
 					<a class="details-action btn mt-10 text-white uppercase tracking-[.3rem] text-xs relative leading-none px-4 py-2" href="#">
 						<span>Подробнее</span>
@@ -54,6 +43,8 @@
 				end: 'center top',
 				scrub: true
 			})
+
+			this.$videoBg('.welcome-video-background')
 		}
 	}
 

@@ -1,5 +1,5 @@
 <template>
-	<span :class="`icon icon-${name}`" v-html="require(`!!raw-loader!~/assets/svg/${name}.svg`).default"></span>
+	<span class="icon inline-block" :class="`icon-${name}`" v-html="require(`!!raw-loader!~/assets/svg/${name}.svg`).default"></span>
 </template>
 
 <script>

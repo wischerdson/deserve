@@ -24,6 +24,7 @@ module.exports = {
 				rr: '.1666rem'
 			},
 			fontSize: {
+				'2xs': ['0.5rem', '1'],
 				xs: ['0.75rem', '1'],
 				sm: ['0.875rem', '1'],
 				base: ['1rem', '1'],

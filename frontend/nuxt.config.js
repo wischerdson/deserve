@@ -33,6 +33,7 @@ export default {
 		{ src: '~/plugins/components' },
 		{ src: '~/plugins/aos', ssr: false },
 		{ src: '~/plugins/swiper.js', ssr: false },
+		{ src: '~/plugins/video-bg.js', ssr: false },
 		{ src: '~/plugins/smooth-scroll', ssr: false },
 	],
 

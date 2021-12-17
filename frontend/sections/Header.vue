@@ -14,14 +14,13 @@
 						<nuxt-link class="h-full flex justify-center items-center relative text-white" to="/">
 							<v-icon ref="fullLogo" name="deserve-full-logo" />
 							<div class="absolute inset-y-0 flex items-center">
-								<v-icon class="opacity-0" ref="miniLogo" name="deserve-mini-logo" />
+								<v-icon class="opacity-0 w-[75px]" ref="miniLogo" name="deserve-mini-logo" />
 							</div>
 						</nuxt-link>
 					</div>
-
 				</div>
 				<div class="flex justify-end items-center">
-					<a class="btn text-gray-300 uppercase text-xs tracking-[.25rem]" href="#">
+					<a class="btn text-gray-300 uppercase text-xs sm:text-2xs tracking-[.25rem] sm:tracking-rr" href="#">
 						<v-icon name="chat-bubble-outline" />
 						<span class="font-normal">Обсудить</span>
 					</a>
@@ -33,7 +32,7 @@
 		<div class="absolute inset-0 z-30 max-h-[88px] hidden lg:block pointer-events-none">
 			<div class="container h-full">
 				<div class="h-full flex items-center">
-					<button class="btn text-gray-300 uppercase text-xs tracking-[.25rem] pointer-events-auto" @click="menu = !menu">
+					<button class="btn text-gray-300 uppercase text-xs sm:text-2xs tracking-[.25rem] sm:tracking-rr pointer-events-auto" @click="menu = !menu">
 						<v-icon class="mb-1" name="menu" />
 						<span class="font-normal">Menu</span>
 					</button>
@@ -103,6 +102,9 @@
 				if (document.body.offsetWidth <= 1023) {
 					value ? disableScroll.on() : disableScroll.off()
 				}
+			},
+			$route (value) {
+				console.log(value)
 			}
 		},
 		mounted () {
@@ -121,9 +123,6 @@
 				end: '100%',
 				scrub: true
 			})
-		},
-		beforeRouteLeave () {
-			alert()
 		}
 	}
 

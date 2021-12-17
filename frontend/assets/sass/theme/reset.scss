@@ -25,10 +25,10 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 input:disabled {
-	@apply text-gray-500;
+	color: theme('colors.gray.500');
 }
 
-input[type='number'] {
+input[type="number"] {
 	appearance: textfield;
 }
 

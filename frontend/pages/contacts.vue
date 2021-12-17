@@ -63,7 +63,7 @@
 					</div>
 					<div>
 						<div class="pt-3/5 relative">
-							<div class="absolute inset-0 rounded-lg" style="background-image: url('https://pbs.twimg.com/media/Cf5NIfNWwAAQs6a.jpg')"></div>
+							<div class="absolute inset-0 rounded-lg" :style="`background-image: url('https://scontent-frx5-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/267325346_1276618759521958_8848469307473974010_n.jpg?_nc_ht=scontent-frx5-1.cdninstagram.com&_nc_cat=110&_nc_ohc=3Rp7f2_q1IUAX_epBpO&edm=AABBvjUBAAAA&ccb=7-4&oh=00_AT9lWPgFH-1rWgU74hpqAMwz--zq64nrMbsvOdPBx4ZIng&oe=61C05F78&_nc_sid=83d603`"></div>
 						</div>
 
 					</div>
