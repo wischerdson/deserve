@@ -36,12 +36,9 @@
 <style lang="scss" scoped>
 
 	.icon {
-		filter: drop-shadow(0 0 10px theme('colors.orange.300'));
-
 		&-enter-active {
 			transition: transform 1s ease, opacity 1.5s ease;
 		}
-
 		&-enter {
 			transform: scale(.9);
 			opacity: 0;

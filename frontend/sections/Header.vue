@@ -47,7 +47,7 @@
 					<hr class="menu-separator block w-full h-px bg-white/20">
 					<div class="menu-content flex items-center justify-center h-full">
 						<nav class="flex space-x-14 h-full uppercase tracking-[.25rem] text-xs font-light">
-							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Об агентстве</a>
+							<nuxt-link class="flex items-center h-full text-white hover:opacity-60 transition-opacity" to="about">Об агентстве</nuxt-link>
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Порфолио</a>
 							<a class="flex items-center h-full text-white hover:opacity-60 transition-opacity" href="#">Вакансии</a>
 							<nuxt-link class="flex items-center h-full text-white hover:opacity-60 transition-opacity" to="contacts">Контакты</nuxt-link>
@@ -60,14 +60,17 @@
 		<!-- Mobile menu -->
 		<transition :duration="2000">
 			<div class="mobile-menu fixed inset-0 z-20 h-screen hidden lg:block" v-if="menu">
-				<div class="menu-backdrop absolute inset-0 bg-black will-change-transform"></div>
+				<div
+					class="menu-backdrop absolute inset-0 bg-black will-change-transform"
+					:style="`background-image: url(${require('~/static/image/header-menu-bg.jpeg')})`"
+				></div>
 				<div class="container h-full">
 					<ul class="h-full flex flex-col items-end justify-center relative z-10 space-y-9">
 						<li class="menu-item text-right pr-4">
 							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" to="/">Главная</nuxt-link>
 						</li>
 						<li class="menu-item text-right pr-4">
-							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Об агентстве</a>
+							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" to="about">Об агентстве</nuxt-link>
 						</li>
 						<li class="menu-item text-right pr-4">
 							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Порфолио</a>

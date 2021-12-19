@@ -1,5 +1,5 @@
 <template>
-	<section class="text-white space-y-80">
+	<section class="text-white space-y-40">
 		<portfolio-project :image="require('~/static/image/project-getpods.png')" />
 		<portfolio-project :image="require('~/static/image/project-hostrim.png')" />
 		<portfolio-project :image="require('~/static/image/project-timochko.png')" />

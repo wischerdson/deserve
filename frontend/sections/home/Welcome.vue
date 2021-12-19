@@ -1,16 +1,16 @@
 <template>
 	<section class="min-h-screen flex items-center relative">
 		<!-- Background -->
-		<div class="welcome-video-background" data-vbg="https://youtu.be/yoVwN9I2wiA"></div>
+		<div class="welcome-video-background" data-vbg="https://youtu.be/yoVwN9I2wiA" data-vbg-load-background="false"></div>
 		<div class="absolute inset-0 bg-black/70"></div>
 		<div ref="welcome_text" class="absolute inset-0 z-10 flex items-center">
 			<div class="container">
-				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-base lg:tracking-[.4rem]">Ваш партнер в digital-среде</p>
-				<h1 class="text-white text-center font-light text-6xl uppercase tracking-widest lg:text-4xl md:leading-normal">Design. Strategy. Harmony.</h1>
+				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-base lg:tracking-[.4rem] font-thin sm:leading-normal">Ваш партнер <br class="hidden sm:block">в digital-среде</p>
+				<h1 class="text-white text-center text-6xl uppercase tracking-widest lg:text-4xl md:leading-normal font-thin">Design. Strategy. Harmony.</h1>
 				<div class="text-center">
 					<a class="details-action btn mt-10 text-white uppercase tracking-[.3rem] text-xs relative leading-none px-4 py-2" href="#">
 						<span>Подробнее</span>
-						<v-icon width="14px" class="absolute -right-2 block mb-[3px] pointer-events-none" name="chevron-right" />
+						<v-icon width="14px" class=" -right-2 block mb-[3px] pointer-events-none" name="chevron-right" />
 					</a>
 				</div>
 			</div>
