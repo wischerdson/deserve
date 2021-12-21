@@ -7,22 +7,22 @@
 						<h2 class="font-semibold text-7xl tracking-wider max-w-lg">GetPods.ru</h2>
 						<hr class="w-32 mb-6 mt-5 bg-gray-400">
 						<p class="tracking-rr">Разработка интернет-магазина</p>
-						<!-- <ul class="leading-normal tracking-wider text-gray-400">
-							<li><p>Проектирование</p></li>
-							<li><p>Дизайн</p></li>
-						</ul> -->
 						<a
-							class="btn h-12 px-10 rounded-full mt-7 uppercase border border-white/60 text-xs tracking-rr hover:opacity-50 transition-opacity"
+							class="btn rounded-full mt-7 space-x-5"
 							href="https://getpods.ru"
 							target="_blank"
-						>Посмотреть работу</a>
+						>
+							<div class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black">
+								<v-icon name="chevron-right" />
+							</div>
+							<span class="text-xs tracking-rr uppercase text-white">Посмотреть работу</span>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div>
 				<div ref="image" class="w-full relative after:block after:pt-[60%] will-change-transform">
 					<div class="absolute inset-0 rounded-3xl" :style="`background-image:url('${image}')`"></div>
-					<!-- <div class="absolute inset-0 rounded-lg" :style="`background-image:url(${require('~/static/image/sdsds.png')})`"></div> -->
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 				// Desktop animation
 				'(min-width: 1024px)': () => {
 					const timeline = gsap.timeline()
-					timeline.from(this.$refs.image, { opacity: .1 }, 0).addLabel('start')
+					timeline.from(this.$refs.image, { opacity: 0 }, 0).addLabel('start')
 					timeline.from(this.$refs.image, {
 						scale: containerImageWitdhsRatio,
 						transformOrigin: "right center"
