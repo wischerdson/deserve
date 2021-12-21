@@ -1,8 +1,12 @@
 .btn {
-	@apply inline-flex items-center justify-center rounded-xl space-x-2 select-none transition duration-500;
+	@apply inline-flex items-center justify-center space-x-2 select-none transition duration-500;
 
 	&:active {
 		opacity: .65;
 		transition: none;
+	}
+
+	&-outline {
+		@apply rounded-full border h-11;
 	}
 }

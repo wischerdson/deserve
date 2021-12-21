@@ -3,11 +3,8 @@
 @import './theme/container.scss';
 @import './theme/reset.scss';
 @import './theme/settings.scss';
+@import './theme/button.scss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer components {
-	@import './theme/button.scss';
-}

@@ -1,66 +1,63 @@
 <template>
-	<footer class="mt-28 text-white">
-		<div class="container grid grid-cols-[auto,1fr]">
-			<div>
-				<a href="/">
-					<v-icon name="deserve-full-logo" />
-				</a>
-				<ul class="flex space-x-6 mt-8">
-					<li>
-						<a href="" target="_blank">
-							<v-icon name="instagram" />
-						</a>
-					</li>
-					<li>
-						<a href="" target="_blank">
-							<v-icon name="facebook" />
-						</a>
-					</li>
-				</ul>
-				<div class="mt-10">
-					<p class="text-gray-500 tracking-widest text-sm leading-normal">Аренда премиальных автомобилей <br>по Москве и Московской области</p>
-				</div>
-			</div>
-			<div class="ml-52">
-				<nav class="space-x-10 font-normal">
-					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Главная</a>
-					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Об агентстве</a>
-					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Порфолио</a>
-					<a class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" href="#">Вакансии</a>
-					<nuxt-link class="hover:opacity-50 transition-opacity tracking-widest text-sm py-2.5" to="/contacts">Контакты</nuxt-link>
-				</nav>
-				<div class="flex justify-between mt-11 text-sm">
-					<div>
-						<h4 class="text-sm font-normal tracking-wider">Для связи с нами</h4>
-						<ul class="flex space-x-6 mt-7">
-							<li>
-								<a class="btn w-10 h-10 rounded-full border" href="#" target="_blank" title="Связаться с нами через Telegram">
-									<v-icon width="18px" name="telegram" />
-								</a>
-							</li>
-							<li>
-								<a class="btn w-10 h-10 rounded-full border" href="#" target="_blank" title="Связаться с нами по Whatsapp">
-									<v-icon width="18px" name="whatsapp" />
-								</a>
-							</li>
-						</ul>
+	<footer class="mt-28">
+		<div class="container">
+			<div class="flex justify-between">
+				<div class="flex">
+					<div class="pr-8 max-w-sm">
+						<v-icon width="120px" name="deserve-full-logo" />
+						<div class="mt-5">
+							<p class="text-sm text-gray-400 leading-relaxed tracking-wider">Use this tool as test data for an automated system or find your next pen.</p>
+						</div>
 					</div>
-					<div>
-						<h4 class="text-sm font-normal tracking-wider">Адрес</h4>
-						<address class="text-gray-500 text-sm mt-6 leading-normal tracking-wider">
-							<p>г. Смоленск, <br>улица Ленина, 13Б, <br>214000</p>
-						</address>
-					</div>
-					<div>
-						<h4 class="text-sm font-normal tracking-wider">Реквизиты</h4>
-						<div class="text-gray-500 text-sm mt-6 leading-normal tracking-wider">
-							<p>ООО "Дезерв" <br>ИНН 1234567890 <br>КПП 1234567890987</p>
+					<div class="border-l border-gray-600 pl-12 max-w-[282px]">
+						<h2 class="text-xl font-extralight tracking-wider">О компании</h2>
+						<hr class="w-8 h-px bg-gray-500 my-6">
+						<p class="text-sm text-gray-400 leading-relaxed tracking-wider">But horizontal lines can only be full pixel high</p>
+						<div class="mt-8">
+							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" to="#">More info</nuxt-link>
+						</div>
+						<div class="mt-6">
+							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" to="#">Contact us</nuxt-link>
 						</div>
 					</div>
 				</div>
+				<div>
+					<h2 class="text-xl font-extralight tracking-wider">Навигация</h2>
+					<hr class="w-8 h-px bg-gray-500 my-6">
+					<nav class="space-y-5 text-gray-400 text-sm tracking-wider">
+						<div>
+							<nuxt-link class="hover:text-white" to="#">Главная</nuxt-link>
+						</div>
+						<div>
+							<nuxt-link class="hover:text-white" to="#">Об агентстве</nuxt-link>
+						</div>
+						<div>
+							<nuxt-link class="hover:text-white" to="#">Портфолио</nuxt-link>
+						</div>
+						<div>
+							<nuxt-link class="hover:text-white" to="#">Вакансии</nuxt-link>
+						</div>
+						<div>
+							<nuxt-link class="hover:text-white" to="#">Контакты</nuxt-link>
+						</div>
+					</nav>
+				</div>
+				<div class=" max-w-[282px]">
+					<h2 class="text-xl font-extralight tracking-wider">Новости</h2>
+					<hr class="w-8 h-px bg-gray-500 my-6">
+					<div class="flex space-x-3">
+						<a class="btn rounded-md w-12 h-12 bg-gray-800 text-gray-500" href="#" target="_blank" title="Наш facebook">
+							<v-icon name="facebook" />
+						</a>
+						<a class="btn rounded-md w-12 h-12 bg-gray-800 text-gray-500" href="#" target="_blank" title="Наш instagram">
+							<v-icon name="instagram" />
+						</a>
+					</div>
+					<p class="text-sm text-gray-400 leading-relaxed tracking-wider mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur odio quam laudantium modi inventore eos necessitatibus fugiat.</p>
+				</div>
 			</div>
 		</div>
-		<div class="container flex justify-between my-10">
+		<div class="container flex justify-between mt-6 py-10">
 			<small class="text-xs text-gray-600 tracking-wider">&copy; Copyright 2021, Deserve</small>
 			<ul class="flex space-x-5 text-xs text-gray-600 tracking-wider">
 				<li>

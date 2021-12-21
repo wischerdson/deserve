@@ -67,7 +67,7 @@
 				// Desktop animation
 				'(min-width: 1024px)': () => {
 					const timeline = gsap.timeline()
-					timeline.from(this.$refs.image, { opacity: 0 }, 0).addLabel('start')
+					timeline.from(this.$refs.image, { opacity: .1 }, 0).addLabel('start')
 					timeline.from(this.$refs.image, {
 						scale: containerImageWitdhsRatio,
 						transformOrigin: "right center"
@@ -87,7 +87,7 @@
 				'(max-width: 1023px)': () => {
 					const timeline = gsap.timeline()
 					timeline.from(this.$refs.mobileImage, { opacity: 0 }, 0).addLabel('start');
-					timeline.from(this.$refs.mobileTitle, { opacity: 0, y: 50 }, 'start-=80%');
+					timeline.from(this.$refs.mobileTitle, { opacity: 0, y: 100 }, 'start-=80%');
 
 					ScrollTrigger.create({
 						animation: timeline,
