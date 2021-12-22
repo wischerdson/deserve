@@ -4,11 +4,12 @@
 		<div class="container relative z-10">
 			<div class="grid grid-cols-3">
 				<div class="h-full flex items-center">
-					<button class="btn text-gray-300 uppercase text-xs tracking-[.25rem] lg:hidden" @click="menu = !menu">
+					<button class="btn uppercase text-xs tracking-[.25rem] lg:hidden" @click="menu = !menu">
 						<v-icon class="mb-1" name="menu" />
 						<span class="font-normal">Menu</span>
 					</button>
 				</div>
+
 				<div class="flex justify-center">
 					<div class="h-[5.5rem]" ref="logoWrapper">
 						<nuxt-link class="h-full flex justify-center items-center relative text-white" to="/">
@@ -19,10 +20,11 @@
 						</nuxt-link>
 					</div>
 				</div>
+
 				<div class="flex justify-end items-center">
-					<a class="btn text-gray-300 uppercase text-xs sm:text-2xs tracking-[.25rem] sm:tracking-rr" href="#">
-						<v-icon name="chat-bubble-outline" />
-						<span class="font-normal">Обсудить</span>
+					<a class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr" href="#">
+						<!-- <v-icon name="chat-bubble-outline" /> -->
+						<span class="font-light">Обсудить</span>
 					</a>
 				</div>
 			</div>
@@ -32,9 +34,12 @@
 		<div class="absolute inset-0 z-30 max-h-[88px] hidden lg:block pointer-events-none">
 			<div class="container h-full">
 				<div class="h-full flex items-center">
-					<button class="btn text-gray-300 uppercase text-xs sm:text-2xs tracking-[.25rem] sm:tracking-rr pointer-events-auto" @click="menu = !menu">
+					<button class="btn pointer-events-auto" @click="menu = !menu">
 						<v-icon class="mb-1" name="menu" />
-						<span class="font-normal">Menu</span>
+						<div class="relative text-gray-300 uppercase text-[.6rem] tracking-[.25rem] sm:tracking-rr overflow-hidden">
+							<span class="font-normal" v-if="!menu">Menu</span>
+							<span class="font-normal" v-else>Закрыть</span>
+						</div>
 					</button>
 				</div>
 			</div>

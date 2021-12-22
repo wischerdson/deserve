@@ -25,7 +25,7 @@
 			</div>
 		</div>
 
-		<PortfolioSection class="mt-30" />
+		<PortfolioSection class="mt-16" />
 	</div>
 </template>
 
@@ -40,8 +40,6 @@
 		components: { WelcomeSection, PortfolioSection },
 		mounted () {
 			gsap.registerPlugin(ScrollTrigger)
-
-
 
 			const timeline = gsap.timeline()
 			timeline.from(this.$refs.useless_item_1, { opacity: 0, y: 0 }, 0)
