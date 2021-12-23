@@ -11,6 +11,7 @@
 							class="btn rounded-full mt-7 space-x-5"
 							href="https://getpods.ru"
 							target="_blank"
+							ref="viewProjectBtn"
 						>
 							<div class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black">
 								<v-icon name="chevron-right" />
@@ -68,6 +69,8 @@
 			const $container = this.$refs.container
 			const $image = this.$refs.image
 			const containerImageWitdhsRatio = $container.offsetWidth/$image.offsetWidth
+
+			this.$magnetic.add({ element: this.$refs.viewProjectBtn, powerDistance: 0 })
 
 			ScrollTrigger.matchMedia({
 				// Desktop animation
