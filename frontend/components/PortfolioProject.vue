@@ -4,9 +4,9 @@
 			<div class="relative z-10">
 				<div class="absolute left-10 inset-y-0 -right-24 flex items-center">
 					<div ref="title">
-						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">GetPods.ru</h2>
+						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">1GetPods.ru</h2>
 						<hr class="w-32 mt-3 h-px bg-gray-700">
-						<p class="mt-8 text-gray-400 tracking-rr font-thin">Разработка интернет-магазина для официального реселлера Apple</p>
+						<p class="mt-8 text-gray-400 tracking-widest font-extralight">Разработка интернет-магазина для официального реселлера Apple</p>
 						<a
 							class="btn rounded-full mt-7 space-x-5"
 							href="https://getpods.ru"
@@ -70,7 +70,7 @@
 			const $image = this.$refs.image
 			const containerImageWitdhsRatio = $container.offsetWidth/$image.offsetWidth
 
-			this.$magnetic.add({ element: this.$refs.viewProjectBtn, powerDistance: 0 })
+			this.$magnetic.add({ element: this.$refs.viewProjectBtn, powerDistance: 30, updateOnScroll: true })
 
 			ScrollTrigger.matchMedia({
 				// Desktop animation

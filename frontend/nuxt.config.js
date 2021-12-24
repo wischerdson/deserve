@@ -30,12 +30,12 @@ export default {
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
-		{ src: '~/plugins/components' },
-		{ src: '~/plugins/aos', ssr: false },
-		{ src: '~/plugins/magnetic', ssr: false },
+		{ src: '~/plugins/components.js' },
+		{ src: '~/plugins/aos.js', ssr: false },
+		{ src: '~/plugins/magnetic.js', ssr: false },
 		{ src: '~/plugins/swiper.js', ssr: false },
 		{ src: '~/plugins/video-bg.js', ssr: false },
-		{ src: '~/plugins/smooth-scroll', ssr: false },
+		{ src: '~/plugins/smooth-scroll.js', ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
