@@ -57,6 +57,50 @@
 	import gsap from 'gsap'
 	import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+	const initScrollTrigger = function () {
+		gsap.registerPlugin(ScrollTrigger)
+
+		const $container = this.$refs.container
+		const $image = this.$refs.image
+		const containerImageWitdhsRatio = $container.offsetWidth/$image.offsetWidth
+
+		ScrollTrigger.matchMedia({
+			// Desktop animation
+			'(min-width: 1024px)': () => {
+				const timeline = gsap.timeline()
+				timeline.from(this.$refs.image, { opacity: 0 }, 0).addLabel('start')
+				timeline.from(this.$refs.image, {
+					scale: containerImageWitdhsRatio,
+					transformOrigin: "right center"
+				}, 'start-=70%')
+				timeline.from(this.$refs.title, { opacity: 0, x: -50 }, 'start-=70%')
+
+				ScrollTrigger.create({
+					animation: timeline,
+					trigger: this.$el,
+					start: 'center center',
+					end: 'bottom top',
+					scrub: true,
+					pin: true
+				})
+			},
+			// Mobile animation
+			'(max-width: 1023px)': () => {
+				const timeline = gsap.timeline()
+				timeline.from(this.$refs.mobileImage, { opacity: 0, scale: .95 }, 0).addLabel('start');
+				timeline.from(this.$refs.mobileTitle, { opacity: 0, y: 50 }, 'start-=70%');
+
+				ScrollTrigger.create({
+					animation: timeline,
+					trigger: this.$el,
+					start: 'top center',
+					end: '70% center',
+					scrub: true
+				})
+			}
+		})
+	}
+
 	export default {
 		props: {
 			image: {
@@ -64,52 +108,12 @@
 			}
 		},
 		mounted () {
-			gsap.registerPlugin(ScrollTrigger)
-
-			const $container = this.$refs.container
-			const $image = this.$refs.image
-			const containerImageWitdhsRatio = $container.offsetWidth/$image.offsetWidth
+			initScrollTrigger.call(this)
 
 			this.$magnetic.add({
 				element: this.$refs.viewProjectBtn,
 				trigger: this.$refs.viewProjectBtnPill,
 				updateOnScroll: true
-			})
-
-			ScrollTrigger.matchMedia({
-				// Desktop animation
-				'(min-width: 1024px)': () => {
-					const timeline = gsap.timeline()
-					timeline.from(this.$refs.image, { opacity: 0 }, 0).addLabel('start')
-					timeline.from(this.$refs.image, {
-						scale: containerImageWitdhsRatio,
-						transformOrigin: "right center"
-					}, 'start-=70%')
-					timeline.from(this.$refs.title, { opacity: 0, x: -50 }, 'start-=70%')
-
-					ScrollTrigger.create({
-						animation: timeline,
-						trigger: this.$el,
-						start: 'center center',
-						end: 'bottom top',
-						scrub: true,
-						pin: true
-					})
-				},
-				// Mobile animation
-				'(max-width: 1023px)': () => {
-					const timeline = gsap.timeline()
-					timeline.from(this.$refs.mobileImage, { opacity: 0, scale: .95 }, 0).addLabel('start');
-					timeline.from(this.$refs.mobileTitle, { opacity: 0, y: 50 }, 'start-=70%');
-
-					ScrollTrigger.create({
-						animation: timeline,
-						trigger: this.$el,
-						start: 'top center',
-						end: '70% center',
-						scrub: true
-					})
-				}
 			})
 		}
 	}
