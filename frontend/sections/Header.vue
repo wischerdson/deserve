@@ -3,7 +3,7 @@
 		<div class="h-[88px]" ref="spacer">
 			<div class="overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit]" ref="backdrop">
 				<transition name="menu" :duration="{ leave: 600 }">
-					<div class="h-screen flex items-center" v-if="menu">
+					<div class="h-screen flex items-center" v-show="menu">
 						<div class="container">
 							<div class="grid grid-cols-2">
 								<ul class="mx-auto text-4xl space-y-10 font-thin tracking-[.25rem]">
@@ -27,14 +27,16 @@
 									<h2 class="uppercase text-2xl font-extralight tracking-rr">Обратный звонок</h2>
 									<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
-									<form class="mt-8 space-y-6" action="#">
+									<form class="mt-10 space-y-8" action="#">
 										<div>
-											<label class="block" for="name">Как к Вам обращаться?</label>
-											<input class="block w-full border-b" type="text" name="name">
+											<v-input type="text" name="name">
+												<template v-slot:label>Как к Вам обращаться?</template>
+											</v-input>
 										</div>
 										<div>
-											<label for="name">Ваш номер телефона</label>
-											<input class="block w-full border-b" type="text" name="phone">
+											<v-input type="text" name="phone">
+												<template v-slot:label>Ваш номер телефона</template>
+											</v-input>
 										</div>
 										<div>
 											<button class="btn space-x-4 mt-6" type="submit">
