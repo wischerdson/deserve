@@ -50,6 +50,7 @@
 	.label {
 		transition: transform .25s ease;
 		transform-origin: 0;
+		will-change: transform;
 	}
 	.label-above {
 		transform: translateY(calc(-50% - 7px)) scale(.9);
