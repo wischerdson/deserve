@@ -1,7 +1,7 @@
 <template>
 	<header class="section-header fixed inset-0 z-30">
 		<div class="h-[88px]" ref="spacer">
-			<div class="overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] backdrop-extended" ref="backdrop">
+			<div class="overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit]" ref="backdrop">
 				<transition name="menu" :duration="{ leave: 600 }">
 					<div class="h-screen flex items-center relative" v-show="menu">
 						<div class="container">
@@ -34,7 +34,7 @@
 											</v-input>
 										</div>
 										<div>
-											<v-input type="text" name="phone">
+											<v-input type="phone" name="phone">
 												<template v-slot:label>Ваш номер телефона</template>
 											</v-input>
 										</div>
@@ -128,7 +128,7 @@
 	export default {
 		data () {
 			return {
-				menu: true
+				menu: false
 			}
 		},
 		watch: {

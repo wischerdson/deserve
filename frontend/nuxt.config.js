@@ -2,6 +2,12 @@ export default {
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
 
+	vue: {
+		config: {
+			productionTip: false
+		}
+	},
+
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		htmlAttrs: {
@@ -20,22 +26,16 @@ export default {
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
-		// https://michalsnik.github.io/aos/
-		'aos/dist/aos.css',
-		// https://swiperjs.com
-		'swiper/css',
-
 		'~/assets/sass/app.scss'
 	],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [
 		{ src: '~/plugins/components.js' },
-		{ src: '~/plugins/aos.js', ssr: false },
 		{ src: '~/plugins/magnetic.js', ssr: false },
-		{ src: '~/plugins/swiper.js', ssr: false },
 		{ src: '~/plugins/video-bg.js', ssr: false },
 		{ src: '~/plugins/smooth-scroll.js', ssr: false },
+		{ src: '~/plugins/intl-tel-input.js', ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
