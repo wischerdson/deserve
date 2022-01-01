@@ -45,11 +45,6 @@
 				focus: false,
 			}
 		},
-		watch: {
-			value (value) {
-				console.log(value)
-			}
-		},
 		computed: {
 			focusOrFilled () {
 				return this.value || this.focus

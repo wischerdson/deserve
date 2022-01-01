@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="container flex justify-between mt-6 py-10">
-			<small class="text-xs text-gray-600 tracking-wider">&copy; Copyright 2021, Deserve</small>
+			<small class="text-xs text-gray-600 tracking-wider">&copy; Copyright 2022, Deserve</small>
 			<ul class="flex space-x-5 text-xs text-gray-600 tracking-wider">
 				<li>
 					<a class="hover:underline" href="#">Обработка персональных данных</a>
