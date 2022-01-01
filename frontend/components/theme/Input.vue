@@ -7,17 +7,13 @@
 				</span>
 			</div>
 
-
-				<input
-					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
-					type="tel"
-					ref="phoneInput"
-					@focus="focus = true"
-					@blur="focus = false"
-					:name="name"
-					@input="value = $event.target.value"
-					 v-if="type == 'phone'"
-				>
+			<input-phone
+				class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
+				@focus="focus = true"
+				@blur="focus = false"
+				v-if="type == 'phone'"
+				v-model="value"
+			/>
 
 			<textarea class="block w-full" v-else-if="type == 'textarea'" :name="name"></textarea>
 			<input
@@ -35,50 +31,28 @@
 
 <script>
 
-	import Cleave from 'cleave.js'
-	require('cleave.js/dist/addons/cleave-phone.i18n')
+	import InputPhone from './InputPhone'
 
 	export default {
 		props: {
 			type: String,
 			name: String
 		},
+		components: { InputPhone },
 		data () {
 			return {
 				value: '',
 				focus: false,
-				iti: null
+			}
+		},
+		watch: {
+			value (value) {
+				console.log(value)
 			}
 		},
 		computed: {
 			focusOrFilled () {
 				return this.value || this.focus
-			}
-		},
-		mounted () {
-			const input = this.$refs.phoneInput
-
-			if (input) {
-				this.value = input.value
-				this.iti = this.$intlTelInput(input, {
-					allowDropdown: false,
-					initialCountry: 'ru',
-					formatOnDisplay: false,
-					autoPlaceholder: false
-				})
-
-				const cleave = new Cleave(input, {
-					phone: true,
-					phoneRegionCode: this.iti.getSelectedCountryData().iso2
-				})
-
-				input.addEventListener('countrychange', () => {
-					const country = this.iti.getSelectedCountryData().iso2
-
-					if (country) {
-						cleave.setPhoneRegionCode(country)
-					}
-				})
 			}
 		}
 	}
