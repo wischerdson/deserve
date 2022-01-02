@@ -1,5 +1,6 @@
 <template>
 	<div ref="container" class="container">
+		<!-- Desktop -->
 		<div class="grid grid-cols-[1fr,2fr] lg:hidden">
 			<div class="relative z-10">
 				<div class="absolute left-10 inset-y-0 -right-24 flex items-center">
@@ -27,6 +28,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- Mobile -->
 		<div class="hidden lg:block">
 			<div ref="mobileImage" class="w-full relative after:block after:pt-full">

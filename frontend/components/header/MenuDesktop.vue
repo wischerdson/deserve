@@ -83,8 +83,6 @@
 				element: this.$refs.submitFormBtn,
 				trigger: this.$refs.submitFormBtnPill
 			})
-
-			console.log(this.magneticSubmitFormBtn)
 		}
 	}
 
