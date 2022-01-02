@@ -4,26 +4,26 @@
 			<div class="grid grid-cols-2">
 				<ul class="mx-auto text-3xl space-y-12 font-thin tracking-[.45rem] uppercase">
 					<li class="menu-item">
-						<a class="menu-item-magnetic inline-block" href="#">Главная</a>
+						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/">Главная</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<a class="menu-item-magnetic inline-block" href="#">Об агентстве</a>
+						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="about">Об агентстве</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<a class="menu-item-magnetic inline-block" href="#">Портфолио</a>
+						<a class="btn menu-item-magnetic inline-block" exact href="#">Портфолио</a>
 					</li>
 					<li class="menu-item">
-						<a class="menu-item-magnetic inline-block" href="#">Вакансии</a>
+						<a class="btn menu-item-magnetic inline-block" exact href="#">Вакансии</a>
 					</li>
 					<li class="menu-item">
-						<a class="menu-item-magnetic inline-block" href="#">Контакты</a>
+						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/contacts">Контакты</nuxt-link>
 					</li>
 				</ul>
 				<div class="form-column mx-auto">
 					<h2 class="uppercase text-2xl font-thin tracking-[.25rem]">Обратный звонок</h2>
 					<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
-					<form class="mt-10 space-y-8" action="#">
+					<form class="mt-6 space-y-4" action="#">
 						<div>
 							<v-input type="text" name="name">
 								<template v-slot:label>Как к Вам обращаться?</template>
@@ -34,8 +34,8 @@
 								<template v-slot:label>Ваш номер телефона</template>
 							</v-input>
 						</div>
-						<div>
-							<button class="btn space-x-4 mt-6" type="submit" ref="submitFormBtn">
+						<div class="pt-8">
+							<button class="btn space-x-4" type="submit" ref="submitFormBtn">
 								<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
 									<v-icon name="chevron-right" />
 								</div>

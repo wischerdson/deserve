@@ -37,21 +37,26 @@
 					</div>
 					<div>
 						<form action="">
-							<div class="space-y-6">
+							<div class="space-y-4">
 								<v-input type="text" name="name">
-									<template v-slot:label><span class="uppercase">Имя</span></template>
+									<template v-slot:label><span class="">Имя</span></template>
 								</v-input>
 								<v-input type="email" name="email">
-									<template v-slot:label><span class="uppercase">E-mail</span></template>
+									<template v-slot:label><span class="">Email</span></template>
 								</v-input>
-								<v-input type="tel" name="phone">
-									<template v-slot:label><span class="uppercase">Телефон</span></template>
+								<v-input type="phone" name="phone">
+									<template v-slot:label><span class="">Телефон</span></template>
 								</v-input>
 								<v-input type="textarea" name="message">
-									<template v-slot:label><span class="uppercase">Сообщение</span></template>
+									<template v-slot:label><span class="">Сообщение</span></template>
 								</v-input>
 							</div>
-							<button class="btn mt-10" type="submit">Отправить</button>
+							<button class="btn space-x-4 mt-10" type="submit" ref="submitFormBtn">
+								<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
+									<v-icon name="chevron-right" />
+								</div>
+								<span class="text-xs tracking-rr uppercase text-white font-extralight">Отправить</span>
+							</button>
 						</form>
 					</div>
 				</div>
@@ -116,6 +121,20 @@
 		</div>
 	</div>
 </template>
+
+<script>
+
+	export default {
+		mounted () {
+			this.magneticSubmitFormBtn = this.$magnetic.add({
+				element: this.$refs.submitFormBtn,
+				trigger: this.$refs.submitFormBtnPill,
+				updateOnScroll: true
+			})
+		}
+	}
+
+</script>
 
 <style lang="scss" scoped>
 

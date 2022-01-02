@@ -82,6 +82,9 @@
 				} else {
 					this.$refs.backdrop.classList.remove('backdrop-extended')
 				}
+			},
+			$route () {
+				this.menu = false
 			}
 		},
 		mounted () {

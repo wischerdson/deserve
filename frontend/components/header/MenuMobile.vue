@@ -9,10 +9,10 @@
 			<div class="container h-full">
 				<ul class="h-full flex flex-col items-end justify-center relative z-10 space-y-9">
 					<li class="menu-item text-right pr-4">
-						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" to="/">Главная</nuxt-link>
+						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/">Главная</nuxt-link>
 					</li>
 					<li class="menu-item text-right pr-4">
-						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" to="about">Об агентстве</nuxt-link>
+						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="about">Об агентстве</nuxt-link>
 					</li>
 					<li class="menu-item text-right pr-4">
 						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Порфолио</a>
@@ -21,7 +21,7 @@
 						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Вакансии</a>
 					</li>
 					<li class="menu-item text-right pr-4">
-						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" to="contacts">Контакты</nuxt-link>
+						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="contacts">Контакты</nuxt-link>
 					</li>
 				</ul>
 			</div>

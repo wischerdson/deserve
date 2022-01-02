@@ -17,7 +17,7 @@
 							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" to="#">More info</nuxt-link>
 						</div>
 						<div class="mt-6">
-							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" to="#">Contact us</nuxt-link>
+							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" exact to="/contacts">Contact us</nuxt-link>
 						</div>
 					</div>
 				</div>
@@ -26,19 +26,19 @@
 					<hr class="w-8 h-px bg-gray-500 my-6 lg:mx-auto">
 					<nav class="space-y-5 text-gray-400 text-sm tracking-wider lg:text-center">
 						<div>
-							<nuxt-link class="hover:text-white" to="#">Главная</nuxt-link>
+							<nuxt-link class="hover:text-white" exact to="/">Главная</nuxt-link>
 						</div>
 						<div>
-							<nuxt-link class="hover:text-white" to="#">Об агентстве</nuxt-link>
+							<nuxt-link class="hover:text-white" exact to="/about">Об агентстве</nuxt-link>
 						</div>
 						<div>
-							<nuxt-link class="hover:text-white" to="#">Портфолио</nuxt-link>
+							<nuxt-link class="hover:text-white" exact to="#">Портфолио</nuxt-link>
 						</div>
 						<div>
-							<nuxt-link class="hover:text-white" to="#">Вакансии</nuxt-link>
+							<nuxt-link class="hover:text-white" exact to="#">Вакансии</nuxt-link>
 						</div>
 						<div>
-							<nuxt-link class="hover:text-white" to="#">Контакты</nuxt-link>
+							<nuxt-link class="hover:text-white" exact to="/contacts">Контакты</nuxt-link>
 						</div>
 					</nav>
 				</div>

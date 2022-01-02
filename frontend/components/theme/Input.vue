@@ -1,31 +1,44 @@
 <template>
-	<div class="relative">
-		<label>
-			<div class="label absolute inset-0 flex items-center pointer-events-none" :class="{ 'label-above': focusOrFilled }">
-				<span class="block font-extralight tracking-wider text-gray-400">
-					<slot name="label"></slot>
-				</span>
-			</div>
+	<div class="pt-5">
+		<div class="relative">
+			<label>
+				<div
+					class="label absolute inset-x-0 top-0 flex items-center pointer-events-none"
+					:class="{ 'label-above': focusOrFilled }"
+					:style="`height: ${standartInputHeight}px`"
+				>
+					<span class="block font-extralight tracking-wider text-gray-400">
+						<slot name="label"></slot>
+					</span>
+				</div>
 
-			<input-phone
-				class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
-				@focus="focus = true"
-				@blur="focus = false"
-				v-if="type == 'phone'"
-				v-model="value"
-			/>
+				<input-phone
+					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
+					@focus="focus = true"
+					@blur="focus = false"
+					v-if="type == 'phone'"
+					v-model="value"
+				/>
 
-			<textarea class="block w-full" v-else-if="type == 'textarea'" :name="name"></textarea>
-			<input
-				class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
-				v-else
-				:type="type"
-				@focus="focus = true"
-				@blur="focus = false"
-				:name="name"
-				v-model="value"
-			>
-		</label>
+				<textarea
+					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
+					v-else-if="type == 'textarea'"
+					@focus="focus = true"
+					@blur="focus = false"
+					:name="name"
+					v-model="value"
+				></textarea>
+				<input
+					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
+					v-else
+					:type="type"
+					@focus="focus = true"
+					@blur="focus = false"
+					:name="name"
+					v-model="value"
+				>
+			</label>
+		</div>
 	</div>
 </template>
 
@@ -43,6 +56,7 @@
 			return {
 				value: '',
 				focus: false,
+				standartInputHeight: 41
 			}
 		},
 		computed: {
@@ -61,12 +75,19 @@
 		transform-origin: 0;
 		will-change: transform;
 	}
+
 	.label-above {
 		transform: translateY(calc(-50% - 7px)) scale(.9);
 	}
+
+	textarea.form-control {
+		min-height: 100px;
+	}
+
 	.form-control {
 		transition: border-color .25s ease;
 	}
+
 	.form-control:focus {
 		border-color: #fff;
 	}
