@@ -17,8 +17,8 @@
 			<!-- Mobile menu button -->
 			<div class="absolute inset-0 z-30 h-[inherit] hidden lg:block pointer-events-none">
 				<div class="container h-full">
-					<div class="h-full flex items-center">
-						<button class="btn pointer-events-auto" @click="menu = !menu">
+					<div class="h-full">
+						<button class="btn pointer-events-auto h-full" @click="menu = !menu">
 							<v-icon class="mb-1" name="menu" />
 							<div class="relative text-gray-300 uppercase text-[.6rem] tracking-[.25rem] sm:tracking-rr overflow-hidden">
 								<span class="font-normal" v-if="!menu">Menu</span>
