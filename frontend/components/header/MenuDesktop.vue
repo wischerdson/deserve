@@ -7,7 +7,7 @@
 						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/">Главная</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="about">Об агентстве</nuxt-link>
+						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/about">Об агентстве</nuxt-link>
 					</li>
 					<li class="menu-item">
 						<a class="btn menu-item-magnetic inline-block" exact href="#">Портфолио</a>

@@ -12,7 +12,7 @@
 						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/">Главная</nuxt-link>
 					</li>
 					<li class="menu-item text-right pr-4">
-						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="about">Об агентстве</nuxt-link>
+						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/about">Об агентстве</nuxt-link>
 					</li>
 					<li class="menu-item text-right pr-4">
 						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Порфолио</a>
@@ -21,7 +21,7 @@
 						<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Вакансии</a>
 					</li>
 					<li class="menu-item text-right pr-4">
-						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="contacts">Контакты</nuxt-link>
+						<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/contacts">Контакты</nuxt-link>
 					</li>
 				</ul>
 			</div>
@@ -57,13 +57,13 @@
 
 	.mobile-menu {
 		&.v-enter-active {
-			.menu-backdrop { transition: transform .6s cubic-bezier(.76,.27,.38,.89); }
-			.menu-item { transition: transform .7s cubic-bezier(0,.5,0,1), opacity .6s ease; }
-			@include menu-item(.2);
+			.menu-backdrop { transition: transform .5s cubic-bezier(.76,.27,.38,.89); }
+			.menu-item { transition: transform .6s cubic-bezier(0,.5,0,1), opacity .6s ease; }
+			@include menu-item(.1);
 		}
 		&.v-leave-active {
-			.menu-backdrop { transition: transform .6s cubic-bezier(.76,.27,.38,.89) .6s; }
-			.menu-item { transition: transform .6s cubic-bezier(1,0,1,.5), opacity 2s ease; }
+			.menu-backdrop { transition: transform .5s cubic-bezier(.76,.27,.38,.89) .6s; }
+			.menu-item { transition: transform .5s cubic-bezier(1,0,1,.5), opacity 2s ease; }
 			@include menu-item();
 		}
 		&.v-enter, &.v-leave-to {
