@@ -1,25 +1,21 @@
 <template>
 	<div class="min-h-screen pt-24">
-		<div class="container grid grid-cols-[1fr,auto] gap-8">
+		<div class="container grid grid-cols-[1fr,auto] gap-8 xl:grid-cols-1 xl:gap-0">
 			<!-- Left column -->
-			<div>
+			<div class="lg:max-w-sm">
 				<!-- Page head -->
 				<div class="mt-2">
-					<v-breadcrumb :chain="[
-						{ name: 'Главная', href: '/' },
-						{ name: 'Контакты' }
-					]" />
-					<h1 class="text-7xl font-extralight mt-12  tracking-[.5rem]">Связаться с нами</h1>
+					<h1 class="text-7xl font-extralight mt-12 tracking-[.5rem] lg:text-4xl lg:tracking-[.25rem]">Связаться с нами</h1>
 				</div>
 
-				<div class="grid grid-cols-2 mt-14">
-					<div class="relative pr-24">
+				<div class="grid grid-cols-2 mt-14 lg:grid-cols-1">
+					<div class="relative pr-24 lg:pr-0">
 						<h2 class="flex items-center space-x-3 text-md tracking-wider">
 							<span>Форма обратной связи</span>
 							<v-icon name="arrow-right" />
 						</h2>
 						<p class="text-gray-500 mt-4 leading-normal tracking-wider text-sm">Мы искренне благодарны вам за вопросы, отзывы и предложения. Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.</p>
-						<div class="absolute bottom-0 left-0">
+						<div class="absolute bottom-0 left-0 lg:hidden">
 							<div class="text-xs text-gray-500 tracking-wider">Присоединяйтесь</div>
 							<ul class="flex space-x-3 mt-3">
 								<li>
@@ -35,7 +31,7 @@
 							</ul>
 						</div>
 					</div>
-					<div>
+					<div class="lg:mt-6">
 						<form action="">
 							<div class="space-y-4">
 								<v-input type="text" name="name">
@@ -60,7 +56,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="grid grid-cols-2 mt-24">
+				<div class="grid grid-cols-2 mt-24 lg:grid-cols-1 lg:gap-7">
 					<div>
 						<h2 class="font-extralight text-3xl text-gray-400 tracking-widest">Где мы находимся?</h2>
 						<p class="mt-12 font-normal">Москва</p>
@@ -68,21 +64,20 @@
 					</div>
 					<div>
 						<div class="pt-3/5 relative">
-							<div class="absolute inset-0 rounded-lg" :style="`background-image: url('https://scontent-frx5-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/267325346_1276618759521958_8848469307473974010_n.jpg?_nc_ht=scontent-frx5-1.cdninstagram.com&_nc_cat=110&_nc_ohc=3Rp7f2_q1IUAX_epBpO&edm=AABBvjUBAAAA&ccb=7-4&oh=00_AT9lWPgFH-1rWgU74hpqAMwz--zq64nrMbsvOdPBx4ZIng&oe=61C05F78&_nc_sid=83d603`"></div>
+							<div class="absolute inset-0 rounded-lg" :style="`background-image: url('${require('~/static/image/our-office.jpeg')}`"></div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 
 			<!-- Right column -->
-			<div class="pl-3 relative tracking-wider">
-				<div class="absolute h-full min-h-screen w-0.5 bg-gray-800 left-0 -top-1.5"></div>
-				<div class="sticky top-28 mt-14 space-y-14">
+			<div class="pl-3 relative tracking-wider xl:pl-0 lg:max-w-sm">
+				<div class="absolute h-full min-h-screen w-0.5 bg-gray-800 left-0 -top-1.5 xl:hidden"></div>
+				<div class="sticky top-28 mt-14 space-y-14 xl:static xl:grid xl:grid-cols-3 xl:space-y-0 xl:gap-8 lg:grid-cols-2">
 					<div>
 						<h2 class="mb-2.5 font-normal relative">
 							<span>Контакты</span>
-							<span class="absolute inset-y-0 -left-3 bg-white w-0.5"></span>
+							<span class="absolute inset-y-0 -left-3 bg-white w-0.5 xl:hidden"></span>
 						</h2>
 						<div class="text-gray-500">
 							<a class="hover:underline" href="mailto:info@deserve.ru">info@deserve.ru</a>
@@ -94,14 +89,14 @@
 					<div>
 						<h2 class="mb-2.5 font-normal relative">
 							<span>Часы работы</span>
-							<span class="absolute inset-y-0 -left-3 bg-white w-0.5"></span>
+							<span class="absolute inset-y-0 -left-3 bg-white w-0.5 xl:hidden"></span>
 						</h2>
 						<p class="text-gray-500 leading-normal">Без выходных <br>09:00 - 19:00</p>
 					</div>
-					<div class="pr-44">
+					<div class="pr-44 xl:pr-0">
 						<h2 class="mb-4 font-normal relative">
 							<span>Мы в мессенджерах</span>
-							<span class="absolute inset-y-0 -left-3 bg-white w-0.5"></span>
+							<span class="absolute inset-y-0 -left-3 bg-white w-0.5 xl:hidden"></span>
 						</h2>
 						<ul class="flex space-x-5">
 							<li>
