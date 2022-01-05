@@ -13,7 +13,7 @@
 						<a class="btn menu-item-magnetic inline-block" exact href="#">Портфолио</a>
 					</li>
 					<li class="menu-item">
-						<a class="btn menu-item-magnetic inline-block" exact href="#">Вакансии</a>
+						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/vacancies">Вакансии</nuxt-link>
 					</li>
 					<li class="menu-item">
 						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/contacts">Контакты</nuxt-link>

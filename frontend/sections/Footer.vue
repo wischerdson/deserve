@@ -35,7 +35,7 @@
 							<nuxt-link class="hover:text-white" exact to="#">Портфолио</nuxt-link>
 						</div>
 						<div>
-							<nuxt-link class="hover:text-white" exact to="#">Вакансии</nuxt-link>
+							<nuxt-link class="hover:text-white" exact to="/vacancies">Вакансии</nuxt-link>
 						</div>
 						<div>
 							<nuxt-link class="hover:text-white" exact to="/contacts">Контакты</nuxt-link>

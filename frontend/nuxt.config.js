@@ -8,6 +8,14 @@ export default {
 		}
 	},
 
+	publicRuntimeConfig: {
+		axios: {
+			debug: process.env.NODE_ENV !== 'production',
+			https: process.env.HTTP_SECURE,
+			browserBaseURL: process.env.BROWSER_BASE_URL
+		}
+	},
+
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		htmlAttrs: {
@@ -43,11 +51,12 @@ export default {
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
-		'@nuxt/postcss8',
+		'@nuxt/postcss8'
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [
+		'@nuxtjs/axios'
 	],
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
