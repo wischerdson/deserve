@@ -61,11 +61,16 @@ export default {
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
-		extractCSS: true,
+		// extractCSS: true,
 		transpile: ['gsap'],
 		postcss: {
 			plugins: {
-				tailwindcss: {},
+				// https://tailwindcss.nuxtjs.org/options
+				tailwindcss: {
+					config: './client/tailwind.config.js',
+					// cssPath: resolve(__dirname, 'assets/tailwind.css'),
+					exposeConfig: true
+				},
 				autoprefixer: {},
 			},
 		},

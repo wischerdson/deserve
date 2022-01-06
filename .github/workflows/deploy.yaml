@@ -18,12 +18,10 @@ jobs:
 
       - name: Install npm dependencies
         run: |
-          cd ./frontend
           npm ci
 
       - name: Compile front
         run: |
-          cd ./frontend
           npm run generate
 
       - name: Copy static content via rsync
