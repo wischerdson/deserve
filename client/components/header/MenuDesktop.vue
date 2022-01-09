@@ -1,36 +1,36 @@
 <template>
-	<div class="h-screen flex items-center relative">
+	<div class="header__menu-desktop h-screen flex items-center relative">
 		<div class="container">
 			<div class="grid grid-cols-2">
-				<ul class="mx-auto text-3xl space-y-12 font-thin tracking-[.45rem] uppercase">
+				<ul class="mx-auto text-3xl space-y-12 font-thin tracking-[.45rem] leading-none uppercase">
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/">Главная</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block" exact to="/">Главная</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/about">Об агентстве</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block" exact to="/about">Об агентстве</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<a class="btn menu-item-magnetic inline-block" exact href="#">Портфолио</a>
+						<nuxt-link class="btn menu-item__link inline-block" exact to="/portfolio">Портфолио</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/vacancies">Вакансии</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block" exact to="/vacancies">Вакансии</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item-magnetic inline-block" exact to="/contacts">Контакты</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block" exact to="/contacts">Контакты</nuxt-link>
 					</li>
 				</ul>
 				<div class="form-column mx-auto">
 					<h2 class="uppercase text-2xl font-thin tracking-[.25rem]">Обратный звонок</h2>
 					<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
-					<form class="mt-6 space-y-4" action="#">
+					<form class="mt-6 space-y-4" action="#" @submit.prevent="orderCall">
 						<div>
-							<v-input type="text" name="name">
+							<v-input type="text" name="name" v-model="orderCallForm.name">
 								<template v-slot:label>Как к Вам обращаться?</template>
 							</v-input>
 						</div>
 						<div>
-							<v-input type="phone" name="phone">
+							<v-input type="phone" name="phone" v-model="orderCallForm.phone">
 								<template v-slot:label>Ваш номер телефона</template>
 							</v-input>
 						</div>
@@ -70,12 +70,26 @@
 		},
 		data () {
 			return {
-				magneticSubmitFormBtn: null
+				magneticSubmitFormBtn: null,
+				orderCallForm: {
+					phone: '',
+					name: ''
+				}
 			}
 		},
 		watch: {
 			opened () {
 				this.magneticSubmitFormBtn.refresh()
+			},
+			'orderCallForm.phone' (value) {
+				console.log(value)
+			}
+		},
+		methods: {
+			orderCall () {
+				this.$axios.$post('/order-call.php', this.orderCallForm).then((d) => {
+					console.log(d)
+				})
 			}
 		},
 		mounted () {
@@ -132,6 +146,31 @@
 		}
 		.menu-bottom {
 			opacity: 0;
+		}
+	}
+
+	.header__menu-desktop .menu-item__link {
+		position: relative;
+
+		&:before {
+			content: "";
+			opacity: 0;
+			transition: opacity .2s ease;
+			position: absolute;
+			left: -30px;
+			display: block;
+			width: 7px;
+			height: 7px;
+			background-color: #202020;
+			top: calc(50% - 3px);
+			transform: translateY(-50%);
+			border-radius: 99px;
+		}
+
+		&.nuxt-link-exact-active {
+			&:before {
+				opacity: 1;
+			}
 		}
 	}
 

@@ -5,12 +5,12 @@
 			<div class="relative z-10">
 				<div class="absolute left-10 inset-y-0 -right-24 flex items-center">
 					<div ref="title">
-						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">GetPods.ru</h2>
+						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">{{ project.name }}</h2>
 						<hr class="w-32 mt-3 h-px bg-gray-700">
-						<p class="mt-8 text-gray-400 tracking-widest font-extralight">Разработка интернет-магазина для официального реселлера Apple</p>
+						<p class="mt-8 text-gray-400 tracking-widest font-extralight">{{ project.desc }}</p>
 						<a
 							class="btn rounded-full mt-7 space-x-5"
-							href="https://getpods.ru"
+							:href="project.url"
 							target="_blank"
 							ref="viewProjectBtn"
 						>
@@ -24,7 +24,9 @@
 			</div>
 			<div>
 				<div ref="image" class="w-full relative after:block after:pt-[60%] will-change-transform">
-					<div class="absolute inset-0 rounded-3xl" :style="`background-image:url('${image}')`"></div>
+					<div class="absolute inset-0 rounded-3xl overflow-hidden">
+						<img class="w-full h-full object-cover object-center" :src="project.image" :alt="project.name">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -32,15 +34,17 @@
 		<!-- Mobile -->
 		<div class="hidden lg:block">
 			<div ref="mobileImage" class="w-full relative after:block after:pt-full">
-				<div class="absolute inset-0 rounded-3xl" :style="`background-image:url('${image}')`"></div>
+				<div class="absolute inset-0 rounded-3xl overflow-hidden">
+					<img class="w-full h-full object-cover object-center" :src="project.mobileImage || project.image" :alt="project.name">
+				</div>
 			</div>
 			<div class="-mt-24" ref="mobileTitle">
-				<div class="text-6xl font-extralight tracking-wider">GetPods.ru</div>
+				<div class="text-6xl font-extralight tracking-wider">{{ project.name }}</div>
 				<hr class="w-32 mb-6 mt-5 bg-gray-700 h-px">
-				<p class="mt-8 text-gray-400 tracking-rr font-thin text-sm leading-normal">Разработка интернет-магазина для официального реселлера Apple</p>
+				<p class="mt-8 text-gray-400 tracking-rr font-thin text-sm leading-normal">{{ project.desc }}</p>
 				<a
 					class="btn rounded-full mt-7 space-x-5"
-					href="https://getpods.ru"
+					:href="project.url"
 					target="_blank"
 				>
 					<div class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black">
@@ -70,12 +74,24 @@
 			// Desktop animation
 			'(min-width: 1024px)': () => {
 				const timeline = gsap.timeline()
-				timeline.from(this.$refs.image, { opacity: 0 }, 0).addLabel('start')
-				timeline.from(this.$refs.image, {
-					scale: containerImageWitdhsRatio,
-					transformOrigin: "right center"
-				}, 'start-=70%')
-				timeline.from(this.$refs.title, { opacity: 0, x: -50 }, 'start-=70%')
+				timeline.fromTo(
+					this.$refs.image,
+					{ opacity: 0 },
+					{ opacity: 1 },
+					0
+				).addLabel('start')
+				timeline.fromTo(
+					this.$refs.image,
+					{ scale: containerImageWitdhsRatio, transformOrigin: 'right center' },
+					{ scale: 1 },
+					'start-=70%'
+				)
+				timeline.fromTo(
+					this.$refs.title,
+					{ opacity: 0, x: -50 },
+					{ opacity: 1, x: 0 },
+					'start-=70%'
+				)
 
 				ScrollTrigger.create({
 					animation: timeline,
@@ -89,8 +105,19 @@
 			// Mobile animation
 			'(max-width: 1023px)': () => {
 				const timeline = gsap.timeline()
-				timeline.from(this.$refs.mobileImage, { opacity: 0, scale: .95 }, 0).addLabel('start');
-				timeline.from(this.$refs.mobileTitle, { opacity: 0, y: 50 }, 'start-=70%');
+				timeline.fromTo(
+					this.$refs.mobileImage,
+					{ opacity: 0, scale: .95 },
+					{ opacity: 1, scale: 1 },
+					0
+				).addLabel('start');
+
+				timeline.fromTo(
+					this.$refs.mobileTitle,
+					{ opacity: 0, y: 50 },
+					{ opacity: 1, y: 0 },
+					'start-=70%'
+				);
 
 				ScrollTrigger.create({
 					animation: timeline,
@@ -105,9 +132,7 @@
 
 	export default {
 		props: {
-			image: {
-				type: String
-			}
+			project: Object
 		},
 		mounted () {
 			initScrollTrigger.call(this)

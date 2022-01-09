@@ -17,7 +17,7 @@
 					@focus="focus = true"
 					@blur="focus = false"
 					v-if="type == 'phone'"
-					v-model="value"
+					v-model="innerValue"
 				/>
 
 				<textarea
@@ -26,8 +26,9 @@
 					@focus="focus = true"
 					@blur="focus = false"
 					:name="name"
-					v-model="value"
+					v-model="innerValue"
 				></textarea>
+
 				<input
 					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
 					v-else
@@ -35,7 +36,7 @@
 					@focus="focus = true"
 					@blur="focus = false"
 					:name="name"
-					v-model="value"
+					v-model="innerValue"
 				>
 			</label>
 		</div>
@@ -49,14 +50,20 @@
 	export default {
 		props: {
 			type: String,
-			name: String
+			name: String,
+			value: String
 		},
 		components: { InputPhone },
 		data () {
 			return {
-				value: '',
+				innerValue: this.value,
 				focus: false,
 				standartInputHeight: 41
+			}
+		},
+		watch: {
+			innerValue (value) {
+				this.$emit('input', value)
 			}
 		},
 		computed: {

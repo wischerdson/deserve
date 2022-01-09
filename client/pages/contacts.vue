@@ -2,7 +2,7 @@
 	<div class="min-h-screen pt-24">
 		<div class="container grid grid-cols-[1fr,auto] gap-8 xl:grid-cols-1 xl:gap-0">
 			<!-- Left column -->
-			<div class="lg:max-w-sm">
+			<div class="lg:max-w-sm lg:px-8">
 				<!-- Page head -->
 				<div class="mt-2">
 					<h1 class="text-7xl font-extralight mt-12 tracking-[.5rem] lg:text-4xl lg:tracking-[.25rem]">Связаться с нами</h1>
@@ -71,7 +71,7 @@
 			</div>
 
 			<!-- Right column -->
-			<div class="pl-3 relative tracking-wider xl:pl-0 lg:max-w-sm">
+			<div class="pl-3 relative tracking-wider xl:pl-0 lg:max-w-sm lg:px-8">
 				<div class="absolute h-full min-h-screen w-0.5 bg-gray-800 left-0 -top-1.5 xl:hidden"></div>
 				<div class="sticky top-28 mt-14 space-y-14 xl:static xl:grid xl:grid-cols-3 xl:space-y-0 xl:gap-8 lg:grid-cols-2">
 					<div>

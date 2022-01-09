@@ -5,8 +5,8 @@
 		<div class="absolute inset-0 bg-black/70"></div>
 		<div ref="welcome_text" class="absolute inset-0 z-10 flex items-center">
 			<div class="container">
-				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-base lg:tracking-[.4rem] font-thin sm:leading-normal">Ваш партнер <br class="hidden sm:block">в digital-среде</p>
-				<h1 class="text-white text-center text-6xl uppercase tracking-widest lg:text-4xl md:leading-normal font-thin">Design. Strategy. Harmony.</h1>
+				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-lg lg:tracking-[.4rem] font-thin sm:leading-normal">Ваш партнер <br class="hidden sm:block">в digital-среде</p>
+				<h1 class="text-white text-center text-6xl uppercase tracking-widest lg:text-5xl md:leading-normal font-thin">Design. Strategy. Harmony.</h1>
 				<div class="text-center">
 					<a class="details-action btn mt-10 text-white uppercase tracking-[.3rem] text-xs relative leading-none px-4 py-2" href="#" ref="moreDetailedBtn">
 						<span>Подробнее</span>

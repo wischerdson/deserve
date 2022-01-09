@@ -33,11 +33,3 @@ jobs:
           remote_host: ${{ env.DEPLOY_SERVER_HOST }}
           remote_key: ${{ secrets.DEPLOY_SERVER_KEY }}
 
-      - name: Setup application
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ env.DEPLOY_SERVER_HOST }}
-          username: ${{ env.DEPLOY_SERVER_USERNAME }}
-          key: ${{ secrets.DEPLOY_SERVER_KEY }}
-          script: |
-            ln -s ${{ env.DEPLOY_PATH }}/public ${{ env.DEPLOY_PATH }}/public_html

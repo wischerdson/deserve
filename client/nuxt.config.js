@@ -61,7 +61,7 @@ export default {
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
-		// extractCSS: true,
+		extractCSS: true,
 		transpile: ['gsap'],
 		postcss: {
 			plugins: {

@@ -13,11 +13,8 @@
 						<h2 class="text-xl font-extralight tracking-wider">О компании</h2>
 						<hr class="w-8 h-px bg-gray-500 my-6">
 						<p class="text-sm text-gray-400 leading-relaxed tracking-wider">But horizontal lines can only be full pixel high</p>
-						<div class="mt-8">
-							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" to="#">More info</nuxt-link>
-						</div>
 						<div class="mt-6">
-							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" exact to="/contacts">Contact us</nuxt-link>
+							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" exact to="/contacts">Связаться с нами</nuxt-link>
 						</div>
 					</div>
 				</div>
@@ -32,7 +29,7 @@
 							<nuxt-link class="hover:text-white" exact to="/about">Об агентстве</nuxt-link>
 						</div>
 						<div>
-							<nuxt-link class="hover:text-white" exact to="#">Портфолио</nuxt-link>
+							<nuxt-link class="hover:text-white" exact to="/portfolio">Портфолио</nuxt-link>
 						</div>
 						<div>
 							<nuxt-link class="hover:text-white" exact to="/vacancies">Вакансии</nuxt-link>
@@ -45,11 +42,11 @@
 				<div class="max-w-[282px] lg:max-w-none">
 					<h2 class="text-xl font-extralight tracking-wider lg:hidden">Новости</h2>
 					<hr class="w-8 h-px bg-gray-500 my-6 lg:hidden">
-					<div class="flex space-x-3 lg:justify-center lg:mt-10">
-						<a class="btn rounded-md w-12 h-12 bg-gray-800 text-gray-500" href="#" target="_blank" title="Наш facebook">
+					<div class="flex space-x-5 lg:justify-center lg:mt-10">
+						<a class="btn rounded-md text-gray-500" href="#" target="_blank" title="Наш facebook">
 							<v-icon name="facebook" />
 						</a>
-						<a class="btn rounded-md w-12 h-12 bg-gray-800 text-gray-500" href="#" target="_blank" title="Наш instagram">
+						<a class="btn rounded-md text-gray-500" href="#" target="_blank" title="Наш instagram">
 							<v-icon name="instagram" />
 						</a>
 					</div>

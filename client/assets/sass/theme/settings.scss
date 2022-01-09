@@ -28,3 +28,7 @@ input:-webkit-autofill {
 .page-leave-to {
 	opacity: 0;
 }
+
+.typed-cursor {
+	will-change: opacity;
+}

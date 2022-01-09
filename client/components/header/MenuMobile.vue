@@ -15,7 +15,7 @@
 							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/about">Об агентстве</nuxt-link>
 						</li>
 						<li class="menu-item text-right pr-4">
-							<a class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" href="#">Порфолио</a>
+							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/portfolio">Порфолио</nuxt-link>
 						</li>
 						<li class="menu-item text-right pr-4">
 							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/vacancies">Вакансии</nuxt-link>

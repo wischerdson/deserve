@@ -32,6 +32,8 @@
 			<!-- Mobile menu -->
 			<header-menu-mobile v-model="menu" />
 		</div>
+
+		<contact-us-sidebar :opened="true" />
 	</header>
 </template>
 
@@ -43,6 +45,7 @@
 	import HeaderMenuDesktop from '~/components/header/MenuDesktop'
 	import HeaderMenuMobile from '~/components/header/MenuMobile'
 	import HeaderNavBar from '~/components/header/NavBar'
+	import ContactUsSidebar from '~/components/header/ContactUsSidebar'
 
 	/* Register header scroll animation  */
 	const initScrollTrigger = function () {
@@ -66,7 +69,7 @@
 				menu: false
 			}
 		},
-		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar },
+		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar, ContactUsSidebar },
 		watch: {
 			menu (value) {
 				value ? disableScroll.on() : disableScroll.off()

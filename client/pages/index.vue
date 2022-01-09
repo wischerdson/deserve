@@ -32,7 +32,7 @@
 <script>
 
 	import WelcomeSection from '~/sections/home/Welcome'
-	import PortfolioSection from '~/sections/Portfolio'
+	import PortfolioSection from '~/sections/home/Portfolio'
 	import gsap from 'gsap'
 	import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
