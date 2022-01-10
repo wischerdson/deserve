@@ -4,7 +4,6 @@
 		<div class="mobile-menu absolute inset-0 z-20 hidden lg:block overflow-hidden" v-if="menu">
 			<div
 				class="menu-backdrop w-screen h-full bg-black will-change-transform"
-				:style="`background-image: url(${require('~/static/image/header-menu-bg.jpeg')})`"
 			>
 				<div class="container h-full">
 					<ul class="h-full flex flex-col items-end justify-center relative z-10 space-y-9">

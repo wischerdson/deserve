@@ -41,7 +41,7 @@
 			<div class="-mt-24" ref="mobileTitle">
 				<div class="text-6xl font-extralight tracking-wider">{{ project.name }}</div>
 				<hr class="w-32 mb-6 mt-5 bg-gray-700 h-px">
-				<p class="mt-8 text-gray-400 tracking-rr font-thin text-sm leading-normal">{{ project.desc }}</p>
+				<p class="mt-8 text-gray-400 tracking-rr font-extralight text-sm leading-normal">{{ project.desc }}</p>
 				<a
 					class="btn rounded-full mt-7 space-x-5"
 					:href="project.url"

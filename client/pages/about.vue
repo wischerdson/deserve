@@ -4,12 +4,12 @@
 		<div class="page-background" data-vbg="https://youtu.be/lu72YfaDU1o" data-vbg-load-background="false"></div>
 		<div class="absolute inset-0 bg-black/90 backdrop-contrast-150"></div>
 		<h1 class="hidden">О нас</h1>
-		<div class="w-full relative z-10 flex items-center pt-56 pb-44 md:pt-10">
+		<div class="w-full relative z-10 flex items-center pt-56 pb-44 lg:pt-40">
 			<div class="container">
-				<div class="flex text-8xl lg:text-7xl md:text-6xl sm:text-5xl font-extralight tracking-wider">
+				<div class="flex text-8xl lg:text-7xl md:text-6xl font-extralight tracking-wider">
 					<h2 ref="typed">Hello</h2>
 				</div>
-				<div class="mt-16 md:mt-10 text-5xl lg:text-4xl md:text-3xl sm:text-2xl leading-normal font-extralight tracking-wider text-gray-400 space-y-16 max-w-4xl">
+				<div class="mt-16 md:mt-10 text-5xl lg:text-4xl leading-normal font-extralight tracking-wider text-gray-400 space-y-16 max-w-4xl">
 					<p>Добро пожаловать в наш мир. Мы -
 					Deserve, <span class="text-white">креативное digital-агентство.</span>
 					Мы предлагаем различные виды
@@ -39,7 +39,7 @@
 			this.$videoBg('.page-background')
 
 			new Typed(this.$refs.typed, {
-				strings: ['Hello', 'Здравствуйте', 'Bonjour', 'Hola', 'Guten Tag'],
+				strings: ['Hello', 'Привет', 'Bonjour', 'Hola', 'Guten Tag'],
 				typeSpeed: 70,
 				backSpeed: 30,
 				backDelay: 1250,
