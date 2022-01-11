@@ -46,7 +46,7 @@
 						<a class="btn rounded-md text-gray-500" href="#" target="_blank" title="Наш facebook">
 							<v-icon name="facebook" />
 						</a>
-						<a class="btn rounded-md text-gray-500" href="#" target="_blank" title="Наш instagram">
+						<a class="btn rounded-md text-gray-500" href="https://www.instagram.com/deserve_ru/" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
 							<v-icon name="instagram" />
 						</a>
 					</div>

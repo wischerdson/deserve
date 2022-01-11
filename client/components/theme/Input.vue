@@ -2,42 +2,36 @@
 	<div class="pt-5">
 		<div class="relative">
 			<label>
+				<input-phone
+					:class="inputClass"
+					v-if="type == 'phone'"
+					v-model="innerValue"
+				/>
+
+				<textarea
+					:class="inputClass"
+					v-else-if="type == 'textarea'"
+					:name="name"
+					v-model="innerValue"
+				></textarea>
+
+				<input
+					:class="inputClass"
+					v-else
+					:type="type"
+					:name="name"
+					v-model="innerValue"
+				>
+
 				<div
 					class="label absolute inset-x-0 top-0 flex items-center pointer-events-none"
-					:class="{ 'label-above': focusOrFilled }"
+					:class="{ 'on-focus': innerValue }"
 					:style="`height: ${standartInputHeight}px`"
 				>
 					<span class="block font-extralight tracking-wider text-gray-400">
 						<slot name="label"></slot>
 					</span>
 				</div>
-
-				<input-phone
-					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
-					@focus="focus = true"
-					@blur="focus = false"
-					v-if="type == 'phone'"
-					v-model="innerValue"
-				/>
-
-				<textarea
-					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
-					v-else-if="type == 'textarea'"
-					@focus="focus = true"
-					@blur="focus = false"
-					:name="name"
-					v-model="innerValue"
-				></textarea>
-
-				<input
-					class="form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider"
-					v-else
-					:type="type"
-					@focus="focus = true"
-					@blur="focus = false"
-					:name="name"
-					v-model="innerValue"
-				>
 			</label>
 		</div>
 	</div>
@@ -57,18 +51,13 @@
 		data () {
 			return {
 				innerValue: this.value,
-				focus: false,
-				standartInputHeight: 41
+				standartInputHeight: 41,
+				inputClass: 'form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider'
 			}
 		},
 		watch: {
 			innerValue (value) {
 				this.$emit('input', value)
-			}
-		},
-		computed: {
-			focusOrFilled () {
-				return this.value || this.focus
 			}
 		}
 	}
@@ -83,7 +72,8 @@
 		will-change: transform;
 	}
 
-	.label-above {
+	.label.on-focus,
+	.form-control:focus + .label {
 		transform: translateY(calc(-50% - 7px)) scale(.9);
 	}
 
@@ -93,10 +83,10 @@
 
 	.form-control {
 		transition: border-color .25s ease;
-	}
 
-	.form-control:focus {
-		border-color: #fff;
+		&:focus {
+			border-color: #fff;
+		}
 	}
 
 </style>

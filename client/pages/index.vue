@@ -4,22 +4,18 @@
 
 		<div class="mt-20" ref="useless_items_wrapper">
 			<div class="container">
-				<ul class="grid grid-cols-4 -mx-12 lg:grid-cols-1 lg:gap-7 lg:text-center lg:max-w-xs lg:mx-auto">
+				<ul class="grid grid-cols-3 -mx-12 lg:grid-cols-1 lg:gap-7 lg:text-center lg:max-w-xs lg:mx-auto">
 					<li class="useless-item px-12 space-y-3 lg:space-y-0 lg:px-6">
-						<h2 class="text-gray-400 font-normal tracking-wider">От идеи до желаемого результата</h2>
-						<p class="text-gray-500 text-xs font-normal tracking-widest leading-tight">Выполняем все этапы видеопроизводства</p>
+						<h2 class="text-gray-400 font-normal tracking-wider">От идеи до реализации желаемого результата</h2>
+						<p class="text-gray-500 text-sm tracking-widest leading-normal">В первую очередь мы нацелены на результат, чтобы максимально быстро и качественно решать задачи, стоящие перед вашим бизнесом</p>
 					</li>
 					<li class="useless-item px-12 space-y-3 lg:space-y-0 lg:px-6">
-						<h2 class="text-gray-400 font-normal tracking-wider">От идеи до желаемого результата</h2>
-						<p class="text-gray-500 text-xs font-normal tracking-widest leading-tight">Выполняем все этапы видеопроизводства</p>
+						<h2 class="text-gray-400 font-normal tracking-wider">Найдем точки роста и обновим <br>стилистику</h2>
+						<p class="text-gray-500 text-sm tracking-widest leading-normal">Улучшим UX/UI проекта, проведем анализ аудитории. Найдем новые формы и смыслы, поможем сменить позиционирование и ключевое сообщение бренда</p>
 					</li>
 					<li class="useless-item px-12 space-y-3 lg:space-y-0 lg:px-6">
-						<h2 class="text-gray-400 font-normal tracking-wider">От идеи до желаемого результата</h2>
-						<p class="text-gray-500 text-xs font-normal tracking-widest leading-tight">Выполняем все этапы видеопроизводства</p>
-					</li>
-					<li class="useless-item px-12 space-y-3 lg:space-y-0 lg:px-6">
-						<h2 class="text-gray-400 font-normal tracking-wider">От идеи до желаемого результата</h2>
-						<p class="text-gray-500 text-xs font-normal tracking-widest leading-tight">Выполняем все этапы видеопроизводства</p>
+						<h2 class="text-gray-400 font-normal tracking-wider">Поддержим и поможем двигаться <br>быстрее</h2>
+						<p class="text-gray-500 text-sm tracking-widest leading-normal">Возьмем на себя контроль по системному развитию проекта: новые страницы и дополнительные функции, которые принесут пользу бизнесу</p>
 					</li>
 				</ul>
 			</div>
@@ -46,7 +42,12 @@
 			const percent = 100/uselessElements.length
 
 			for (let i = 0; i < uselessElements.length; i++) {
-				timeline.from(uselessElements[i], { opacity: 0 }, `${i*percent}%`)
+				timeline.fromTo(
+					uselessElements[i],
+					{ opacity: 0 },
+					{ opacity: 1 },
+					`${i*percent}%`
+				)
 			}
 
 			ScrollTrigger.create({

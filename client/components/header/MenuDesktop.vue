@@ -49,7 +49,7 @@
 		<div class="menu-bottom absolute inset-x-0 bottom-10">
 			<div class="container flex items-center">
 				<div>
-					<a class="text-gray-400 hover:text-white transition-colors" href="https://instagram.com" target="_blank" title="Наш Instagram">
+					<a class="text-gray-400 hover:text-white transition-colors" href="https://www.instagram.com/deserve_ru/" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
 						<v-icon name="instagram" />
 					</a>
 				</div>
@@ -80,9 +80,6 @@
 		watch: {
 			opened () {
 				this.magneticSubmitFormBtn.refresh()
-			},
-			'orderCallForm.phone' (value) {
-				console.log(value)
 			}
 		},
 		methods: {

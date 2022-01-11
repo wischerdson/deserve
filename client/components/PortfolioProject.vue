@@ -5,6 +5,7 @@
 			<div class="relative z-10">
 				<div class="absolute left-10 inset-y-0 -right-24 flex items-center">
 					<div ref="title">
+						<div class="text-gray-500 tracking-rr uppercase text-sm mb-6" v-if="project.subtitle">{{ project.subtitle }}</div>
 						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">{{ project.name }}</h2>
 						<hr class="w-32 mt-3 h-px bg-gray-700">
 						<p class="mt-8 text-gray-400 tracking-widest font-extralight">{{ project.desc }}</p>

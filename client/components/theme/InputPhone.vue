@@ -2,8 +2,8 @@
 	<input
 		type="tel"
 		ref="input"
-		@focus="focus = true"
-		@blur="focus = false"
+		@focus="focus"
+		@blur="$emit('blur')"
 		:name="name"
 		@input="formatted = $event.target.value"
 	>
@@ -23,29 +23,31 @@
 			return {
 				formatted: '',
 				value: '',
-				focus: false,
 				iti: null
 			}
 		},
 		watch: {
-			focus (focus) {
-				focus ? this.$emit('focus') : this.$emit('blur')
+			formatted (value) {
+				this.$emit('input', this.iti.getNumber())
+			}
+		},
+		methods: {
+			focus () {
+				this.$emit('focus')
 
-				if (focus && !this.formatted) {
+				if (!this.formatted) {
 					const code = this.iti.getSelectedCountryData().dialCode
 					const tip = `+${code}`
 					this.$refs.input.value = tip
 					this.formatted = tip
 				}
-			},
-			formatted (value) {
-				this.$emit('input', this.iti.getNumber())
 			}
 		},
 		mounted () {
 			const input = this.$refs.input
 
 			this.formatted = input.value
+
 			this.iti = this.$intlTelInput(input, {
 				allowDropdown: false,
 				initialCountry: 'ru',

@@ -19,7 +19,7 @@
 							<div class="text-xs text-gray-500 tracking-wider">Присоединяйтесь</div>
 							<ul class="flex space-x-3 mt-3">
 								<li>
-									<a class="text-gray-300" href="" target="_blank">
+									<a class="text-gray-300" href="https://www.instagram.com/deserve_ru/" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
 										<v-icon width="18px" name="instagram" />
 									</a>
 								</li>
@@ -35,16 +35,16 @@
 						<form action="">
 							<div class="space-y-4">
 								<v-input type="text" name="name">
-									<template v-slot:label><span class="">Имя</span></template>
+									<template v-slot:label>Имя</template>
 								</v-input>
 								<v-input type="email" name="email">
-									<template v-slot:label><span class="">Email</span></template>
+									<template v-slot:label>Email</template>
 								</v-input>
 								<v-input type="phone" name="phone">
-									<template v-slot:label><span class="">Телефон</span></template>
+									<template v-slot:label>Телефон</template>
 								</v-input>
 								<v-input type="textarea" name="message">
-									<template v-slot:label><span class="">Сообщение</span></template>
+									<template v-slot:label>Сообщение</template>
 								</v-input>
 							</div>
 							<button class="btn space-x-4 mt-10" type="submit" ref="submitFormBtn">
