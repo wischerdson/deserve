@@ -2,8 +2,8 @@ name: Deploy application
 
 on:
   push:
-    branches:
-      - master
+  branches:
+    - master
 
 env:
   DEPLOY_SERVER_USERNAME: capitalup
@@ -12,24 +12,23 @@ env:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
 
-      - name: Install npm dependencies
-        run: |
-          npm ci
+    - name: Install npm dependencies
+    run: |
+      npm ci
 
-      - name: Compile front
-        run: |
-          npm run generate
+    - name: Compile front
+    run: |
+      npm run generate
 
-      - name: Copy static content via rsync
-        uses: burnett01/rsync-deployments@5.1
-        with:
-          switches: -azr --delete --include "public/***" --exclude "*"
-          remote_path: ${{ env.DEPLOY_PATH }}
-          remote_user: ${{ env.DEPLOY_SERVER_USERNAME }}
-          remote_host: ${{ env.DEPLOY_SERVER_HOST }}
-          remote_key: ${{ secrets.DEPLOY_SERVER_KEY }}
-
+    - name: Copy static content via rsync
+    uses: burnett01/rsync-deployments@5.1
+    with:
+      switches: -azr --delete --include "public/***" --exclude "*"
+      remote_path: ${{ env.DEPLOY_PATH }}
+      remote_user: ${{ env.DEPLOY_SERVER_USERNAME }}
+      remote_host: ${{ env.DEPLOY_SERVER_HOST }}
+      remote_key: ${{ secrets.DEPLOY_SERVER_KEY }}
