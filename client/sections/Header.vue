@@ -2,14 +2,18 @@
 	<header class="section-header fixed inset-0 z-30">
 		<div class="h-[88px]" ref="spacer">
 			<!-- Desktop menu -->
-			<div class="overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] lg:hidden" ref="backdrop">
+			<div class="z-10 overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] lg:hidden" ref="backdrop">
 				<transition name="menu" :duration="{ leave: 600 }">
 					<header-menu-desktop :opened="menu" v-show="menu" />
 				</transition>
 			</div>
 
 			<!-- Navigation bar -->
-			<header-nav-bar v-model="menu" />
+			<header-nav-bar
+				v-model="menu"
+				:contact-us-sidebar="contactUsSidebar"
+				@toggleContactUsSidebar="contactUsSidebar = !contactUsSidebar"
+			/>
 
 			<!-- Mobile header backdrop -->
 			<div class="absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] hidden lg:block"></div>
@@ -33,7 +37,7 @@
 			<header-menu-mobile v-model="menu" />
 		</div>
 
-		<contact-us-sidebar :opened="true" />
+		<contact-us-sidebar :opened="contactUsSidebar" @close="contactUsSidebar = false" />
 	</header>
 </template>
 
@@ -66,12 +70,14 @@
 	export default {
 		data () {
 			return {
-				menu: false
+				menu: false,
+				contactUsSidebar: false
 			}
 		},
 		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar, ContactUsSidebar },
 		watch: {
 			menu (value) {
+				this.contactUsSidebar = false
 				value ? disableScroll.on() : disableScroll.off()
 
 				const backdrop = this.$refs.backdrop
@@ -84,6 +90,14 @@
 					this.$refs.backdrop.classList.add('backdrop-extended')
 				} else {
 					this.$refs.backdrop.classList.remove('backdrop-extended')
+				}
+			},
+			contactUsSidebar (value) {
+				if (value && this.menu) {
+					this.menu = false
+					setTimeout(() => {
+						this.contactUsSidebar = true
+					}, 100)
 				}
 			},
 			$route () {

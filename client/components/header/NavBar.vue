@@ -21,9 +21,10 @@
 			</div>
 
 			<div class="flex justify-end items-center">
-				<a class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" href="#">
-					<span class="font-light">Обсудить</span>
-				</a>
+				<button class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" @click="$emit('toggleContactUsSidebar')">
+					<span class="font-light" v-if="contactUsSidebar">Закрыть</span>
+					<span class="font-light" v-else>Обсудить</span>
+				</button>
 			</div>
 		</div>
 	</div>
@@ -36,7 +37,8 @@
 
 	export default {
 		props: {
-			menu: Boolean
+			menu: Boolean,
+			contactUsSidebar: Boolean
 		},
 		model: {
 			prop: 'menu',
