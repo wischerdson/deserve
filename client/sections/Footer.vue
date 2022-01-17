@@ -6,13 +6,13 @@
 					<div class="pr-8 max-w-sm w-full lg:pr-0 lg:max-w-none lg:text-center">
 						<v-icon width="120px" name="deserve-full-logo" />
 						<div class="mt-5">
-							<p class="text-sm text-gray-400 leading-relaxed tracking-wider">Use this tool as test data for an automated system or find your next pen.</p>
+							<p class="text-sm text-gray-400 leading-relaxed tracking-wider">Добро пожаловать в наш мир. Мы - Deserve, креативное digital-агентство. Мы предлагаем различные виды цифровых услуг.</p>
 						</div>
 					</div>
 					<div class="border-l border-gray-600 pl-12 max-w-[282px] xl:hidden">
-						<h2 class="text-xl font-extralight tracking-wider">О компании</h2>
+						<h2 class="text-xl font-extralight tracking-wider">Контакты</h2>
 						<hr class="w-8 h-px bg-gray-500 my-6">
-						<p class="text-sm text-gray-400 leading-relaxed tracking-wider">But horizontal lines can only be full pixel high</p>
+						<p class="text-sm text-gray-400 leading-relaxed tracking-wider">Ваше сообщение будет направлено в отдел по работе с клиентами.</p>
 						<div class="mt-6">
 							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" exact to="/contacts">Связаться с нами</nuxt-link>
 						</div>
@@ -43,31 +43,25 @@
 					<h2 class="text-xl font-extralight tracking-wider lg:hidden">Новости</h2>
 					<hr class="w-8 h-px bg-gray-500 my-6 lg:hidden">
 					<div class="flex space-x-5 lg:justify-center lg:mt-10">
-						<a class="btn rounded-md text-gray-500" href="#" target="_blank" title="Наш facebook">
+						<a class="btn rounded-md text-gray-500" href="https://www.facebook.com/deserve.ru" target="_blank" title="Наш facebook">
 							<v-icon name="facebook" />
 						</a>
-						<a class="btn rounded-md text-gray-500" href="https://www.instagram.com/deserve_ru/" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
+						<a class="btn rounded-md text-gray-500" href="https://instagram.com/deserve_ru?utm_medium=copy_link" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
 							<v-icon name="instagram" />
 						</a>
 					</div>
-					<p class="text-sm text-gray-400 leading-relaxed tracking-wider mt-6 lg:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur odio quam laudantium modi inventore eos necessitatibus fugiat.</p>
+					<p class="text-sm text-gray-400 leading-relaxed tracking-wider mt-6 lg:hidden">Подпишитесь на нас в социальных сетях, чтобы получать новости и эксклюзивные предложения.</p>
 				</div>
 			</div>
 		</div>
 		<div class="container flex justify-between mt-6 py-10 lg:flex-col-reverse">
-			<small class="text-xs text-gray-600 tracking-wider lg:text-center lg:mt-10">&copy; Copyright 2022, Deserve</small>
+			<small class="text-xs text-gray-600 tracking-wider lg:text-center lg:mt-10">&copy; Copyright 2022, deserve.ru</small>
 			<ul class="flex space-x-5 lg:space-x-0 lg:space-y-4 text-xs lg:tracking-widest text-gray-600 tracking-wider lg:block lg:text-center">
 				<li>
 					<a class="hover:underline" href="#">Обработка персональных данных</a>
 				</li>
 				<li>
 					<a class="hover:underline" href="#">Политика конфиденциальности</a>
-				</li>
-				<li>
-					<a class="hover:underline" href="#">Пользовательское соглашение</a>
-				</li>
-				<li>
-					<a class="hover:underline" href="#">Интеллектуальные права</a>
 				</li>
 			</ul>
 		</div>

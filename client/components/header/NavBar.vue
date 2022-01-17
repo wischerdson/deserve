@@ -2,7 +2,7 @@
 	<div class="container relative z-10 h-full">
 		<div class="grid grid-cols-3 h-full">
 			<div class="flex items-center">
-				<button class="btn lg:hidden" @click="$emit('change', !menu)">
+				<button class="btn lg:hidden transition-opacity hover:opacity-70" @click="$emit('change', !menu)">
 					<v-icon class="mb-1" name="menu" />
 					<div class="relative uppercase text-xs tracking-[.25rem]">
 						<span class="font-normal" v-if="!menu">Menu</span>
@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="flex justify-end items-center">
-				<a class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr" href="#">
+				<a class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" href="#">
 					<span class="font-light">Обсудить</span>
 				</a>
 			</div>

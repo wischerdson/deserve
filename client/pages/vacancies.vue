@@ -1,8 +1,6 @@
 <template>
 	<div class="pt-24">
 		<div class="container">
-			<h1 class="text-7xl font-extralight mt-12 tracking-[.5rem] lg:text-4xl lg:tracking-[.25rem]">Вакансии</h1>
-
 			<div class="grid gap-x-16 gap-y-28 mt-20 lg:grid-cols-1 pb-28">
 				<div v-for="(vacancy, idx) in vacancies" :key="`vacancy-${idx}`">
 					<h2 class="text-4xl tracking-rr font-extralight lg:text-3xl">{{ vacancy.title }}</h2>

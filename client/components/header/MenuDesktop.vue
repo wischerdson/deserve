@@ -4,26 +4,26 @@
 			<div class="grid grid-cols-2">
 				<ul class="mx-auto text-3xl space-y-12 font-thin tracking-[.45rem] leading-none uppercase">
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block" exact to="/">Главная</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/">Главная</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block" exact to="/about">Об агентстве</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/about">Об агентстве</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block" exact to="/portfolio">Портфолио</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/portfolio">Портфолио</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block" exact to="/vacancies">Вакансии</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/vacancies">Вакансии</nuxt-link>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block" exact to="/contacts">Контакты</nuxt-link>
+						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/contacts">Контакты</nuxt-link>
 					</li>
 				</ul>
 				<div class="form-column mx-auto">
 					<h2 class="uppercase text-2xl font-thin tracking-[.25rem]">Обратный звонок</h2>
 					<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
-					<form class="mt-6 space-y-4" action="#" @submit.prevent="orderCall">
+					<form class="mt-6 space-y-4" action="/api/order-call" @submit.prevent="orderCall">
 						<div>
 							<v-input type="text" name="name" v-model="orderCallForm.name">
 								<template v-slot:label>Как к Вам обращаться?</template>
@@ -55,7 +55,7 @@
 				</div>
 				<div class="ml-auto flex items-center space-x-10">
 					<a class="text-gray-500 text-xs tracking-widest" href="#">Политика конфиденциальности</a>
-					<p class="uppercase tracking-rr text-xs">Made by Deserve</p>
+					<a class="text-gray-500 text-xs tracking-widest" href="#">Обработка персональных данных</a>
 				</div>
 			</div>
 		</div>
@@ -83,8 +83,9 @@
 			}
 		},
 		methods: {
-			orderCall () {
-				this.$axios.$post('/order-call.php', this.orderCallForm).then((d) => {
+			orderCall (e) {
+				const url = e.target.getAttribute('action')
+				this.$axios.$post(url, this.orderCallForm).then((d) => {
 					console.log(d)
 				})
 			}

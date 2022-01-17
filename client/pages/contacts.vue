@@ -14,8 +14,8 @@
 							<span>Форма обратной связи</span>
 							<v-icon name="arrow-right" />
 						</h2>
-						<p class="text-gray-500 mt-4 leading-normal tracking-wider text-sm">Мы искренне благодарны вам за вопросы, отзывы и предложения. Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.</p>
-						<div class="absolute bottom-0 left-0 lg:hidden">
+						<p class="text-gray-500 mt-4 leading-normal tracking-wider text-sm">Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.</p>
+						<div class="absolute bottom-0 left-0 lg:static lg:mt-6">
 							<div class="text-xs text-gray-500 tracking-wider">Присоединяйтесь</div>
 							<ul class="flex space-x-3 mt-3">
 								<li>
@@ -24,7 +24,7 @@
 									</a>
 								</li>
 								<li>
-									<a class="text-gray-300" href="" target="_blank">
+									<a class="text-gray-300" href="https://www.facebook.com/deserve.ru" target="_blank">
 										<v-icon width="18px" name="facebook" />
 									</a>
 								</li>
@@ -59,8 +59,8 @@
 				<div class="grid grid-cols-2 mt-24 lg:grid-cols-1 lg:gap-7">
 					<div>
 						<h2 class="font-extralight text-3xl text-gray-400 tracking-widest">Где мы находимся?</h2>
-						<p class="mt-12 font-normal">Москва</p>
-						<p class="leading-normal text-gray-300 mt-3">Кутузовский проспект, д 2/1, строение 6, <br> Конгресс парк, гост Украина <br>Этаж 3</p>
+						<p class="mt-12 font-normal">Смоленск</p>
+						<p class="leading-normal text-gray-300 mt-3">Ленина, 13А, 214000, Этаж 2</p>
 					</div>
 					<div>
 						<div class="pt-3/5 relative">
@@ -82,8 +82,8 @@
 						<div class="text-gray-500">
 							<a class="hover:underline" href="mailto:info@deserve.ru">info@deserve.ru</a>
 						</div>
-						<div class="text-gray-500 mt-1.5">
-							<a class="hover:underline" href="tel:+71234567890">+7 123 456 78 90</a>
+						<div class="text-gray-500 mt-1.5 lg:text-sm">
+							<a class="hover:underline" href="tel:+79958808484">8 (995) 880 84-84</a>
 						</div>
 					</div>
 					<div>
@@ -91,7 +91,7 @@
 							<span>Часы работы</span>
 							<span class="absolute inset-y-0 -left-3 bg-white w-0.5 xl:hidden"></span>
 						</h2>
-						<p class="text-gray-500 leading-normal">Без выходных <br>09:00 - 19:00</p>
+						<p class="text-gray-500 leading-normal lg:text-sm">Без выходных <br>09:00 - 19:00</p>
 					</div>
 					<div class="pr-44 xl:pr-0">
 						<h2 class="mb-4 font-normal relative">
@@ -100,12 +100,12 @@
 						</h2>
 						<ul class="flex space-x-5">
 							<li>
-								<a class="tg-link btn w-10 h-10 rounded-full bg-telegram" href="#" target="_blank" title="Связаться с нами через Telegram">
+								<a class="tg-link btn w-10 h-10 rounded-full bg-telegram" href="https://t.me/deserve_ru" target="_blank" title="Связаться с нами через Telegram">
 									<v-icon width="20px" name="telegram" />
 								</a>
 							</li>
 							<li>
-								<a class="wa-link btn w-10 h-10 rounded-full bg-whatsapp" href="#" target="_blank" title="Связаться с нами по WhatsApp">
+								<a class="wa-link btn w-10 h-10 rounded-full bg-whatsapp" href="https://wa.me/message/Y6UYTJZNKUUMA1" target="_blank" title="Связаться с нами по WhatsApp">
 									<v-icon width="20px" name="whatsapp" />
 								</a>
 							</li>
