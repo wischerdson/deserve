@@ -23,12 +23,13 @@
 							</v-input>
 						</fieldset>
 						<fieldset>
-							<select class="text-white bg-unset" name="budget" v-model="budget">
+							<v-select name="budget" v-model="form.budget">
+								<template #label>Планируемый бюджет</template>
 								<option class="text-black" value="1">До 500 тыс.</option>
 								<option class="text-black" value="1">0.5 - 1 млн.</option>
 								<option class="text-black" value="1">1 - 3 млн.</option>
 								<option class="text-black" value="1">От 3 млн.</option>
-							</select>
+							</v-select>
 						</fieldset>
 						<fieldset>
 							<v-input type="textarea" name="message" v-model="form.description">
@@ -64,7 +65,7 @@
 		data () {
 			return {
 				form: {
-
+					budget: '',
 				}
 			}
 		}
