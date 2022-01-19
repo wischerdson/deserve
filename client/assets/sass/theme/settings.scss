@@ -36,3 +36,17 @@ input:-webkit-autofill {
 .typed-cursor {
 	will-change: opacity;
 }
+
+.visually-hidden {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+textarea {
+	min-height: 100px;
+}

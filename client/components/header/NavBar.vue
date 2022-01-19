@@ -22,8 +22,7 @@
 
 			<div class="flex justify-end items-center">
 				<button class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" @click="$emit('toggleContactUsSidebar')">
-					<span class="font-light" v-if="contactUsSidebar">Закрыть</span>
-					<span class="font-light" v-else>Обсудить</span>
+					<span class="font-light">Обсудить</span>
 				</button>
 			</div>
 		</div>

@@ -77,7 +77,6 @@
 		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar, ContactUsSidebar },
 		watch: {
 			menu (value) {
-				this.contactUsSidebar = false
 				value ? disableScroll.on() : disableScroll.off()
 
 				const backdrop = this.$refs.backdrop
@@ -90,14 +89,6 @@
 					this.$refs.backdrop.classList.add('backdrop-extended')
 				} else {
 					this.$refs.backdrop.classList.remove('backdrop-extended')
-				}
-			},
-			contactUsSidebar (value) {
-				if (value && this.menu) {
-					this.menu = false
-					setTimeout(() => {
-						this.contactUsSidebar = true
-					}, 100)
 				}
 			},
 			$route () {

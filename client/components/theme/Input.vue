@@ -1,30 +1,48 @@
 <template>
 	<div class="pt-5">
 		<div class="relative">
-			<label>
+			<label class="form-control-wrapper" :class="`input-${type}`">
 				<input-phone
-					:class="inputClass"
+					class="form-control"
 					v-if="type == 'phone'"
 					v-model="innerValue"
 				/>
 
 				<textarea
-					:class="inputClass"
+					class="form-control"
 					v-else-if="type == 'textarea'"
 					:name="name"
 					v-model="innerValue"
 				></textarea>
 
+				<div
+					class="form-control"
+					v-else-if="type == 'file'"
+					:style="`height: ${standartInputHeight}px`"
+				>
+					<input-file
+						:name="name"
+						:multiple="multiple"
+						v-model="innerValue"
+					/>
+					<div class="pointer-events-none flex items-center px-2 absolute right-0 top-0 bottom-0">
+						<v-icon class="text-gray-500" name="attach-file" />
+					</div>
+				</div>
+
 				<input
-					:class="inputClass"
+					class="form-control"
 					v-else
 					:type="type"
 					:name="name"
 					v-model="innerValue"
 				>
 
+				<div class="form-control-underline default"></div>
+				<div class="form-control-underline focus"></div>
+
 				<div
-					class="label absolute inset-x-0 top-0 flex items-center pointer-events-none"
+					class="form-label absolute inset-x-0 top-0 flex items-center pointer-events-none"
 					:class="{ 'on-focus': innerValue }"
 					:style="`height: ${standartInputHeight}px`"
 				>
@@ -40,19 +58,20 @@
 <script>
 
 	import InputPhone from './InputPhone'
+	import InputFile from './InputFile'
 
 	export default {
 		props: {
 			type: String,
 			name: String,
-			value: String
+			value: String,
+			multiple: { type: Boolean, default: false }
 		},
-		components: { InputPhone },
+		components: { InputPhone, InputFile },
 		data () {
 			return {
 				innerValue: this.value,
-				standartInputHeight: 41,
-				inputClass: 'form-control block w-full border-b border-gray-400 py-2 font-extralight tracking-wider'
+				standartInputHeight: 41
 			}
 		},
 		watch: {
@@ -63,30 +82,3 @@
 	}
 
 </script>
-
-<style lang="scss" scoped>
-
-	.label {
-		transition: transform .25s ease;
-		transform-origin: 0;
-		will-change: transform;
-	}
-
-	.label.on-focus,
-	.form-control:focus + .label {
-		transform: translateY(calc(-50% - 7px)) scale(.9);
-	}
-
-	textarea.form-control {
-		min-height: 100px;
-	}
-
-	.form-control {
-		transition: border-color .25s ease;
-
-		&:focus {
-			border-color: #fff;
-		}
-	}
-
-</style>

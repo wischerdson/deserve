@@ -1,9 +1,9 @@
 <template>
 	<transition :duration="400">
-		<div class="sidebar fixed inset-0" v-if="opened">
+		<div class="sidebar fixed inset-0 z-40" v-if="opened">
 			<div class="backdrop absolute inset-0 bg-black/75 z-10" @click="$emit('close')"></div>
-			<div class="sidebar-content absolute inset-y-0 max-h-full overflow-y-scroll right-0 w-full max-w-lg z-20 bg-black">
-				<div class="pb-32 pt-28 px-14">
+			<div class="sidebar-content absolute inset-y-0 max-h-full overflow-y-scroll right-0 w-full max-w-xl z-20 bg-black">
+				<div class="pb-32 pt-28 px-28">
 					<h2 class="text-4xl font-extralight tracking-rr">Оставьте заявку</h2>
 					<p class="text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 					<form class="mt-6 space-y-6" action="/api/order-call" @submit.prevent="orderCall">
@@ -25,10 +25,11 @@
 						<fieldset>
 							<v-select name="budget" v-model="form.budget">
 								<template #label>Планируемый бюджет</template>
+								<option class="text-black" value="" selected></option>
 								<option class="text-black" value="1">До 500 тыс.</option>
-								<option class="text-black" value="1">0.5 - 1 млн.</option>
-								<option class="text-black" value="1">1 - 3 млн.</option>
-								<option class="text-black" value="1">От 3 млн.</option>
+								<option class="text-black" value="2">0.5 - 1 млн.</option>
+								<option class="text-black" value="3">1 - 3 млн.</option>
+								<option class="text-black" value="4">От 3 млн.</option>
 							</v-select>
 						</fieldset>
 						<fieldset>
@@ -77,23 +78,11 @@
 
 	.sidebar {
 		&.v-enter-active, &.v-leave-active {
-			.backdrop {
-				transition: opacity .4s ease;
-			}
-
-			.sidebar-content {
-				transition: transform .4s ease;
-			}
+			transition: opacity .4s ease;
 		}
 
 		&.v-enter, &.v-leave-to {
-			.backdrop {
-				opacity: 0;
-			}
-
-			.sidebar-content {
-				transform: translateX(100%);
-			}
+			opacity: 0;
 		}
 	}
 

@@ -15,10 +15,7 @@
 	require('cleave.js/dist/addons/cleave-phone.i18n')
 
 	export default {
-		props: {
-			type: String,
-			name: String
-		},
+		props: { name: String },
 		data () {
 			return {
 				formatted: '',
