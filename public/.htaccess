@@ -27,7 +27,7 @@
 	RewriteRule ^ - [L,R=404]
 
 	# Send all api requests to front controller...
-	RewriteCond %{REQUEST_URI} ^/api
+	RewriteCond %{REQUEST_URI} ^/h
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^ index.php [L]

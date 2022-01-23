@@ -7,15 +7,15 @@
 				<ul class="grid grid-cols-3 -mx-12 lg:grid-cols-1 lg:gap-7 lg:text-center lg:max-w-xs lg:mx-auto">
 					<li class="useless-item px-12 space-y-3 lg:space-y-0 lg:px-6">
 						<h2 class="text-gray-400 font-normal tracking-wider">От идеи до реализации желаемого результата</h2>
-						<p class="text-gray-500 text-sm tracking-widest leading-normal">В первую очередь мы нацелены на результат, чтобы максимально быстро и качественно решать задачи, стоящие перед вашим бизнесом</p>
+						<p class="text-gray-500 text-sm tracking-widest leading-normal">Наша приоритетная задача - эффективное сопровождение Вашего бизнеса, направленное на достижение запланированного результата.</p>
 					</li>
 					<li class="useless-item px-12 space-y-3 lg:space-y-0 lg:px-6">
-						<h2 class="text-gray-400 font-normal tracking-wider">Найдем точки роста и обновим <br>стилистику</h2>
-						<p class="text-gray-500 text-sm tracking-widest leading-normal">Улучшим UX/UI проекта, проведем анализ аудитории. Найдем новые формы и смыслы, поможем сменить позиционирование и ключевое сообщение бренда</p>
+						<h2 class="text-gray-400 font-normal tracking-wider">Определим векторы развития и освежим стилистику</h2>
+						<p class="text-gray-500 text-sm tracking-widest leading-normal">Улучшим UX/UI проекта, проведём изучение целевой аудитории потребителей с целью определения наиболее результативной модели развития Вашего бренда.</p>
 					</li>
 					<li class="useless-item px-12 space-y-3 lg:space-y-0 lg:px-6">
-						<h2 class="text-gray-400 font-normal tracking-wider">Поддержим и поможем двигаться <br>быстрее</h2>
-						<p class="text-gray-500 text-sm tracking-widest leading-normal">Возьмем на себя контроль по системному развитию проекта: новые страницы и дополнительные функции, которые принесут пользу бизнесу</p>
+						<h2 class="text-gray-400 font-normal tracking-wider">Окажем поддержку при последующем развитии запущенного проекта</h2>
+						<p class="text-gray-500 text-sm tracking-widest leading-normal">Путём системного анализа достигаемых результатов, выявим факторы, способные повысить качественные показатели результативности проекта.</p>
 					</li>
 				</ul>
 			</div>
