@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AmoCRM\AmoCRMService;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
-    public function orderCall(Request $request): Request
+    public function orderCall(Request $request)
     {
-        return $request;
+        $amocrmService = new AmoCRMService();
+        $amocrmClient = $amocrmService->getClient();
+        $leadsService = $amocrmClient->leads();
+
+        return $leadsService->get();
     }
 }
