@@ -40,7 +40,10 @@ class AmoCrmController extends Controller
 		$lead = new LeadModel();
 		$leadCustomFieldsValues = new CustomFieldsValuesCollection();
 		$textCustomFieldValueModel = new TextCustomFieldValuesModel();
-		$textCustomFieldValueModel->setFieldId(269303);
+		$textCustomFieldValueModel->setFieldId(3);
+		$textCustomFieldValueModel->setName('Vladpidor');
+		$textCustomFieldValueModel->setSort(20);
+		$textCustomFieldValueModel->setCode('MYSUPERCHECKBOX100');
 		$textCustomFieldValueModel->setValues(
 			(new TextCustomFieldValueCollection())
 				->add((new TextCustomFieldValueModel())->setValue('Текст'))

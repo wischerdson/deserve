@@ -23,7 +23,7 @@
 					<h2 class="uppercase text-2xl font-thin tracking-[.25rem]">Обратный звонок</h2>
 					<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
-					<form class="mt-6 space-y-4" action="/api/order-call" @submit.prevent="orderCall">
+					<form class="mt-6 space-y-4" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
 						<div>
 							<v-input type="text" name="name" v-model="orderCallForm.name">
 								<template v-slot:label>Как к Вам обращаться?</template>
