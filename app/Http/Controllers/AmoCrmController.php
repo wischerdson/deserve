@@ -12,14 +12,6 @@ use AmoCRM\Models\LeadModel;
 
 class AmoCrmController extends Controller
 {
-	public function setAuthCode(string $code)
-	{
-		$amocrmService = new AmoCRMService();
-		$amocrmService->issueToken($code);
-
-		return 'Ok';
-	}
-
 	public function pipelines()
 	{
 		$amocrmService = new AmoCRMService();
