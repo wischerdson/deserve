@@ -30,3 +30,12 @@ jobs:
           remote_user: ${{ env.DEPLOY_SERVER_USERNAME }}
           remote_host: ${{ env.DEPLOY_SERVER_HOST }}
           remote_key: ${{ secrets.DEPLOY_SERVER_KEY }}
+
+      - name: Setup application
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_SERVER_HOST }}
+          username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
+          key: ${{ secrets.DEPLOY_SERVER_KEY }}
+          script: |
+            bash ${{ env.DEPLOY_PATH }}/.bin/deploy.sh

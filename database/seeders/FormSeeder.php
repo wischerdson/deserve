@@ -17,12 +17,18 @@ class FormSeeder extends Seeder
 				[
 					'name' => 'formFields',
 					'unique' => ['code' => 'name'],
-					'attributes' => ['name' => 'Обращение']
+					'attributes' => [
+						'name' => 'Обращение',
+						'amocrm_type' => 'text'
+					]
 				],
 				[
 					'name' => 'formFields',
 					'unique' => ['code' => 'phone'],
-					'attributes' => ['name' => 'Телефон']
+					'attributes' => [
+						'name' => 'Телефон',
+						'amocrm_type' => 'text'
+					]
 				]
 			]
 		],
@@ -33,31 +39,47 @@ class FormSeeder extends Seeder
 				[
 					'name' => 'formFields',
 					'unique' => ['code' => 'name'],
-					'attributes' => ['name' => 'Обращение']
+					'attributes' => [
+						'name' => 'Обращение',
+						'amocrm_type' => 'text'
+					]
 				],
 				[
 					'name' => 'formFields',
 					'unique' => ['code' => 'phone'],
-					'attributes' => ['name' => 'Телефон']
+					'attributes' => [
+						'name' => 'Телефон',
+						'amocrm_type' => 'text'
+					]
 				],
 				[
 					'name' => 'formFields',
 					'unique' => ['code' => 'email'],
-					'attributes' => ['name' => 'Email']
+					'attributes' => [
+						'name' => 'Email',
+						'amocrm_type' => 'text'
+					]
 				],
 				[
 					'name' => 'formFields',
 					'unique' => ['code' => 'budget'],
-					'attributes' => ['name' => 'Планируемый бюджет'],
+					'attributes' => [
+						'name' => 'Планируемый бюджет',
+						'amocrm_type' => 'text'
+					],
 				],
 				[
 					'name' => 'formFields',
 					'unique' => ['code' => 'message'],
-					'attributes' => ['name' => 'Описание задачи'],
+					'attributes' => [
+						'name' => 'Описание задачи',
+						'amocrm_type' => 'textarea'
+					],
 				],
 			]
 		]
 	];
+
 	/**
 	 * Run the database seeds.
 	 *

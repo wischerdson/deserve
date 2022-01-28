@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\FormFilled;
 use App\Models\FilledForm;
 use App\Models\Form;
 use App\Models\FormAnswer;
@@ -18,9 +19,16 @@ class FormController extends Controller
 		$answers = $request->collect()->reduce(
 			function (array $answers, string $answer, string $fieldCode) {
 				$formField = FormField::where('code', $fieldCode)->first();
+
+				if (!$formField) {
+					return $answers;
+				}
+
 				$formAnswer = new FormAnswer([ 'answer' => $answer ]);
 				$formAnswer->form_field_id = $formField->id;
+
 				$answers[] = $formAnswer;
+
 				return $answers;
 			}
 		, []);
@@ -28,6 +36,8 @@ class FormController extends Controller
 		$form->filledForms()->save($filledForm);
 		$filledForm->formAnswers()->saveMany($answers);
 
-		return '$answers';
+		FormFilled::dispatch($filledForm);
+
+		return 'ok';
 	}
 }
