@@ -3,7 +3,7 @@ version: "3"
 services:
   php:
     container_name: deserve_php
-    build: ./docker/php-fpm
+    build: ./.docker/php-fpm
     volumes:
       - .:/usr/local/apache2/htdocs
     working_dir: /usr/local/apache2/htdocs
@@ -12,7 +12,7 @@ services:
 
   apache:
     container_name: deserve_apache
-    build: ./docker/apache
+    build: ./.docker/apache
     volumes:
       - .:/usr/local/apache2/htdocs
     working_dir: /usr/local/apache2/htdocs
