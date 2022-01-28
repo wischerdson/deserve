@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AmoCRM\AmoCRMService;
+use App\Services\AmoCRM\AmoCrmService;
 use AmoCRM\Collections\CustomFieldsValuesCollection;
 use AmoCRM\Exceptions\AmoCRMApiException;
 use AmoCRM\Models\CustomFieldsValues\TextCustomFieldValuesModel;
@@ -12,9 +12,15 @@ use AmoCRM\Models\LeadModel;
 
 class AmoCrmController extends Controller
 {
+	public function test()
+	{
+		$amocrm = new AmoCrmService();
+		$amocrm->setCustomField();
+	}
+
 	public function pipelines()
 	{
-		$amocrmService = new AmoCRMService();
+		$amocrmService = new AmoCrmService();
 		$amocrmClient = $amocrmService->getClient();
 		$pipelinesService = $amocrmClient->pipelines();
 
@@ -25,29 +31,6 @@ class AmoCrmController extends Controller
 
 	public function createLead()
 	{
-		$amocrmService = new AmoCRMService();
-		$amocrmClient = $amocrmService->getClient();
-		$leadsService = $amocrmClient->leads();
 
-		$lead = new LeadModel();
-		$leadCustomFieldsValues = new CustomFieldsValuesCollection();
-		$textCustomFieldValueModel = new TextCustomFieldValuesModel();
-		$textCustomFieldValueModel->setFieldId(3);
-		$textCustomFieldValueModel->setName('Vladpidor');
-		$textCustomFieldValueModel->setSort(20);
-		$textCustomFieldValueModel->setCode('MYSUPERCHECKBOX100');
-		$textCustomFieldValueModel->setValues(
-			(new TextCustomFieldValueCollection())
-				->add((new TextCustomFieldValueModel())->setValue('Текст'))
-		);
-		$leadCustomFieldsValues->add($textCustomFieldValueModel);
-		$lead->setCustomFieldsValues($leadCustomFieldsValues);
-		$lead->setName('Example');
-
-		try {
-			$lead = $leadsService->addOne($lead);
-		} catch (AmoCRMApiException $th) {
-			dump($th);
-		}
 	}
 }
