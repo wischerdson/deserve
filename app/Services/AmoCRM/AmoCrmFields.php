@@ -2,47 +2,88 @@
 
 namespace App\Services\AmoCRM;
 
+use AmoCRM\Collections\CustomFields\CustomFieldsCollection;
 use AmoCRM\Collections\CustomFieldsValuesCollection;
-use AmoCRM\Models\CustomFieldsValues\TextCustomFieldValuesModel;
-use AmoCRM\Models\CustomFieldsValues\ValueCollections\BaseCustomFieldValueCollection;
-use AmoCRM\Models\CustomFieldsValues\ValueCollections\TextCustomFieldValueCollection;
-use AmoCRM\Models\CustomFieldsValues\ValueModels\TextCustomFieldValueModel;
+use AmoCRM\EntitiesServices\CustomFields;
+use AmoCRM\Exceptions\AmoCRMApiException;
+use App\Services\AmoCRM\Exceptions\MissingRequiredFieldAssociationException;
+use App\Models\FormAnswer;
+use App\Models\FormField;
+use App\Services\AmoCRM\Fields\TextareaField;
+use App\Services\AmoCRM\Fields\TextField;
+use Illuminate\Database\Eloquent\Collection;
+use Str;
 
 class AmoCrmFields
 {
-	private array $fields;
+	private array $modelsAssociation = [
+		'text' => TextField::class,
+		'textarea' => TextareaField::class
+	];
 
-	public function __construct(array $fields)
-	{
-		$this->fields = $fields;
-	}
-
-	public function generate(): CustomFieldsValuesCollection
+	public function generate(Collection $formAnswers): CustomFieldsValuesCollection
 	{
 		$collection = new CustomFieldsValuesCollection();
+		$formAnswers->loadMissing('formField');
 
-		foreach ($this->fields as $code => $value) {
-			$collection->add($this->getCustomField($code, (string) $value));
+		$formAnswers->each(function (FormAnswer $answer) use ($collection) {
+			$formField = $answer->formField;
+			$fieldClass = $this->getFieldClass($formField);
+
+			$field = new $fieldClass();
+
+			$collection->add($field->generate($answer, $formField));
+		});
+
+		return $collection;
+	}
+
+	/**
+	 * Публикует все поля у которых нет amocrm_id
+	 */
+	public function publishFields(Collection $fields, CustomFields $service): void
+	{
+		$notPublishedFields = $fields->whereNull('amocrm_id');
+
+		if ($notPublishedFields->isEmpty()) {
+			return;
 		}
 
-		return $collection;
+		$collection = new CustomFieldsCollection();
+
+		$notPublishedFields->each(function (FormField $formField) use ($collection) {
+			$modelClass = $this->getFieldClass($formField)::MODEL;
+			$cf = new $modelClass();
+			$cf->setName($formField->name);
+			$cf->setSort($formField->id);
+			$cf->setCode(Str::upper($formField->code));
+			$collection->add($cf);
+		});
+
+		try {
+			$response = $service->add($collection);
+		} catch (AmoCRMApiException $e) {
+			dd($e);
+		}
+
+		$fields = $response->all();
+
+		foreach ($fields as $field) {
+			FormField::where('code', Str::lower($field->getCode()))->update([
+				'amocrm_id' => $field->getId()
+			]);
+		}
 	}
 
-	private function getCustomField(string $code, string $value): TextCustomFieldValuesModel
+	/**
+	 * @throws \App\Services\AmoCRM\Exceptions\MissingRequiredFieldAssociationException
+	 */
+	private function getFieldClass(FormField $field): string
 	{
-		$textCustomFieldValueModel = new TextCustomFieldValuesModel();
-		$textCustomFieldValueModel->setFieldCode($code);
-		$textCustomFieldValueModel->setValues($this->getCustomFieldValue($value));
-		return $textCustomFieldValueModel;
-	}
+		if (array_key_exists($field->amocrm_type, $this->modelsAssociation)) {
+			return $this->modelsAssociation[$field->amocrm_type];
+		}
 
-	private function getCustomFieldValue(string $value): BaseCustomFieldValueCollection
-	{
-		$collection = new TextCustomFieldValueCollection();
-		$fieldValue = new TextCustomFieldValueModel();
-		$fieldValue->setValue($value);
-		$collection->add($fieldValue);
-
-		return $collection;
+		throw new MissingRequiredFieldAssociationException($field->amocrm_type);
 	}
 }

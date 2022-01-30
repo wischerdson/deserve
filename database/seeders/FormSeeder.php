@@ -12,7 +12,10 @@ class FormSeeder extends Seeder
 	private array $data = [
 		[
 			'unique' => ['alias' => 'ordering-callback'],
-			'attributes' => ['name' => 'Заказ обратного звонка'],
+			'attributes' => [
+				'name' => 'Заказ обратного звонка',
+				'amocrm_pipeline_id' => 5091382
+			],
 			'relations' => [
 				[
 					'name' => 'formFields',
@@ -34,7 +37,10 @@ class FormSeeder extends Seeder
 		],
 		[
 			'unique' => ['alias' => 'brief'],
-			'attributes' => ['name' => 'Бриф'],
+			'attributes' => [
+				'name' => 'Бриф',
+				'amocrm_pipeline_id' => 5091388
+			],
 			'relations' => [
 				[
 					'name' => 'formFields',

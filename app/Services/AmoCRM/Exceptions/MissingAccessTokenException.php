@@ -8,7 +8,7 @@ class MissingAccessTokenException extends Exception
 {
 	public function report()
 	{
-		return true;
+		return false;
 	}
 
 	public function render()

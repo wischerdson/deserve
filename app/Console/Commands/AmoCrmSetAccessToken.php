@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Services\AmoCRM\AmoCrmAuth;
 use Illuminate\Console\Command;
 
-class SetAmocrmAccessToken extends Command
+class AmoCrmSetAccessToken extends Command
 {
 	/**
 	 * The name and signature of the console command.

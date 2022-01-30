@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\FormFilled;
+use App\Services\AmoCRM\AmoCrmService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CreateAmocrmLead implements ShouldQueue
@@ -15,6 +16,8 @@ class CreateAmocrmLead implements ShouldQueue
 	 */
 	public function handle(FormFilled $event)
 	{
-		dump($event);
+		$filledForm = $event->filledForm;
+		$amocrmService = new AmoCrmService();
+		$amocrmService->saveForm($filledForm);
 	}
 }

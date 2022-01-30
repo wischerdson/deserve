@@ -4,29 +4,28 @@ namespace App\Services\AmoCRM;
 
 use League\OAuth2\Client\Token\AccessTokenInterface;
 use AmoCRM\Client\AmoCRMApiClient;
-use AmoCRM\Collections\CustomFieldsValuesCollection;
 use AmoCRM\Exceptions\AmoCRMApiException;
 use AmoCRM\Helpers\EntityTypesInterface;
-use AmoCRM\Models\CustomFields\TextCustomFieldModel;
-use AmoCRM\Models\CustomFieldsValues\TextCustomFieldValuesModel;
-use AmoCRM\Models\CustomFieldsValues\ValueModels\TextCustomFieldValueModel;
 use AmoCRM\Models\LeadModel;
-use App\Models\FormField;
-use Throwable;
+use App\Models\FilledForm;
+use App\Services\AmoCRM\Exceptions\FormDoesntHasPipelineIdException;
+use App\Services\AmoCRM\Exceptions\FormDoesntHavePipelineIdException;
 
 class AmoCrmService
 {
 	private AmoCRMApiClient $client;
 
+	private AmoCrmAuth $auth;
+
 	public function __construct()
 	{
-		$amoCrmAuth = new AmoCrmAuth();
+		$this->auth = new AmoCrmAuth();
 
-		$this->client = $amoCrmAuth->getClient();
+		$this->client = $this->auth->getClient();
 
-		$this->client->setAccessToken($amoCrmAuth->getToken());
-		$this->client->onAccessTokenRefresh(function (AccessTokenInterface $accessToken) use ($amoCrmAuth) {
-			$amoCrmAuth->saveToken($accessToken);
+		$this->client->setAccessToken($this->auth->getToken());
+		$this->client->onAccessTokenRefresh(function (AccessTokenInterface $accessToken) {
+			$this->auth->saveToken($accessToken);
 		});
 	}
 
@@ -35,25 +34,29 @@ class AmoCrmService
 		return $this->client;
 	}
 
-	public function setCustomField(?FormField $field = null): void
+	public function saveForm(FilledForm $filledForm): void
 	{
-		// $customFieldsService = $this->client->customFields(EntityTypesInterface::LEADS);
+		$form = $filledForm->form;
 
-		// $cf = new TextCustomFieldModel();
-		// $cf->setName('пидрбаба');
-		// $cf->setCode('PIDRBABA');
+		if (is_null($form->amocrm_pipeline_id)) {
+			throw new FormDoesntHavePipelineIdException();
+		}
 
-		$leadsService = $this->client->leads();
+		$fields = $filledForm->formFields;
+
+		$service = $this->client->customFields(EntityTypesInterface::LEADS);
+
+		$amocrmFields = new AmoCrmFields();
+		$amocrmFields->publishFields($fields, $service);
+		$values = $amocrmFields->generate($filledForm->answers);
 
 		$lead = new LeadModel();
-		$values = new AmoCrmFields([ 'PIDRBABA' => 'Владос гей' ]);
-
-		$lead->setCustomFieldsValues($values->generate());
-		$lead->setPipelineId(5091382);
-		$lead->setName('Владоса продырявили в другой воронке');
-
+		$lead->setCustomFieldsValues($values);
+		$lead->setPipelineId($form->amocrm_pipeline_id);
+		$lead->setName('Заполнена форма на сайте');
 
 		try {
+			$leadsService = $this->client->leads();
 			$lead = $leadsService->addOne($lead);
 		} catch (AmoCRMApiException $e) {
 			dd($e);

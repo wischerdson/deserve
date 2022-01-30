@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Services\AmoCRM\AmoCrmService;
-use AmoCRM\Collections\CustomFieldsValuesCollection;
-use AmoCRM\Exceptions\AmoCRMApiException;
-use AmoCRM\Models\CustomFieldsValues\TextCustomFieldValuesModel;
-use AmoCRM\Models\CustomFieldsValues\ValueCollections\TextCustomFieldValueCollection;
-use AmoCRM\Models\CustomFieldsValues\ValueModels\TextCustomFieldValueModel;
-use AmoCRM\Models\LeadModel;
+use App\Models\FilledForm;
 
 class AmoCrmController extends Controller
 {
 	public function test()
 	{
+		$filledForm = FilledForm::find(1);
 		$amocrm = new AmoCrmService();
-		$amocrm->setCustomField();
+		$amocrm->saveForm($filledForm);
 	}
 
 	public function pipelines()

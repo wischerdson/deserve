@@ -34,7 +34,7 @@ class FormController extends Controller
 		, []);
 
 		$form->filledForms()->save($filledForm);
-		$filledForm->formAnswers()->saveMany($answers);
+		$filledForm->answers()->saveMany($answers);
 
 		FormFilled::dispatch($filledForm);
 
