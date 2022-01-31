@@ -15,11 +15,10 @@ class CreateFormFieldsTable extends Migration
 	{
 		Schema::create('form_fields', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId('form_id')->constrained('forms')->onUpdate('cascade')->onDelete('cascade');
 			$table->string('name');
-			$table->string('code');
+			$table->string('code')->unique();
 			$table->bigInteger('amocrm_id')->unsigned()->nullable();
-			$table->string('amocrm_type');
+			$table->string('type');
 		});
 	}
 

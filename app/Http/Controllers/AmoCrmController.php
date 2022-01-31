@@ -11,7 +11,7 @@ class AmoCrmController extends Controller
 	{
 		$filledForm = FilledForm::find(1);
 		$amocrm = new AmoCrmService();
-		$amocrm->saveForm($filledForm);
+		$amocrm->createLead($filledForm);
 	}
 
 	public function pipelines()

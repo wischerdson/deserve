@@ -11,24 +11,18 @@ class TextField extends Field
 {
 	const MODEL = TextCustomFieldModel::class;
 
-	const VALUE_COLLECTION = TextCustomFieldValueCollection::class;
-
-	const VALUE_MODEL = TextCustomFieldValueModel::class;
-
-	const VALUES_MODEL = TextCustomFieldValuesModel::class;
-
 	public function getValueModel(): string
 	{
-		return self::VALUE_MODEL;
+		return TextCustomFieldValueModel::class;
 	}
 
 	public function getValueCollection(): string
 	{
-		return self::VALUE_COLLECTION;
+		return TextCustomFieldValueCollection::class;
 	}
 
 	public function getValuesModel(): string
 	{
-		return self::VALUES_MODEL;
+		return TextCustomFieldValuesModel::class;
 	}
 }

@@ -6,7 +6,7 @@ use App\Events\FormFilled;
 use App\Services\AmoCRM\AmoCrmService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CreateAmocrmLead implements ShouldQueue
+class CreateAmoCrmLead implements ShouldQueue
 {
 	/**
 	 * Handle the event.
@@ -18,6 +18,6 @@ class CreateAmocrmLead implements ShouldQueue
 	{
 		$filledForm = $event->filledForm;
 		$amocrmService = new AmoCrmService();
-		$amocrmService->saveForm($filledForm);
+		$amocrmService->createLead($filledForm);
 	}
 }

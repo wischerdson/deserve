@@ -17,7 +17,7 @@ class FormController extends Controller
 		$filledForm = new FilledForm();
 
 		$answers = $request->collect()->reduce(
-			function (array $answers, string $answer, string $fieldCode) {
+			function (array $answers, ?string $answer, string $fieldCode) {
 				$formField = FormField::where('code', $fieldCode)->first();
 
 				if (!$formField) {

@@ -11,24 +11,18 @@ class TextareaField extends Field
 {
 	const MODEL = TextareaCustomFieldModel::class;
 
-	const VALUE_COLLECTION = TextareaCustomFieldValueCollection::class;
-
-	const VALUE_MODEL = TextareaCustomFieldValueModel::class;
-
-	const VALUES_MODEL = TextareaCustomFieldValuesModel::class;
-
 	public function getValueModel(): string
 	{
-		return self::VALUE_MODEL;
+		return TextareaCustomFieldValueModel::class;
 	}
 
 	public function getValueCollection(): string
 	{
-		return self::VALUE_COLLECTION;
+		return TextareaCustomFieldValueCollection::class;
 	}
 
 	public function getValuesModel(): string
 	{
-		return self::VALUES_MODEL;
+		return TextareaCustomFieldValuesModel::class;
 	}
 }

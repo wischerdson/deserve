@@ -49,6 +49,10 @@ class AmoCrmFields
 			return;
 		}
 
+		$fieldsFromAmocrm = $service->get();
+
+		dd($fieldsFromAmocrm);
+
 		$collection = new CustomFieldsCollection();
 
 		$notPublishedFields->each(function (FormField $formField) use ($collection) {

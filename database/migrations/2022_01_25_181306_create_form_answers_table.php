@@ -17,7 +17,7 @@ class CreateFormAnswersTable extends Migration
 			$table->id();
 			$table->foreignId('filled_form_id')->constrained('filled_forms')->onUpdate('cascade')->onDelete('cascade');
 			$table->foreignId('form_field_id')->constrained('form_fields')->onUpdate('cascade')->onDelete('cascade');
-			$table->text('answer');
+			$table->text('answer')->nullable();
 		});
 	}
 

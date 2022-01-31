@@ -34,7 +34,7 @@ class AmoCrmService
 		return $this->client;
 	}
 
-	public function saveForm(FilledForm $filledForm): void
+	public function createLead(FilledForm $filledForm): void
 	{
 		$form = $filledForm->form;
 
