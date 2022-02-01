@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use AmoCRM\Exceptions\AmoCRMApiException;
 use App\Services\AmoCRM\AmoCrmService;
-use App\Models\FilledForm;
 
 class AmoCrmController extends Controller
 {
 	public function test()
 	{
-		$filledForm = FilledForm::find(1);
-		$amocrm = new AmoCrmService();
-		$amocrm->createLead($filledForm);
 	}
 
 	public function pipelines()
@@ -20,7 +17,11 @@ class AmoCrmController extends Controller
 		$amocrmClient = $amocrmService->getClient();
 		$pipelinesService = $amocrmClient->pipelines();
 
-		dump($pipelinesService->get());
+		try {
+			dump($pipelinesService->get());
+		} catch (AmoCRMApiException $e) {
+			dd($e);
+		}
 
 		return;
 	}

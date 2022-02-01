@@ -8,7 +8,6 @@ use AmoCRM\Exceptions\AmoCRMApiException;
 use AmoCRM\Helpers\EntityTypesInterface;
 use AmoCRM\Models\LeadModel;
 use App\Models\FilledForm;
-use App\Services\AmoCRM\Exceptions\FormDoesntHasPipelineIdException;
 use App\Services\AmoCRM\Exceptions\FormDoesntHavePipelineIdException;
 
 class AmoCrmService

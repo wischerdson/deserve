@@ -51,8 +51,6 @@ class AmoCrmFields
 
 		$fieldsFromAmocrm = $service->get();
 
-		dd($fieldsFromAmocrm);
-
 		$collection = new CustomFieldsCollection();
 
 		$notPublishedFields->each(function (FormField $formField) use ($collection) {
@@ -82,12 +80,12 @@ class AmoCrmFields
 	/**
 	 * @throws \App\Services\AmoCRM\Exceptions\MissingRequiredFieldAssociationException
 	 */
-	private function getFieldClass(FormField $field): string
+	public static function getFieldClass(FormField $field): string
 	{
-		if (array_key_exists($field->amocrm_type, $this->modelsAssociation)) {
-			return $this->modelsAssociation[$field->amocrm_type];
+		if (array_key_exists($field->type, $this->modelsAssociation)) {
+			return $this->modelsAssociation[$field->type];
 		}
 
-		throw new MissingRequiredFieldAssociationException($field->amocrm_type);
+		throw new MissingRequiredFieldAssociationException($field->type);
 	}
 }
