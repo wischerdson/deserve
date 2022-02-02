@@ -16,7 +16,7 @@ use Str;
 
 class AmoCrmFields
 {
-	private array $modelsAssociation = [
+	const MODELS_ACCOCIATION = [
 		'text' => TextField::class,
 		'textarea' => TextareaField::class
 	];
@@ -54,7 +54,7 @@ class AmoCrmFields
 		$collection = new CustomFieldsCollection();
 
 		$notPublishedFields->each(function (FormField $formField) use ($collection) {
-			$modelClass = $this->getFieldClass($formField)::MODEL;
+			$modelClass = self::getFieldClass($formField)::MODEL;
 			$cf = new $modelClass();
 			$cf->setName($formField->name);
 			$cf->setSort($formField->id);
@@ -82,8 +82,8 @@ class AmoCrmFields
 	 */
 	public static function getFieldClass(FormField $field): string
 	{
-		if (array_key_exists($field->type, $this->modelsAssociation)) {
-			return $this->modelsAssociation[$field->type];
+		if (array_key_exists($field->type, self::MODELS_ACCOCIATION)) {
+			return self::MODELS_ACCOCIATION[$field->type];
 		}
 
 		throw new MissingRequiredFieldAssociationException($field->type);

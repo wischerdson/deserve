@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\FieldCreated;
 use App\Events\FormFilled;
 use App\Listeners\CreateAmoCrmLead;
 use App\Listeners\SyncFieldsWithAmoCrm;

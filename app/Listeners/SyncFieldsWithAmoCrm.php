@@ -16,6 +16,8 @@ use Str;
 
 class SyncFieldsWithAmoCrm implements ShouldQueue
 {
+	public $delay = 5 ;
+
 	private CustomFields $fieldService;
 
 	public function __construct()
@@ -32,8 +34,6 @@ class SyncFieldsWithAmoCrm implements ShouldQueue
 	 */
 	public function handle(FieldCreated $event)
 	{
-		$this->refreshLocalFields();
-
 		$collection = new CustomFieldsCollection();
 
 		$unpublished = FormField::whereNull('amocrm_id')->get();
@@ -42,8 +42,10 @@ class SyncFieldsWithAmoCrm implements ShouldQueue
 			return;
 		}
 
+		$this->refreshLocalFields();
+
 		$unpublished->each(function (FormField $field) use ($collection) {
-			$class = AmoCrmFields::getFieldClass($field);
+			$class = AmoCrmFields::getFieldClass($field)::MODEL;
 			$cf = new $class();
 			$cf->setName($field->name);
 			$cf->setSort($field->id);
