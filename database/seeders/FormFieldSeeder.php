@@ -9,42 +9,49 @@ class FormFieldSeeder extends Seeder
 {
 	public const MODEL = FormField::class;
 
-	private array $fields = [
+	public const UNIQUE = 'code';
+
+	private array $data = [
 		[
-			'unique' => ['code' => 'name'],
-			'attributes' => [
-				'name' => 'Обращение',
-				'type' => 'text'
-			]
+			'code' => 'name',
+			'name' => 'Обращение',
+			'type' => 'text'
 		],
 		[
-			'unique' => ['code' => 'phone'],
-			'attributes' => [
-				'name' => 'Телефон',
-				'type' => 'text'
-			]
+			'code' => 'phone',
+			'name' => 'Телефон',
+			'type' => 'text'
 		],
 		[
-			'unique' => ['code' => 'email'],
-			'attributes' => [
-				'name' => 'Email',
-				'type' => 'text'
-			]
+			'code' => 'email',
+			'name' => 'Email',
+			'type' => 'text'
 		],
 		[
-			'unique' => ['code' => 'budget'],
-			'attributes' => [
-				'name' => 'Планируемый бюджет',
-				'type' => 'text'
-			],
+			'code' => 'budget',
+			'name' => 'Планируемый бюджет',
+			'type' => 'text'
 		],
 		[
-			'unique' => ['code' => 'message'],
-			'attributes' => [
-				'name' => 'Описание задачи',
-				'type' => 'textarea'
-			],
+			'code' => 'task_description',
+			'name' => 'Описание задачи',
+			'type' => 'textarea'
 		],
+		[
+			'code' => 'message',
+			'name' => 'Сообщение',
+			'type' => 'textarea'
+		],
+		[
+			'code' => 'vacancy',
+			'name' => 'Вакансия',
+			'type' => 'text'
+		],
+		[
+			'code' => 'form_filled_id',
+			'name' => 'ID формы',
+			'type' => 'text'
+		]
 	];
 
 	/**
@@ -54,8 +61,10 @@ class FormFieldSeeder extends Seeder
 	 */
 	public function run()
 	{
-		foreach ($this->fields as $field) {
-			self::MODEL::firstOrCreate($field['unique'], $field['attributes']);
+		foreach ($this->data as $field) {
+			self::MODEL::firstOrCreate([
+				self::UNIQUE => $field[self::UNIQUE]
+			], $field);
 		}
 	}
 }
