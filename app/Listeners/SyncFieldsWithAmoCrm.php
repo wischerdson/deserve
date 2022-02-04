@@ -43,7 +43,7 @@ class SyncFieldsWithAmoCrm implements ShouldQueue
 		}
 
 		$unpublished->each(function (FormField $field) use ($collection) {
-			$class = AmoCrmFields::getFieldClass($field);
+			$class = AmoCrmFields::getFieldClass($field)::MODEL;
 			$cf = new $class();
 			$cf->setName($field->name);
 			$cf->setSort($field->id);
