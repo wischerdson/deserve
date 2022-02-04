@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="flex justify-end items-center">
-				<button class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" @click="$emit('toggleContactUsSidebar')">
+				<button class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" @click="$emit('brief-sidebar')">
 					<span class="font-light">Обсудить</span>
 				</button>
 			</div>
@@ -36,8 +36,7 @@
 
 	export default {
 		props: {
-			menu: Boolean,
-			contactUsSidebar: Boolean
+			menu: Boolean
 		},
 		model: {
 			prop: 'menu',

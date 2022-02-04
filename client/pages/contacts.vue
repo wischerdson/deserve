@@ -32,18 +32,18 @@
 						</div>
 					</div>
 					<div class="lg:mt-6">
-						<form action="">
+						<form action="/api/fill-form/feedback" @submit.prevent="sendForm">
 							<div class="space-y-4">
-								<v-input type="text" name="name">
+								<v-input type="text" name="name" v-model="form.name">
 									<template v-slot:label>Имя</template>
 								</v-input>
-								<v-input type="email" name="email">
+								<v-input type="email" name="email" v-model="form.email">
 									<template v-slot:label>Email</template>
 								</v-input>
-								<v-input type="phone" name="phone">
+								<v-input type="phone" name="phone" v-model="form.phone">
 									<template v-slot:label>Телефон</template>
 								</v-input>
-								<v-input type="textarea" name="message">
+								<v-input type="textarea" name="message" v-model="form.message">
 									<template v-slot:label>Сообщение</template>
 								</v-input>
 							</div>
@@ -120,6 +120,22 @@
 <script>
 
 	export default {
+		data () {
+			return {
+				form: {
+					name: '', phone: '',
+					email: '', message: ''
+				}
+			}
+		},
+		methods: {
+			sendForm (e) {
+				const url = e.target.getAttribute('action')
+				this.$axios.$post(url, this.form).then((d) => {
+					console.log(d)
+				})
+			}
+		},
 		mounted () {
 			this.magneticSubmitFormBtn = this.$magnetic.add({
 				element: this.$refs.submitFormBtn,

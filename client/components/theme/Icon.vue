@@ -12,8 +12,8 @@
 		},
 		mounted () {
 			const svg = this.$el.querySelector('svg')
-			svg.style.width = this.width || svg.style.width
-			svg.style.height = this.height || svg.style.height
+			svg.style.width = this.width || this.height || svg.style.width
+			svg.style.height = this.height || this.width || svg.style.height
 		}
 	}
 </script>

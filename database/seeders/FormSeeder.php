@@ -9,20 +9,28 @@ class FormSeeder extends Seeder
 {
 	public const MODEL = Form::class;
 
-	private array $forms = [
+	public const UNIQUE = 'alias';
+
+	private array $data = [
 		[
-			'unique' => ['alias' => 'ordering-callback'],
-			'attributes' => [
-				'name' => 'Заказ обратного звонка',
-				'amocrm_pipeline_id' => 5091382
-			],
+			'alias' => 'ordering-callback',
+			'name' => 'Заказ обратного звонка',
+			'amocrm_pipeline_id' => 5091382
 		],
 		[
-			'unique' => ['alias' => 'brief'],
-			'attributes' => [
-				'name' => 'Бриф',
-				'amocrm_pipeline_id' => 5091388
-			],
+			'alias' => 'brief',
+			'name' => 'Бриф',
+			'amocrm_pipeline_id' => 5091388
+		],
+		[
+			'alias' => 'feedback',
+			'name' => 'Обратная связь',
+			'amocrm_pipeline_id' => 5116267
+		],
+		[
+			'alias' => 'vacanancy',
+			'name' => 'Вакансия',
+			'amocrm_pipeline_id' => 5116270
 		]
 	];
 
@@ -33,8 +41,10 @@ class FormSeeder extends Seeder
 	 */
 	public function run()
 	{
-		foreach ($this->forms as $form) {
-			$form = self::MODEL::firstOrCreate($form['unique'], $form['attributes']);
+		foreach ($this->data as $form) {
+			self::MODEL::firstOrCreate([
+				self::UNIQUE => $form[self::UNIQUE]
+			], $form);
 		}
 	}
 }

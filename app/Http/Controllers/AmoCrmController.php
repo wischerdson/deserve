@@ -7,10 +7,6 @@ use App\Services\AmoCRM\AmoCrmService;
 
 class AmoCrmController extends Controller
 {
-	public function test()
-	{
-	}
-
 	public function pipelines()
 	{
 		$amocrmService = new AmoCrmService();
@@ -24,10 +20,5 @@ class AmoCrmController extends Controller
 		}
 
 		return;
-	}
-
-	public function createLead()
-	{
-
 	}
 }

@@ -16,7 +16,10 @@ class FormController extends Controller
 		$form = Form::where('alias', $formAlias)->first();
 		$filledForm = new FilledForm();
 
-		$answers = $request->collect()->reduce(
+		$requestCollection = $request->collect();
+		$requestCollection->put('form_filled_id', null);
+
+		$answers = $requestCollection->reduce(
 			function (array $answers, ?string $answer, string $fieldCode) {
 				$formField = FormField::where('code', $fieldCode)->first();
 
@@ -35,6 +38,9 @@ class FormController extends Controller
 
 		$form->filledForms()->save($filledForm);
 		$filledForm->answers()->saveMany($answers);
+
+		FormAnswer::whereRelation('formField', 'code', 'form_filled_id')
+			->update(['answer' => $filledForm->id]);
 
 		FormFilled::dispatch($filledForm);
 
