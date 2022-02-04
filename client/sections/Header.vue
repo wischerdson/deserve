@@ -2,7 +2,10 @@
 	<header class="section-header fixed inset-0 z-30">
 		<div class="h-[88px]" ref="spacer">
 			<!-- Desktop menu -->
-			<div class="z-10 overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] lg:hidden" ref="backdrop">
+			<div
+				class="z-10 overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] lg:hidden backdrop-extended"
+				ref="backdrop"
+			>
 				<transition name="menu" :duration="{ leave: 600 }">
 					<header-menu-desktop :opened="menu" v-show="menu" />
 				</transition>
@@ -11,8 +14,7 @@
 			<!-- Navigation bar -->
 			<header-nav-bar
 				v-model="menu"
-				:contact-us-sidebar="contactUsSidebar"
-				@toggleContactUsSidebar="contactUsSidebar = !contactUsSidebar"
+				@brief-sidebar="briefSidebar = true"
 			/>
 
 			<!-- Mobile header backdrop -->
@@ -37,7 +39,7 @@
 			<header-menu-mobile v-model="menu" />
 		</div>
 
-		<contact-us-sidebar :opened="contactUsSidebar" @close="contactUsSidebar = false" />
+		<brief-sidebar :opened="briefSidebar" @close="briefSidebar = false" />
 	</header>
 </template>
 
@@ -49,7 +51,7 @@
 	import HeaderMenuDesktop from '~/components/header/MenuDesktop'
 	import HeaderMenuMobile from '~/components/header/MenuMobile'
 	import HeaderNavBar from '~/components/header/NavBar'
-	import ContactUsSidebar from '~/components/header/ContactUsSidebar'
+	import BriefSidebar from '~/components/header/BriefSidebar'
 
 	/* Register header scroll animation  */
 	const initScrollTrigger = function () {
@@ -70,11 +72,11 @@
 	export default {
 		data () {
 			return {
-				menu: false,
-				contactUsSidebar: false
+				menu: true,
+				briefSidebar: false
 			}
 		},
-		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar, ContactUsSidebar },
+		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar, BriefSidebar },
 		watch: {
 			menu (value) {
 				value ? disableScroll.on() : disableScroll.off()

@@ -2,8 +2,20 @@
 	<transition :duration="400">
 		<div class="contact-us-sidebar fixed inset-0 z-40" v-show="opened">
 			<div class="fixed inset-0 bg-black z-10">
-				<div class="relative h-full w-1/2" @click="$emit('close')">
-					<iframe class="absolute w-full h-full" src="https://vk.com/video_ext.php?oid=203494087&id=456239367&hash=6dcce37443211e0d&autoplay=1&controls=0&playsinline=1&mute=1"></iframe>
+				<div class="relative h-full w-1/2 overflow-hidden" @click="$emit('close')">
+					<div data-ratio="0.5629" class="absolute -top-14 -bottom-14 left-0" ref="videoWrapper">
+						<!-- <div class="bg-black/50 z-10 absolute inset-0"></div> -->
+						<iframe class="w-full h-full" src="https://www.youtube.com/embed/n3WfWuq2X_4?controls=0&playlist=n3WfWuq2X_4&autoplay=1&mute=1&playsinline=1&loop=1&modestbranding=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="absolute inset-y-0 right-0 flex flex-col items-center justify-between py-8">
+					<div class="separator w-px bg-gray-600 absolute inset-y-0 left-0 origin-bottom"></div>
+					<div class="px-10">
+						<button class="btn text-gray-600 transition-colors hover:text-gray-200" @click="$emit('close')" aria-label="Закрыть" title="Закрыть">
+							<v-icon width="36px" name="close" />
+						</button>
+					</div>
+					<div class="uppercase vertical-text font-normal tracking-rr text-gray-400">Deserve</div>
 				</div>
 			</div>
 
@@ -39,13 +51,8 @@
 								</v-select>
 							</fieldset>
 							<fieldset>
-								<v-input type="textarea" name="message" v-model="form.description">
+								<v-input type="textarea" name="message" v-model="form.task_description">
 									<template v-slot:label>Опишите задачу, которую хотите решить</template>
-								</v-input>
-							</fieldset>
-							<fieldset>
-								<v-input type="file" name="file" v-model="form.file">
-									<template v-slot:label>Прикрепить файл (PDF, DOCX)</template>
 								</v-input>
 							</fieldset>
 							<fieldset class="pt-8">
@@ -78,7 +85,11 @@
 			}
 		},
 		mounted () {
-			this.$videoBg('.welcome-video-background')
+			window.addEventListener('resize', () => {
+				const video = this.$refs.videoWrapper
+				const rightPos = video.dataset.ratio*video.clientHeight
+				video.style.right = `-${rightPos}px`
+			})
 		}
 	}
 
@@ -89,10 +100,20 @@
 	.contact-us-sidebar {
 		&.v-enter-active, &.v-leave-active {
 			transition: opacity .4s ease;
+
+			.separator {
+				transition: transform .9s ease;
+			}
 		}
 
 		&.v-enter, &.v-leave-to {
 			opacity: 0;
+		}
+
+		&.v-enter {
+			.separator {
+				transform: scaleY(0);
+			}
 		}
 	}
 

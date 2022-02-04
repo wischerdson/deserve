@@ -50,3 +50,8 @@ input:-webkit-autofill {
 textarea {
 	min-height: 100px;
 }
+
+.vertical-text {
+	writing-mode: tb-rl;
+	transform:rotate(180deg);
+}
