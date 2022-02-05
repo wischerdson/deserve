@@ -9,6 +9,7 @@ env:
   DEPLOY_SERVER_USERNAME: capitalup
   DEPLOY_SERVER_HOST: alt.deserve.ru
   DEPLOY_PATH: /home/capitalup/domains/alt.deserve.ru
+  BROWSER_BASE_URL: https://alt.deserve.ru/h/
 
 jobs:
   deploy:
@@ -25,7 +26,7 @@ jobs:
       - name: Copy static content via rsync
         uses: burnett01/rsync-deployments@5.1
         with:
-          switches: -azr --delete --include "public/***" --exclude "*"
+          switches: -azr --delete --include "public/***" --include ".bin/***" --exclude "*"
           remote_path: ${{ env.DEPLOY_PATH }}
           remote_user: ${{ env.DEPLOY_SERVER_USERNAME }}
           remote_host: ${{ env.DEPLOY_SERVER_HOST }}
@@ -38,4 +39,5 @@ jobs:
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
           script: |
-            bash ${{ env.DEPLOY_PATH }}/.bin/deploy.sh
+            sh ${{ env.DEPLOY_PATH }}/.bin/install-composer.sh
+            sh ${{ env.DEPLOY_PATH }}/.bin/deploy.sh
