@@ -34,4 +34,3 @@ fi
 # Обновляем кэши приложения
 php81 artisan route:cache -n
 php81 artisan config:cache -n
-php81 artisan optimize -n
