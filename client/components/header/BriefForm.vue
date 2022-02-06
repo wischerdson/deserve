@@ -1,6 +1,6 @@
 <template>
 	<div class="pb-32 pt-28 max-w-sm">
-		<h2 class="text-4xl font-extralight tracking-rr">Оставьте заявку</h2>
+		<h2 class="text-4xl sm:text-3xl font-extralight tracking-rr">Оставьте заявку</h2>
 		<p class="text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 		<form class="mt-6 space-y-6" action="/api/order-call" @submit.prevent="orderCall">
 			<fieldset>
