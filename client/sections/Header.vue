@@ -3,7 +3,7 @@
 		<div class="h-[88px]" ref="spacer">
 			<!-- Desktop menu -->
 			<div
-				class="z-10 overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] lg:hidden backdrop-extended"
+				class="z-10 overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] lg:hidden"
 				ref="backdrop"
 			>
 				<transition name="menu" :duration="{ leave: 600 }">
@@ -72,7 +72,7 @@
 	export default {
 		data () {
 			return {
-				menu: true,
+				menu: false,
 				briefSidebar: false
 			}
 		},
@@ -105,6 +105,10 @@
 </script>
 
 <style lang="scss" scoped>
+
+	.backdrop-blur-lg {
+		backdrop-filter: blur(16px);
+	}
 
 	.section-header {
 		pointer-events: none;

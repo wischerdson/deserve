@@ -20,47 +20,7 @@
 					</li>
 				</ul>
 				<div class="form-column mx-auto">
-					<transition name="callback-form" mode="out-in">
-						<div v-if="!form._filled" key="form">
-							<h2 class="text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
-							<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
-
-							<form class="mt-6 space-y-4" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
-								<div>
-									<v-input type="text" name="name" v-model="form.name">
-										<template v-slot:label>Как к Вам обращаться?</template>
-									</v-input>
-								</div>
-								<div>
-									<v-input type="phone" name="phone" v-model="form.phone">
-										<template v-slot:label>Ваш номер телефона</template>
-									</v-input>
-								</div>
-								<div class="pt-8">
-									<button class="btn space-x-4" type="submit" ref="submitFormBtn">
-										<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
-											<v-icon name="chevron-right" />
-										</div>
-										<span class="text-xs tracking-rr uppercase text-white font-extralight">Отправить</span>
-									</button>
-								</div>
-							</form>
-						</div>
-						<div class="thanks max-w-sm" key="thanks" v-else>
-							<div class="thanks-title relative">
-								<h2 class="text-4xl font-extralight tracking-[.25rem] leading-none relative z-10">Спасибо</h2>
-								<div class="absolute bottom-0 left-0 bg-green-900 h-3 w-20"></div>
-							</div>
-							<p class="thanks-desc tracking-[0.15rem] text-gray-400 text-sm mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima et possimus commodi dolorum laboriosam cumque laborum repellat corporis assumenda eum perspiciatis, quidem debitis facere vero, delectus modi sit ullam at!</p>
-
-							<button class="thanks-action btn space-x-4 mt-10" type="submit" ref="submitFormBtn">
-								<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
-									<v-icon name="chevron-right" />
-								</div>
-								<span class="text-xs tracking-rr uppercase text-white font-extralight">Lorem ipsum</span>
-							</button>
-						</div>
-					</transition>
+					<callback-form />
 				</div>
 			</div>
 		</div>
@@ -82,43 +42,13 @@
 
 <script>
 
+	import CallbackForm from "./CallbackForm.vue"
+
 	export default {
 		props: {
 			opened: Boolean
 		},
-		data () {
-			return {
-				magneticSubmitFormBtn: null,
-				form: {
-					phone: '',
-					name: '',
-					_filled: false
-				}
-			}
-		},
-		watch: {
-			opened () {
-				this.magneticSubmitFormBtn.refresh()
-			}
-		},
-		methods: {
-			orderCall (e) {
-				const url = e.target.getAttribute('action')
-				this.form._filled = true
-				return
-				this.$axios.$post(url, this.form).then((d) => {
-					console.log(d)
-
-
-				})
-			}
-		},
-		mounted () {
-			this.magneticSubmitFormBtn = this.$magnetic.add({
-				element: this.$refs.submitFormBtn,
-				trigger: this.$refs.submitFormBtnPill
-			})
-		}
+		components: { CallbackForm }
 	}
 
 </script>
@@ -191,31 +121,6 @@
 		&.nuxt-link-exact-active {
 			&:before {
 				opacity: 1;
-			}
-		}
-	}
-
-	.callback-form {
-		&-enter-active, &-leave-active {
-			transition: opacity .4s ease;
-
-			.thanks {
-				&-title, &-desc, &-action {
-					transition: opacity .4s ease;
-				}
-				&-desc { transition-delay: .2s; }
-				&-action { transition-delay: .4s; }
-			}
-		}
-
-		&-leave-to {
-			opacity: 0;
-		}
-		&-enter {
-			.thanks {
-				&-title, &-desc, &-action {
-					opacity: 0;
-				}
 			}
 		}
 	}

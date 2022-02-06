@@ -39,5 +39,6 @@ jobs:
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
           script: |
-            sh ${{ env.DEPLOY_PATH }}/.bin/install-composer.sh
-            sh ${{ env.DEPLOY_PATH }}/.bin/deploy.sh
+            cd ${{ env.DEPLOY_PATH }}
+            bash ./.bin/install-composer.sh
+            bash ./.bin/deploy.sh
