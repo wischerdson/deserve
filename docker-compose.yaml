@@ -27,6 +27,8 @@ services:
     image: composer:latest
     volumes:
       - .:/app
+    environment:
+      TERM: "xterm-256color"
     command: /bin/sh -c "composer install --no-interaction --prefer-dist --no-progress"
 
   mariadb:

@@ -35,6 +35,7 @@ return [
 		'client_secret' => env('AMOCRM_CLIENT_SECRET'),
 		'redirect_uri' => env('AMOCRM_REDIRECT_URI'),
 		'base_domain' => 'deserve.amocrm.ru',
+		'responsible_user_id' => 6855253
 	]
 
 ];

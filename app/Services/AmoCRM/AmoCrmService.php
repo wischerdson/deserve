@@ -7,6 +7,8 @@ use AmoCRM\Client\AmoCRMApiClient;
 use AmoCRM\Exceptions\AmoCRMApiException;
 use AmoCRM\Helpers\EntityTypesInterface;
 use AmoCRM\Models\LeadModel;
+use AmoCRM\Models\Unsorted\FormsMetadata;
+use AmoCRM\Models\Unsorted\FormUnsortedModel;
 use App\Models\FilledForm;
 use App\Services\AmoCRM\Exceptions\FormDoesntHavePipelineIdException;
 
@@ -52,14 +54,28 @@ class AmoCrmService
 		$lead = new LeadModel();
 		$lead->setCustomFieldsValues($values);
 		$lead->setPipelineId($form->amocrm_pipeline_id);
-		$lead->setName('Заполнена форма на сайте');
+		$lead->setName('Форма "'.$form->name.'"');
+		$lead->setCreatedBy(0);
+		$lead->setResponsibleUserId(config('services.amocrm.responsible_user_id'));
+
+		$formMetadata = new FormsMetadata();
+		$formMetadata->setFormId($filledForm->id);
+		$formMetadata->setFormName($form->name);
+		$formMetadata->setFormPage(config('services.amocrm.redirect_uri'));
+
+		$formUnsorted = new FormUnsortedModel();
+		$formUnsorted->setSourceName($form->name);
+		$formUnsorted->setSourceUid($form->id);
+		$formUnsorted->setLead($lead);
+		$formUnsorted->setMetadata($formMetadata);
+		$formUnsorted->setPipelineId($form->amocrm_pipeline_id);
 
 		try {
-			$leadsService = $this->client->leads();
-			$lead = $leadsService->addOne($lead);
+			$service = $this->client->unsorted();
+			$service->addOne($formUnsorted);
 		} catch (AmoCRMApiException $e) {
-			dd($e);
-			die;
+			dump($e);
+			\Log::error($e);
 		}
 	}
 }

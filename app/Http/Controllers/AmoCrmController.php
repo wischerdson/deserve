@@ -3,22 +3,39 @@
 namespace App\Http\Controllers;
 
 use AmoCRM\Exceptions\AmoCRMApiException;
+use App\Models\FilledForm;
 use App\Services\AmoCRM\AmoCrmService;
 
 class AmoCrmController extends Controller
 {
-	public function pipelines()
+	public function __construct()
 	{
-		$amocrmService = new AmoCrmService();
-		$amocrmClient = $amocrmService->getClient();
-		$pipelinesService = $amocrmClient->pipelines();
+		if (!config('app.debug')) {
+			abort(404);
+		}
+	}
+
+	public function pipelines(AmoCrmService $crm)
+	{
+		$client = $crm->getClient();
+		$pipelines = $client->pipelines();
 
 		try {
-			dump($pipelinesService->get());
+			dd($pipelines->get());
 		} catch (AmoCRMApiException $e) {
 			dd($e);
 		}
+	}
 
-		return;
+	public function users(AmoCrmService $crm)
+	{
+		$client = $crm->getClient();
+		$users = $client->users();
+
+		try {
+			dd($users->get());
+		} catch (AmoCRMApiException $e) {
+			dd($e);
+		}
 	}
 }

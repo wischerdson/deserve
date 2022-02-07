@@ -2,7 +2,10 @@
 
 # Удаляем неотслеживаемые файлы, если они есть и подтягиваем изменения из ветки master
 git reset --hard
-git pull origin master
+git clean -fd
+git fetch origin master
+git merge --no-commit --no-edit -s recursive -Xtheirs origin/master
+# git pull --quiet --no-commit --no-edit --prune -s ort -Xtheirs origin master
 
 # Устанавливаем composer зависимости
 php81 ~/composer.phar install --no-dev --no-interaction --no-progress --ignore-platform-req=ext-sodium
@@ -32,5 +35,7 @@ else
 fi
 
 # Обновляем кэши приложения
+php81 artisan optimize:clear -n
 php81 artisan route:cache -n
 php81 artisan config:cache -n
+php81 artisan event:cache -n
