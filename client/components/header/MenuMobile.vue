@@ -7,20 +7,20 @@
 			>
 				<div class="container h-full">
 					<ul class="h-full flex flex-col items-end justify-center relative z-10 space-y-9">
-						<li class="menu-item text-right pr-4">
-							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/">Главная</nuxt-link>
+						<li class="menu-item text-right pr-8">
+							<nuxt-link class="menu-item__link uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/">Главная</nuxt-link>
 						</li>
-						<li class="menu-item text-right pr-4">
-							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/about">Об агентстве</nuxt-link>
+						<li class="menu-item text-right pr-8">
+							<nuxt-link class="menu-item__link uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/about">Об агентстве</nuxt-link>
 						</li>
-						<li class="menu-item text-right pr-4">
-							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/portfolio">Порфолио</nuxt-link>
+						<li class="menu-item text-right pr-8">
+							<nuxt-link class="menu-item__link uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/portfolio">Порфолио</nuxt-link>
 						</li>
-						<li class="menu-item text-right pr-4">
-							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/vacancies">Вакансии</nuxt-link>
+						<li class="menu-item text-right pr-8">
+							<nuxt-link class="menu-item__link uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/vacancies">Вакансии</nuxt-link>
 						</li>
-						<li class="menu-item text-right pr-4">
-							<nuxt-link class="uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/contacts">Контакты</nuxt-link>
+						<li class="menu-item text-right pr-8">
+							<nuxt-link class="menu-item__link uppercase opacity-50 hover:opacity-100 transition-opacity will-change-opacity text-white font-normal text-lg tracking-rr" exact to="/contacts">Контакты</nuxt-link>
 						</li>
 					</ul>
 				</div>
@@ -73,6 +73,12 @@
 		}
 		&.v-leave-to {
 			right: 100%;
+		}
+	}
+
+	.menu-item__link {
+		&:before {
+			right: -20px;
 		}
 	}
 

@@ -1,7 +1,7 @@
 <template>
 	<div class="container relative z-10 h-full">
 		<div class="grid grid-cols-3 h-full">
-			<div class="flex items-center">
+			<div class="flex items-stretch">
 				<button class="btn lg:hidden transition-opacity hover:opacity-70" @click="$emit('change', !menu)">
 					<v-icon class="mb-1" name="menu" />
 					<div class="relative uppercase text-xs tracking-[.25rem]">
@@ -20,7 +20,7 @@
 				</nuxt-link>
 			</div>
 
-			<div class="flex justify-end items-center">
+			<div class="flex justify-end items-stretch">
 				<button class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" @click="$emit('brief-sidebar')">
 					<span class="font-light">Обсудить</span>
 				</button>

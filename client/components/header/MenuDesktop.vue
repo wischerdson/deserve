@@ -101,27 +101,8 @@
 	}
 
 	.header__menu-desktop .menu-item__link {
-		position: relative;
-
 		&:before {
-			content: "";
-			opacity: 0;
-			transition: opacity .2s ease;
-			position: absolute;
 			left: -30px;
-			display: block;
-			width: 7px;
-			height: 7px;
-			background-color: #202020;
-			top: calc(50% - 3px);
-			transform: translateY(-50%);
-			border-radius: 99px;
-		}
-
-		&.nuxt-link-exact-active {
-			&:before {
-				opacity: 1;
-			}
 		}
 	}
 
