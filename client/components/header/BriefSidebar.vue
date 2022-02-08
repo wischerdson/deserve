@@ -5,23 +5,24 @@
 				<div class="w-1/2 xl:w-2/5 lg:hidden h-full fixed">
 					<video class="w-full h-full object-cover object-center" :src="require('~/static/video/brief-backdrop.mp4')" autoplay playsinline muted loop></video>
 					<div class="bg-black/70 z-10 absolute inset-0"></div>
+					<div class="absolute inset-y-0 right-0 w-28 z-20 bg-gradient-to-r from-transparent to-black"></div>
 				</div>
 
 				<div class="w-1/2 lg:hidden xl:w-2/5 h-full"></div>
 
 				<div class="pl-28 xl:pl-16 sm:pl-0">
-					<brief-form class="sm:pt-0" />
+					<brief-form :enable-animation="opened" class="sm:pt-0" />
 				</div>
 			</div>
 
 			<div class="absolute inset-y-0 right-0 flex flex-col items-center justify-between py-8 sm:py-6 pointer-events-none">
-				<div class="separator w-px bg-gray-600 absolute inset-y-0 left-0 origin-bottom sm:hidden"></div>
+				<div class="separator w-px bg-gray-800 absolute inset-y-0 left-0 origin-bottom sm:hidden"></div>
 				<div class="px-10 xl:px-6">
 					<button class="btn text-gray-600 transition-colors hover:text-gray-200 pointer-events-auto" @click="$emit('close')" aria-label="Закрыть" title="Закрыть">
 						<v-icon width="36px" name="close" />
 					</button>
 				</div>
-				<div class="uppercase vertical-text font-normal tracking-rr text-gray-400 sm:hidden">Deserve</div>
+				<div class="uppercase vertical-text font-normal tracking-rr text-gray-400 sm:hidden text-2xs">Deserve brief</div>
 			</div>
 		</div>
 	</transition>
