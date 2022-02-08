@@ -4,11 +4,11 @@
 git reset --hard
 git clean -fd
 git fetch origin master
-git merge --no-commit --no-edit -s recursive -Xtheirs origin/master
-# git pull --quiet --no-commit --no-edit --prune -s ort -Xtheirs origin master
+git merge --no-edit -s recursive -Xtheirs FETCH_HEAD
 
 # Устанавливаем composer зависимости
 php81 ~/composer.phar install --no-dev --no-interaction --no-progress --ignore-platform-req=ext-sodium
+php81 ~/composer.phar dumpautoload -o
 
 # Создаем символьные ссылки если их нет
 if [ ! -h ./public_html ]
@@ -35,7 +35,10 @@ else
 fi
 
 # Обновляем кэши приложения
-php81 artisan optimize:clear -n
+php81 artisan optimize -n
 php81 artisan route:cache -n
-php81 artisan config:cache -n
 php81 artisan event:cache -n
+php81 artisan config:cache -n
+
+# Обновляем работу очереди
+sh $(dirname $0)/refresh-queue.sh
