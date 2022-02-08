@@ -7,34 +7,33 @@
 					<hr class="h-px mb-6 mt-4 bg-gray-500 w-10">
 					<p class="text-gray-400 leading-normal tracking-widest font-extralight">{{ vacancy.description }}</p>
 					<div>
-						<a
+						<button
 							class="btn rounded-full mt-7 space-x-5"
-							href="https://getpods.ru"
-							target="_blank"
-							ref="respondBtn"
+							@click="openVacancyForm(vacancy.title)"
 						>
 							<div class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black" ref="btnPill">
 								<v-icon name="chevron-right" />
 							</div>
 							<span class="text-xs tracking-rr uppercase text-white">Отликнуться на вакансию</span>
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>
-
-			<!-- <v-magnetic>
-				<v-magnetic-trigger>Trigger</v-magnetic-trigger>
-				<span>Hello world</span>
-			</v-magnetic> -->
 		</div>
+		<vacancy-form v-if="vacancyForm" :vacancy="selectedVacancy" @close="vacancyForm = false" />
 	</div>
 </template>
 
 <script>
 
+	import VacancyForm from '~/components/VacancyForm'
+
 	export default {
+		components: { VacancyForm },
 		data () {
 			return {
+				vacancyForm: false,
+				selectedVacancy: null,
 				vacancies: [
 					{
 						title: 'Web-дизайнер на Tilda',
@@ -72,12 +71,11 @@
 				]
 			}
 		},
-		mounted () {
-			// this.$magnetic.add({
-			// 	element: this.$refs.respondBtn,
-			// 	trigger: this.$refs.btnPill,
-
-			// })
+		methods: {
+			openVacancyForm (vacancy) {
+				this.selectedVacancy = vacancy
+				this.vacancyForm = true
+			}
 		}
 	}
 
