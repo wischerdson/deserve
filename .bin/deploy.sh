@@ -1,8 +1,8 @@
 #! /bin/sh
 
-# Удаляем неотслеживаемые файлы, если они есть и подтягиваем изменения из ветки master
+# Удаляем неотслеживаемые файлы, если они есть и подтягиваем изменения из ветки master.
+# Если есть конфликты, автоматически решаем их в пользу источника
 git reset --hard
-git clean -fd
 git fetch origin master
 git merge --no-edit -s recursive -Xtheirs FETCH_HEAD
 
