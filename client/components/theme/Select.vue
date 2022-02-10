@@ -1,9 +1,9 @@
 <template>
 	<div class="pt-5">
 		<div class="relative">
-			<label>
+			<label class="form-control-wrapper">
 				<select
-					class="form-control block w-full border-b border-gray-400 py-2 tracking-wider"
+					class="form-control block w-full py-2 tracking-wider"
 					:value="value"
 					@input="$emit('input', $event.target.value)" :name="name"
 					ref="select"
@@ -14,6 +14,9 @@
 				<div class="pointer-events-none flex items-center px-2 absolute right-0 top-0 bottom-0">
 					<v-icon class="text-gray-400" name="expand-more" />
 				</div>
+
+				<div class="form-control-underline default"></div>
+				<div class="form-control-underline focus"></div>
 
 				<div
 					class="label absolute inset-x-0 top-0 bottom-0 flex items-center pointer-events-none"
@@ -55,15 +58,11 @@
 <style lang="scss">
 
 	select.form-control {
-		transition: border-color .25s ease;
 		font-weight: 200;
 		cursor: pointer;
 
 		option {
 			font-weight: normal;
-		}
-		&:focus {
-			border-color: #fff;
 		}
 	}
 

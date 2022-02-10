@@ -10,9 +10,11 @@
 
 				<div class="grid grid-cols-2 mt-14 lg:grid-cols-1">
 					<div class="relative pr-24 lg:pr-0">
-						<h2 class="flex items-center space-x-3 text-md tracking-wider">
-							<span>Форма обратной связи</span>
-							<v-icon name="arrow-right" />
+						<h2 class="text-md tracking-wider">
+							<button class="btn" @click="focusFirstInput">
+								<span>Форма обратной связи</span>
+								<v-icon name="arrow-right" />
+							</button>
 						</h2>
 						<p class="text-gray-500 mt-4 leading-normal tracking-wider text-sm">Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.</p>
 						<div class="absolute bottom-0 left-0 lg:static lg:mt-6">
@@ -34,7 +36,7 @@
 					<div class="lg:mt-6">
 						<form action="/api/fill-form/feedback" @submit.prevent="sendForm">
 							<div class="space-y-4">
-								<v-input type="text" name="name" v-model="form.name">
+								<v-input type="text" name="name" v-model="form.name" ref="firstInput">
 									<template v-slot:label>Имя</template>
 								</v-input>
 								<v-input type="email" name="email" v-model="form.email">
@@ -134,6 +136,9 @@
 				this.$axios.$post(url, this.form).then((d) => {
 					console.log(d)
 				})
+			},
+			focusFirstInput () {
+				this.$refs.firstInput.$el.querySelector('input').focus()
 			}
 		},
 		mounted () {

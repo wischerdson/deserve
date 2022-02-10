@@ -1,13 +1,14 @@
 .form {
 	&-label {
-		transition: transform .25s ease;
+		transition: transform .25s ease, opacity .25s ease;
 		transform-origin: 0;
 		will-change: transform;
 	}
 
 	&-label.on-focus,
 	&-control-wrapper:focus-within &-label {
-		transform: translateY(calc(-50% - 7px)) scale(.9);
+		transform: translateY(calc(-50% - 7px)) scale(.7);
+		opacity: .7;
 	}
 
 	&-control-wrapper:focus-within &-control-underline.focus {
@@ -27,11 +28,11 @@
 
 			&.default {
 				z-index: 1;
-				background-color: theme('colors.gray.400');
+				background-color: theme('colors.gray.700');
 			}
 			&.focus {
 				z-index: 2;
-				background-color: theme('colors.white');
+				background-color: theme('colors.gray.300');
 				transform: scaleX(0);
 				transition: transform .4s ease;
 			}
