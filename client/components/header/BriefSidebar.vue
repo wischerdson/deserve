@@ -1,5 +1,5 @@
 <template>
-	<transition :duration="900">
+	<transition :duration="{ enter: 900, leave: 400 }">
 		<div class="contact-us-sidebar fixed inset-0 z-40 bg-black" v-show="opened">
 			<div class="absolute inset-0 sm:px-8 sm:mt-20 overflow-y-scroll flex">
 				<div class="w-1/2 xl:w-2/5 lg:hidden h-full fixed">

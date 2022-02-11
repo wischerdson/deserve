@@ -1,13 +1,12 @@
 import Vue from 'vue'
-import Icon from '~/components/theme/Icon.vue'
-import Breadcrumb from '~/components/theme/Breadcrumb.vue'
-import Input from '~/components/theme/Input.vue'
-import Select from '~/components/theme/Select.vue'
-import Action from '~/components/theme/Action.vue'
-import Magnetic from '~/components/theme/Magnetic.vue'
-import MagneticTrigger from '~/components/theme/MagneticTrigger.vue'
+import Icon from '~/ui-components/Icon'
+import Input from '~/ui-components/Input'
+import Select from '~/ui-components/Select'
+import Textarea from '~/ui-components/Textarea'
+import InputFile from '~/ui-components/InputFile'
+import InputPhone from '~/ui-components/InputPhone'
 
-const components = { Icon, Breadcrumb, Input, Select, Action, Magnetic, MagneticTrigger }
+const components = { Icon, Input, Select, Textarea, InputFile, InputPhone }
 
 Object.entries(components).forEach(([name, component]) => {
 	Vue.component('V' + name, component)

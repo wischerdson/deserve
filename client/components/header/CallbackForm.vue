@@ -5,16 +5,12 @@
 			<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
 			<form class="mt-6 space-y-4" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
-				<div>
-					<v-input type="text" name="name" v-model="form.name">
-						<template v-slot:label>Как к Вам обращаться?</template>
-					</v-input>
-				</div>
-				<div>
-					<v-input type="phone" name="phone" v-model="form.phone">
-						<template v-slot:label>Ваш номер телефона</template>
-					</v-input>
-				</div>
+				<fieldset>
+					<v-input type="text" v-model="form.name" label="Как к Вам обращаться?" />
+				</fieldset>
+				<fieldset>
+					<v-input-phone v-model="form.phone" label="Ваш номер телефона" />
+				</fieldset>
 				<div class="pt-8">
 					<button class="btn space-x-4" type="submit" ref="submitFormBtn">
 						<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">

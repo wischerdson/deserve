@@ -5,23 +5,16 @@
 			<p class="desc text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 			<form class="mt-6 space-y-6" action="/api/fill-form/brief" @submit.prevent="orderCall" novalidate>
 				<fieldset>
-					<v-input type="text" name="name" v-model="form.name" animate="enableAnimation" animation-delay="">
-						<template v-slot:label>Как к Вам обращаться?*</template>
-					</v-input>
+					<v-input type="text" v-model="form.name" label="Как к Вам обращаться?" />
 				</fieldset>
 				<fieldset>
-					<v-input type="phone" name="phone" v-model="form.phone" animate="enableAnimation" animation-delay="">
-						<template v-slot:label>Ваш номер телефона*</template>
-					</v-input>
+					<v-input-phone v-model="form.phone" label="Ваш номер телефона" />
 				</fieldset>
 				<fieldset>
-					<v-input type="email" name="email" v-model="form.email" animate="enableAnimation" animation-delay="">
-						<template v-slot:label>Ваш email</template>
-					</v-input>
+					<v-input type="email" v-model="form.email" label="Ваш email" />
 				</fieldset>
 				<fieldset>
-					<v-select name="budget" v-model="form.budget" animate="enableAnimation" animation-delay="">
-						<template #label>Планируемый бюджет</template>
+					<v-select v-model="form.budget" label="Планируемый бюджет">
 						<option class="text-black" value="" selected></option>
 						<option class="text-black" value="До 500 тыс.">До 500 тыс.</option>
 						<option class="text-black" value="0.5 - 1 млн.">0.5 - 1 млн.</option>
@@ -30,9 +23,7 @@
 					</v-select>
 				</fieldset>
 				<fieldset>
-					<v-input type="textarea" name="tesk_description" v-model="form.task_description" animate="enableAnimation" animation-delay="">
-						<template v-slot:label>Опишите задачу, которую хотите решить</template>
-					</v-input>
+					<v-textarea v-model="form.task_description" label="Опишите задачу, которую хотите решить" />
 				</fieldset>
 				<fieldset class="pt-8">
 					<button class="btn space-x-4" type="submit" ref="submitFormBtn">

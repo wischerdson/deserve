@@ -2,11 +2,12 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
 	content: [
+		'./client/ui-components/**/*.{vue,js}',
 		'./client/components/**/*.{vue,js}',
-		'./client/layouts/**/*.vue',
-		'./client/pages/**/*.vue',
 		'./client/sections/**/*.vue',
+		'./client/layouts/**/*.vue',
 		'./client/plugins/**/*.js',
+		'./client/pages/**/*.vue',
 		'./client/nuxt.config.js'
 	],
 	theme: {

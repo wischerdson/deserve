@@ -43,7 +43,7 @@ export default {
 		{ src: '~/plugins/magnetic.js', ssr: false },
 		{ src: '~/plugins/video-bg.js', ssr: false },
 		{ src: '~/plugins/smooth-scroll.js', ssr: false },
-		{ src: '~/plugins/intl-tel-input.js', ssr: false },
+		// { src: '~/plugins/intl-tel-input.js', ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components

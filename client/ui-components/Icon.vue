@@ -1,8 +1,13 @@
 <template>
-	<span class="icon inline-block" :class="`icon-${name}`" v-html="require(`!!raw-loader!~/assets/svg/${name}.svg`).default"></span>
+	<span
+		class="icon inline-block"
+		:class="`icon-${name}`"
+		v-html="require(`!!raw-loader!~/assets/svg/${name}.svg`).default"
+	></span>
 </template>
 
 <script>
+
 	export default {
 		name: 'icon',
 		props: {
@@ -16,4 +21,5 @@
 			svg.style.height = this.height || this.width || svg.style.height
 		}
 	}
+
 </script>
