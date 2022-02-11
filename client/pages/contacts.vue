@@ -36,18 +36,18 @@
 					<div class="lg:mt-6">
 						<form action="/api/fill-form/feedback" @submit.prevent="sendForm">
 							<div class="space-y-4">
-								<v-input type="text" name="name" v-model="form.name" ref="firstInput">
-									<template v-slot:label>Имя</template>
-								</v-input>
-								<v-input type="email" name="email" v-model="form.email">
-									<template v-slot:label>Email</template>
-								</v-input>
-								<v-input type="phone" name="phone" v-model="form.phone">
-									<template v-slot:label>Телефон</template>
-								</v-input>
-								<v-input type="textarea" name="message" v-model="form.message">
-									<template v-slot:label>Сообщение</template>
-								</v-input>
+								<fieldset>
+									<v-input type="text" v-model="form.name" label="Имя" />
+								</fieldset>
+								<fieldset>
+									<v-input type="email" v-model="form.email" label="Email" />
+								</fieldset>
+								<fieldset>
+									<v-input-phone v-model="form.phone" label="Телефон" />
+								</fieldset>
+								<fieldset>
+									<v-textarea v-model="form.message" label="Сообщение" />
+								</fieldset>
 							</div>
 							<button class="btn space-x-4 mt-10" type="submit" ref="submitFormBtn">
 								<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">

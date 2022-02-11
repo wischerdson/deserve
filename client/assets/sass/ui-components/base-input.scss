@@ -1,0 +1,46 @@
+#{$inputComponentSelector} {
+	&__label {
+		top: 13px;
+		transition: transform .25s ease, opacity .25s ease;
+		transform-origin: 0;
+		will-change: transform;
+	}
+
+	&__underline {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 1px;
+		transform-origin: 0;
+
+		&.default {
+			z-index: 1;
+			background-color: theme('colors.gray.700');
+		}
+		&.focus {
+			z-index: 2;
+			background-color: theme('colors.gray.300');
+			transform: scaleX(0);
+			transition: transform .4s ease;
+		}
+	}
+
+	&__input {
+		display: block;
+		width: 100%;
+		padding: 8px 0;
+		font-weight: 200;
+		letter-spacing: .05rem;
+
+		&:focus ~ #{$inputComponentSelector}__underline.focus {
+			transform: scaleX(1);
+		}
+	}
+
+	&__input:focus ~ #{$inputComponentSelector}__label,
+	#{$inputComponentSelector}__label.at-top {
+		transform: translateY(calc(-100% - 8px)) scale(.7);
+		opacity: .7;
+	}
+}
