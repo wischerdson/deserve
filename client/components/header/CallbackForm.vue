@@ -1,5 +1,5 @@
 <template>
-	<transition :duration="1000">
+	<transition :duration="2000">
 		<div class="callback-form" v-show="enableAnimation" key="form">
 			<h2 class="title text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
 			<p class="desc mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>

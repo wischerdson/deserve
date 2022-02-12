@@ -1,5 +1,5 @@
 <template>
-	<transition :duration="1000">
+	<transition :duration="2000">
 		<div class="brief-form pb-20 pt-28 max-w-sm" v-show="enableAnimation">
 			<h2 class="title text-4xl sm:text-3xl font-extralight tracking-rr">Оставьте заявку</h2>
 			<p class="desc text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
