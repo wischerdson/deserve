@@ -32,8 +32,7 @@
 					</a>
 				</div>
 				<div class="ml-auto flex items-center space-x-10">
-					<a class="text-gray-500 text-xs tracking-widest" href="#">Политика конфиденциальности</a>
-					<a class="text-gray-500 text-xs tracking-widest" href="#">Обработка персональных данных</a>
+					<nuxt-link class="text-gray-500 text-xs tracking-widest hover:text-gray-400" exact to="/legal/privacy-policy">Политика конфиденциальности</nuxt-link>
 				</div>
 			</div>
 		</div>

@@ -46,7 +46,7 @@
 						<a class="btn rounded-md text-gray-500" href="https://www.facebook.com/deserve.ru" target="_blank" title="Наш facebook">
 							<v-icon name="facebook" />
 						</a>
-						<a class="btn rounded-md text-gray-500" href="https://instagram.com/deserve_ru?utm_medium=copy_link" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
+						<a class="btn rounded-md text-gray-500" href="https://instagram.com/deserve_ru" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
 							<v-icon name="instagram" />
 						</a>
 					</div>
@@ -58,10 +58,7 @@
 			<small class="text-xs text-gray-600 tracking-wider lg:text-center lg:mt-10">&copy; Copyright 2022, deserve.ru</small>
 			<ul class="flex space-x-5 lg:space-x-0 lg:space-y-4 text-xs lg:tracking-widest text-gray-600 tracking-wider lg:block lg:text-center">
 				<li>
-					<a class="hover:underline" href="#">Обработка персональных данных</a>
-				</li>
-				<li>
-					<a class="hover:underline" href="#">Политика конфиденциальности</a>
+					<nuxt-link class="hover:underline" exact to="/legal/privacy-policy">Политика конфиденциальности</nuxt-link>
 				</li>
 			</ul>
 		</div>

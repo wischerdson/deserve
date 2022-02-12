@@ -12,7 +12,7 @@
 					<v-input-phone v-model="form.phone" label="Ваш номер телефона" />
 				</fieldset>
 				<div class="pt-8">
-					<button class="btn space-x-4" type="submit" ref="submitFormBtn">
+					<button class="submit-btn btn space-x-4" type="submit" ref="submitFormBtn">
 						<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
 							<v-icon name="chevron-right" />
 						</div>
@@ -80,31 +80,38 @@
 
 	.callback-form {
 		&.v-enter-active {
-			.title, .desc, fieldset {
-				transition: transform .7s ease, opacity .7s ease;
+			.title, .desc, fieldset, .submit-btn {
+				transition: transform .3s ease-out, opacity .5s ease;
 			}
+
 			.ui-base-input__underline.default {
 				transition: transform 1s ease;
 			}
+
 			.title { transition-delay: .1s; }
-			.desc { transition-delay: .2s; }
+
+			.desc { transition-delay: .175s; }
+
 			@for $i from 1 through 2 {
 				fieldset:nth-child(#{$i}) {
-					transition-delay: #{.3 + ($i) * .1}s;
+					transition-delay: #{.175 + ($i) * .075}s;
 
 					.ui-base-input__underline.default {
 						transform-origin: 0;
-						transition-delay: #{.5 + ($i) * .2}s;
+						transition-delay: #{.2 + ($i) * .2}s;
 					}
 				}
 			}
+
+			.submit-btn { transition-delay: .325s; }
 		}
 
 		&.v-enter {
-			.title, .desc, fieldset {
+			.title, .desc, fieldset, .submit-btn {
 				transform: translateY(-20px);
 				opacity: 0;
 			}
+
 			.ui-base-input__underline.default {
 				transform: scaleX(0);
 			}

@@ -98,6 +98,7 @@
 			},
 			$route () {
 				this.menu = false
+				this.briefSidebar = false
 			}
 		},
 		mounted () {

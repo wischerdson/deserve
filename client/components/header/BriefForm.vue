@@ -1,6 +1,6 @@
 <template>
 	<transition :duration="1000">
-		<div class="brief-form pb-32 pt-28 max-w-sm" v-show="enableAnimation">
+		<div class="brief-form pb-20 pt-28 max-w-sm" v-show="enableAnimation">
 			<h2 class="title text-4xl sm:text-3xl font-extralight tracking-rr">Оставьте заявку</h2>
 			<p class="desc text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 			<form class="mt-6 space-y-6" action="/api/fill-form/brief" @submit.prevent="orderCall" novalidate>
@@ -34,6 +34,9 @@
 					</button>
 				</fieldset>
 			</form>
+			<div class="mt-16">
+				<p class="text-xs text-gray-600 tracking-wider">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <nuxt-link class="hover:underline text-gray-400" to="/legal/privacy-policy">политикой конфиденциальности</nuxt-link></p>
+			</div>
 		</div>
 	</transition>
 </template>

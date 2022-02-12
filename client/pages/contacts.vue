@@ -55,6 +55,7 @@
 								</div>
 								<span class="text-xs tracking-rr uppercase text-white font-extralight">Отправить</span>
 							</button>
+							<p class="text-xs text-gray-600 tracking-wider mt-12">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <nuxt-link class="hover:underline text-gray-400" to="/legal/privacy-policy">политикой конфиденциальности</nuxt-link></p>
 						</form>
 					</div>
 				</div>
