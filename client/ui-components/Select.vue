@@ -2,7 +2,7 @@
 	<base-input :label="label" :value="value" @input="$emit('input', $event)">
 		<template #input="props">
 			<select
-				class="ui-base-input-component__input cursor-pointer"
+				class="ui-base-input__input cursor-pointer"
 				:name="name"
 				:id="props.id"
 				:value="props.value"

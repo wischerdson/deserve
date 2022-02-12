@@ -22,7 +22,7 @@
 			z-index: 2;
 			background-color: theme('colors.gray.300');
 			transform: scaleX(0);
-			transition: transform .4s ease;
+			animation: input_underline_leave .4s ease forwards;
 		}
 	}
 
@@ -34,7 +34,22 @@
 		letter-spacing: .05rem;
 
 		&:focus ~ #{$inputComponentSelector}__underline.focus {
-			transform: scaleX(1);
+			animation: input_underline_enter .4s ease forwards;
+		}
+
+		@keyframes input_underline_enter {
+			from { transform: scaleX(0); }
+			to { transform: scaleX(1); }
+		}
+		@keyframes input_underline_leave {
+			from {
+				transform: scaleX(1);
+				opacity: 1;
+			}
+			to {
+				transform: scaleX(1);
+				opacity: 0;
+			}
 		}
 	}
 

@@ -1,6 +1,6 @@
 <template>
-	<transition :duration="200">
-		<div class="brief pb-32 pt-28 max-w-sm" v-if="enableAnimation">
+	<transition :duration="200000">
+		<div class="brief-form pb-32 pt-28 max-w-sm" v-show="enableAnimation">
 			<h2 class="title text-4xl sm:text-3xl font-extralight tracking-rr">Оставьте заявку</h2>
 			<p class="desc text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 			<form class="mt-6 space-y-6" action="/api/fill-form/brief" @submit.prevent="orderCall" novalidate>
@@ -15,11 +15,11 @@
 				</fieldset>
 				<fieldset>
 					<v-select v-model="form.budget" label="Планируемый бюджет">
-						<option class="text-black" value="" selected></option>
-						<option class="text-black" value="До 500 тыс.">До 500 тыс.</option>
-						<option class="text-black" value="0.5 - 1 млн.">0.5 - 1 млн.</option>
-						<option class="text-black" value="1 - 3 млн.">1 - 3 млн.</option>
-						<option class="text-black" value="От 3 млн.">От 3 млн.</option>
+						<option class="text-black font-normal" value="" selected></option>
+						<option class="text-black font-normal" value="До 500 тыс.">До 500 тыс.</option>
+						<option class="text-black font-normal" value="0.5 - 1 млн.">0.5 - 1 млн.</option>
+						<option class="text-black font-normal" value="1 - 3 млн.">1 - 3 млн.</option>
+						<option class="text-black font-normal" value="От 3 млн.">От 3 млн.</option>
 					</v-select>
 				</fieldset>
 				<fieldset>
@@ -74,21 +74,21 @@
 
 <style lang="scss">
 
-	.brief {
+	.brief-form {
 		&.v-enter-active {
 			.title, .desc, fieldset {
 				transition: transform .7s ease, opacity .7s ease;
 			}
-			.form-control-underline.default {
+			.ui-base-input__underline.default {
 				transition: transform 1s ease;
 			}
-			.title { transition-delay: .3s; }
-			.desc { transition-delay: .45s; }
+			.title { transition-delay: .2s; }
+			.desc { transition-delay: .3s; }
 			@for $i from 1 through 6 {
 				fieldset:nth-child(#{$i}) {
-					transition-delay: #{.45 + ($i) * .1}s;
+					transition-delay: #{.3 + ($i) * .1}s;
 
-					.form-control-underline.default {
+					.ui-base-input__underline.default {
 						transform-origin: 0;
 						transition-delay: #{.55 + ($i) * .1}s;
 					}
@@ -100,7 +100,7 @@
 				transform: translateY(20px);
 				opacity: 0;
 			}
-			.form-control-underline.default {
+			.ui-base-input__underline.default {
 				transform: scaleX(0);
 			}
 		}

@@ -2,7 +2,7 @@
 	<base-input :label="label" :value="phone" @input="$emit('input', $event)">
 		<template #input="props">
 			<input
-				class="ui-base-input-component__input"
+				class="ui-base-input__input"
 				type="tel"
 				:name="name"
 				@input="onInput"

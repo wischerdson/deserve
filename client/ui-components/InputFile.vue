@@ -2,7 +2,7 @@
 	<base-input :label="label" :value="value" @input="$emit('input', $event)">
 		<template #input="props">
 			<input
-				class="ui-base-input-component__input visually-hidden"
+				class="ui-base-input__input visually-hidden"
 				type="file"
 				:name="name"
 				:value="props.value"
