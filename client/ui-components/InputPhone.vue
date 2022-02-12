@@ -5,6 +5,7 @@
 				class="ui-base-input__input"
 				type="tel"
 				:name="name"
+				@focus="onFocus"
 				@input="onInput"
 				:id="props.id"
 				ref="input"
@@ -31,6 +32,12 @@
 			}
 		},
 		methods: {
+			onFocus (e) {
+				if (!e.target.value) {
+					e.target.value = '+7'
+					this.onInput(e)
+				}
+			},
 			onInput (e) {
 				const value = e.target.value
 				const asYouType = new AsYouType('RU')

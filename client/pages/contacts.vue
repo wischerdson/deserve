@@ -37,7 +37,7 @@
 						<form action="/api/fill-form/feedback" @submit.prevent="sendForm">
 							<div class="space-y-4">
 								<fieldset>
-									<v-input type="text" v-model="form.name" label="Имя" />
+									<v-input type="text" v-model="form.name" label="Имя" ref="firstInput" />
 								</fieldset>
 								<fieldset>
 									<v-input type="email" v-model="form.email" label="Email" />
@@ -138,7 +138,7 @@
 				})
 			},
 			focusFirstInput () {
-				this.$refs.firstInput.$el.querySelector('input').focus()
+				this.$refs.firstInput.$el.querySelector('.ui-base-input__input').focus()
 			}
 		},
 		mounted () {

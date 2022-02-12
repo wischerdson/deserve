@@ -19,8 +19,8 @@
 						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/contacts">Контакты</nuxt-link>
 					</li>
 				</ul>
-				<div class="form-column mx-auto">
-					<callback-form />
+				<div class="mx-auto">
+					<callback-form :enable-animation="opened" />
 				</div>
 			</div>
 		</div>
@@ -78,9 +78,7 @@
 				}
 			}
 		}
-		.form-column {
-			transition: transform .6s ease-out .2s, opacity .6s ease .2s;
-		}
+
 		.menu-bottom {
 			transition: opacity .3s ease .5s;
 		}
@@ -91,19 +89,14 @@
 			transform: translate3d(0, -20px, 0);
 			opacity: 0;
 		}
-		.form-column {
-			transform: scale(.95);
-			opacity: 0;
-		}
+
 		.menu-bottom {
 			opacity: 0;
 		}
 	}
 
-	.header__menu-desktop .menu-item__link {
-		&:before {
-			left: -30px;
-		}
+	.header__menu-desktop .menu-item__link:before {
+		left: -30px;
 	}
 
 </style>

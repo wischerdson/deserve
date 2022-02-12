@@ -47,7 +47,7 @@
 
 	import gsap from 'gsap'
 	import { ScrollTrigger } from 'gsap/ScrollTrigger'
-	import disableScroll from 'disable-scroll'
+	import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 	import HeaderMenuDesktop from '~/components/header/MenuDesktop'
 	import HeaderMenuMobile from '~/components/header/MenuMobile'
 	import HeaderNavBar from '~/components/header/NavBar'
@@ -79,7 +79,7 @@
 		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar, BriefSidebar },
 		watch: {
 			menu (value) {
-				value ? disableScroll.on() : disableScroll.off()
+				value ? disablePageScroll() : enablePageScroll()
 
 				const backdrop = this.$refs.backdrop
 				this.$refs.backdrop.classList.add('backdrop-extending')
@@ -92,6 +92,9 @@
 				} else {
 					this.$refs.backdrop.classList.remove('backdrop-extended')
 				}
+			},
+			briefSidebar (value) {
+				value ? disablePageScroll() : enablePageScroll()
 			},
 			$route () {
 				this.menu = false

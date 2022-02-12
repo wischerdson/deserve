@@ -10,7 +10,7 @@
 
 <script>
 
-	import disableScroll from 'disable-scroll'
+	import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
 	export default {
 		data () {
@@ -22,11 +22,11 @@
 		methods: {
 			iconEntered () {
 				this.show = false
-				disableScroll.off()
+				enablePageScroll()
 			}
 		},
 		mounted () {
-			disableScroll.on()
+			disablePageScroll()
 			this.icon = true
 		}
 	}

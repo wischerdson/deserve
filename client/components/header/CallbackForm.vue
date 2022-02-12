@@ -1,8 +1,8 @@
 <template>
-	<transition name="callback-form" mode="out-in">
-		<div v-if="!form._filled" key="form">
-			<h2 class="text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
-			<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
+	<transition :duration="1000">
+		<div class="callback-form" v-show="enableAnimation" key="form">
+			<h2 class="title text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
+			<p class="desc mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
 			<form class="mt-6 space-y-4" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
 				<fieldset>
@@ -21,7 +21,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="thanks max-w-sm" key="thanks" v-else>
+		<!-- <div class="thanks max-w-sm" key="thanks" v-else>
 			<div class="thanks-title relative">
 				<h2 class="text-4xl font-extralight tracking-[.25rem] leading-none relative z-10">Спасибо</h2>
 				<div class="absolute bottom-0 left-0 bg-green-900 h-3 w-20"></div>
@@ -34,13 +34,16 @@
 				</div>
 				<span class="text-xs tracking-rr uppercase text-white font-extralight">Lorem ipsum</span>
 			</button>
-		</div>
+		</div> -->
 	</transition>
 </template>
 
 <script>
 
 	export default {
+		props: {
+			enableAnimation: Boolean
+		},
 		data () {
 			return {
 				magneticSubmitFormBtn: null,
@@ -64,11 +67,48 @@
 			}
 		},
 		mounted () {
-			this.magneticSubmitFormBtn = this.$magnetic.add({
-				element: this.$refs.submitFormBtn,
-				trigger: this.$refs.submitFormBtnPill
-			})
+			// this.magneticSubmitFormBtn = this.$magnetic.add({
+			// 	element: this.$refs.submitFormBtn,
+			// 	trigger: this.$refs.submitFormBtnPill
+			// })
 		}
 	}
 
 </script>
+
+<style lang="scss">
+
+	.callback-form {
+		&.v-enter-active {
+			.title, .desc, fieldset {
+				transition: transform .7s ease, opacity .7s ease;
+			}
+			.ui-base-input__underline.default {
+				transition: transform 1s ease;
+			}
+			.title { transition-delay: .1s; }
+			.desc { transition-delay: .2s; }
+			@for $i from 1 through 2 {
+				fieldset:nth-child(#{$i}) {
+					transition-delay: #{.3 + ($i) * .1}s;
+
+					.ui-base-input__underline.default {
+						transform-origin: 0;
+						transition-delay: #{.5 + ($i) * .2}s;
+					}
+				}
+			}
+		}
+
+		&.v-enter {
+			.title, .desc, fieldset {
+				transform: translateY(-20px);
+				opacity: 0;
+			}
+			.ui-base-input__underline.default {
+				transform: scaleX(0);
+			}
+		}
+	}
+
+</style>
