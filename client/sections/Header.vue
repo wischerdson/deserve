@@ -47,7 +47,7 @@
 
 	import gsap from 'gsap'
 	import { ScrollTrigger } from 'gsap/ScrollTrigger'
-	import { disablePageScroll, enablePageScroll } from 'scroll-lock';
+	import { disablePageScroll, enablePageScroll, addFillGapTarget } from 'scroll-lock';
 	import HeaderMenuDesktop from '~/components/header/MenuDesktop'
 	import HeaderMenuMobile from '~/components/header/MenuMobile'
 	import HeaderNavBar from '~/components/header/NavBar'
@@ -94,7 +94,8 @@
 				}
 			},
 			briefSidebar (value) {
-				value ? disablePageScroll(this.$refs.briefSidebar.$el.querySelector('.scrollable')) : enablePageScroll()
+				const se = this.$refs.briefSidebar.$el.querySelector('.scrollable')
+				value ? disablePageScroll(se) : enablePageScroll()
 			},
 			$route () {
 				this.menu = false
@@ -103,6 +104,7 @@
 		},
 		mounted () {
 			initScrollTrigger.call(this)
+			addFillGapTarget(this.$el)
 		}
 	}
 
