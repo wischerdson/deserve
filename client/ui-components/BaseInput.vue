@@ -5,7 +5,7 @@
 
 			<label
 				class="ui-base-input__label absolute inset-x-0 leading-none pointer-events-none"
-				:class="{ 'at-top': ownValue }"
+				:class="{ 'at-top': ownValue || forceFilled }"
 				:for="id"
 			>
 				<span class="font-extralight tracking-wider text-gray-200">{{ label }}</span>
@@ -24,7 +24,8 @@
 	export default {
 		props: {
 			value: String,
-			label: { type: String, default: '' }
+			label: { type: String, default: '' },
+			forceFilled: { default: false, required: false }
 		},
 		data () {
 			return {

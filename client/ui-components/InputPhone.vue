@@ -1,5 +1,5 @@
 <template>
-	<base-input :label="label" :value="phone" @input="$emit('input', $event)">
+	<base-input :label="label" :force-filled="formatted" :value="phone" @input="$emit('input', $event)">
 		<template #input="props">
 			<input
 				class="ui-base-input__input"
@@ -28,7 +28,13 @@
 		},
 		data () {
 			return {
-				phone: this.value
+				phone: this.value,
+				formatted: null
+			}
+		},
+		watch: {
+			formatted (value) {
+				this.$refs.input.value = value
 			}
 		},
 		methods: {
@@ -44,7 +50,7 @@
 
 				asYouType.input(value)
 
-				this.$refs.input.value = asYouType.formattedOutput
+				this.formatted = asYouType.formattedOutput
 
 				if (asYouType.getNumber()) {
 					this.phone = asYouType.getNumber().number
@@ -53,7 +59,7 @@
 		},
 		mounted () {
 			this.asYouType = new AsYouType('RU')
-			this.$refs.input.value = this.asYouType.input(this.value)
+			this.formatted = this.asYouType.input(this.value)
 		}
 	}
 

@@ -1,7 +1,7 @@
 <template>
 	<transition :duration="{ enter: 900, leave: 400 }">
 		<div class="brief-sidebar fixed inset-0 z-40 bg-black" v-show="opened">
-			<div class="absolute inset-0 sm:px-8 sm:mt-20 overflow-y-scroll flex">
+			<div class="scrollable absolute inset-0 sm:px-8 sm:mt-20 overflow-y-scroll flex">
 				<div class="w-1/2 xl:w-2/5 lg:hidden h-full fixed">
 					<video class="w-full h-full object-cover object-center" :src="require('~/static/video/brief-backdrop.mp4')" autoplay playsinline muted loop></video>
 					<div class="bg-black/70 z-10 absolute inset-0"></div>

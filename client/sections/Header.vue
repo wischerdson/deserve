@@ -39,7 +39,7 @@
 			<header-menu-mobile v-model="menu" />
 		</div>
 
-		<brief-sidebar :opened="briefSidebar" @close="briefSidebar = false" />
+		<brief-sidebar :opened="briefSidebar" @close="briefSidebar = false" ref="briefSidebar" />
 	</header>
 </template>
 
@@ -94,7 +94,7 @@
 				}
 			},
 			briefSidebar (value) {
-				value ? disablePageScroll() : enablePageScroll()
+				value ? disablePageScroll(this.$refs.briefSidebar.$el.querySelector('.scrollable')) : enablePageScroll()
 			},
 			$route () {
 				this.menu = false
