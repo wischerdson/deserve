@@ -5,7 +5,13 @@
 			<p class="desc text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 			<form class="mt-6 space-y-6" action="/api/fill-form/brief" @submit.prevent="orderCall" novalidate>
 				<fieldset>
-					<v-input type="text" v-model="form.name" label="Как к Вам обращаться?" />
+					<v-input
+						type="text"
+						v-model="form.name"
+						label="Как к Вам обращаться?"
+					/>
+					  <!-- <div class="error" v-if="$v.form.name.$error && !$v.form.name.required">Field is required</div> -->
+					<!-- <pre>{{ form.name }}</pre> -->
 				</fieldset>
 				<fieldset>
 					<v-input-phone v-model="form.phone" label="Ваш номер телефона" />
@@ -43,7 +49,11 @@
 
 <script>
 
+	import { validationMixin } from 'vuelidate'
+	import { required, minLength } from 'vuelidate/lib/validators'
+
 	export default {
+		// mixins: [ validationMixin ],
 		props: {
 			enableAnimation: Boolean
 		},
@@ -60,6 +70,14 @@
 				}
 			}
 		},
+		validations: {
+			form: {
+				name: {
+					required,
+					minLength: minLength(2)
+				}
+			}
+		},
 		methods: {
 			orderCall (e) {
 				const url = e.target.getAttribute('action')
@@ -70,7 +88,7 @@
 					this.form._error = true
 				})
 			}
-		},
+		}
 	}
 
 </script>
@@ -82,11 +100,15 @@
 			.title, .desc, fieldset {
 				transition: transform .7s ease, opacity .7s ease;
 			}
+
 			.ui-base-input__underline.default {
 				transition: transform 1s ease;
 			}
+
 			.title { transition-delay: .2s; }
+
 			.desc { transition-delay: .3s; }
+
 			@for $i from 1 through 6 {
 				fieldset:nth-child(#{$i}) {
 					transition-delay: #{.3 + ($i) * .1}s;
@@ -98,11 +120,13 @@
 				}
 			}
 		}
+
 		&.v-enter {
 			.title, .desc, fieldset {
 				transform: translateY(20px);
 				opacity: 0;
 			}
+
 			.ui-base-input__underline.default {
 				transform: scaleX(0);
 			}
