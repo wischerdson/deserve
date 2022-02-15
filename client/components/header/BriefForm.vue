@@ -5,7 +5,17 @@
 			<p class="desc text-gray-500 leading-normal font-extralight tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 			<form class="mt-6 space-y-6" action="/api/fill-form/brief" @submit.prevent="orderCall" novalidate>
 				<fieldset>
-					<v-input type="text" v-model="form.name" label="Как к Вам обращаться?" />
+					<v-input
+						type="text"
+						v-model.trim="form.name"
+						label="Как к Вам обращаться?"
+						@blur="$v.form.name.touch()"
+						:errors="{
+							'Field is required': !$v.form.name.required
+						}"
+					/>
+					  <div class="error" v-if="$v.form.name.$error && !$v.form.name.required">Field is required</div>
+					<pre>{{ form.name }}</pre>
 				</fieldset>
 				<fieldset>
 					<v-input-phone v-model="form.phone" label="Ваш номер телефона" />
@@ -43,7 +53,11 @@
 
 <script>
 
+	import { validationMixin } from 'vuelidate'
+	import { required, minLength } from 'vuelidate/lib/validators'
+
 	export default {
+		mixins: [ validationMixin ],
 		props: {
 			enableAnimation: Boolean
 		},
@@ -60,7 +74,18 @@
 				}
 			}
 		},
+		validations: {
+			form: {
+				name: {
+					required,
+					minLength: minLength(2)
+				}
+			}
+		},
 		methods: {
+			alert () {
+				alert('asd')
+			},
 			orderCall (e) {
 				const url = e.target.getAttribute('action')
 

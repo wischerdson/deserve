@@ -26,9 +26,9 @@ export default {
 			{ name: 'viewport', content: 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0' },
 			{ name: 'HandheldFriendly', content: 'True' },
 			{ name: 'apple-mobile-web-app-capable', content: 'yes' },
-			{ name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-			{ name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+			{ name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
 			{ name: 'format-detection', content: 'telephone=no' },
+			{ name: 'format-detection', content: 'address=no' },
 			{ name: 'msapplication-TileColor', content: '#ffffff' },
 			{ name: 'msapplication-TileImage', content: '/favicon/ms-icon-144x144.png' },
 			{ name: 'theme-color', content: '#ffffff' },
@@ -72,7 +72,6 @@ export default {
 		{ src: '~/plugins/magnetic.js', ssr: false },
 		{ src: '~/plugins/video-bg.js', ssr: false },
 		{ src: '~/plugins/smooth-scroll.js', ssr: false },
-		// { src: '~/plugins/intl-tel-input.js', ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components

@@ -9,6 +9,7 @@
 				@input="props.onInput"
 				:id="props.id"
 				ref="input"
+				v-on="$listeners"
 			>
 		</template>
 

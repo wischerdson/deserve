@@ -8,6 +8,7 @@
 				:value="props.value"
 				@input="props.onInput"
 				:id="props.id"
+				v-on="$listeners"
 			></textarea>
 		</template>
 	</base-input>

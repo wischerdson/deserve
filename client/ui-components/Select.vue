@@ -7,6 +7,7 @@
 				:id="props.id"
 				:value="props.value"
 				@input="props.onInput"
+				v-on="$listeners"
 			>
 				<slot />
 			</select>
