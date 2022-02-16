@@ -1,15 +1,15 @@
 <template>
-	<base-input :label="label" :value="value" @input="$emit('input', $event)">
+	<base-input :label="label" :value="value" @input="$emit('modelInput', $event)">
 		<template #input="props">
 			<input
 				class="ui-base-input__input visually-hidden"
 				type="file"
-				:name="name"
-				:value="props.value"
+				:value="value"
 				@input="props.onInput"
 				:id="props.id"
 				ref="input"
 				v-on="$listeners"
+				v-bind="$attrs"
 			>
 		</template>
 
@@ -18,7 +18,6 @@
 				<v-icon class="text-gray-500" name="attach-file" />
 			</div>
 		</div>
-
 	</base-input>
 </template>
 
@@ -28,11 +27,13 @@
 
 	export default {
 		components: { BaseInput },
+		inheritAttrs: false,
+		model: {
+			event: 'modelInput'
+		},
 		props: {
-			name: String,
 			value: String,
 			label: { type: String, default: '' },
-			multiple: { type: Boolean, default: false }
 		}
 	}
 

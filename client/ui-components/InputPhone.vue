@@ -1,15 +1,15 @@
 <template>
-	<base-input :label="label" :force-filled="formatted" :value="phone" @input="$emit('input', $event)">
+	<base-input :label="label" :force-filled="formatted" :value="phone" @input="$emit('modelInput', $event)">
 		<template #input="props">
 			<input
 				class="ui-base-input__input"
 				type="tel"
-				:name="name"
 				@focus="onFocus"
 				@input="onInput"
 				:id="props.id"
 				ref="input"
 				v-on="$listeners"
+				v-bind="$attrs"
 			>
 		</template>
 	</base-input>
@@ -22,8 +22,11 @@
 
 	export default {
 		components: { BaseInput },
+		inheritAttrs: false,
+		model: {
+			event: 'modelInput'
+		},
 		props: {
-			name: String,
 			value: { type: String, default: '' },
 			label: { type: String, default: '' }
 		},

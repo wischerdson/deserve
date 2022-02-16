@@ -7,15 +7,11 @@
 				<fieldset>
 					<v-input
 						type="text"
-						v-model.trim="form.name"
+						v-model="form.name"
 						label="Как к Вам обращаться?"
-						@blur="$v.form.name.touch()"
-						:errors="{
-							'Field is required': !$v.form.name.required
-						}"
 					/>
-					  <div class="error" v-if="$v.form.name.$error && !$v.form.name.required">Field is required</div>
-					<pre>{{ form.name }}</pre>
+					  <!-- <div class="error" v-if="$v.form.name.$error && !$v.form.name.required">Field is required</div> -->
+					<!-- <pre>{{ form.name }}</pre> -->
 				</fieldset>
 				<fieldset>
 					<v-input-phone v-model="form.phone" label="Ваш номер телефона" />
@@ -57,7 +53,7 @@
 	import { required, minLength } from 'vuelidate/lib/validators'
 
 	export default {
-		mixins: [ validationMixin ],
+		// mixins: [ validationMixin ],
 		props: {
 			enableAnimation: Boolean
 		},
@@ -95,7 +91,7 @@
 					this.form._error = true
 				})
 			}
-		},
+		}
 	}
 
 </script>
@@ -107,11 +103,15 @@
 			.title, .desc, fieldset {
 				transition: transform .7s ease, opacity .7s ease;
 			}
+
 			.ui-base-input__underline.default {
 				transition: transform 1s ease;
 			}
+
 			.title { transition-delay: .2s; }
+
 			.desc { transition-delay: .3s; }
+
 			@for $i from 1 through 6 {
 				fieldset:nth-child(#{$i}) {
 					transition-delay: #{.3 + ($i) * .1}s;
@@ -123,11 +123,13 @@
 				}
 			}
 		}
+
 		&.v-enter {
 			.title, .desc, fieldset {
 				transform: translateY(20px);
 				opacity: 0;
 			}
+
 			.ui-base-input__underline.default {
 				transform: scaleX(0);
 			}

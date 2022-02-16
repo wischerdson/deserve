@@ -23,7 +23,7 @@
 
 	export default {
 		props: {
-			value: String,
+			value: [ String, Number ],
 			label: { type: String, default: '' },
 			forceFilled: { default: false, required: false }
 		},

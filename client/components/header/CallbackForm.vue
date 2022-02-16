@@ -88,13 +88,13 @@
 				transition: transform 1s ease;
 			}
 
-			.title { transition-delay: .1s; }
+			.title { transition-delay: .2s; }
 
-			.desc { transition-delay: .175s; }
+			.desc { transition-delay: .275s; }
 
 			@for $i from 1 through 2 {
 				fieldset:nth-child(#{$i}) {
-					transition-delay: #{.175 + ($i) * .075}s;
+					transition-delay: #{.275 + ($i) * .075}s;
 
 					.ui-base-input__underline.default {
 						transform-origin: 0;

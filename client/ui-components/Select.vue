@@ -1,13 +1,13 @@
 <template>
-	<base-input :label="label" :value="value" @input="$emit('input', $event)">
+	<base-input :label="label" :value="value" @input="$emit('modelInput', $event)">
 		<template #input="props">
 			<select
 				class="ui-base-input__input cursor-pointer"
-				:name="name"
 				:id="props.id"
-				:value="props.value"
+				:value="value"
 				@input="props.onInput"
 				v-on="$listeners"
+				v-bind="$attrs"
 			>
 				<slot />
 			</select>
@@ -24,8 +24,11 @@
 
 	export default {
 		components: { BaseInput },
+		inheritAttrs: false,
+		model: {
+			event: 'modelInput'
+		},
 		props: {
-			name: String,
 			value: String,
 			label: { type: String, default: '' }
 		}
