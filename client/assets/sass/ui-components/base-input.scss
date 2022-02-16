@@ -18,11 +18,34 @@
 			z-index: 1;
 			background-color: theme('colors.gray.700');
 		}
+
 		&.focus {
 			z-index: 2;
 			background-color: theme('colors.gray.300');
 			transform: scaleX(0);
 			animation: input_underline_leave .4s ease forwards;
+		}
+
+		&.error {
+			z-index: 3;
+			background-color: theme('colors.red.500');
+			transform: scaleX(0);
+			animation: input_underline_leave .4s ease forwards;
+
+			&.show {
+				animation: input_underline_enter .4s ease forwards;
+			}
+		}
+
+		&.success {
+			z-index: 4;
+			background-color: theme('colors.green.700');
+			transform: scaleX(0);
+			animation: input_underline_leave .4s ease forwards;
+
+			&.show {
+				animation: input_underline_enter .4s ease forwards;
+			}
 		}
 	}
 

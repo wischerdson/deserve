@@ -1,5 +1,5 @@
 <template>
-	<div class="ui-base-input pt-5">
+	<div class="ui-base-input relative pt-5 pb-5">
 		<div class="relative">
 			<slot name="input" :id="id" :value="ownValue" :on-input="onInput" />
 
@@ -13,8 +13,20 @@
 
 			<slot name="default" />
 
+			<div class="pointer-events-none flex items-center px-2 absolute right-0 top-0 bottom-0" v-if="showTickOnSuccess && success">
+				<v-icon class="text-green-700" name="done" />
+			</div>
+
 			<div class="ui-base-input__underline default"></div>
 			<div class="ui-base-input__underline focus"></div>
+			<div class="ui-base-input__underline error" :class="{ show: error }" v-if="errors"></div>
+			<div class="ui-base-input__underline success" :class="{ show: success }"></div>
+		</div>
+
+		<div class="mt-0.5 leading-none absolute bottom-0 h-5 overflow-hidden flex items-end" v-if="errors">
+			<transition name="error" :duration="300">
+				<span class="message text-xs font-normal tracking-wider text-red-500" v-if="error">{{ error }}</span>
+			</transition>
 		</div>
 	</div>
 </template>
@@ -24,13 +36,21 @@
 	export default {
 		props: {
 			value: [ String, Number ],
-			label: { type: String, default: '' },
-			forceFilled: { default: false, required: false }
+			label: { type: String, default: '', required: false },
+			forceFilled: { default: false, required: false },
+			errors: { type: Object, required: false },
+			success: { default: false, required: false },
+			showTickOnSuccess: { type: Boolean, default: true, required: false }
 		},
 		data () {
 			return {
 				ownValue: this.value,
 				id: null
+			}
+		},
+		computed: {
+			error () {
+				return Object.keys(this.errors).find((item) => this.errors[item]) || null
 			}
 		},
 		watch: {
@@ -52,3 +72,17 @@
 	}
 
 </script>
+
+<style lang="scss" scoped>
+
+	.error {
+		&-enter-active, &-leave-active {
+			transition: transform .3s ease;
+		}
+
+		&-enter, &-leave-to {
+			transform: translateY(-20px);
+		}
+	}
+
+</style>

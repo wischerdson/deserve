@@ -1,5 +1,12 @@
 <template>
-	<base-input :label="label" :value="value" @input="$emit('modelInput', $event)">
+	<base-input
+		:label="label"
+		:value="value"
+		:errors="errors"
+		:success="success"
+		:showTickOnSuccess="false"
+		@input="$emit('modelInput', $event)"
+	>
 		<template #input="props">
 			<textarea
 				class="ui-base-input__input"
@@ -25,7 +32,9 @@
 		},
 		props: {
 			value: [ String, Number ],
-			label: { type: String, default: '' }
+			label: { type: String, default: '' },
+			errors: { type: Object, required: false },
+			success: { default: false, required: false }
 		}
 	}
 

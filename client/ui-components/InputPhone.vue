@@ -1,5 +1,12 @@
 <template>
-	<base-input :label="label" :force-filled="formatted" :value="phone" @input="$emit('modelInput', $event)">
+	<base-input
+		:label="label"
+		:force-filled="formatted"
+		:value="phone"
+		:errors="errors"
+		:success="success"
+		@input="$emit('modelInput', $event)"
+	>
 		<template #input="props">
 			<input
 				class="ui-base-input__input"
@@ -28,7 +35,9 @@
 		},
 		props: {
 			value: { type: String, default: '' },
-			label: { type: String, default: '' }
+			label: { type: String, default: '' },
+			errors: { type: Object, required: false },
+			success: { default: false, required: false }
 		},
 		data () {
 			return {
@@ -55,10 +64,7 @@
 				asYouType.input(value)
 
 				this.formatted = asYouType.formattedOutput
-
-				if (asYouType.getNumber()) {
-					this.phone = asYouType.getNumber().number
-				}
+				this.phone = asYouType.getNumber() ? asYouType.getNumber().number : value
 			}
 		},
 		mounted () {

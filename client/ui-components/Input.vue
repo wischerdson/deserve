@@ -1,5 +1,11 @@
 <template>
-	<base-input :label="label" :value="value" @input="$emit('modelInput', $event)">
+	<base-input
+		:label="label"
+		:value="value"
+		:errors="errors"
+		:success="success"
+		@input="$emit('modelInput', $event)"
+	>
 		<template #input="props">
 			<input
 				:value="value"
@@ -25,7 +31,9 @@
 		},
 		props: {
 			value: [ String, Number ],
-			label: { type: String, default: '' }
+			label: { type: String, default: '' },
+			errors: { type: Object, required: false },
+			success: { default: false, required: false }
 		}
 	}
 
