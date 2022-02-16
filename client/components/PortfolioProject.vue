@@ -24,9 +24,9 @@
 				</div>
 			</div>
 			<div>
-				<div ref="image" class="w-full relative after:block after:pt-[60%] will-change-transform">
+				<div ref="image" class="w-full relative after:block after:pt-[70%] will-change-transform">
 					<div class="absolute inset-0 rounded-3xl overflow-hidden">
-						<img class="w-full h-full object-cover object-center" :src="project.image" :alt="project.name">
+						<img class="w-full h-full object-contain object-center" :src="project.image" :alt="project.name">
 					</div>
 				</div>
 			</div>

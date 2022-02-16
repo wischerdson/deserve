@@ -14,7 +14,7 @@
 			<slot name="default" />
 
 			<div class="pointer-events-none flex items-center px-2 absolute right-0 top-0 bottom-0" v-if="showTickOnSuccess && success">
-				<v-icon class="text-green-700" name="done" />
+				<v-icon class="text-emerald-700" name="done" />
 			</div>
 
 			<div class="ui-base-input__underline default"></div>
@@ -25,7 +25,7 @@
 
 		<div class="mt-0.5 leading-none absolute bottom-0 h-5 overflow-hidden flex items-end" v-if="errors">
 			<transition name="error" :duration="300">
-				<span class="message text-xs font-normal tracking-wider text-red-500" v-if="error">{{ error }}</span>
+				<span class="message text-xs font-extralight tracking-wider text-red-500" v-if="error">{{ error }}</span>
 			</transition>
 		</div>
 	</div>

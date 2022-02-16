@@ -29,9 +29,9 @@ export default {
 			{ name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
 			{ name: 'format-detection', content: 'telephone=no' },
 			{ name: 'format-detection', content: 'address=no' },
-			{ name: 'msapplication-TileColor', content: '#ffffff' },
+			{ name: 'msapplication-TileColor', content: '#000000' },
 			{ name: 'msapplication-TileImage', content: '/favicon/ms-icon-144x144.png' },
-			{ name: 'theme-color', content: '#ffffff' },
+			{ name: 'theme-color', content: '#000000' },
 			{ description: 'Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг.' },
 			{ property: 'og:site_name', content: 'Deserve agency', hid: 'og-site_name' },
 			{ property: 'og:url', content: 'https://deserve.ru', hid: 'og-url' },
@@ -52,7 +52,6 @@ export default {
 			{ rel: 'shortcut icon', href: '/favicon.ico' },
 			{ name: 'msapplication-TileColor', content: '#000000' },
 			{ name: 'msapplication-config', content: '/favicon/browserconfig.xml' },
-			{ name: 'theme-color', content: '#ffffff' },
 		]
 	},
 

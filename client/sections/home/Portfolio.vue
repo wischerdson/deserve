@@ -47,6 +47,14 @@
 						image: require('~/static/image/project-getpods.png')
 					},
 					{
+						subtitle: 'YouTube, Instagram блогер',
+						name: 'Афоня TV',
+						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
+						url: 'https://hostrim.ru',
+						image: require('~/static/image/project-afonya.png'),
+						mobileImage: require('~/static/image/project-afonya.png')
+					},
+					{
 						subtitle: 'Хостинг-провайдер',
 						name: 'Hostrim.ru',
 						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',

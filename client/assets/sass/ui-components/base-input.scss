@@ -39,7 +39,7 @@
 
 		&.success {
 			z-index: 4;
-			background-color: theme('colors.green.700');
+			background-color: theme('colors.emerald.700');
 			transform: scaleX(0);
 			animation: input_underline_leave .4s ease forwards;
 

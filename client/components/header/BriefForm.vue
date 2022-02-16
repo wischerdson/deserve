@@ -84,7 +84,7 @@
 <script>
 
 	import { validationMixin } from 'vuelidate'
-	import { required, minLength, alpha, email } from 'vuelidate/lib/validators'
+	import { required, minLength, email } from 'vuelidate/lib/validators'
 	import { phone } from '~/plugins/custom-validators'
 
 	export default {
@@ -108,7 +108,7 @@
 		},
 		validations: {
 			form: {
-				name: { required, alpha, minLength: minLength(2) },
+				name: { required, minLength: minLength(2) },
 				phone: { required, phone },
 				email: { email },
 				task_description: { minLength: minLength(12) }
@@ -137,7 +137,7 @@
 				transition: transform .7s ease, opacity .7s ease;
 			}
 
-			.ui-base-input__underline.default {
+			.ui-base-input__underline {
 				transition: transform 1s ease;
 			}
 
@@ -149,7 +149,7 @@
 				fieldset:nth-child(#{$i}) {
 					transition-delay: #{.3 + ($i) * .1}s;
 
-					.ui-base-input__underline.default {
+					.ui-base-input__underline {
 						transform-origin: 0;
 						transition-delay: #{.55 + ($i) * .1}s;
 					}
@@ -163,7 +163,7 @@
 				opacity: 0;
 			}
 
-			.ui-base-input__underline.default {
+			.ui-base-input__underline {
 				transform: scaleX(0);
 			}
 		}
