@@ -13,7 +13,7 @@
 						:success="!$v.form.name.$invalid && $v.form.name.$dirty"
 						:errors="{
 							'Пожалуйста, заполните это поле': $v.form.name.$error && !$v.form.name.required,
-							'Введите Ваше имя': $v.form.name.$error && (!$v.form.name.minLength || !$v.form.name.alpha),
+							'Введите Ваше имя': $v.form.name.$error && !$v.form.name.minLength,
 						}"
 					/>
 				</fieldset>

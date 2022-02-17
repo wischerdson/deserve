@@ -34,29 +34,68 @@
 						</div>
 					</div>
 					<div class="lg:mt-6">
-						<form action="/api/fill-form/feedback" @submit.prevent="sendForm">
-							<div class="space-y-4">
-								<fieldset>
-									<v-input type="text" v-model="form.name" label="Имя" ref="firstInput" />
-								</fieldset>
-								<fieldset>
-									<v-input type="email" v-model="form.email" label="Email" />
-								</fieldset>
-								<fieldset>
-									<v-input-phone v-model="form.phone" label="Телефон" />
-								</fieldset>
-								<fieldset>
-									<v-textarea v-model="form.message" label="Сообщение" />
-								</fieldset>
-							</div>
+						<form class="space-y-1.5" action="/api/fill-form/feedback" @submit.prevent="sendForm">
+							<fieldset>
+								<v-input
+									ref="firstInput"
+									type="text"
+									v-model="form.name"
+									label="Имя"
+									@change="$v.form.name.$touch"
+									:success="!$v.form.name.$invalid && $v.form.name.$dirty"
+									:errors="{
+										'Пожалуйста, заполните это поле': this.$v.form.name.$error && !this.$v.form.name.required,
+										'Введите Ваше имя': this.$v.form.name.$error && !this.$v.form.name.minLength
+									}"
+								/>
+							</fieldset>
+							<fieldset>
+								<v-input
+									type="email"
+									v-model="form.email"
+									label="Email"
+									@change="$v.form.email.$touch"
+									:success="!$v.form.email.$invalid && $v.form.email.$dirty"
+									:errors="{
+										'Пожалуйста, заполните это поле': $v.form.email.$error && !$v.form.email.required,
+										'Введите правильный email': $v.form.email.$error && !$v.form.email.email
+									}"
+								/>
+							</fieldset>
+							<fieldset>
+								<v-input-phone
+									v-model="form.phone"
+									label="Телефон"
+									@change="$v.form.phone.$touch"
+									:success="!$v.form.phone.$invalid && $v.form.phone.$dirty"
+									:errors="{
+										'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required,
+										'Введите правильный номер': $v.form.phone.$error && !$v.form.phone.phone
+									}"
+								/>
+							</fieldset>
+							<fieldset>
+								<v-textarea
+									v-model="form.message"
+									label="Сообщение"
+									@change="$v.form.message.$touch"
+									:success="!$v.form.message.$invalid && $v.form.message.$dirty"
+									:errors="{
+										'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required
+									}"
+								/>
+							</fieldset>
 							<button class="btn space-x-4 mt-10" type="submit" ref="submitFormBtn">
 								<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
 									<v-icon name="chevron-right" />
 								</div>
 								<span class="text-xs tracking-rr uppercase text-white font-extralight">Отправить</span>
 							</button>
-							<p class="text-xs text-gray-600 tracking-wider mt-12">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <nuxt-link class="hover:underline text-gray-400" to="/legal/privacy-policy">политикой конфиденциальности</nuxt-link></p>
 						</form>
+						<p class="text-xs text-gray-600 tracking-wider mt-12">
+							Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
+							<nuxt-link class="hover:underline text-gray-400" to="/legal/privacy-policy">политикой конфиденциальности</nuxt-link>
+						</p>
 					</div>
 				</div>
 				<div class="grid grid-cols-2 mt-24 lg:grid-cols-1 lg:gap-7">
@@ -122,13 +161,28 @@
 
 <script>
 
+	import { validationMixin } from 'vuelidate'
+	import { required, minLength, email } from 'vuelidate/lib/validators'
+	import { phone } from '~/plugins/custom-validators'
+
 	export default {
+		mixins: [ validationMixin ],
 		data () {
 			return {
 				form: {
-					name: '', phone: '',
-					email: '', message: ''
+					name: '',
+					phone: '',
+					email: '',
+					message: ''
 				}
+			}
+		},
+		validations: {
+			form: {
+				name: { required, minLength: minLength(2) },
+				phone: { required, phone },
+				email: { required, email },
+				message: { required }
 			}
 		},
 		methods: {
@@ -158,6 +212,7 @@
 	.tg-link {
 		box-shadow: 0 0 20px 0 theme('colors.telegram');
 	}
+
 	.wa-link {
 		box-shadow: 0 0 20px 0 theme('colors.whatsapp');
 	}

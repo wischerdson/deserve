@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilledFormsTable extends Migration
+class CreateGuestsTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -13,10 +13,13 @@ class CreateFilledFormsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('filled_forms', function (Blueprint $table) {
+		Schema::create('guests', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId('guest_id')->constrained('guests')->onUpdate('cascade')->onDelete('cascade');
-			$table->foreignId('form_id')->constrained('forms')->onUpdate('cascade')->onDelete('cascade');
+			$table->text('user_agent')->nullable();
+			$table->ipAddress('ip')->nullable();
+			$table->string('ip_country_code', 2)->nullable();
+			$table->string('ip_region')->nullable();
+			$table->string('ip_city')->nullable();
 			$table->timestamp('created_at');
 		});
 	}
@@ -28,6 +31,6 @@ class CreateFilledFormsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('filled_forms');
+		Schema::dropIfExists('guests');
 	}
 }

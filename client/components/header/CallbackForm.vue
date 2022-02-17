@@ -4,12 +4,31 @@
 			<h2 class="title text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
 			<p class="desc mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
-			<form class="mt-6 space-y-4" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
+			<form class="mt-6 space-y-1.5" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
 				<fieldset>
-					<v-input type="text" v-model="form.name" label="Как к Вам обращаться?" />
+					<v-input
+						type="text"
+						v-model="form.name"
+						label="Как к Вам обращаться?"
+						@change="$v.form.name.$touch"
+						:success="!$v.form.name.$invalid && $v.form.name.$dirty"
+						:errors="{
+							'Пожалуйста, заполните это поле': $v.form.name.$error && !$v.form.name.required,
+							'Введите Ваше имя': $v.form.name.$error && !$v.form.name.minLength,
+						}"
+					/>
 				</fieldset>
 				<fieldset>
-					<v-input-phone v-model="form.phone" label="Ваш номер телефона" />
+					<v-input-phone
+						v-model="form.phone"
+						label="Ваш номер телефона"
+						@change="$v.form.phone.$touch"
+						:success="!$v.form.phone.$invalid && $v.form.phone.$dirty"
+						:errors="{
+							'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required,
+							'Введите правильный номер': $v.form.phone.$error && !$v.form.phone.phone,
+						}"
+					/>
 				</fieldset>
 				<div class="pt-8">
 					<button class="submit-btn btn space-x-4" type="submit" ref="submitFormBtn">
@@ -40,7 +59,12 @@
 
 <script>
 
+	import { validationMixin } from 'vuelidate'
+	import { required, minLength } from 'vuelidate/lib/validators'
+	import { phone } from '~/plugins/custom-validators'
+
 	export default {
+		mixins: [ validationMixin ],
 		props: {
 			enableAnimation: Boolean
 		},
@@ -52,6 +76,12 @@
 					name: '',
 					_filled: false
 				}
+			}
+		},
+		validations: {
+			form: {
+				name: { required, minLength: minLength(2) },
+				phone: { required, phone }
 			}
 		},
 		methods: {
