@@ -11,7 +11,7 @@
 
 <script>
 
-	import SectionHeader from '~/sections/Header'
+	import SectionHeader from '~/sections/header/_Header'
 	import SectionFooter from '~/sections/Footer'
 	import Preloader from '~/components/Preloader'
 

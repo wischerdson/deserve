@@ -48,10 +48,10 @@
 	import gsap from 'gsap'
 	import { ScrollTrigger } from 'gsap/ScrollTrigger'
 	import { disablePageScroll, enablePageScroll, addFillGapTarget } from 'scroll-lock';
-	import HeaderMenuDesktop from '~/components/header/MenuDesktop'
-	import HeaderMenuMobile from '~/components/header/MenuMobile'
-	import HeaderNavBar from '~/components/header/NavBar'
-	import BriefSidebar from '~/components/header/BriefSidebar'
+	import HeaderMenuDesktop from './MenuDesktop'
+	import HeaderMenuMobile from './MenuMobile'
+	import HeaderNavBar from './NavBar'
+	import BriefSidebar from './BriefSidebar'
 
 	/* Register header scroll animation  */
 	const initScrollTrigger = function () {

@@ -11,7 +11,7 @@
 				<div class="w-1/2 lg:hidden xl:w-2/5 h-full"></div>
 
 				<div class="pl-28 xl:pl-16 sm:pl-0">
-					<brief-form :enable-animation="opened" class="sm:pt-0" />
+					<form-brief @close="$emit('close')" :enable-animation="opened" class="sm:pt-0" />
 				</div>
 			</div>
 
@@ -30,13 +30,13 @@
 
 <script>
 
-	import BriefForm from './BriefForm'
+	import FormBrief from './FormBrief'
 
 	export default {
 		props: {
 			opened: Boolean
 		},
-		components: { BriefForm }
+		components: { FormBrief }
 	}
 
 </script>

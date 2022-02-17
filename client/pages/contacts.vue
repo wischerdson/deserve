@@ -81,7 +81,7 @@
 									@change="$v.form.message.$touch"
 									:success="!$v.form.message.$invalid && $v.form.message.$dirty"
 									:errors="{
-										'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required
+										'Пожалуйста, заполните это поле': $v.form.message.$error && !$v.form.message.required
 									}"
 								/>
 							</fieldset>

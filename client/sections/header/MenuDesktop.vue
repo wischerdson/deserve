@@ -20,7 +20,7 @@
 					</li>
 				</ul>
 				<div class="mx-auto">
-					<callback-form :enable-animation="opened" />
+					<form-callback :enable-animation="opened" />
 				</div>
 			</div>
 		</div>
@@ -41,13 +41,13 @@
 
 <script>
 
-	import CallbackForm from "./CallbackForm.vue"
+	import FormCallback from "./FormCallback.vue"
 
 	export default {
 		props: {
 			opened: Boolean
 		},
-		components: { CallbackForm }
+		components: { FormCallback }
 	}
 
 </script>

@@ -26,7 +26,7 @@
 
 <script>
 
-	import VacancyForm from '~/components/VacancyForm'
+	import VacancyForm from '~/components/vacancies/VacancyForm'
 
 	export default {
 		components: { VacancyForm },
