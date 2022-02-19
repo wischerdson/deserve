@@ -10,7 +10,7 @@
 
 	export default {
 		props: {
-			show: { type: Boolean, required: true }
+			show: { required: true }
 		},
 		methods: {
 			enter (el, done) {

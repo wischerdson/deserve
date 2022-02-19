@@ -8,8 +8,6 @@ const Magnetic = (() => {
 
 		this.powerDistance = 50
 
-		this.updateOnScroll = false
-
 		this.__isHtmlElement = (element, name) => {
 			if (!(this.element instanceof HTMLElement)) {
 				throw `${PLUGIN_NAME}: Option "${name}" is invalid. It must have "HTMLElement" type`
@@ -22,10 +20,7 @@ const Magnetic = (() => {
 			})
 
 			this.__factory()
-
-			if (this.updateOnScroll) {
-				this.__setScrollHandler()
-			}
+			this.__setScrollHandler()
 
 			return this
 		}

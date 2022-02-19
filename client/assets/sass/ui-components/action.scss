@@ -1,0 +1,39 @@
+#{$actionComponentSelector} {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+	transition: all .5s ease;
+
+	&__pill {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: theme('spacing.12');
+		height: theme('spacing.12');
+		border-radius: 9999px;
+		background-color: theme('colors.white');
+		color: theme('colors.black');
+		margin-right: theme('spacing.4');
+		position: relative;
+
+		&.outline {
+			background: none;
+			color: theme('colors.gray.400');
+			outline: none;
+		}
+
+		&-circle {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+	&:active {
+		opacity: .5;
+		transition: none;
+	}
+}

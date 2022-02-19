@@ -17,6 +17,11 @@
 							</button>
 						</h2>
 						<p class="text-gray-500 mt-4 leading-normal tracking-wider text-sm">Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.</p>
+
+						<!-- <v-action-pill href="https://apple.com" target="_blank" right-icon="arrow-right" text="hello world" :pill-outline="true" :animate-pill="true">
+							<span>Форма обратной связи</span>
+						</v-action-pill> -->
+
 						<div class="absolute bottom-0 left-0 lg:static lg:mt-6">
 							<div class="text-xs text-gray-500 tracking-wider">Присоединяйтесь</div>
 							<ul class="flex space-x-3 mt-3">
