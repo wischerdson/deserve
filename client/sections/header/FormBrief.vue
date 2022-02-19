@@ -37,7 +37,7 @@
 								v-model="form.email"
 								label="Ваш email"
 								@change="$v.form.email.$touch"
-								:success="!$v.form.email.$invalid && $v.form.email.$dirty && form.email"
+								:success="!$v.form.email.$invalid && $v.form.email.$dirty && form.email.length"
 								:errors="{
 									'Введите правильный email': $v.form.email.$error && !$v.form.email.email
 								}"

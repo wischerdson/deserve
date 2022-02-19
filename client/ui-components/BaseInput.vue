@@ -13,8 +13,8 @@
 
 			<slot name="default" />
 
-			<div class="pointer-events-none flex items-center px-2 absolute right-0 top-0 bottom-0" v-if="showTickOnSuccess && success">
-				<v-icon class="text-emerald-700" name="done" />
+			<div class="pointer-events-none flex items-center px-2 absolute right-0 top-0 bottom-0" v-if="showTickOnSuccess">
+				<v-animated-tick :show="success" class="text-emerald-700" />
 			</div>
 
 			<div class="ui-base-input__underline default"></div>

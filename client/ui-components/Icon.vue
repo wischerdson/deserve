@@ -2,7 +2,7 @@
 	<span
 		class="icon inline-block"
 		:class="`icon-${name}`"
-		v-html="require(`!!raw-loader!~/assets/svg/${name}.svg`).default"
+		v-html="require(`!!raw-loader!~/assets/svg${stroked ? '/stroked' : ''}/${name}.svg`).default"
 	></span>
 </template>
 
@@ -11,9 +11,10 @@
 	export default {
 		name: 'icon',
 		props: {
-			name: String,
+			name: { type: String, required: false },
 			width: String,
-			height: String
+			height: String,
+			stroked: { type: Boolean, default: false, required: false }
 		},
 		mounted () {
 			const svg = this.$el.querySelector('svg')

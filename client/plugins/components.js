@@ -1,12 +1,14 @@
 import Vue from 'vue'
-import Icon from '~/ui-components/Icon'
-import Input from '~/ui-components/Input'
-import Select from '~/ui-components/Select'
-import Textarea from '~/ui-components/Textarea'
-import InputFile from '~/ui-components/InputFile'
-import InputPhone from '~/ui-components/InputPhone'
 
-const components = { Icon, Input, Select, Textarea, InputFile, InputPhone }
+const components = {
+	Icon: require('~/ui-components/Icon').default,
+	Input: require('~/ui-components/Input').default,
+	Select: require('~/ui-components/Select').default,
+	Textarea: require('~/ui-components/Textarea').default,
+	InputFile: require('~/ui-components/InputFile').default,
+	InputPhone: require('~/ui-components/InputPhone').default,
+	AnimatedTick: require('~/ui-components/AnimatedTick').default
+}
 
 Object.entries(components).forEach(([name, component]) => {
 	Vue.component('V' + name, component)

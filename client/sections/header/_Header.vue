@@ -1,5 +1,5 @@
 <template>
-	<header class="section-header fixed inset-0 z-30">
+	<header class="section-header fixed -top-1 bottom-0 inset-x-0 z-30">
 		<div class="h-[88px]" ref="spacer">
 			<!-- Desktop menu -->
 			<div
