@@ -18,9 +18,14 @@
 			<div class="absolute inset-y-0 right-0 flex flex-col items-center justify-between py-8 sm:py-6 pointer-events-none">
 				<div class="separator w-px bg-gray-800 absolute inset-y-0 left-0 origin-bottom sm:hidden"></div>
 				<div class="px-10 xl:px-6">
-					<button class="btn text-gray-600 transition-colors hover:text-gray-200 pointer-events-auto" @click="$emit('close')" aria-label="Закрыть" title="Закрыть">
+					<v-action
+						class="text-gray-600 transition-colors hover:text-gray-200 pointer-events-auto"
+						@click="$emit('close')"
+						aria-label="Закрыть"
+						title="Закрыть"
+					>
 						<v-icon width="36px" name="close" />
-					</button>
+					</v-action>
 				</div>
 				<div class="uppercase vertical-text font-normal tracking-rr text-gray-400 sm:hidden text-2xs">Deserve brief</div>
 			</div>

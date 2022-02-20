@@ -11,10 +11,9 @@
 				<div class="grid grid-cols-2 mt-14 lg:grid-cols-1">
 					<div class="relative pr-24 lg:pr-0">
 						<h2 class="text-md tracking-wider">
-							<button class="btn" @click="focusFirstInput">
-								<span>Форма обратной связи</span>
-								<v-icon name="arrow-right" />
-							</button>
+							<v-action @click="focusFirstInput" right-icon="arrow-right">
+								Форма обратной связи
+							</v-action>
 						</h2>
 						<p class="text-gray-500 mt-4 leading-normal tracking-wider text-sm">Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.</p>
 
@@ -90,12 +89,11 @@
 									}"
 								/>
 							</fieldset>
-							<button class="btn space-x-4 mt-10" type="submit" ref="submitFormBtn">
-								<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
-									<v-icon name="chevron-right" />
-								</div>
-								<span class="text-xs tracking-rr uppercase text-white font-extralight">Отправить</span>
-							</button>
+							<v-action-pill
+								type="submit"
+								pill-outline
+								text="Отправить"
+							/>
 						</form>
 						<p class="text-xs text-gray-600 tracking-wider mt-12">
 							Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
@@ -147,14 +145,24 @@
 						</h2>
 						<ul class="flex space-x-5">
 							<li>
-								<a class="tg-link btn w-10 h-10 rounded-full bg-telegram" href="https://t.me/deserve_ru" target="_blank" title="Связаться с нами через Telegram">
+								<v-action
+									class="tg-link w-10 h-10 rounded-full bg-telegram"
+									href="https://t.me/deserve_ru"
+									target="_blank"
+									title="Связаться с нами через Telegram"
+								>
 									<v-icon width="20px" name="telegram" />
-								</a>
+								</v-action>
 							</li>
 							<li>
-								<a class="wa-link btn w-10 h-10 rounded-full bg-whatsapp" href="https://wa.me/message/Y6UYTJZNKUUMA1" target="_blank" title="Связаться с нами по WhatsApp">
+								<v-action
+									class="wa-link w-10 h-10 rounded-full bg-whatsapp"
+									href="https://wa.me/message/Y6UYTJZNKUUMA1"
+									target="_blank"
+									title="Связаться с нами по WhatsApp"
+								>
 									<v-icon width="20px" name="whatsapp" />
-								</a>
+								</v-action>
 							</li>
 						</ul>
 					</div>
@@ -200,13 +208,6 @@
 			focusFirstInput () {
 				this.$refs.firstInput.$el.querySelector('.ui-base-input__input').focus()
 			}
-		},
-		mounted () {
-			this.magneticSubmitFormBtn = this.$magnetic.add({
-				element: this.$refs.submitFormBtn,
-				trigger: this.$refs.submitFormBtnPill,
-				updateOnScroll: true
-			})
 		}
 	}
 

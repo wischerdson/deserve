@@ -5,13 +5,13 @@
 		<div class="absolute inset-0 bg-black/70"></div>
 		<div class="absolute inset-0 z-10 flex items-center overflow-hidden" ref="welcome_text">
 			<div class="container lg:-mr-1.5">
-				<p class="text-white text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-lg lg:tracking-[.4rem] font-thin sm:leading-normal">Ваш партнер <br class="hidden sm:block">в digital-среде</p>
-				<h1 class="text-white text-center text-6xl uppercase tracking-widest lg:text-5xl md:leading-normal font-thin">Design. Strategy. Harmony.</h1>
+				<p class="text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-lg lg:tracking-[.4rem] font-thin sm:leading-normal">Ваш партнер <br class="hidden sm:block">в digital-среде</p>
+				<h1 class="text-center text-6xl uppercase tracking-widest lg:text-5xl md:leading-normal font-thin">Design. Strategy. Harmony.</h1>
 				<div class="text-center">
-					<a class="details-action btn mt-10 text-white uppercase tracking-[.3rem] text-xs relative leading-none px-4 py-2" href="#" ref="moreDetailedBtn">
+					<v-action class="details-action btn mt-10 uppercase tracking-[.3rem] text-xs relative leading-none px-4 py-2" :magnetic="true" ref="moreDetailedBtn">
 						<span>Подробнее</span>
-						<v-icon width="14px" class=" -right-2 block mb-[3px] pointer-events-none" name="chevron-right" />
-					</a>
+						<v-icon width="14px" class="ml-2 -right-2 block mb-[3px] pointer-events-none" name="chevron-right" />
+					</v-action>
 				</div>
 			</div>
 		</div>
@@ -31,8 +31,6 @@
 
 	export default {
 		mounted () {
-			this.$magnetic.add({ element: this.$refs.moreDetailedBtn, powerDistance: 20 })
-
 			gsap.registerPlugin(ScrollTrigger)
 
 			const timeline = gsap.timeline()

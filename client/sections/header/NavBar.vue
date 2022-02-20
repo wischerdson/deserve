@@ -2,13 +2,12 @@
 	<div class="container relative z-10 h-full">
 		<div class="grid grid-cols-3 h-full">
 			<div class="flex items-stretch">
-				<button class="btn lg:hidden transition-opacity hover:opacity-70" @click="$emit('change', !menu)">
-					<v-icon class="mb-1" name="menu" />
-					<div class="relative uppercase text-xs tracking-[.25rem]">
-						<span class="font-normal" v-if="!menu">Menu</span>
-						<span class="font-normal" v-else>Закрыть</span>
+				<v-action class="lg:hidden transition-opacity hover:opacity-70" left-icon="menu" @click="$emit('change', !menu)">
+					<div class="relative uppercase text-xs tracking-[.25rem] mt-1 font-normal">
+						<span v-if="!menu">Menu</span>
+						<span v-else>Закрыть</span>
 					</div>
-				</button>
+				</v-action>
 			</div>
 
 			<div class="flex justify-center">
@@ -21,9 +20,9 @@
 			</div>
 
 			<div class="flex justify-end items-stretch">
-				<button class="btn uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" @click="$emit('brief-sidebar')">
+				<v-action class="uppercase text-xs sm:text-[.6rem] tracking-[.25rem] sm:tracking-rr transition-opacity hover:opacity-70" @click="$emit('brief-sidebar')">
 					<span class="font-light">Обсудить</span>
-				</button>
+				</v-action>
 			</div>
 		</div>
 	</div>

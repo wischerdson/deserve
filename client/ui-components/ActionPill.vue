@@ -13,7 +13,7 @@
 
 			<v-icon name="chevron-right" />
 		</div>
-		<span class="text-xs tracking-rr uppercase text-white">{{ text }}</span>
+		<span class="text-xs tracking-rr uppercase text-white font-extralight">{{ text }}</span>
 	</v-action>
 </template>
 
@@ -28,22 +28,23 @@
 			}
 		},
 		props: {
-			magnetic: { required: false, default: true },
-			animatePill: { required: false, default: false },
+			magnetic: { type: Boolean, required: false, default: true },
+			animatePill: { type: Boolean, required: false, default: false },
+			animationDelay: { type: Number, required: false, default: 0 },
 			text: { required: true },
-			pillOutline: { required: false, default: false }
+			pillOutline: { type: Boolean, required: false, default: false }
 		},
 		methods: {
 			animate () {
 				const svg = this.$el.querySelector('.ui-action__pill-circle svg')
 
-				new Vivus(svg, {
-					duration: 80,
+				setTimeout(() => new Vivus(svg, {
+					duration: 60,
 					type: 'sync',
 					start: 'autostart',
 					animTimingFunction: Vivus.EASE,
 					onReady: () => this.showCircle = true
-				})
+				}), this.animationDelay)
 			}
 		},
 		watch: {

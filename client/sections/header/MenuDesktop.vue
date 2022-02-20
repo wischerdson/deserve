@@ -4,19 +4,19 @@
 			<div class="grid grid-cols-2 items-center">
 				<ul class="mx-auto text-3xl space-y-12 font-extralight text-gray-200 tracking-[.45rem] leading-none uppercase">
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/">Главная</nuxt-link>
+						<v-action class="menu-item__link inline-block transition-opacity hover:opacity-70" to="/">Главная</v-action>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/about">Об агентстве</nuxt-link>
+						<v-action class="menu-item__link inline-block transition-opacity hover:opacity-70" to="/about">Об агентстве</v-action>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/portfolio">Портфолио</nuxt-link>
+						<v-action class="menu-item__link inline-block transition-opacity hover:opacity-70" to="/portfolio">Портфолио</v-action>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/vacancies">Вакансии</nuxt-link>
+						<v-action class="menu-item__link inline-block transition-opacity hover:opacity-70" to="/vacancies">Вакансии</v-action>
 					</li>
 					<li class="menu-item">
-						<nuxt-link class="btn menu-item__link inline-block transition-opacity hover:opacity-70" exact to="/contacts">Контакты</nuxt-link>
+						<v-action class="menu-item__link inline-block transition-opacity hover:opacity-70" to="/contacts">Контакты</v-action>
 					</li>
 				</ul>
 				<div class="mx-auto">

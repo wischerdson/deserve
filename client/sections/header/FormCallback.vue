@@ -31,12 +31,12 @@
 					/>
 				</fieldset>
 				<div class="pt-8">
-					<button class="submit-btn btn space-x-4" type="submit" ref="submitFormBtn">
-						<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
-							<v-icon name="chevron-right" />
-						</div>
-						<span class="text-xs tracking-rr uppercase text-white font-extralight">Отправить</span>
-					</button>
+					<v-action-pill
+						class="submit-btn"
+						type="submit"
+						text="Отправить"
+						pill-outline
+					/>
 				</div>
 			</form>
 		</div>
@@ -70,7 +70,6 @@
 		},
 		data () {
 			return {
-				magneticSubmitFormBtn: null,
 				form: {
 					phone: '',
 					name: '',
@@ -95,12 +94,6 @@
 
 				})
 			}
-		},
-		mounted () {
-			// this.magneticSubmitFormBtn = this.$magnetic.add({
-			// 	element: this.$refs.submitFormBtn,
-			// 	trigger: this.$refs.submitFormBtnPill
-			// })
 		}
 	}
 
@@ -133,7 +126,7 @@
 				}
 			}
 
-			.submit-btn { transition-delay: .325s; }
+			.submit-btn { transition-delay: .525s; }
 		}
 
 		&.v-enter {

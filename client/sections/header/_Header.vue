@@ -24,13 +24,16 @@
 			<div class="absolute inset-0 z-30 h-[inherit] hidden lg:block pointer-events-none">
 				<div class="container h-full">
 					<div class="h-full">
-						<button class="btn pointer-events-auto h-full transition-opacity hover:opacity-70" @click="menu = !menu">
-							<v-icon class="mb-1" name="menu" />
-							<div class="relative text-gray-300 uppercase text-[.6rem] tracking-[.25rem] sm:tracking-rr overflow-hidden">
+						<v-action
+							class="pointer-events-auto h-full transition-opacity hover:opacity-70"
+							@click="menu = !menu"
+							left-icon="menu"
+						>
+							<div class="mt-0.5 relative text-gray-300 uppercase text-[.6rem] tracking-[.25rem] sm:tracking-rr overflow-hidden">
 								<span class="font-normal" v-if="!menu">Menu</span>
 								<span class="font-normal" v-else>Закрыть</span>
 							</div>
-						</button>
+						</v-action>
 					</div>
 				</div>
 			</div>

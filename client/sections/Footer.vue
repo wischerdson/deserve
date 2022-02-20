@@ -14,7 +14,9 @@
 						<hr class="w-8 h-px bg-gray-500 my-6">
 						<p class="text-sm text-gray-400 leading-relaxed tracking-wider">Ваше сообщение будет направлено в отдел по работе с клиентами.</p>
 						<div class="mt-6">
-							<nuxt-link class="btn btn-outline px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors" exact to="/contacts">Связаться с нами</nuxt-link>
+							<v-action class="px-10 tracking-wider text-gray-400 border-gray-400 hover:border-white hover:text-white transition-colors rounded-full border h-11" to="/contacts">
+								Связаться с нами
+							</v-action>
 						</div>
 					</div>
 				</div>
@@ -43,12 +45,24 @@
 					<h2 class="text-xl font-extralight tracking-wider lg:hidden">Новости</h2>
 					<hr class="w-8 h-px bg-gray-500 my-6 lg:hidden">
 					<div class="flex space-x-5 lg:justify-center lg:mt-10">
-						<a class="btn rounded-md text-gray-500" href="https://www.facebook.com/deserve.ru" target="_blank" title="Наш facebook">
+						<v-action
+							class="text-gray-500"
+							href="https://www.facebook.com/deserve.ru"
+							target="_blank"
+							title="Наш facebook"
+							area-label="Наш facebook"
+						>
 							<v-icon name="facebook" />
-						</a>
-						<a class="btn rounded-md text-gray-500" href="https://instagram.com/deserve_ru" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
+						</v-action>
+						<v-action
+							class="text-gray-500"
+							href="https://instagram.com/deserve_ru"
+							target="_blank"
+							title="Наш Instagram"
+							area-label="Наш Instagram"
+						>
 							<v-icon name="instagram" />
-						</a>
+						</v-action>
 					</div>
 					<p class="text-sm text-gray-400 leading-relaxed tracking-wider mt-6 lg:hidden">Подпишитесь на нас в социальных сетях, чтобы получать новости и эксклюзивные предложения.</p>
 				</div>

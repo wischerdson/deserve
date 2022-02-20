@@ -1,21 +1,19 @@
 <template>
 	<div class="pt-24">
 		<div class="container">
-			<div class="grid gap-x-16 gap-y-28 mt-20 lg:grid-cols-1 pb-28">
+			<div class="grid grid-cols-2 gap-x-16 gap-y-28 mt-20 lg:grid-cols-1 pb-28">
+				<!-- class="relative pb-20" -->
 				<div v-for="(vacancy, idx) in vacancies" :key="`vacancy-${idx}`">
 					<h2 class="text-4xl tracking-rr font-extralight lg:text-3xl">{{ vacancy.title }}</h2>
 					<hr class="h-px mb-6 mt-4 bg-gray-500 w-10">
 					<p class="text-gray-400 leading-normal tracking-widest font-extralight">{{ vacancy.description }}</p>
+					<!-- class="absolute bottom-0 left-0" -->
 					<div>
-						<button
-							class="btn rounded-full mt-7 space-x-5"
+						<v-action-pill
+							class="mt-7"
 							@click="openVacancyForm(vacancy.title)"
-						>
-							<div class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black" ref="btnPill">
-								<v-icon name="chevron-right" />
-							</div>
-							<span class="text-xs tracking-rr uppercase text-white">Отликнуться на вакансию</span>
-						</button>
+							text="Отликнуться на вакансию"
+						/>
 					</div>
 				</div>
 			</div>

@@ -9,17 +9,13 @@
 						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">{{ project.name }}</h2>
 						<hr class="w-32 mt-3 h-px bg-gray-700">
 						<p class="mt-8 text-gray-400 tracking-widest font-extralight">{{ project.desc }}</p>
-						<a
-							class="btn rounded-full mt-7 space-x-5"
+						<v-action-pill
+							magnetic
+							class="mt-7"
+							text="Посмотреть работу"
 							:href="project.url"
 							target="_blank"
-							ref="viewProjectBtn"
-						>
-							<div class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black" ref="viewProjectBtnPill">
-								<v-icon name="chevron-right" />
-							</div>
-							<span class="text-xs tracking-rr uppercase text-white">Посмотреть работу</span>
-						</a>
+						/>
 					</div>
 				</div>
 			</div>
@@ -43,16 +39,12 @@
 				<div class="text-6xl font-extralight tracking-wider">{{ project.name }}</div>
 				<hr class="w-32 mb-6 mt-5 bg-gray-700 h-px">
 				<p class="mt-8 text-gray-400 tracking-rr font-extralight text-sm leading-normal">{{ project.desc }}</p>
-				<a
-					class="btn rounded-full mt-7 space-x-5"
+				<v-action-pill
+					class="mt-7"
+					text="Посмотреть работу"
 					:href="project.url"
 					target="_blank"
-				>
-					<div class="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black">
-						<v-icon name="chevron-right" />
-					</div>
-					<span class="text-xs tracking-rr uppercase text-white">Посмотреть работу</span>
-				</a>
+				/>
 			</div>
 		</div>
 	</div>
@@ -137,12 +129,6 @@
 		},
 		mounted () {
 			initScrollTrigger.call(this)
-
-			this.$magnetic.add({
-				element: this.$refs.viewProjectBtn,
-				trigger: this.$refs.viewProjectBtnPill,
-				updateOnScroll: true
-			})
 		}
 	}
 

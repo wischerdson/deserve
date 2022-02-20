@@ -15,13 +15,12 @@
 						</div>
 						<h2 class="text-8xl font-extralight tracking-wider lg:text-5xl">Всё портфолио</h2>
 					</div>
-					<div class="mt-10">
-						<nuxt-link class="btn space-x-5" to="/portfolio" title="View all works" ref="viewAllWorksBtn">
-							<div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-400 text-black hover:bg-white transition-colors" ref="viewAllWorksBtnPill">
-								<v-icon name="chevron-right" />
-							</div>
-							<span class="text-xs tracking-rr uppercase text-white">Посмотреть</span>
-						</nuxt-link>
+					<div class="mt-10" ref="viewAllWorksBtn">
+						<v-action-pill
+							to="/portfolio"
+							text="Посмотреть"
+							title="View all works"
+						/>
 					</div>
 				</div>
 			</div>
@@ -76,15 +75,9 @@
 		mounted () {
 			gsap.registerPlugin(ScrollTrigger)
 
-			this.$magnetic.add({
-				element: this.$refs.viewAllWorksBtn.$el,
-				trigger: this.$refs.viewAllWorksBtnPill,
-				updateOnScroll: true
-			})
-
 			const tl = gsap.timeline()
 			tl.fromTo(this.$refs.screenTitle, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, 0).addLabel('start')
-			tl.fromTo(this.$refs.viewAllWorksBtn.$el, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, 'start-=60%')
+			tl.fromTo(this.$refs.viewAllWorksBtn, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, 'start-=60%')
 
 			ScrollTrigger.create({
 				animation: tl,

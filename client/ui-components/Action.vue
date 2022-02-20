@@ -8,9 +8,11 @@
 		v-bind="$attrs"
 		v-on="$listeners"
 	>
-		<v-icon class="mr-2" v-if="leftIcon" :name="leftIcon" />
-		<slot />
-		<v-icon class="ml-2" v-if="rightIcon" :name="rightIcon" />
+		<div class="flex items-center" ref="magnetic">
+			<v-icon class="mr-2" v-if="leftIcon" :name="leftIcon" />
+			<slot />
+			<v-icon class="ml-2" v-if="rightIcon" :name="rightIcon" />
+		</div>
 	</component>
 </template>
 
@@ -24,6 +26,11 @@
 			rightIcon: { type: String, required: false },
 			magnetic: { required: false, default: false }
 		},
+		data () {
+			return {
+				magnet: null
+			}
+		},
 		computed: {
 			component () {
 				return this.href ? 'a' : (this.to ? 'nuxt-link' : 'button')
@@ -33,11 +40,14 @@
 			if (this.magnetic) {
 				const trigger = this.$el.querySelector('[magnetic-trigger]')
 
-				this.$magnetic.add({
-					element: this.$el,
+				this.magnet = this.$magnetic.add({
+					element: this.$refs.magnetic,
 					trigger
 				})
 			}
+		},
+		beforeDestroy () {
+			this.magnet.destroy()
 		}
 	}
 

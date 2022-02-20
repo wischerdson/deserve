@@ -1,6 +1,6 @@
 <template>
 	<transition :duration="2000">
-		<div class="brief-form pb-20 pt-28 max-w-sm" v-if="enableAnimation">
+		<div class="brief-form pb-20 pt-28 max-w-sm" v-show="enableAnimation">
 			<transition name="form-sent" mode="out-in">
 				<div v-if="!form._sent" key="form">
 					<h2 class="title text-4xl sm:text-3xl font-extralight tracking-rr">Оставьте заявку</h2>
@@ -68,12 +68,11 @@
 							/>
 						</fieldset>
 						<fieldset class="pt-8">
-							<button class="btn space-x-4" type="submit" ref="submitFormBtn">
-								<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
-									<v-icon name="chevron-right" />
-								</div>
-								<span class="text-xs tracking-rr uppercase text-white font-extralight">Отправить</span>
-							</button>
+							<v-action-pill
+								type="submit"
+								text="Отправить"
+								pill-outline
+							/>
 						</fieldset>
 					</form>
 					<div class="mt-16">
@@ -85,12 +84,14 @@
 				<div class="brief-form-sent" v-else key="form-sent">
 					<h2 class="thanks-title uppercase text-4xl sm:text-3xl font-extralight tracking-rr">Спасибо</h2>
 					<p class="thanks-desc text-gray-400 leading-normal font-light tracking-wider mt-3">Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
-					<button class="thanks-btn btn space-x-4 mt-8" @click="$emit('close')">
-						<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400">
-							<v-icon name="chevron-right" />
-						</div>
-						<span class="text-xs tracking-rr uppercase text-white font-extralight">Хорошо</span>
-					</button>
+					<v-action-pill
+						class="thanks-btn mt-8"
+						@click="$emit('close')"
+						text="Хорошо"
+						pill-outline
+						:animate-pill="form._sent"
+						:animation-delay="500"
+					/>
 				</div>
 			</transition>
 		</div>
