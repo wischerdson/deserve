@@ -11,7 +11,9 @@
 				v-show="showCircle"
 			></div>
 
-			<v-icon name="chevron-right" />
+			<v-icon name="chevron-right" v-if="!loading" />
+
+			<div class="ui-action__pill-loading" v-if="loading"></div>
 		</div>
 		<span class="text-xs tracking-rr uppercase text-white font-extralight">{{ text }}</span>
 	</v-action>
@@ -31,8 +33,9 @@
 			magnetic: { type: Boolean, required: false, default: true },
 			animatePill: { type: Boolean, required: false, default: false },
 			animationDelay: { type: Number, required: false, default: 0 },
-			text: { required: true },
-			pillOutline: { type: Boolean, required: false, default: false }
+			text: { type: String, required: true },
+			pillOutline: { type: Boolean, required: false, default: false },
+			loading: { type: Boolean, required: false, default: false }
 		},
 		methods: {
 			animate () {

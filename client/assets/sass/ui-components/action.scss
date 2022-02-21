@@ -1,5 +1,7 @@
 #{$actionComponentSelector} {
 	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	user-select: none;
 	transition: all .5s ease;
 	cursor: pointer;
@@ -28,6 +30,38 @@
 			left: -1px;
 			right: -1px;
 			bottom: -1px;
+		}
+
+		&-loading {
+			width: 40%;
+			position: relative;
+
+			&:before {
+				content: "";
+				display: block;
+				padding-top: 100%;
+			}
+
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border-top: 2px solid black;
+				border-left: 2px solid black;
+				border-bottom: 2px solid white;
+				border-right: 2px solid white;
+				border-radius: 999px;
+				animation: spin 1s linear infinite;
+			}
+
+			@keyframes spin {
+				from { transform: rotate(0deg) }
+				to { transform: rotate(360deg) }
+			}
 		}
 	}
 

@@ -72,6 +72,7 @@
 								type="submit"
 								text="Отправить"
 								pill-outline
+								:loading="form._sending"
 							/>
 						</fieldset>
 					</form>
@@ -118,7 +119,8 @@
 					budget: '',
 					task_description: '',
 					_sent: false,
-					_error: false
+					_error: false,
+					_sending: false
 				}
 			}
 		},
@@ -135,12 +137,16 @@
 				this.$v.$touch()
 				if (this.$v.$error) return
 
+				this.form._sending = true
+
 				const url = e.target.getAttribute('action')
 
 				this.$axios.$post(url, this.form).then(() => {
 					this.form._sent = true
 				}).catch(() => {
 					this.form._error = true
+				}).finally(() => {
+					this.form._sending = false
 				})
 			}
 		}
