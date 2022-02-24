@@ -192,31 +192,31 @@
 				transform: scaleX(0);
 			}
 		}
-	}
 
-	.form-sent {
-		&-leave-active {
-			transition: opacity .3s ease;
-		}
-
-		&-enter, &-leave-to {
-			opacity: 0;
-		}
-
-		&-enter-active {
-			.thanks-title, .thanks-desc, .thanks-btn {
-				transition: opacity .6s ease, transform .6s ease;
+		.form-sent {
+			&-leave-active {
+				transition: opacity .3s ease;
 			}
 
-			.thanks-desc { transition-delay: .2s; }
-
-			.thanks-btn { transition-delay: .4s; }
-		}
-
-		&-enter {
-			.thanks-title, .thanks-desc, .thanks-btn  {
+			&-enter, &-leave-to {
 				opacity: 0;
-				transform: translateY(20px);
+			}
+
+			&-enter-active {
+				.thanks-title, .thanks-desc, .thanks-btn {
+					transition: opacity .6s ease, transform .6s ease;
+				}
+
+				.thanks-desc { transition-delay: .2s; }
+
+				.thanks-btn { transition-delay: .4s; }
+			}
+
+			&-enter {
+				.thanks-title, .thanks-desc, .thanks-btn  {
+					opacity: 0;
+					transform: translateY(20px);
+				}
 			}
 		}
 	}

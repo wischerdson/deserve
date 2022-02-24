@@ -36,9 +36,7 @@ fi
 
 # Обновляем кэши приложения
 php81 artisan optimize -n
-php81 artisan route:cache -n
 php81 artisan event:cache -n
-php81 artisan config:cache -n
 
 # Обновляем работу очереди
 sh $(dirname $0)/refresh-queue.sh

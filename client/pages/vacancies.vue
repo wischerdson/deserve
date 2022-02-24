@@ -18,13 +18,14 @@
 				</div>
 			</div>
 		</div>
-		<vacancy-form v-if="vacancyForm" :vacancy="selectedVacancy" @close="vacancyForm = false" />
+		<vacancy-form v-show="vacancyForm" :vacancy="selectedVacancy" @close="vacancyForm = false" />
 	</div>
 </template>
 
 <script>
 
 	import VacancyForm from '~/components/vacancies/VacancyForm'
+	import { disablePageScroll, enablePageScroll, addFillGapTarget } from 'scroll-lock'
 
 	export default {
 		components: { VacancyForm },
@@ -69,11 +70,19 @@
 				]
 			}
 		},
+		watch: {
+			vacancyForm (value) {
+				value ? disablePageScroll() : enablePageScroll()
+			}
+		},
 		methods: {
 			openVacancyForm (vacancy) {
 				this.selectedVacancy = vacancy
 				this.vacancyForm = true
 			}
+		},
+		mounted () {
+			addFillGapTarget(this.$el)
 		}
 	}
 

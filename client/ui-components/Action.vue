@@ -47,7 +47,7 @@
 			}
 		},
 		beforeDestroy () {
-			this.magnet.destroy()
+			this.magnet ? this.magnet.destroy() : null
 		}
 	}
 

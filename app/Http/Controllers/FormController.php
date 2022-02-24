@@ -40,6 +40,7 @@ class FormController extends Controller
 		$filledForm->answers()->saveMany($answers);
 
 		FormAnswer::whereRelation('formField', 'code', 'form_filled_id')
+			->where('filled_form_id', $filledForm->id)
 			->update(['answer' => $filledForm->id]);
 
 		FormFilled::dispatch($filledForm);
