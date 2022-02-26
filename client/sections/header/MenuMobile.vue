@@ -1,7 +1,7 @@
 <template>
 	<!-- Mobile menu -->
 	<transition :duration="2000">
-		<div class="mobile-menu absolute inset-0 z-20 hidden lg:block overflow-hidden" v-if="menu">
+		<div class="mobile-menu absolute top-0 inset-x-0 h-screen z-20 hidden lg:block overflow-hidden" v-if="menu">
 			<div
 				class="menu-backdrop w-screen h-full bg-black will-change-transform"
 			>

@@ -7,7 +7,7 @@
 				ref="backdrop"
 			>
 				<transition name="menu" :duration="{ leave: 600 }">
-					<header-menu-desktop :opened="menu" v-show="menu" />
+					<header-menu-desktop :opened="menu" @close="menu = false" v-show="menu" />
 				</transition>
 			</div>
 

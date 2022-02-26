@@ -20,7 +20,7 @@
 					</li>
 				</ul>
 				<div class="mx-auto">
-					<form-callback :enable-animation="opened" />
+					<form-callback :animate="opened" @close="$emit('close')" />
 				</div>
 			</div>
 		</div>
@@ -53,17 +53,6 @@
 </script>
 
 <style lang="scss" scoped>
-
-	.menu {
-		will-change: transform, opacity;
-
-		.menu-item {
-			will-change: transform, opacity;
-		}
-		.menu-bottom {
-			will-change: opacity;
-		}
-	}
 
 	.menu-enter-active {
 		transition: opacity .6s ease .1s;

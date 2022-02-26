@@ -8,18 +8,14 @@
 					<h1 class="text-7xl font-extralight mt-12 tracking-[.5rem] lg:text-4xl lg:tracking-[.25rem]">Связаться с нами</h1>
 				</div>
 
-				<div class="grid grid-cols-2 mt-14 lg:grid-cols-1">
-					<div class="relative pr-24 lg:pr-0">
+				<div class="grid grid-cols-2 gap-24 lg:grid-gap-0 mt-14 lg:grid-cols-1">
+					<div class="relative">
 						<h2 class="text-md tracking-wider">
 							<v-action @click="focusFirstInput" right-icon="arrow-right">
 								Форма обратной связи
 							</v-action>
 						</h2>
 						<p class="text-gray-500 mt-4 leading-normal tracking-wider text-sm">Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.</p>
-
-						<!-- <v-action-pill href="https://apple.com" target="_blank" right-icon="arrow-right" text="hello world" :pill-outline="true" :animate-pill="true">
-							<span>Форма обратной связи</span>
-						</v-action-pill> -->
 
 						<div class="absolute bottom-0 left-0 lg:static lg:mt-6">
 							<div class="text-xs text-gray-500 tracking-wider">Присоединяйтесь</div>
@@ -37,64 +33,67 @@
 							</ul>
 						</div>
 					</div>
-					<div class="lg:mt-6">
-						<form class="space-y-1.5" action="/api/fill-form/feedback" @submit.prevent="sendForm">
-							<fieldset>
-								<v-input
-									ref="firstInput"
-									type="text"
-									v-model="form.name"
-									label="Имя"
-									@change="$v.form.name.$touch"
-									:success="!$v.form.name.$invalid && $v.form.name.$dirty"
-									:errors="{
-										'Пожалуйста, заполните это поле': this.$v.form.name.$error && !this.$v.form.name.required,
-										'Введите Ваше имя': this.$v.form.name.$error && !this.$v.form.name.minLength
-									}"
+					<div class="lg:mt-6 pr-10">
+						<v-appearance-animation effect="from-b-to-t">
+							<form class="space-y-1.5" action="/api/fill-form/feedback" @submit.prevent="sendForm">
+								<fieldset appearance-animation-target>
+									<v-input
+										ref="firstInput"
+										type="text"
+										v-model="form.name"
+										label="Имя"
+										@change="$v.form.name.$touch"
+										:success="!$v.form.name.$invalid && $v.form.name.$dirty"
+										:errors="{
+											'Пожалуйста, заполните это поле': this.$v.form.name.$error && !this.$v.form.name.required,
+											'Введите Ваше имя': this.$v.form.name.$error && !this.$v.form.name.minLength
+										}"
+									/>
+								</fieldset>
+								<fieldset appearance-animation-target>
+									<v-input
+										type="email"
+										v-model="form.email"
+										label="Email"
+										@change="$v.form.email.$touch"
+										:success="!$v.form.email.$invalid && $v.form.email.$dirty"
+										:errors="{
+											'Пожалуйста, заполните это поле': $v.form.email.$error && !$v.form.email.required,
+											'Введите правильный email': $v.form.email.$error && !$v.form.email.email
+										}"
+									/>
+								</fieldset>
+								<fieldset appearance-animation-target>
+									<v-input-phone
+										v-model="form.phone"
+										label="Телефон"
+										@change="$v.form.phone.$touch"
+										:success="!$v.form.phone.$invalid && $v.form.phone.$dirty"
+										:errors="{
+											'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required,
+											'Введите правильный номер': $v.form.phone.$error && !$v.form.phone.phone
+										}"
+									/>
+								</fieldset>
+								<fieldset appearance-animation-target>
+									<v-textarea
+										v-model="form.message"
+										label="Сообщение"
+										@change="$v.form.message.$touch"
+										:success="!$v.form.message.$invalid && $v.form.message.$dirty"
+										:errors="{
+											'Пожалуйста, заполните это поле': $v.form.message.$error && !$v.form.message.required
+										}"
+									/>
+								</fieldset>
+								<v-action-pill
+									appearance-animation-target
+									type="submit"
+									pill-outline
+									text="Отправить"
 								/>
-							</fieldset>
-							<fieldset>
-								<v-input
-									type="email"
-									v-model="form.email"
-									label="Email"
-									@change="$v.form.email.$touch"
-									:success="!$v.form.email.$invalid && $v.form.email.$dirty"
-									:errors="{
-										'Пожалуйста, заполните это поле': $v.form.email.$error && !$v.form.email.required,
-										'Введите правильный email': $v.form.email.$error && !$v.form.email.email
-									}"
-								/>
-							</fieldset>
-							<fieldset>
-								<v-input-phone
-									v-model="form.phone"
-									label="Телефон"
-									@change="$v.form.phone.$touch"
-									:success="!$v.form.phone.$invalid && $v.form.phone.$dirty"
-									:errors="{
-										'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required,
-										'Введите правильный номер': $v.form.phone.$error && !$v.form.phone.phone
-									}"
-								/>
-							</fieldset>
-							<fieldset>
-								<v-textarea
-									v-model="form.message"
-									label="Сообщение"
-									@change="$v.form.message.$touch"
-									:success="!$v.form.message.$invalid && $v.form.message.$dirty"
-									:errors="{
-										'Пожалуйста, заполните это поле': $v.form.message.$error && !$v.form.message.required
-									}"
-								/>
-							</fieldset>
-							<v-action-pill
-								type="submit"
-								pill-outline
-								text="Отправить"
-							/>
-						</form>
+							</form>
+						</v-appearance-animation>
 						<p class="text-xs text-gray-600 tracking-wider mt-12">
 							Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
 							<nuxt-link class="hover:underline text-gray-400" to="/legal/privacy-policy">политикой конфиденциальности</nuxt-link>

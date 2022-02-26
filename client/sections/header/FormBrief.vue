@@ -1,12 +1,12 @@
 <template>
-	<transition :duration="2000">
-		<div class="brief-form pb-20 pt-28 max-w-sm" v-show="enableAnimation">
-			<transition name="form-sent" mode="out-in">
-				<div v-if="!form._sent" key="form">
-					<h2 class="title text-4xl sm:text-3xl font-extralight tracking-rr">Оставьте заявку</h2>
-					<p class="desc text-gray-500 leading-normal font-light tracking-wider mt-3">Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
+	<div class="brief-form pb-20 pt-28 sm:pt-16 max-w-sm">
+		<transition name="form-sent" mode="out-in">
+			<div v-if="!form._sent" key="form">
+				<v-appearance-animation :animate="enableAnimation" effect="from-b-to-t">
+					<h2 class="title text-4xl sm:text-3xl font-extralight tracking-rr" appearance-animation-target>Оставьте заявку</h2>
+					<p class="desc text-gray-500 leading-normal font-light tracking-wider mt-3" appearance-animation-target>Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 					<form class="mt-6 space-y-1.5" action="/api/fill-form/brief" @submit.prevent="orderCall" novalidate>
-						<fieldset>
+						<fieldset appearance-animation-target>
 							<v-input
 								type="text"
 								v-model="form.name"
@@ -19,7 +19,7 @@
 								}"
 							/>
 						</fieldset>
-						<fieldset>
+						<fieldset appearance-animation-target>
 							<v-input-phone
 								v-model="form.phone"
 								label="Ваш номер телефона"
@@ -31,7 +31,7 @@
 								}"
 							/>
 						</fieldset>
-						<fieldset>
+						<fieldset appearance-animation-target>
 							<v-input
 								type="email"
 								v-model="form.email"
@@ -43,7 +43,7 @@
 								}"
 							/>
 						</fieldset>
-						<fieldset>
+						<fieldset appearance-animation-target>
 							<v-select
 								v-model="form.budget"
 								label="Планируемый бюджет"
@@ -56,7 +56,7 @@
 								<option class="text-black font-normal" value="От 3 млн.">От 3 млн.</option>
 							</v-select>
 						</fieldset>
-						<fieldset>
+						<fieldset appearance-animation-target>
 							<v-textarea
 								v-model="form.task_description"
 								label="Опишите задачу, которую хотите решить"
@@ -66,9 +66,10 @@
 									'Пожалуйста, опишите задачу подробнее': $v.form.task_description.$error && !$v.form.task_description.minLength
 								}"
 							/>
-						</fieldset>
+						</fieldset appearance-animation-target>
 						<fieldset class="pt-8">
 							<v-action-pill
+								appearance-animation-target
 								type="submit"
 								text="Отправить"
 								pill-outline
@@ -79,24 +80,24 @@
 					<div class="mt-16">
 						<p class="text-xs text-gray-600 tracking-wider">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <nuxt-link class="hover:underline text-gray-400" to="/legal/privacy-policy">политикой конфиденциальности</nuxt-link></p>
 					</div>
-				</div>
+				</v-appearance-animation>
+			</div>
 
-				<!-- Form sent message -->
-				<div class="brief-form-sent" v-else key="form-sent">
-					<h2 class="thanks-title uppercase text-4xl sm:text-3xl font-extralight tracking-rr">Спасибо</h2>
-					<p class="thanks-desc text-gray-400 leading-normal font-light tracking-wider mt-3">Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
-					<v-action-pill
-						class="thanks-btn mt-8"
-						@click="$emit('close')"
-						text="Хорошо"
-						pill-outline
-						:animate-pill="form._sent"
-						:animation-delay="500"
-					/>
-				</div>
-			</transition>
-		</div>
-	</transition>
+			<!-- Form sent message -->
+			<div class="brief-form-sent" v-else key="form-sent">
+				<h2 class="thanks-title uppercase text-4xl sm:text-3xl font-extralight tracking-rr">Спасибо</h2>
+				<p class="thanks-desc text-gray-400 leading-normal font-light tracking-wider mt-3">Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
+				<v-action-pill
+					class="thanks-btn mt-8"
+					@click="$emit('close')"
+					text="Хорошо"
+					pill-outline
+					:animate-pill="form._sent"
+					:animation-delay="500"
+				/>
+			</div>
+		</transition>
+	</div>
 </template>
 
 <script>
@@ -157,42 +158,6 @@
 <style lang="scss">
 
 	.brief-form {
-		&.v-enter-active {
-			.title, .desc, fieldset {
-				transition: transform .7s ease, opacity .7s ease;
-			}
-
-			.ui-base-input__underline {
-				transition: transform 1s ease;
-			}
-
-			.title { transition-delay: .2s; }
-
-			.desc { transition-delay: .3s; }
-
-			@for $i from 1 through 6 {
-				fieldset:nth-child(#{$i}) {
-					transition-delay: #{.3 + ($i) * .1}s;
-
-					.ui-base-input__underline {
-						transform-origin: 0;
-						transition-delay: #{.55 + ($i) * .1}s;
-					}
-				}
-			}
-		}
-
-		&.v-enter {
-			.title, .desc, fieldset {
-				transform: translateY(20px);
-				opacity: 0;
-			}
-
-			.ui-base-input__underline {
-				transform: scaleX(0);
-			}
-		}
-
 		.form-sent {
 			&-leave-active {
 				transition: opacity .3s ease;

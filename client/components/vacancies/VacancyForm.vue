@@ -1,6 +1,6 @@
 <template>
 	<transition name="vacancy-form-modal">
-		<div class="vacancy-form-modal fixed inset-0 bg-black z-30">
+		<div class="vacancy-form-modal fixed top-0 inset-x-0 h-screen bg-black z-30">
 			<div class="container relative h-full flex items-center justify-center">
 				<div class="absolute top-0 right-4">
 					<v-action class="py-6 uppercase text-xs tracking-[.25rem] mt-1 font-normal text-gray-400 hover:text-white transition transition-colors" left-icon="close" @click="$emit('close')">Закрыть</v-action>

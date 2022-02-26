@@ -4,7 +4,7 @@
 			<h1 class="text-4xl font-extralight mt-12 tracking-rr lg:text-2xl">Политика в отношении обработки персональных данных</h1>
 
 			<section class="leading-normal tracking-wide mt-20">
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>1. Общие положения</h5>
 						<div class="descr">Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. №152-ФЗ &laquo;О персональных данных&raquo; (далее - Закон о персональных данных) и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые <span id="genName" class="link mark" data-scroll-to="#privacyName">ИП Момсяковым Артемом Андреевичем</span> (далее  Оператор).</div>
@@ -14,7 +14,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>2. Основные понятия, используемые в Политике</h5>
 						<div class="ol">
@@ -35,7 +35,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>3. Основные права и обязанности Оператора</h5>
 						<div class="ol">
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>4. Основные права и обязанности субъектов персональных данных</h5>
 						<div class="ol">
@@ -73,7 +73,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>5. Оператор может обрабатывать следующие персональные данные Пользователя</h5>
 						<div id="generatedDataCollecting" class="ol">
@@ -98,7 +98,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>6. Принципы обработки персональных данных</h5>
 						<div class="ol">
@@ -112,7 +112,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>7. Цели обработки персональных данных</h5>
 						<div class="ol">
@@ -130,7 +130,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>8. Правовые основания обработки персональных данных</h5>
 						<div class="ol">
@@ -148,7 +148,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>9. Условия обработки персональных данных</h5>
 						<div class="ol">
@@ -162,7 +162,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>10. Порядок сбора, хранения, передачи и других видов обработки персональных данных</h5>
 						<div class="descr">Безопасность персональных данных, которые обрабатываются Оператором, обеспечивается путем реализации правовых, организационных и технических мер, необходимых для выполнения в полном объеме требований действующего законодательства в области защиты персональных данных.</div>
@@ -180,7 +180,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>11. Перечень действий, производимых Оператором с полученными персональными данными</h5>
 						<div class="ol">
@@ -189,7 +189,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>12. Трансграничная передача персональных данных</h5>
 						<div class="ol">
@@ -198,13 +198,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>13. Конфиденциальность персональных данных</h5>
 						<div class="descr">Оператор и иные лица, получившие доступ к персональным данным, обязаны не раскрывать третьим лицам и не распространять персональные данные без согласия субъекта персональных данных, если иное не предусмотрено федеральным законом.</div>
 					</div>
 				</div>
-				<div class="row mb-6">
+				<div class="row mb-10">
 					<div class="col">
 						<h5>14. Заключительные положения</h5>
 						<div class="ol">
@@ -222,13 +222,24 @@
 <style lang="scss" scoped>
 
 	.ol {
-		padding-left: 40px;
+		// padding-left: 20px;
 		margin-bottom: 16px;
+	}
+
+	.li {
+		&:before {
+			content: '•';
+			color: theme('colors.gray.700');
+			display: inline-block;
+			margin-right: 10px;
+			margin-left: 10px;
+		}
 	}
 
 	h5 {
 		font-size: 20px;
 		margin-bottom: 16px;
+		letter-spacing: .1rem;
 	}
 
 	.descr {

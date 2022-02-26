@@ -1,59 +1,63 @@
 <template>
-	<transition :duration="2000">
-		<div class="callback-form" v-show="enableAnimation" key="form">
-			<h2 class="title text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
-			<p class="desc mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
+	<transition name="callback-form" :duration="2000" mode="out-in">
+		<div v-if="!form._sent" key="form">
+			<v-appearance-animation :animate="animate" effect="from-t-to-b">
+				<h2 class="text-4xl font-extralight tracking-[.25rem]" appearance-animation-target>Обратный звонок</h2>
+				<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal" appearance-animation-target>Заполните форму ниже и мы обязательно свяжемся <br> с вами в ближайшее время.</p>
 
-			<form class="mt-6 space-y-1.5" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
-				<fieldset>
-					<v-input
-						type="text"
-						v-model="form.name"
-						label="Как к Вам обращаться?"
-						@change="$v.form.name.$touch"
-						:success="!$v.form.name.$invalid && $v.form.name.$dirty"
-						:errors="{
-							'Пожалуйста, заполните это поле': $v.form.name.$error && !$v.form.name.required,
-							'Введите Ваше имя': $v.form.name.$error && !$v.form.name.minLength,
-						}"
-					/>
-				</fieldset>
-				<fieldset>
-					<v-input-phone
-						v-model="form.phone"
-						label="Ваш номер телефона"
-						@change="$v.form.phone.$touch"
-						:success="!$v.form.phone.$invalid && $v.form.phone.$dirty"
-						:errors="{
-							'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required,
-							'Введите правильный номер': $v.form.phone.$error && !$v.form.phone.phone,
-						}"
-					/>
-				</fieldset>
-				<div class="pt-8">
-					<v-action-pill
-						class="submit-btn"
-						type="submit"
-						text="Отправить"
-						pill-outline
-					/>
-				</div>
-			</form>
+				<form class="mt-6 space-y-1.5" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
+					<fieldset appearance-animation-target>
+						<v-input
+							type="text"
+							v-model="form.name"
+							label="Как к Вам обращаться?"
+							@change="$v.form.name.$touch"
+							:success="!$v.form.name.$invalid && $v.form.name.$dirty"
+							:errors="{
+								'Пожалуйста, заполните это поле': $v.form.name.$error && !$v.form.name.required,
+								'Введите Ваше имя': $v.form.name.$error && !$v.form.name.minLength,
+							}"
+						/>
+					</fieldset>
+					<fieldset appearance-animation-target>
+						<v-input-phone
+							v-model="form.phone"
+							label="Ваш номер телефона"
+							@change="$v.form.phone.$touch"
+							:success="!$v.form.phone.$invalid && $v.form.phone.$dirty"
+							:errors="{
+								'Пожалуйста, заполните это поле': $v.form.phone.$error && !$v.form.phone.required,
+								'Введите правильный номер': $v.form.phone.$error && !$v.form.phone.phone,
+							}"
+						/>
+					</fieldset>
+					<div class="pt-8">
+						<v-action-pill
+							appearance-animation-target
+							class="submit-btn"
+							type="submit"
+							text="Отправить"
+							pill-outline
+							:loading="form._sending"
+						/>
+					</div>
+				</form>
+			</v-appearance-animation>
 		</div>
-		<!-- <div class="thanks max-w-sm" key="thanks" v-else>
-			<div class="thanks-title relative">
-				<h2 class="text-4xl font-extralight tracking-[.25rem] leading-none relative z-10">Спасибо</h2>
-				<div class="absolute bottom-0 left-0 bg-green-900 h-3 w-20"></div>
-			</div>
-			<p class="thanks-desc tracking-[0.15rem] text-gray-400 text-sm mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima et possimus commodi dolorum laboriosam cumque laborum repellat corporis assumenda eum perspiciatis, quidem debitis facere vero, delectus modi sit ullam at!</p>
 
-			<button class="thanks-action btn space-x-4 mt-10" type="submit" ref="submitFormBtn">
-				<div class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 text-gray-400" ref="submitFormBtnPill">
-					<v-icon name="chevron-right" />
-				</div>
-				<span class="text-xs tracking-rr uppercase text-white font-extralight">Lorem ipsum</span>
-			</button>
-		</div> -->
+		<!-- Form sent message -->
+		<div class="callback-form-sent max-w-sm" v-else key="form-sent">
+			<h2 class="thanks-title uppercase text-4xl sm:text-3xl font-extralight tracking-rr">Спасибо</h2>
+			<p class="thanks-desc text-gray-400 leading-normal font-light tracking-wider mt-3">Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
+			<v-action-pill
+				class="thanks-btn mt-8"
+				@click="$emit('close')"
+				text="Хорошо"
+				pill-outline
+				:animate-pill="form._sent"
+				:animation-delay="500"
+			/>
+		</div>
 	</transition>
 </template>
 
@@ -66,14 +70,16 @@
 	export default {
 		mixins: [ validationMixin ],
 		props: {
-			enableAnimation: Boolean
+			animate: { type: Boolean, default: false }
 		},
 		data () {
 			return {
 				form: {
 					phone: '',
 					name: '',
-					_filled: false
+					_sent: false,
+					_error: false,
+					_sending: false
 				}
 			}
 		},
@@ -85,13 +91,19 @@
 		},
 		methods: {
 			orderCall (e) {
+				this.$v.$touch()
+				if (this.$v.$error) return
+
+				this.form._sending = true
+
 				const url = e.target.getAttribute('action')
-				this.form._filled = true
-				return
-				this.$axios.$post(url, this.form).then((d) => {
-					console.log(d)
 
-
+				this.$axios.$post(url, this.form).then(() => {
+					this.form._sent = true
+				}).catch(() => {
+					this.form._error = true
+				}).finally(() => {
+					this.form._sending = false
 				})
 			}
 		}
@@ -102,43 +114,7 @@
 <style lang="scss">
 
 	.callback-form {
-		&.v-enter-active {
-			.title, .desc, fieldset, .submit-btn {
-				transition: transform .3s ease-out, opacity .5s ease;
-			}
 
-			.ui-base-input__underline.default {
-				transition: transform 1s ease;
-			}
-
-			.title { transition-delay: .2s; }
-
-			.desc { transition-delay: .275s; }
-
-			@for $i from 1 through 2 {
-				fieldset:nth-child(#{$i}) {
-					transition-delay: #{.275 + ($i) * .075}s;
-
-					.ui-base-input__underline.default {
-						transform-origin: 0;
-						transition-delay: #{.2 + ($i) * .2}s;
-					}
-				}
-			}
-
-			.submit-btn { transition-delay: .525s; }
-		}
-
-		&.v-enter {
-			.title, .desc, fieldset, .submit-btn {
-				transform: translateY(-20px);
-				opacity: 0;
-			}
-
-			.ui-base-input__underline.default {
-				transform: scaleX(0);
-			}
-		}
 	}
 
 </style>

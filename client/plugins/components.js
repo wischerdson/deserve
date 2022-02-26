@@ -9,7 +9,8 @@ const components = {
 	AnimatedTick: require('~/ui-components/AnimatedTick').default,
 	Icon: require('~/ui-components/Icon').default,
 	Action: require('~/ui-components/Action').default,
-	ActionPill: require('~/ui-components/ActionPill').default
+	ActionPill: require('~/ui-components/ActionPill').default,
+	AppearanceAnimation: require('~/ui-components/AppearanceAnimation').default
 }
 
 Object.entries(components).forEach(([name, component]) => {
