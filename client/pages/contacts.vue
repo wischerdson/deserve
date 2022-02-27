@@ -8,7 +8,7 @@
 					<h1 class="text-7xl font-extralight mt-12 tracking-[.5rem] lg:text-4xl lg:tracking-[.25rem]">Связаться с нами</h1>
 				</div>
 
-				<div class="grid grid-cols-2 gap-24 lg:grid-gap-0 mt-14 lg:grid-cols-1">
+				<div class="grid grid-cols-2 gap-x-24 lg:grid-gap-0 mt-14 lg:grid-cols-1">
 					<div class="relative">
 						<h2 class="text-md tracking-wider">
 							<v-action @click="focusFirstInput" right-icon="arrow-right">
@@ -33,7 +33,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="lg:mt-6 pr-10">
+					<div class="lg:mt-6 pr-10 lg:pr-0">
 						<v-appearance-animation effect="from-b-to-t">
 							<form class="space-y-1.5" action="/api/fill-form/feedback" @submit.prevent="sendForm">
 								<fieldset appearance-animation-target>

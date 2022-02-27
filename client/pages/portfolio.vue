@@ -1,5 +1,5 @@
 <template>
-	<div class="pt-20 opacity-0">
+	<div class="pt-40 opacity-0">
 		<div class="container">
 			<main class="space-y-40">
 				<portfolio-project
@@ -21,21 +21,32 @@
 			return {
 				projects: [
 					{
-						name: 'GetPods',
-						desc: 'Разработка интернет-магазина для официального реселлера Apple',
-						url: 'getpods.deserve.ru',
+						subtitle: 'Реселлер Apple',
+						name: 'GetPods.ru',
+						desc: 'Разработка интернет-магазина для официального реселлера Apple в России',
+						url: 'https://getpods.deserve.ru',
 						image: require('~/static/image/project-getpods.png')
 					},
 					{
-						name: 'Hostrim',
-						desc: 'Разработка интернет-магазина для официального реселлера Apple',
-						url: 'getpods.deserve.ru',
+						subtitle: 'YouTube, Instagram блогер',
+						name: 'Афоня TV',
+						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
+						url: 'https://hostrim.ru',
+						image: require('~/static/image/project-afonya.png'),
+						mobileImage: require('~/static/image/project-afonya.png')
+					},
+					{
+						subtitle: 'Хостинг-провайдер',
+						name: 'Hostrim.ru',
+						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
+						url: 'https://hostrim.ru',
 						image: require('~/static/image/project-hostrim.png'),
 						mobileImage: require('~/static/image/project-hostrim_m.png')
 					},
 					{
-						name: 'Timochko',
-						desc: 'Разработка интернет-магазина для официального реселлера Apple',
+						subtitle: 'Instagram-блогер',
+						name: 'Михаил Тимочко',
+						desc: 'Реализация telegram-бота для воронки продаж курса "Сайты, Деньги, 2 ствола"',
 						url: 'getpods.deserve.ru',
 						image: require('~/static/image/project-timochko.png')
 					}
