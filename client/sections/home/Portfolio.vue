@@ -49,7 +49,7 @@
 						subtitle: 'YouTube, Instagram блогер',
 						name: 'Афоня TV',
 						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
-						url: 'https://hostrim.ru',
+						url: '/',
 						image: require('~/static/image/project-afonya.png'),
 						mobileImage: require('~/static/image/project-afonya.png')
 					},
@@ -65,7 +65,7 @@
 						subtitle: 'Instagram-блогер',
 						name: 'Михаил Тимочко',
 						desc: 'Реализация telegram-бота для воронки продаж курса "Сайты, Деньги, 2 ствола"',
-						url: 'getpods.deserve.ru',
+						url: 'https://timochko.deserve.ru/',
 						image: require('~/static/image/project-timochko.png')
 					}
 				]

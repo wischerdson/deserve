@@ -2,7 +2,7 @@
 	<div class="brief-form pb-20 pt-28 sm:pt-16 max-w-sm">
 		<transition name="form-sent" mode="out-in">
 			<div v-if="!form._sent" key="form">
-				<v-appearance-animation :animate="enableAnimation" effect="from-b-to-t">
+				<v-appearance-animation :animate="animate" effect="from-b-to-t">
 					<h2 class="title text-4xl sm:text-3xl font-extralight tracking-rr" appearance-animation-target>Оставьте заявку</h2>
 					<p class="desc text-gray-500 leading-normal font-light tracking-wider mt-3" appearance-animation-target>Расскажите о своем проекте и мы с удовольствием включимся в него на любом этапе.</p>
 					<form class="mt-6 space-y-1.5" action="/api/fill-form/brief" @submit.prevent="orderCall" novalidate>
@@ -66,7 +66,7 @@
 									'Пожалуйста, опишите задачу подробнее': $v.form.task_description.$error && !$v.form.task_description.minLength
 								}"
 							/>
-						</fieldset appearance-animation-target>
+						</fieldset>
 						<fieldset class="pt-8">
 							<v-action-pill
 								appearance-animation-target
@@ -109,7 +109,7 @@
 	export default {
 		mixins: [ validationMixin ],
 		props: {
-			enableAnimation: Boolean
+			animate: Boolean
 		},
 		data () {
 			return {

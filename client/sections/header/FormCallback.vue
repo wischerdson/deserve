@@ -1,5 +1,5 @@
 <template>
-	<transition name="callback-form" :duration="2000" mode="out-in">
+	<transition name="form-callback" mode="out-in">
 		<div v-if="!form._sent" key="form">
 			<v-appearance-animation :animate="animate" effect="from-t-to-b">
 				<h2 class="text-4xl font-extralight tracking-[.25rem]" appearance-animation-target>Обратный звонок</h2>
@@ -47,16 +47,19 @@
 
 		<!-- Form sent message -->
 		<div class="callback-form-sent max-w-sm" v-else key="form-sent">
-			<h2 class="thanks-title uppercase text-4xl sm:text-3xl font-extralight tracking-rr">Спасибо</h2>
-			<p class="thanks-desc text-gray-400 leading-normal font-light tracking-wider mt-3">Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
-			<v-action-pill
-				class="thanks-btn mt-8"
-				@click="$emit('close')"
-				text="Хорошо"
-				pill-outline
-				:animate-pill="form._sent"
-				:animation-delay="500"
-			/>
+			<v-appearance-animation :animate="animate" effect="from-t-to-b">
+				<h2 class="uppercase text-4xl sm:text-3xl font-extralight tracking-rr" appearance-animation-target>Спасибо</h2>
+				<p class="text-gray-400 leading-normal font-light tracking-wider mt-3" appearance-animation-target>Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
+				<v-action-pill
+					appearance-animation-target
+					class="mt-8"
+					@click="$emit('close')"
+					text="Хорошо"
+					pill-outline
+					:animate-pill="form._sent"
+					:animation-delay="500"
+				/>
+			</v-appearance-animation>
 		</div>
 	</transition>
 </template>
@@ -111,10 +114,16 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
-	.callback-form {
+	.form-callback {
+		&-leave-active {
+			transition: opacity .3s ease;
+		}
 
+		&-enter, &-leave-to {
+			opacity: 0;
+		}
 	}
 
 </style>

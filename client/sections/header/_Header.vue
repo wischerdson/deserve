@@ -6,9 +6,7 @@
 				class="z-10 overflow-hidden absolute inset-x-0 top-0 bg-black/30 backdrop-blur-lg backdrop-saturate-150 h-[inherit] lg:hidden"
 				ref="backdrop"
 			>
-				<transition name="menu" :duration="{ leave: 600 }">
-					<header-menu-desktop :opened="menu" @close="menu = false" v-show="menu" />
-				</transition>
+				<header-menu-desktop :opened="menu" @close="menu = false" />
 			</div>
 
 			<!-- Navigation bar -->
@@ -42,7 +40,7 @@
 			<header-menu-mobile v-model="menu" />
 		</div>
 
-		<brief-sidebar :opened="briefSidebar" @close="briefSidebar = false" ref="briefSidebar" />
+		<brief-sidebar :opened="briefSidebar" @close="briefSidebar = false" />
 	</header>
 </template>
 
@@ -50,7 +48,6 @@
 
 	import gsap from 'gsap'
 	import { ScrollTrigger } from 'gsap/ScrollTrigger'
-	import { disablePageScroll, enablePageScroll, addFillGapTarget } from 'scroll-lock';
 	import HeaderMenuDesktop from './MenuDesktop'
 	import HeaderMenuMobile from './MenuMobile'
 	import HeaderNavBar from './NavBar'
@@ -82,8 +79,6 @@
 		components: { HeaderMenuDesktop, HeaderMenuMobile, HeaderNavBar, BriefSidebar },
 		watch: {
 			menu (value) {
-				value ? disablePageScroll() : enablePageScroll()
-
 				const backdrop = this.$refs.backdrop
 				this.$refs.backdrop.classList.add('backdrop-extending')
 				this.$refs.backdrop.addEventListener('transitionend', () => {
@@ -96,10 +91,6 @@
 					this.$refs.backdrop.classList.remove('backdrop-extended')
 				}
 			},
-			briefSidebar (value) {
-				const se = this.$refs.briefSidebar.$el.querySelector('.scrollable')
-				value ? disablePageScroll(se) : enablePageScroll()
-			},
 			$route () {
 				this.menu = false
 				this.briefSidebar = false
@@ -107,7 +98,6 @@
 		},
 		mounted () {
 			initScrollTrigger.call(this)
-			addFillGapTarget(this.$el)
 		}
 	}
 

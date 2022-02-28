@@ -1,5 +1,5 @@
 <template>
-	<transition :duration="{ enter: 900, leave: 400 }">
+	<transition :duration="{ enter: 900, leave: 400 }" @before-enter="beforeEnter" @after-leave="afterLeave">
 		<div class="brief-sidebar fixed top-0 h-screen inset-x-0 z-40 bg-black" v-show="opened">
 			<div class="w-1/2 xl:w-2/5 lg:hidden h-full relative pointer-events-none">
 				<video class="w-full h-full object-cover object-center" :src="require('~/static/video/brief-backdrop.mp4')" autoplay playsinline muted loop></video>
@@ -7,11 +7,11 @@
 				<div class="absolute inset-y-0 right-0 w-28 z-20 bg-gradient-to-r from-transparent to-black"></div>
 			</div>
 
-			<div class="scrollable absolute inset-0 sm:px-8 overflow-y-scroll flex">
+			<div class="absolute inset-0 sm:px-8 overflow-y-scroll flex" ref="scrollable">
 				<div class="w-1/2 lg:hidden xl:w-2/5 h-full"></div>
 
 				<div class="pl-28 xl:pl-16 sm:pl-0">
-					<form-brief @close="$emit('close')" :enable-animation="opened" />
+					<form-brief @close="$emit('close')" :animate="opened" />
 				</div>
 
 				<div class="fixed sm:absolute inset-y-0 right-0 flex flex-col items-center justify-between py-8 sm:py-6 pointer-events-none">
@@ -36,12 +36,21 @@
 <script>
 
 	import FormBrief from './FormBrief'
+	import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 
 	export default {
 		props: {
 			opened: Boolean
 		},
-		components: { FormBrief }
+		components: { FormBrief },
+		methods: {
+			beforeEnter () {
+				disablePageScroll(this.$refs.scrollable)
+			},
+			afterLeave () {
+				enablePageScroll()
+			}
+		}
 	}
 
 </script>
