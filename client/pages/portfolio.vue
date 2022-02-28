@@ -17,6 +17,16 @@
 	import PortfolioProject from '~/components/PortfolioProject'
 
 	export default {
+		head () {
+			return {
+				title: 'Страница портфолио',
+				description: '',
+				meta: [
+					{ property: 'og:title', content: 'Страница портфолио', hid: 'og-title' },
+					{ property: 'og:description', content: '', hid: 'og-description' },
+				]
+			}
+		},
 		data () {
 			return {
 				projects: [

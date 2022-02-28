@@ -113,6 +113,16 @@
 
 	export default {
 		components: { FormContactUs },
+		head () {
+			return {
+				title: 'Страница контакты',
+				description: '',
+				meta: [
+					{ property: 'og:title', content: 'Страница контакты', hid: 'og-title' },
+					{ property: 'og:description', content: '', hid: 'og-description' },
+				]
+			}
+		},
 		methods: {
 			focusFirstInput () {
 				const form = this.$refs.form

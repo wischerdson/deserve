@@ -29,6 +29,16 @@
 
 	export default {
 		components: { VacancyForm },
+		head () {
+			return {
+				title: 'Страница вакансий',
+				description: '',
+				meta: [
+					{ property: 'og:title', content: 'Страница вакансий', hid: 'og-title' },
+					{ property: 'og:description', content: '', hid: 'og-description' },
+				]
+			}
+		},
 		data () {
 			return {
 				vacancyForm: false,

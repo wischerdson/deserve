@@ -34,6 +34,16 @@
 
 	export default {
 		components: { WelcomeSection, PortfolioSection },
+		head () {
+			return {
+				title: 'Страница главная',
+				description: '',
+				meta: [
+					{ property: 'og:title', content: 'Страница главная', hid: 'og-title' },
+					{ property: 'og:description', content: '', hid: 'og-description' },
+				]
+			}
+		},
 		mounted () {
 			gsap.registerPlugin(ScrollTrigger)
 

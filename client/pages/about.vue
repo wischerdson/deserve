@@ -35,6 +35,16 @@
 	import Typed from 'typed.js'
 
 	export default {
+		head () {
+			return {
+				title: 'Страница о нас',
+				description: '',
+				meta: [
+					{ property: 'og:title', content: 'Страница о нас', hid: 'og-title' },
+					{ property: 'og:description', content: '', hid: 'og-description' },
+				]
+			}
+		},
 		mounted () {
 			this.$videoBg('.page-background')
 

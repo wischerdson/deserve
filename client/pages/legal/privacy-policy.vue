@@ -219,6 +219,23 @@
 	</div>
 </template>
 
+<script>
+
+	export default {
+		head () {
+			return {
+				title: 'Страница legal',
+				description: '',
+				meta: [
+					{ property: 'og:title', content: 'Страница legal', hid: 'og-title' },
+					{ property: 'og:description', content: '', hid: 'og-description' },
+				]
+			}
+		}
+	}
+
+</script>
+
 <style lang="scss" scoped>
 
 	.ol {
