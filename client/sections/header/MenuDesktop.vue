@@ -33,7 +33,7 @@
 						</a>
 					</div>
 					<div class="ml-auto flex items-center space-x-10">
-						<nuxt-link class="text-gray-500 text-xs tracking-widest hover:text-gray-400" exact to="/legal/privacy-policy">Политика конфиденциальности</nuxt-link>
+						<nuxt-link class="text-gray-500 text-xs tracking-widest hover:text-gray-400" exact to="/legal/privacy-policy" rel="nofollow">Политика конфиденциальности</nuxt-link>
 					</div>
 				</div>
 			</div>

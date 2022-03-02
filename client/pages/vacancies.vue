@@ -31,11 +31,11 @@
 		components: { VacancyForm },
 		head () {
 			return {
-				title: 'Страница вакансий',
-				description: '',
+				title: 'Вакансии - Deserve',
+				description: 'Deserve приглашает на работу программистов, дизайнеров, контекстологов, таргетологов, SEO-специалистов, менеджеров проектов и менеджеров по продажам.',
 				meta: [
-					{ property: 'og:title', content: 'Страница вакансий', hid: 'og-title' },
-					{ property: 'og:description', content: '', hid: 'og-description' },
+					{ property: 'og:title', content: 'Вакансии - Deserve', hid: 'og-title' },
+					{ property: 'og:description', content: 'Deserve приглашает на работу программистов, дизайнеров, контекстологов, таргетологов, SEO-специалистов, менеджеров проектов и менеджеров по продажам.', hid: 'og-description' },
 				]
 			}
 		},

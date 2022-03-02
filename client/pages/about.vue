@@ -37,11 +37,11 @@
 	export default {
 		head () {
 			return {
-				title: 'Страница о нас',
-				description: '',
+				title: 'Об агенстве - Deserve',
+				description: 'Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг.',
 				meta: [
-					{ property: 'og:title', content: 'Страница о нас', hid: 'og-title' },
-					{ property: 'og:description', content: '', hid: 'og-description' },
+					{ property: 'og:title', content: 'Об агенстве - Deserve', hid: 'og-title' },
+					{ property: 'og:description', content: 'Добро пожаловать в наш мир. Мы - Deserve, креативное digital агентство. Мы предлагаем различные виды цифровых услуг.', hid: 'og-description' },
 				]
 			}
 		},

@@ -72,7 +72,7 @@
 			<small class="text-xs text-gray-600 tracking-wider lg:text-center lg:mt-10">&copy; Copyright 2022, deserve.ru</small>
 			<ul class="flex space-x-5 lg:space-x-0 lg:space-y-4 text-xs lg:tracking-widest text-gray-600 tracking-wider lg:block lg:text-center">
 				<li>
-					<nuxt-link class="hover:underline" exact to="/legal/privacy-policy">Политика конфиденциальности</nuxt-link>
+					<nuxt-link class="hover:underline" exact to="/legal/privacy-policy" rel="nofollow">Политика конфиденциальности</nuxt-link>
 				</li>
 			</ul>
 		</div>

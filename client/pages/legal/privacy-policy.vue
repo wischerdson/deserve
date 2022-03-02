@@ -224,11 +224,12 @@
 	export default {
 		head () {
 			return {
-				title: 'Страница legal',
+				title: 'Политика конфиденциальности - Deserve',
 				description: '',
 				meta: [
-					{ property: 'og:title', content: 'Страница legal', hid: 'og-title' },
+					{ property: 'og:title', content: 'Политика конфиденциальности - Deserve', hid: 'og-title' },
 					{ property: 'og:description', content: '', hid: 'og-description' },
+					{ name: 'robots', content: 'noindex', hid: 'robots' },
 				]
 			}
 		}

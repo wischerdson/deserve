@@ -115,11 +115,11 @@
 		components: { FormContactUs },
 		head () {
 			return {
-				title: 'Страница контакты',
-				description: '',
+				title: 'Связаться с нами - Deserve',
+				description: 'Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.',
 				meta: [
-					{ property: 'og:title', content: 'Страница контакты', hid: 'og-title' },
-					{ property: 'og:description', content: '', hid: 'og-description' },
+					{ property: 'og:title', content: 'Связаться с нами - Deserve', hid: 'og-title' },
+					{ property: 'og:description', content: 'Ваше сообщение будет направлено в отдел по работе с клиентами. Мы обязательно ответим вам в самое ближайшее время.', hid: 'og-description' },
 				]
 			}
 		},

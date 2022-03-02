@@ -28,7 +28,7 @@ class FormSeeder extends Seeder
 			'amocrm_pipeline_id' => 5116267
 		],
 		[
-			'alias' => 'vacanancy',
+			'alias' => 'vacancy',
 			'name' => 'Вакансия',
 			'amocrm_pipeline_id' => 5116270
 		]

@@ -19,10 +19,10 @@
 	export default {
 		head () {
 			return {
-				title: 'Страница портфолио',
+				title: 'Портфолио - Deserve',
 				description: '',
 				meta: [
-					{ property: 'og:title', content: 'Страница портфолио', hid: 'og-title' },
+					{ property: 'og:title', content: 'Портфолио - Deserve', hid: 'og-title' },
 					{ property: 'og:description', content: '', hid: 'og-description' },
 				]
 			}

@@ -36,11 +36,11 @@
 		components: { WelcomeSection, PortfolioSection },
 		head () {
 			return {
-				title: 'Страница главная',
-				description: '',
+				title: 'Агентство Deserve - создание и продвижение сайтов любой сложности под ключ',
+				description: 'Создание эффективных сайтов любой сложности под ключ и поисковое продвижение для бизнеса. Персональный менеджер на всех этапах создания проекта.',
 				meta: [
-					{ property: 'og:title', content: 'Страница главная', hid: 'og-title' },
-					{ property: 'og:description', content: '', hid: 'og-description' },
+					{ property: 'og:title', content: 'Агентство Deserve', hid: 'og-title' },
+					{ property: 'og:description', content: 'Создание эффективных сайтов любой сложности под ключ и поисковое продвижение для бизнеса. Персональный менеджер на всех этапах создания проекта.', hid: 'og-description' },
 				]
 			}
 		},

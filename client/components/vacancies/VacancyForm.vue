@@ -3,7 +3,7 @@
 		<div class="vacancy-form-modal fixed top-0 inset-x-0 h-screen bg-black z-30">
 			<div class="container relative h-full flex items-center justify-center">
 				<div class="absolute top-0 right-4">
-					<v-action class="py-6 uppercase text-xs tracking-[.25rem] mt-1 font-normal text-gray-400 hover:text-white transition transition-colors" left-icon="close" @click="$emit('close')">Закрыть</v-action>
+					<v-action class="py-6 uppercase text-xs tracking-[.25rem] mt-1 font-normal text-gray-400 hover:text-white transition-colors" left-icon="close" @click="$emit('close')">Закрыть</v-action>
 				</div>
 
 				<transition name="form-sent" mode="out-in">
@@ -11,7 +11,16 @@
 						<h2 class="title text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
 						<p class="desc mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся с вами в ближайшее время.</p>
 
-						<form class="mt-6 space-y-1.5" action="/api/fill-form/vacanancy" @submit.prevent="sendForm">
+						<form class="mt-6 space-y-1.5" action="/api/fill-form/vacancy" @submit.prevent="sendForm">
+							<fieldset>
+								<v-input
+									type="text"
+									v-model="form.vacancy"
+									label="Вакансия"
+									:success="true"
+									disabled
+								/>
+							</fieldset>
 							<fieldset>
 								<v-input
 									type="text"
@@ -47,20 +56,29 @@
 								/>
 							</div>
 						</form>
+						<div class="mt-16">
+							<p class="text-xs text-gray-600 tracking-wider">
+								Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
+								<nuxt-link class="hover:underline text-gray-400" to="/legal/privacy-policy" rel="nofollow">политикой конфиденциальности</nuxt-link>
+							</p>
+						</div>
 					</div>
 
 					<!-- Form sent message -->
 					<div class="max-w-sm" v-else key="form-sent">
-						<h2 class="thanks-title uppercase text-4xl sm:text-3xl font-extralight tracking-rr">Спасибо</h2>
-						<p class="thanks-desc text-gray-400 leading-normal font-light tracking-wider mt-3">Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
-						<v-action-pill
-							class="thanks-btn mt-8"
-							@click="$emit('close')"
-							text="Хорошо"
-							pill-outline
-							:animate-pill="form._sent"
-							:animation-delay="500"
-						/>
+						<v-appearance-animation effect="from-b-to-t">
+							<h2 class="uppercase text-4xl sm:text-3xl font-extralight tracking-rr" appearance-animation-target>Спасибо</h2>
+							<p class="text-gray-400 leading-normal font-light tracking-wider mt-3" appearance-animation-target>Заявка принята. В ближайшее время с Вами свяжется наш менеджер.</p>
+							<v-action-pill
+								appearance-animation-target
+								class="mt-8"
+								@click="$emit('close')"
+								text="Хорошо"
+								pill-outline
+								:animate-pill="form._sent"
+								:animation-delay="500"
+							/>
+						</v-appearance-animation>
 					</div>
 				</transition>
 			</div>
@@ -77,7 +95,7 @@
 	export default {
 		mixins: [ validationMixin ],
 		props: {
-			vacancy: { type: String, required: true }
+			vacancy: { type: String, required: false, default: '' }
 		},
 		data () {
 			return {
@@ -133,33 +151,6 @@
 
 		&-enter, &-leave-to {
 			opacity: 0;
-		}
-
-		.form-sent {
-			&-leave-active {
-				transition: opacity .3s ease;
-			}
-
-			&-enter, &-leave-to {
-				opacity: 0;
-			}
-
-			&-enter-active {
-				.thanks-title, .thanks-desc, .thanks-btn {
-					transition: opacity .6s ease, transform .6s ease;
-				}
-
-				.thanks-desc { transition-delay: .2s; }
-
-				.thanks-btn { transition-delay: .4s; }
-			}
-
-			&-enter {
-				.thanks-title, .thanks-desc, .thanks-btn  {
-					opacity: 0;
-					transform: translateY(20px);
-				}
-			}
 		}
 	}
 
