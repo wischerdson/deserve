@@ -1,8 +1,12 @@
 <template>
 	<section class="min-h-screen flex items-center relative">
 		<!-- Background -->
-		<div class="page-background" data-vbg="https://youtu.be/lu72YfaDU1o" data-vbg-load-background="false"></div>
-		<div class="absolute inset-0 bg-black/90 backdrop-contrast-150"></div>
+		<div class="fixed h-screen top-0 inset-x-0 z-0">
+			<video class="absolute inset-0 z-0 object-cover object-center" :src="require('~/static/video/office.mp4')" autoplay playsinline muted loop></video>
+			<div class="absolute inset-0 bg-black/75 backdrop-contrast-150"></div>
+		</div>
+
+
 		<h1 class="hidden">О нас</h1>
 		<div class="w-full relative z-10 flex items-center pt-56 pb-44 lg:pt-40">
 			<div class="container">
@@ -46,8 +50,6 @@
 			}
 		},
 		mounted () {
-			this.$videoBg('.page-background')
-
 			new Typed(this.$refs.typed, {
 				strings: ['Hello', 'Привет', 'Bonjour', 'Hola', 'Guten Tag'],
 				typeSpeed: 70,

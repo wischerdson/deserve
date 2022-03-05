@@ -64,7 +64,6 @@ export default {
 	plugins: [
 		{ src: '~/plugins/components.js' },
 		{ src: '~/plugins/magnetic.js', ssr: false },
-		{ src: '~/plugins/video-bg.js', ssr: false },
 		{ src: '~/plugins/smooth-scroll.js', ssr: false },
 	],
 

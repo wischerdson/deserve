@@ -1,8 +1,11 @@
 <template>
-	<section class="min-h-screen flex items-center relative">
+	<section class="min-h-screen flex items-center relative overflow-hidden">
 		<!-- Background -->
-		<div class="welcome-video-background" data-vbg="https://youtu.be/yoVwN9I2wiA" data-vbg-load-background="false"></div>
-		<div class="absolute inset-0 bg-black/70"></div>
+		<div class="h-screen top-0 inset-x-0 z-0">
+			<video class="absolute inset-0 z-0 object-cover object-center" :src="require('~/static/video/welcome.mp4')" autoplay playsinline muted loop></video>
+			<div class="absolute inset-0 bg-black/70 backdrop-contrast-150"></div>
+		</div>
+
 		<div class="absolute inset-0 z-10 flex items-center overflow-hidden" ref="welcome_text">
 			<div class="container lg:-mr-1.5">
 				<p class="text-center mb-10 text-xl uppercase tracking-[.5rem] lg:text-lg lg:tracking-[.4rem] font-thin sm:leading-normal">Ваш партнер <br class="hidden sm:block">в digital-среде</p>
@@ -43,8 +46,6 @@
 				end: 'center top',
 				scrub: true
 			})
-
-			this.$videoBg('.welcome-video-background')
 		}
 	}
 

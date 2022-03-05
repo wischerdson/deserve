@@ -2,7 +2,7 @@
 	<transition :duration="{ enter: 900, leave: 400 }" @before-enter="beforeEnter" @after-leave="afterLeave">
 		<div class="brief-sidebar fixed top-0 h-screen inset-x-0 z-40 bg-black" v-show="opened">
 			<div class="w-1/2 xl:w-2/5 lg:hidden h-full relative pointer-events-none">
-				<video class="w-full h-full object-cover object-center" :src="require('~/static/video/brief-backdrop.mp4')" autoplay playsinline muted loop></video>
+				<video class="w-full h-full object-cover object-center" :src="require('~/static/video/brief.mp4')" autoplay playsinline muted loop></video>
 				<div class="bg-black/70 z-10 absolute inset-0"></div>
 				<div class="absolute inset-y-0 right-0 w-28 z-20 bg-gradient-to-r from-transparent to-black"></div>
 			</div>
