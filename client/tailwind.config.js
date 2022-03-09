@@ -12,6 +12,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			opacity: {
+				'85': '.85',
+			},
 			colors: {
 				gray: colors.neutral,
 				telegram: '#0088cc',

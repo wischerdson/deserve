@@ -3,7 +3,7 @@
 		<!-- Background -->
 		<div class="fixed h-screen top-0 inset-x-0 z-0">
 			<video class="absolute inset-0 z-0 object-cover object-center" :src="require('~/static/video/office.mp4')" autoplay playsinline muted loop></video>
-			<div class="absolute inset-0 bg-black/75 backdrop-contrast-150"></div>
+			<div class="absolute inset-0 bg-black/85 backdrop-contrast-150"></div>
 		</div>
 
 

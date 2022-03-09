@@ -4,36 +4,52 @@ services:
   php:
     container_name: deserve_php
     build: ./.docker/php-fpm
+    restart: unless-stopped
     volumes:
-      - .:/usr/local/apache2/htdocs
-    working_dir: /usr/local/apache2/htdocs
+      - .:/app
+    working_dir: /app
     ports:
       - 9000:9000
 
-  apache:
-    container_name: deserve_apache
-    build: ./.docker/apache
+  queue:
+    container_name: deserve_queue
+    build: ./.docker/php-fpm
+    restart: unless-stopped
     volumes:
-      - .:/usr/local/apache2/htdocs
-    working_dir: /usr/local/apache2/htdocs
+      - .:/app
+    working_dir: /app
+    depends_on:
+      - mariadb
+    command: sh -c "php artisan queue:work"
+
+  nginx:
+    container_name: deserve_nginx
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - .:/app:ro
+      - ./.docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./.docker/nginx/.ssl:/etc/nginx/ssl:ro
+    working_dir: /app
     ports:
       - 80:80
       - 443:443
-    links:
+    depends_on:
       - php
 
   composer:
     container_name: deserve_composer
     image: composer:latest
+    restart: "no"
     volumes:
       - .:/app
     environment:
       TERM: "xterm-256color"
-    command: /bin/sh -c "composer install --no-interaction --prefer-dist --no-progress"
 
   mariadb:
     container_name: deserve_mariadb
     image: mariadb:latest
+    restart: unless-stopped
     volumes:
       - ./.data:/var/lib/mysql
     environment:
@@ -46,7 +62,8 @@ services:
 
   nodejs:
     container_name: deserve_nodejs
-    image: node:17-alpine3.14
+    image: node:17-alpine3.15
+    restart: unless-stopped
     volumes:
       - .:/usr/app
     working_dir: /usr/app
@@ -54,4 +71,13 @@ services:
       - 3000:3000
     environment:
       NODE_OPTIONS: --openssl-legacy-provider
-    command: /bin/sh -c "npm install && npm run dev"
+    command: sh -c "npm install && npm run dev"
+
+  certbot:
+    container_name: deserve_certbot
+    image: certbot/certbot
+    volumes:
+      - ./.docker/certbot/config:/etc/letsencrypt
+      - ./.docker/certbot/www:/var/www/certbot
+    depends_on:
+      - nginx

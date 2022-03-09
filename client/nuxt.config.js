@@ -98,11 +98,11 @@ export default {
 	},
 
 	generate: {
-		dir: '../public/dist'
+		dir: '../public/client'
 	},
 
 	server: {
-		host: '0.0.0.0'
+		host: 'nodejs'
 	},
 
 	watchers: {
