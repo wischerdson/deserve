@@ -1,12 +1,8 @@
 #! /bin/bash
 
-ssl_dir="$PWD/.ssl"
+set -eu
 
-if [ ! -d $ssl_dir ]
-then
-	echo "$ssl_dir directory not found"
-	exit 0
-fi
+ssl_dir="./.data/ssl"
 
 cert_pass="1234secret"
 
