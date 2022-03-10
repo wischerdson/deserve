@@ -1,0 +1,35 @@
+version: "3"
+
+# Only for production purposes
+
+services:
+  php:
+    restart: unless-stopped
+
+  queue:
+    restart: unless-stopped
+
+  nginx:
+    restart: unless-stopped
+    volumes:
+      - ./.docker/nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./.data/ssl/conf:/etc/letsencrypt
+      - ./.data/ssl/www:/var/www/certbot
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+  mariadb:
+    restart: unless-stopped
+
+  nodejs:
+    restart: unless-stopped
+    command: sh -c "npm ci && npm run start"
+
+  certbot:
+    container_name: deserve_certbot
+    image: certbot/certbot
+    volumes:
+      - ./.data/ssl/conf:/etc/letsencrypt
+      - ./.data/ssl/www:/var/www/certbot
+    depends_on:
+      - nginx
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
