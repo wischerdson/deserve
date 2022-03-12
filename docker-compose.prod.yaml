@@ -13,8 +13,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./.docker/nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
-      - ./.data/ssl/conf:/etc/letsencrypt
-      - ./.data/ssl/www:/var/www/certbot
 
   mariadb:
     restart: unless-stopped
@@ -22,12 +20,3 @@ services:
   nodejs:
     restart: unless-stopped
     command: sh -c "npm ci && npm run start"
-
-  certbot:
-    container_name: deserve_certbot
-    image: certbot/certbot
-    volumes:
-      - ./.data/ssl/conf:/etc/letsencrypt
-      - ./.data/ssl/www:/var/www/certbot
-    depends_on:
-      - nginx
