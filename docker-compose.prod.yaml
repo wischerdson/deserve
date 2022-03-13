@@ -1,6 +1,12 @@
 version: "3"
 
-# Only for production purposes
+# For production purposes
+
+networks:
+  proxy-manager:
+    driver: bridge
+    name: nginx-proxy-manager
+    external: true
 
 services:
   php:
@@ -13,6 +19,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./.docker/nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - proxy-manager
+      - default
 
   mariadb:
     restart: unless-stopped
