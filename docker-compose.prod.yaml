@@ -23,9 +23,6 @@ services:
       - proxy-manager
       - default
 
-  mariadb:
-    restart: unless-stopped
-
   nodejs:
     restart: unless-stopped
     command: sh -c "npm ci && npm run start"

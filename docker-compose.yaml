@@ -2,24 +2,19 @@ version: "3"
 
 services:
   php:
-    container_name: deserve_php
-    build: ./.docker/php-fpm
+    build: ./.docker/php
     volumes:
       - .:/app
     working_dir: /app
 
   queue:
-    container_name: deserve_queue
-    build: ./.docker/php-fpm
+    build: ./.docker/php
     volumes:
       - .:/app
     working_dir: /app
-    depends_on:
-      - mariadb
     command: sh -c "php artisan queue:work"
 
   nginx:
-    container_name: deserve_nginx
     image: nginx:alpine
     volumes:
       - .:/app:ro
@@ -28,29 +23,13 @@ services:
       - php
 
   composer:
-    container_name: deserve_composer
     image: composer:latest
-    restart: "no"
     volumes:
       - .:/app
     environment:
       TERM: "xterm-256color"
 
-  mariadb:
-    container_name: deserve_mariadb
-    image: mariadb:latest
-    volumes:
-      - ./.data/mariadb:/var/lib/mysql
-    environment:
-      MARIADB_USER: ${DB_USERNAME}
-      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
-      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "yes"
-      MARIADB_DATABASE: ${DB_DATABASE}
-    ports:
-      - 3306:3306
-
   nodejs:
-    container_name: deserve_nodejs
     image: node:17-alpine3.15
     volumes:
       - .:/usr/app
