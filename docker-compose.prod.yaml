@@ -7,13 +7,24 @@ networks:
     driver: bridge
     name: nginx-proxy-manager
     external: true
+  database:
+    driver: bridge
+    name: database
+    external: true
+
 
 services:
   php:
     restart: unless-stopped
+    networks:
+      - database
+      - default
 
   queue:
     restart: unless-stopped
+    networks:
+      - database
+      - default
 
   nginx:
     restart: unless-stopped
