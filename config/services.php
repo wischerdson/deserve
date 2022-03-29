@@ -36,6 +36,13 @@ return [
 		'redirect_uri' => env('AMOCRM_REDIRECT_URI'),
 		'base_domain' => 'deserve.amocrm.ru',
 		'responsible_user_id' => 6855253
-	]
+	],
 
+	'telegram' => [
+		'chat_id' => env('TELEGRAM_CHAT_ID')
+	],
+
+	'telegram-bot-api' => [
+		'token' => env('TELEGRAM_BOT_TOKEN'),
+	],
 ];

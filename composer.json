@@ -9,6 +9,7 @@
 		"amocrm/amocrm-api-library": "^0.7.1",
 		"fruitcake/laravel-cors": "^2.0.5",
 		"guzzlehttp/guzzle": "^7.2",
+		"laravel-notification-channels/telegram": "^2.0",
 		"laravel/framework": "^8.75",
 		"laravel/sanctum": "^2.14",
 		"laravel/tinker": "^2.7"

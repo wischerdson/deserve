@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Events\FieldCreated;
 use App\Events\FormFilled;
 use App\Listeners\CreateAmoCrmLead;
+use App\Listeners\SendTelegramNotification;
 use App\Listeners\SyncFieldsWithAmoCrm;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -17,10 +18,11 @@ class EventServiceProvider extends ServiceProvider
 	 */
 	protected $listen = [
 		FormFilled::class => [
-			CreateAmoCrmLead::class
+			SendTelegramNotification::class
+			// CreateAmoCrmLead::class
 		],
 		FieldCreated::class => [
-			SyncFieldsWithAmoCrm::class
+			// SyncFieldsWithAmoCrm::class
 		]
 	];
 
