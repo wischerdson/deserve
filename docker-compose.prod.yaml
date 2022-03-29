@@ -7,6 +7,7 @@ networks:
     driver: bridge
     name: nginx-proxy-manager
     external: true
+
   database:
     driver: bridge
     name: database
@@ -36,4 +37,4 @@ services:
 
   nodejs:
     restart: unless-stopped
-    command: sh -c "npm ci && npm run start"
+    command: sh -c "npm run start"

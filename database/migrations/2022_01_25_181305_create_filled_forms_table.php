@@ -15,7 +15,6 @@ class CreateFilledFormsTable extends Migration
 	{
 		Schema::create('filled_forms', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId('guest_id')->constrained('guests')->onUpdate('cascade')->onDelete('cascade');
 			$table->foreignId('form_id')->constrained('forms')->onUpdate('cascade')->onDelete('cascade');
 			$table->timestamp('created_at');
 		});
