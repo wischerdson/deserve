@@ -50,10 +50,10 @@
 								:success="form.budget"
 							>
 								<option class="text-black font-normal" value="" selected></option>
-								<option class="text-black font-normal" value="До 500 тыс.">До 500 тыс.</option>
-								<option class="text-black font-normal" value="0.5 - 1 млн.">0.5 - 1 млн.</option>
-								<option class="text-black font-normal" value="1 - 3 млн.">1 - 3 млн.</option>
-								<option class="text-black font-normal" value="От 3 млн.">От 3 млн.</option>
+								<option class="text-black font-normal" value="30 - 65 тыс">30 - 65 тыс</option>
+								<option class="text-black font-normal" value="100 - 200 тыс">100 - 200 тыс</option>
+								<option class="text-black font-normal" value="0.5 - 1 млн">0.5 - 1 млн</option>
+								<option class="text-black font-normal" value="От 2 млн">От 2 млн</option>
 							</v-select>
 						</fieldset>
 						<fieldset appearance-animation-target>

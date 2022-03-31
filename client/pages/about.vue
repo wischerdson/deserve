@@ -51,7 +51,7 @@
 		},
 		mounted () {
 			new Typed(this.$refs.typed, {
-				strings: ['Hello', 'Привет', 'Bonjour', 'Hola', 'Guten Tag'],
+				strings: ['Hello', 'Привет', 'Bonjour', 'Hola', 'Guten Tag', '你这个同性恋'],
 				typeSpeed: 70,
 				backSpeed: 30,
 				backDelay: 1250,

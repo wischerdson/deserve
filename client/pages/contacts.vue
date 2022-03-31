@@ -30,6 +30,11 @@
 										<v-icon width="18px" name="facebook" />
 									</a>
 								</li>
+								<li>
+									<a class="text-gray-300" href="https://vk.com/deserve_ru" target="_blank">
+										<v-icon width="18px" name="vk" />
+									</a>
+								</li>
 							</ul>
 						</div>
 					</div>

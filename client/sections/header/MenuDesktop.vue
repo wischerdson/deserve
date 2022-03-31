@@ -27,9 +27,12 @@
 			</div>
 			<div class="menu-bottom absolute inset-x-0 bottom-10">
 				<div class="container flex items-center">
-					<div>
+					<div class="flex items-center space-x-4">
 						<a class="text-gray-400 hover:text-white transition-colors" href="https://www.instagram.com/deserve_ru/" target="_blank" title="Наш Instagram" area-label="Наш Instagram">
 							<v-icon name="instagram" />
+						</a>
+						<a class="text-gray-400 hover:text-white transition-colors" href="https://vk.com/deserve_ru/" target="_blank" title="Наш Vk" area-label="Наш Vk">
+							<v-icon name="vk" />
 						</a>
 					</div>
 					<div class="ml-auto flex items-center space-x-10">

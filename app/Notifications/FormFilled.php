@@ -35,7 +35,7 @@ class FormFilled extends Notification implements ShouldQueue
 		$message = $answers->reduce(function ($result = '', FormAnswer $answer) {
 			$field = $answer->formField;
 
-			$result .= "\n{$field->name}: *{$answer->answer}*";
+			$result .= "\n{$field->name}: *{$answer->answer}*\n";
 
 			return $result;
 		});

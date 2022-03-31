@@ -63,6 +63,15 @@
 						>
 							<v-icon name="instagram" />
 						</v-action>
+						<v-action
+							class="text-gray-500"
+							href="https://vk.com/deserve_ru"
+							target="_blank"
+							title="Наш Vk"
+							area-label="Наш Vk"
+						>
+							<v-icon name="vk" />
+						</v-action>
 					</div>
 					<p class="text-sm text-gray-400 leading-relaxed tracking-wider mt-6 lg:hidden">Подпишитесь на нас в социальных сетях, чтобы получать новости и эксклюзивные предложения.</p>
 				</div>
