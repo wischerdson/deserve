@@ -2,7 +2,7 @@
 	<section class="min-h-screen flex items-center relative">
 		<!-- Background -->
 		<div class="fixed h-screen top-0 inset-x-0 z-0">
-			<video class="absolute inset-0 z-0 object-cover object-center" :src="require('~/static/video/office.mp4')" autoplay playsinline muted loop></video>
+			<video class="absolute top-0 left-0 h-full w-full z-0 object-cover object-center" :src="require('~/static/video/office.mp4')" autoplay playsinline muted loop></video>
 			<div class="absolute inset-0 bg-black/85 backdrop-contrast-150"></div>
 		</div>
 
@@ -51,7 +51,7 @@
 		},
 		mounted () {
 			new Typed(this.$refs.typed, {
-				strings: ['Hello', 'Привет', 'Bonjour', 'Hola', 'Guten Tag', '你这个同性恋'],
+				strings: ['Hello', 'Привет', 'Bonjour', 'Hola', 'Guten Tag'],
 				typeSpeed: 70,
 				backSpeed: 30,
 				backDelay: 1250,
