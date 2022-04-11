@@ -48,5 +48,4 @@ docker-compose exec nginx nginx -s reload
 
 echo "=== Nuxt reloading ==="
 docker-compose exec nodejs npm ci
-docker-compose exec nodejs npm run generate
 docker-compose restart nodejs

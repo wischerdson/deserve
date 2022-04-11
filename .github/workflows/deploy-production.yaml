@@ -6,39 +6,38 @@ on:
       - master
 
 env:
-  DEPLOY_SERVER_USERNAME: capitalup
-  DEPLOY_SERVER_HOST: alt.deserve.ru
-  DEPLOY_PATH: /home/capitalup/domains/alt.deserve.ru
+  DEPLOY_SERVER_USERNAME: root
+  DEPLOY_SERVER_HOST: 141.8.199.117
+  DEPLOY_PATH: /root/projects/deserve
   BROWSER_BASE_URL: https://alt.deserve.ru/h/
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-#       - name: Install npm dependencies
-#         run: |
-#           npm ci
-#       - name: Compile front
-#         run: |
-#           npm run generate
-#       - name: Copy static content via rsync
-#         uses: burnett01/rsync-deployments@5.1
-#         with:
-#           switches: -azr --delete --include "public/***" --include ".bin/***" --exclude "*"
-#           remote_path: ${{ env.DEPLOY_PATH }}
-#           remote_user: ${{ env.DEPLOY_SERVER_USERNAME }}
-#           remote_host: ${{ env.DEPLOY_SERVER_HOST }}
-#           remote_key: ${{ secrets.DEPLOY_SERVER_KEY }}
+      - name: Install npm dependencies
+        run: |
+          npm ci
+      - name: Compile front
+        run: |
+          npm run generate
+      - name: Copy static content via rsync
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -azr --delete --include "public/***" --include ".bin/***" --exclude "*"
+          remote_path: ${{ env.DEPLOY_PATH }}
+          remote_user: ${{ env.DEPLOY_SERVER_USERNAME }}
+          remote_host: ${{ env.DEPLOY_SERVER_HOST }}
+          remote_key: ${{ secrets.DEPLOY_SERVER_KEY }}
 
-#       - name: Setup application
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ env.DEPLOY_SERVER_HOST }}
-#           username: ${{ env.DEPLOY_SERVER_USERNAME }}
-#           key: ${{ secrets.DEPLOY_SERVER_KEY }}
-#           script: |
-#             cd ${{ env.DEPLOY_PATH }}
-#             sh ./.bin/install-composer.sh
-#             sh ./.bin/deploy.sh
+      - name: Setup application
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.DEPLOY_SERVER_HOST }}
+          username: ${{ env.DEPLOY_SERVER_USERNAME }}
+          key: ${{ secrets.DEPLOY_SERVER_KEY }}
+          script: |
+            cd ${{ env.DEPLOY_PATH }}
+            sh ./.bin/deploy.sh ${GITHUB_REF#refs/heads/} $GITHUB_SHA
