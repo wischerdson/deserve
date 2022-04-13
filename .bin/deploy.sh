@@ -10,7 +10,7 @@ branch=$1
 commit=$2
 
 echo "target branch: $branch"
-echo "commit: $commit"
+echo "commit sha: $commit"
 
 echo "=== Retrieving source code ($commit) ==="
 

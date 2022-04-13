@@ -40,4 +40,4 @@ jobs:
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
           script: |
             cd ${{ env.DEPLOY_PATH }}
-            sh ./.bin/deploy.sh ${GITHUB_REF#refs/heads/} $GITHUB_SHA
+            sh ./.bin/deploy.sh "${{ github.ref_name }}" "${{ github.sha }}"
