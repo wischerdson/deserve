@@ -2,7 +2,7 @@
 	<section class="min-h-screen flex items-center relative overflow-hidden">
 		<!-- Background -->
 		<div class="h-screen top-0 inset-x-0 z-0">
-			<video class="absolute inset-0 z-0 object-cover object-center" :src="require('~/static/video/welcome.mp4')" autoplay playsinline muted loop></video>
+			<video class="absolute top-0 left-0 h-full w-full z-0 object-cover object-center" :src="require('~/static/video/welcome.mp4')" autoplay playsinline muted loop></video>
 			<div class="absolute inset-0 bg-black/70 backdrop-contrast-150"></div>
 		</div>
 
