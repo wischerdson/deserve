@@ -44,8 +44,8 @@ docker-compose exec -T php ./artisan queue:restart
 docker-compose restart queue
 
 echo "=== NGINX config reloading ==="
-docker-compose exec nginx nginx -s reload
+docker-compose exec -T nginx nginx -s reload
 
 echo "=== Nuxt reloading ==="
-docker-compose exec nodejs npm ci
+docker-compose exec -T nodejs npm ci
 docker-compose restart nodejs
