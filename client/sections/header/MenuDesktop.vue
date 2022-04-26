@@ -20,7 +20,7 @@
 							<v-action class="menu-item__link inline-block transition-opacity hover:opacity-70" to="/contacts">Контакты</v-action>
 						</li>
 					</ul>
-					<div class="mx-auto">
+					<div class="max-w-sm mx-auto">
 						<form-callback :animate="animateForm" @close="$emit('close')" />
 					</div>
 				</div>

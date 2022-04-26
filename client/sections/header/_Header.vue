@@ -98,6 +98,7 @@
 		},
 		mounted () {
 			initScrollTrigger.call(this)
+			this.briefSidebar = this.$route.hash == '#brief'
 		}
 	}
 
