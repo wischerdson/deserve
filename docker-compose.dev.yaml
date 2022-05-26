@@ -8,7 +8,6 @@ services:
 
   nginx:
     volumes:
-      - ./.data/ssl:/etc/nginx/ssl:ro
       - ./.docker/nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 80:80
@@ -17,7 +16,7 @@ services:
   mariadb:
     image: mariadb:latest
     volumes:
-      - ./.data/mariadb:/var/lib/mysql
+      - ./.runtime/mariadb:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
       MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "yes"
