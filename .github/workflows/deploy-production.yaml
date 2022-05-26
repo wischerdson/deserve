@@ -1,9 +1,9 @@
 name: Deploy application to production
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
 env:
   DEPLOY_SERVER_USERNAME: root

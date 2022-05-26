@@ -26,6 +26,7 @@ services:
     networks:
       - database
       - default
+    command: sh -c "php artisan queue:work"
 
   nginx:
     restart: unless-stopped

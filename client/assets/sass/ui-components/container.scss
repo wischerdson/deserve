@@ -1,21 +1,31 @@
 .container {
-	width: 100%;
-	max-width: 1280px;
-	padding-left: .75rem;
-	padding-right: .75rem;
-	margin-left: auto;
-	margin-right: auto;
+	&, &-sm, &-md, &-lg, &-xl {
+		width: 100%;
 
-	@screen xl {
-		max-width: 1024px;
+		padding-left: .75rem;
+		padding-right: .75rem;
+		margin-left: auto;
+		margin-right: auto;
 	}
-	@screen lg {
-		max-width: 768px;
+
+	&-lg {
+		max-width: 960px;
 	}
-	@screen md {
-		max-width: 640px;
-	}
-	@screen sm {
-		max-width: 100%;
+
+	&, &-xl {
+		max-width: 1280px;
+
+		@screen xl {
+			max-width: 1024px;
+		}
+		@screen lg {
+			max-width: 768px;
+		}
+		@screen md {
+			max-width: 640px;
+		}
+		@screen sm {
+			max-width: 100%;
+		}
 	}
 }

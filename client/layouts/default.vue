@@ -17,6 +17,11 @@
 
 	export default {
 		components: { SectionHeader, SectionFooter, Preloader },
+		head () {
+			return {
+				bodyAttrs: { style: 'background-color: #000; color: #fff;' }
+			}
+		},
 		data () {
 			return {
 				isProduction: process.env.NODE_ENV === 'production'

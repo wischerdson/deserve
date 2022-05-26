@@ -8,12 +8,11 @@ export default {
 		}
 	},
 
-	publicRuntimeConfig: {
-		axios: {
-			debug: process.env.NODE_ENV !== 'production',
-			https: process.env.HTTP_SECURE,
-			browserBaseURL: process.env.BROWSER_BASE_URL
-		}
+	axios: {
+		baseURL: process.env.AXIOS_BASE_URL,
+		browserBaseURL: process.env.AXIOS_BROWSER_BASE_URL,
+		debug: process.env.NODE_ENV !== 'production',
+		https: process.env.AXIOS_HTTPS
 	},
 
 	// Global page headers: https://go.nuxtjs.dev/config-head
@@ -110,5 +109,9 @@ export default {
 			aggregateTimeout: 300,
 			poll: 1000
 		}
+	},
+
+	router: {
+		routeNameSplitter: '.'
 	}
 }
