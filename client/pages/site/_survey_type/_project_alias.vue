@@ -2,11 +2,11 @@
 	<div class="pt-16 pb-24">
 		<section class="pb-16" v-if="survey">
 			<div class="container-lg">
-				<h1 class="text-6xl">
+				<h1 class="text-6xl leading-tight md:text-4xl font-normal">
 					Брифинг сайта @{{ projectName }}
 				</h1>
 				<p class="mt-6 text-lg">
-					Здравствуйте, {{ clientName }}, мы очень рады, что Вы решили работать с нами. На этой странице находится брифинг, данные из которого будут использованы на Вашем сайте. Во время разработки Вы всегда можете зайти на эту страницу и изменить или добавить что-либо. Вот контакт вашего менеджера в  <a class="underline text-green-500" href="https://wa.me/79101127174?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%83%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81" target="_blank">WhatsApp</a>
+					Здравствуйте, {{ clientName }}, мы очень рады, что Вы решили работать с нами. На этой странице находится брифинг, данные из которого будут использованы на Вашем сайте. Во время разработки Вы всегда можете зайти на эту страницу и изменить или добавить что-либо. Вот контакт вашего менеджера в  <a class="underline text-green-500 font-normal" href="https://wa.me/79101127174?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%83%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81" target="_blank">WhatsApp</a>
 				</p>
 			</div>
 		</section>
@@ -73,7 +73,7 @@ export default {
 	layout: 'survey',
 	async fetch () {
 		const surveyType = this.$route.params.survey_type
-		this.projectName = this.$route.params.project_alias
+		this.projectName = this.$route.params.project_alias.replace('-', '.')
 		this.clientName = this.$route.query.client
 
 		await getSurvey(surveyType, this.projectName).then(({ data }) => {
