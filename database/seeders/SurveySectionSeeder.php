@@ -23,7 +23,27 @@ class SurveySectionSeeder extends Seeder
 		[
 			'id' => 2,
 			'survey_id' => 1,
-			'title' => 'Обо мне',
+			'title' => 'Блок “Об мне”',
+		],
+		[
+			'id' => 3,
+			'survey_id' => 1,
+			'title' => 'Блок “Проблемы, которые я помогу решить вам:”',
+		],
+		[
+			'id' => 4,
+			'survey_id' => 1,
+			'title' => 'Блок “Услуги и цены”',
+		],
+		[
+			'id' => 5,
+			'survey_id' => 1,
+			'title' => 'Блок “Отзывы”',
+		],
+		[
+			'id' => 6,
+			'survey_id' => 1,
+			'title' => 'Блок “Контакты”',
 		]
 	];
 
@@ -35,7 +55,7 @@ class SurveySectionSeeder extends Seeder
 	public function run()
 	{
 		foreach ($this->data as $row) {
-			self::MODEL::firstOrCreate([
+			self::MODEL::updateOrCreate([
 				self::UNIQUE => $row[self::UNIQUE]
 			], $row);
 		}

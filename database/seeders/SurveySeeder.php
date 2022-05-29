@@ -10,29 +10,30 @@ class SurveySeeder extends Seeder
 {
 	use WithoutModelEvents;
 
-	private string $rootModel;
+	public const MODEL = Survey::class;
 
-	private string $uniqueField;
+	public const UNIQUE = 'type';
 
+	private array $data = [
+		[
+			'id' => 1,
+			'type' => 'psychologist',
+			'title' => 'Брифинг сайта @{{ project_name }}',
+			'description' => 'Здравствуйте, {{ client_name }}, мы очень рады, что Вы решили выбрать нас. На этой странице находится брифинг, данные из которого будут использованы на Вашем сайте. Во время разработки Вы всегда можете зайти на эту страницу и изменить или добавить что-либо. Вот контакт вашего менеджера в WhatsApp <a href'
+		]
+	];
+
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
 	public function run()
 	{
-		$data = (array) json_decode(file_get_contents(__DIR__.'/json/survey.json'));
-		$this->rootModel = $data['root_model'];
-		$this->uniqueField = $data['unique'];
-		$this->saveRecursive($data['start']);
-	}
-
-	private function saveRecursive(array $rows, string $relatedModel = null, bool $isRoot = true)
-	{
-		foreach ($rows as $row) {
-			foreach ($row as $key => $value) {
-				if (is_array($value)) {
-
-					$this->saveRecursive($value, $key, false);
-				} else {
-
-				}
-			}
+		foreach ($this->data as $row) {
+			self::MODEL::updateOrCreate([
+				self::UNIQUE => $row[self::UNIQUE]
+			], $row);
 		}
 	}
 }

@@ -20,7 +20,7 @@ return new class extends Migration
 				->cascadeOnUpdate()->cascadeOnDelete();
 			$table->string('type');
 			$table->string('label');
-			$table->string('placeholder')->nullable();
+			$table->text('placeholder')->nullable();
 		});
 	}
 
