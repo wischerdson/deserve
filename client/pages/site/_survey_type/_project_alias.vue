@@ -73,7 +73,7 @@ export default {
 	layout: 'survey',
 	async fetch () {
 		const surveyType = this.$route.params.survey_type
-		this.projectName = this.$route.params.project_alias.replace('-', '.')
+		this.projectName = this.$route.params.project_alias.replaceAll('-', '.')
 		this.clientName = this.$route.query.client
 
 		await getSurvey(surveyType, this.projectName).then(({ data }) => {
