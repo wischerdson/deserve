@@ -5,7 +5,7 @@
 				<h2 class="text-4xl font-extralight tracking-[.25rem]" appearance-animation-target>Обратный звонок</h2>
 				<p class="mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal" appearance-animation-target>Заполните форму ниже и мы обязательно свяжемся с вами в ближайшее время.</p>
 
-				<form class="mt-6 space-y-1.5" action="/api/fill-form/ordering-callback" @submit.prevent="orderCall">
+				<form class="mt-6 space-y-1.5" action="/fill-form/ordering-callback" @submit.prevent="orderCall">
 					<fieldset appearance-animation-target>
 						<v-input
 							type="text"

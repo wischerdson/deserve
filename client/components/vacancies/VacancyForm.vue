@@ -11,7 +11,7 @@
 						<h2 class="title text-4xl font-extralight tracking-[.25rem]">Обратный звонок</h2>
 						<p class="desc mt-6 text-gray-400 tracking-widest text-sm font-extralight leading-normal">Заполните форму ниже и мы обязательно свяжемся с вами в ближайшее время.</p>
 
-						<form class="mt-6 space-y-1.5" action="/api/fill-form/vacancy" @submit.prevent="sendForm">
+						<form class="mt-6 space-y-1.5" action="/fill-form/vacancy" @submit.prevent="sendForm">
 							<fieldset>
 								<v-input
 									type="text"

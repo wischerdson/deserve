@@ -3,7 +3,7 @@
 		<transition name="form-contact-us" mode="out-in">
 			<div v-if="!form._sent">
 				<v-appearance-animation effect="from-b-to-t">
-					<form class="space-y-1.5" action="/api/fill-form/feedback" @submit.prevent="sendForm">
+					<form class="space-y-1.5" action="/fill-form/feedback" @submit.prevent="sendForm">
 						<fieldset appearance-animation-target>
 							<v-input
 								ref="firstInput"

@@ -74,7 +74,7 @@ export default {
 	async fetch () {
 		const surveyType = this.$route.params.survey_type
 		this.projectName = this.$route.params.project_alias
-		this.clientName = this.$route.query.client_name
+		this.clientName = this.$route.query.client
 
 		await getSurvey(surveyType, this.projectName).then(({ data }) => {
 			this.survey = data.survey
