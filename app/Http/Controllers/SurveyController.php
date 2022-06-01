@@ -50,4 +50,16 @@ class SurveyController extends Controller
 
 		return 'ok';
 	}
+
+	public function projects()
+	{
+		return SurveyProject::orderBy('created_at', 'desc')->get();
+	}
+
+	public function setProjectStatus(Request $request)
+	{
+		$project = SurveyProject::find($request->project_id);
+		$project->status = $request->status;
+		$project->save();
+	}
 }

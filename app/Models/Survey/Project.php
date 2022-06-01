@@ -24,6 +24,10 @@ class Project extends Model
 
 	protected static $unguarded = true;
 
+	protected $casts = [
+		'created_at' => 'timestamp',
+	];
+
 	public function survey(): BelongsTo
 	{
 		return $this->belongsTo(Survey::class, 'survey_id');
