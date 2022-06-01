@@ -1,7 +1,13 @@
 <template>
 	<div class="py-16">
 		<div class="container">
-			<div class="w-full overflow-x-auto">
+			<div>
+				<nuxt-link
+					class="bg-blue-500 text-white rounded-md px-6 py-2.5 hover:bg-blue-600 transition-colors"
+					to="/sites/create"
+				>Добавить</nuxt-link>
+			</div>
+			<div class="w-full overflow-x-auto mt-10">
 				<table class="w-full min-w-[1100px] border-collapse font-normal">
 					<thead class="text-left">
 						<tr>
@@ -98,7 +104,7 @@ export default {
 			return diff > 0 ? Math.floor(diff/(1000*60*60*24)) : 0
 		},
 		getLink (alias) {
-			return `https://deserve.ru/site/psy/${alias}`
+			return `${this.$config.appURL}/site/psy/${alias}`
 		},
 		getStatus (status) {
 			switch (status) {

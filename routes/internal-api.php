@@ -11,4 +11,5 @@ Route::prefix('surveys')->group(function () {
 	Route::post('fields', [SurveyController::class, 'saveFields']);
 	Route::get('projects', [SurveyController::class, 'projects']);
 	Route::post('projects/setStatus', [SurveyController::class, 'setProjectStatus']);
+	Route::post('projects/create', [SurveyController::class, 'createProject']);
 });

@@ -62,4 +62,15 @@ class SurveyController extends Controller
 		$project->status = $request->status;
 		$project->save();
 	}
+
+	public function createProject(Request $request)
+	{
+		$survey = Survey::where('type', $request->type)->firstOrFail();
+		$project = new SurveyProject($request->only('name', 'phone'));
+		$project->alias = $request->login;
+
+		$survey->projects()->save($project);
+
+		return 'ok';
+	}
 }
