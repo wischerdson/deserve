@@ -28,7 +28,15 @@
 						>
 							<td class="px-4">{{ project.created_at_formatted }}</td>
 							<td class="px-4">{{ project.alias }}</td>
-							<td class="px-4">{{ project.phone }}</td>
+							<td class="px-4">
+								<a
+									class="underline text-blue-500"
+									v-if="project.phone"
+									:href="`https://wa.me/${project.phone}`"
+									target="_blank"
+								>{{ project.phone }}</a>
+								<span v-else>-</span>
+							</td>
 							<td class="px-4">{{ project.name }}</td>
 							<td class="underline text-blue-500 px-4">
 								<a :href="project.link" target="_blank">Ссылка</a>
@@ -70,7 +78,6 @@ export default {
 				const status = this.getStatus(item.status)
 				item.created_at_formatted = this.transformCreatedAt(item.created_at)
 				item.name = item.name || '-'
-				item.phone = item.phone || '-'
 				item.status_name = status.name
 				item.status_color = status.color
 				item.deadline_days = this.getDeadlineDays(item.created_at)
