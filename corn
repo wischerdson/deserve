@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -eu
 
@@ -9,7 +9,7 @@ NC='\033[0m'
 
 # Ensure that there is .env file
 if [ ! -f ./.env ]; then
-	echo "${RED}The .env file is missing, but can be installed with:${NC} \n\n\tcp .env.example .env\n"
+	echo -e "${RED}The .env file is missing, but can be installed with:${NC} \n\n\tcp .env.example .env\n"
 	exit 1
 fi
 
@@ -30,7 +30,7 @@ for i in ${dockerComposeFiles[@]}; do
 	initCommand+="-f $i "
 done
 
-echo "\nUsed $CIAN${dockerComposeFiles[@]}$NC files"
+echo -e "\nUsed $CIAN${dockerComposeFiles[@]}$NC files"
 
 if [ $# = 0 ]; then
 	$initCommand
@@ -70,5 +70,5 @@ case $command in
 	;;
 esac
 
-echo "${PURPLE}${fullCommand}${NC}\n"
+echo -e "${PURPLE}${fullCommand}${NC}\n"
 $fullCommand

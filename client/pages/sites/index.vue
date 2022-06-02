@@ -31,9 +31,7 @@
 							<td class="px-4">{{ project.phone }}</td>
 							<td class="px-4">{{ project.name }}</td>
 							<td class="underline text-blue-500 px-4">
-								<a :href="getLink(project.alias)" target="_blank">
-									Ссылка
-								</a>
+								<a :href="project.link" target="_blank">Ссылка</a>
 							</td>
 							<td
 								class="px-4"
@@ -76,6 +74,7 @@ export default {
 				item.status_name = status.name
 				item.status_color = status.color
 				item.deadline_days = this.getDeadlineDays(item.created_at)
+				item.link = this.getLink(item.alias)
 
 				return item
 			})
@@ -104,7 +103,7 @@ export default {
 			return diff > 0 ? Math.floor(diff/(1000*60*60*24)) : 0
 		},
 		getLink (alias) {
-			return `${this.$config.appURL}/site/psy/${alias}`
+			return `${this.$config.appURL}/site/psy/${alias.replaceAll('.', '-')}`
 		},
 		getStatus (status) {
 			switch (status) {
