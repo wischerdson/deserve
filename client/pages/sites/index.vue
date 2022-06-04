@@ -20,13 +20,13 @@
 							<th class="px-4">Осталось дней</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="font-medium">
 						<tr
 							:class="{'bg-gray-100': idx % 2 === 0}"
 							v-for="(project, idx) in projects"
 							:key="`project-${idx}`"
 						>
-							<td class="px-4">{{ project.created_at_formatted }}</td>
+							<td class="px-4 py-2.5">{{ project.created_at_formatted }}</td>
 							<td class="px-4">{{ project.alias }}</td>
 							<td class="px-4">
 								<a
