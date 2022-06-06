@@ -73,4 +73,9 @@ class SurveyController extends Controller
 
 		return 'ok';
 	}
+
+	public function deleteProject(int $projectId)
+	{
+		SurveyProject::findOrFail($projectId)->delete();
+	}
 }

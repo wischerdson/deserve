@@ -18,6 +18,7 @@
 							<th class="px-4"></th>
 							<th class="px-4">Статус</th>
 							<th class="px-4">Осталось дней</th>
+							<th class="px-4"></th>
 						</tr>
 					</thead>
 					<tbody class="font-medium">
@@ -54,6 +55,9 @@
 							</td>
 							<td class="px-4" v-else></td>
 							<td class="px-4">{{ project.deadline_days }}</td>
+							<td class="px-4">
+								<button @click="remove(project)" class="text-red-500 underline">Удалить</button>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -64,7 +68,7 @@
 
 <script>
 
-import { getProjects, setProjectStatus } from '~/services/api'
+import { getProjects, setProjectStatus, removeProject } from '~/services/api'
 
 String.prototype.ucfirst = function () {
 	return this[0].toUpperCase() + this.slice(1)
@@ -134,6 +138,13 @@ export default {
 			project.status_color = status.color
 
 			setProjectStatus({ project_id: project.id, status: project.status })
+		},
+		remove (project) {
+			if (confirm(`Точно удалить @${project.alias}?`)) {
+				removeProject(project.id).then(() => {
+					this.projects = this.projects.filter(item => item.id !== project.id)
+				})
+			}
 		}
 	}
 }

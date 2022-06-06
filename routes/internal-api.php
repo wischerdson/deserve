@@ -10,6 +10,7 @@ Route::prefix('surveys')->group(function () {
 	Route::get('{surveyType}/{projectAlias}', [SurveyController::class, 'show']);
 	Route::post('fields', [SurveyController::class, 'saveFields']);
 	Route::get('projects', [SurveyController::class, 'projects']);
+	Route::delete('projects/{projectId}', [SurveyController::class, 'deleteProject']);
 	Route::post('projects/setStatus', [SurveyController::class, 'setProjectStatus']);
 	Route::post('projects/create', [SurveyController::class, 'createProject']);
 });
