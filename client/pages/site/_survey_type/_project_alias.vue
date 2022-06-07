@@ -2,7 +2,7 @@
 	<div class="pt-16 pb-24">
 		<section class="pb-16" v-if="survey">
 			<div class="container-lg">
-				<h1 class="text-6xl leading-tight md:text-4xl font-normal">
+				<h1 class="text-6xl leading-tight md:text-3xl font-normal">
 					Брифинг сайта @{{ projectName }}
 				</h1>
 				<p class="mt-6 text-lg">
