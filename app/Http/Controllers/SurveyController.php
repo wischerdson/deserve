@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Survey\FieldAnswer as SurveyFieldAnswer;
 use App\Models\Survey\Project as SurveyProject;
 use App\Models\Survey\Survey;
+use App\Repositories\InstagramParsedItem;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 
@@ -66,8 +67,15 @@ class SurveyController extends Controller
 	public function createProject(Request $request)
 	{
 		$survey = Survey::where('type', $request->type)->firstOrFail();
-		$project = new SurveyProject($request->only('name', 'phone'));
-		$project->alias = $request->login;
+		$project = new SurveyProject($request->only('phone'));
+
+		$repo = new InstagramParsedItem();
+		$parsedItem = $repo->findByPhone($request->phone);
+		if (!$parsedItem && !$request->login) {
+			abort(422, 'Указанный телефон не был найден. Заполните "Логин" вручную.');
+		}
+		$project->name = $request->name ?: $parsedItem->name;
+		$project->alias = $request->login ?: $parsedItem->login;
 
 		$survey->projects()->save($project);
 

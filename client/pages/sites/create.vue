@@ -75,7 +75,9 @@ export default {
 	methods: {
 		createProject () {
 			this.form.phone = this.form.phone.replaceAll(/\D/g, '')
-			createProject(this.form).then(() => this.$router.push('/sites'))
+			createProject(this.form).then(() => this.$router.push('/sites')).catch(({ response }) => {
+				alert(response.data.message)
+			})
 		}
 	}
 }
