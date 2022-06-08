@@ -7,7 +7,25 @@
 					to="/sites/create"
 				>Добавить</nuxt-link>
 			</div>
-			<div class="w-full overflow-x-auto mt-10">
+			<div class="pt-10 pb-5 flex space-x-6 whitespace-nowrap overflow-auto" v-if="statistics">
+				<div>
+					<span>Всего бомжей: </span>
+					<span class="font-medium">{{ statistics.total }}</span>
+				</div>
+				<div class="text-amber-500">
+					<span>Думают: </span>
+					<span class="font-medium">{{ statistics.count_before }}</span>
+				</div>
+				<div class="text-red-500">
+					<span>Внесли предоплату: </span>
+					<span class="font-medium">{{ statistics.count_payment }}</span>
+				</div>
+				<div class="text-green-500">
+					<span>Закрыты: </span>
+					<span class="font-medium">{{ statistics.count_completed }}</span>
+				</div>
+			</div>
+			<div class="w-full overflow-x-auto mt-5" v-if="projects">
 				<table class="w-full min-w-[1100px] border-collapse font-normal">
 					<thead class="text-left">
 						<tr>
@@ -27,7 +45,7 @@
 							v-for="(project, idx) in projects"
 							:key="`project-${idx}`"
 						>
-							<td class="px-4 py-2.5">{{ project.created_at_formatted }}</td>
+							<td class="px-4 py-2.5 whitespace-nowrap">{{ project.created_at_formatted }}</td>
 							<td class="px-4">{{ project.alias }}</td>
 							<td class="px-4">
 								<a
@@ -68,7 +86,7 @@
 
 <script>
 
-import { getProjects, setProjectStatus, removeProject } from '~/services/api'
+import { getProjects, setProjectStatus, removeProject, getSurveyStatistics } from '~/services/api'
 
 String.prototype.ucfirst = function () {
 	return this[0].toUpperCase() + this.slice(1)
@@ -77,24 +95,28 @@ String.prototype.ucfirst = function () {
 export default {
 	layout: 'survey',
 	async fetch () {
-		await getProjects().then(({ data }) => {
-			this.projects = data.map(item => {
-				const status = this.getStatus(item.status)
-				item.created_at_formatted = this.transformCreatedAt(item.created_at)
-				item.name = item.name || '-'
-				item.status_name = status.name
-				item.status_color = status.color
-				item.deadline_days = this.getDeadlineDays(item.created_at)
-				item.link = this.getLink(item.alias)
+		return Promise.all([
+			getProjects().then(({ data }) => {
+				this.projects = data.map(item => {
+					const status = this.getStatus(item.status)
+					item.created_at_formatted = this.transformCreatedAt(item.created_at)
+					item.name = item.name || '-'
+					item.status_name = status.name
+					item.status_color = status.color
+					item.deadline_days = this.getDeadlineDays(item.created_at)
+					item.link = this.getLink(item.alias)
 
-				return item
-			})
-		})
+					return item
+				})
+			}),
+			getSurveyStatistics().then(({ data }) => this.statistics = data)
+		])
 	},
 	fetchOnServer: false,
 	data () {
 		return {
 			projects: null,
+			statistics: null
 		}
 	},
 	methods: {

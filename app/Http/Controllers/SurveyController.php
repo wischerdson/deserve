@@ -8,6 +8,7 @@ use App\Models\Survey\Survey;
 use App\Repositories\InstagramParsedItem;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SurveyController extends Controller
 {
@@ -54,7 +55,18 @@ class SurveyController extends Controller
 
 	public function projects()
 	{
-		return SurveyProject::orderBy('created_at', 'desc')->get();
+		return SurveyProject::orderBy(DB::raw('status = \'completed\''), 'asc')->orderBy('created_at', 'asc')->get();
+	}
+
+	public function statistics()
+	{
+		return DB::select(<<<'EOD'
+			select
+				(select count(*) from survey_projects) as total,
+				(select count(*) from survey_projects where survey_projects.status = 'before') as count_before,
+				(select count(*) from survey_projects where survey_projects.status = 'payment') as count_payment,
+				(select count(*) from survey_projects where survey_projects.status = 'completed') as count_completed
+		EOD)[0];
 	}
 
 	public function setProjectStatus(Request $request)
