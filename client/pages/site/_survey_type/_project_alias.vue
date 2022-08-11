@@ -1,5 +1,21 @@
 <template>
 	<div class="pt-16 pb-24">
+		<div class="fixed inset-0 flex items-center justify-center z-40" v-if="errorDialog">
+			<div class="bg-black/50 absolute inset-0 z-10" @click="errorDialog = null"></div>
+			<div class="bg-white rounded-lg pb-7 pt-10 px-5 z-20 max-w-sm relative">
+				<button class="absolute top-4 right-4" @click="errorDialog = null"><v-icon name="close" width="32px" /></button>
+				<div class="w-16 h-16 text-4xl font-bold rounded-full flex items-center justify-center mx-auto bg-red-500 text-white">!</div>
+				<div class="mt-6">
+					<div class="text-2xl font-medium text-center">Неверные данные</div>
+					<p class="mt-4 text-lg">
+						Поле "<b>{{ errorDialog.label }}</b>" должно содержать не более <u>{{ errorDialog.max_length }} символов</u>
+					</p>
+					<button class="bg-gray-500 text-white rounded-md px-6 py-2.5 hover:bg-gray-600 transition-colors mx-auto flex mt-6" @click="errorDialog = null">Исправить</button>
+				</div>
+			</div>
+		</div>
+
+
 		<section class="pb-16" v-if="survey">
 			<div class="container-lg">
 				<h1 class="text-6xl leading-tight md:text-3xl font-normal">
@@ -20,31 +36,42 @@
 						<div v-for="(field, j) in section.fields" :key="`field-${j}`">
 							<label class="font-normal block text-sm" :for="`survey_field_${field.id}`" v-html="field.label"></label>
 
-							<input
-								v-if="field.type !== 'textarea'"
-								class="border border-gray-300 px-3 py-2.5 rounded-lg focus:border-blue-500 focus:ring ring-blue-500/25 block w-full"
-								:name="`fields[${field.id}]`"
-								:type="field.type"
-								:id="`survey_field_${field.id}`"
-								:placeholder="field.placeholder"
-								@change="field.field_answers[0].content = $event.target.value"
-								:value="getAnswer(field)"
-							>
-							<div v-else>
+							<div>
+								<input
+									v-if="field.type !== 'textarea'"
+									class="border border-gray-300 px-3 py-2.5 rounded-lg focus:border-blue-500 block w-full"
+									:class="[ field.max_length && validate(field) ? 'border-red-500' : '' ]"
+									:name="`fields[${field.id}]`"
+									:type="field.type"
+									:id="`survey_field_${field.id}`"
+									:placeholder="field.placeholder"
+									@input="field.field_answers[0].content = $event.target.value"
+									:value="getAnswer(field)"
+								>
 								<textarea
-									class="border border-gray-300 px-3 py-2.5 rounded-lg focus:border-blue-500 focus:ring ring-blue-500/25 block w-full"
+									v-else
+									class="border border-gray-300 px-3 py-2.5 rounded-lg focus:border-blue-500 block w-full"
+									:class="[ field.max_length && validate(field) ? 'border-red-500' : '' ]"
 									:name="`fields[${field.id}]`"
 									:id="`survey_field_${field.id}`"
-									rows="3"
-									@change="field.field_answers[0].content = $event.target.value"
+									rows="15"
+									@input="field.field_answers[0].content = $event.target.value"
 									:value="getAnswer(field)"
 								></textarea>
-								<div class="text-sm mt-2 mb-6">
+								<div
+									class="font-normal mt-1 text-right"
+									:class="[
+										validate(field) ? 'text-red-500' : 'text-blue-500'
+									]"
+									v-if="field.max_length"
+								>
+									{{ field.field_answers[0].content.length }}/{{ field.max_length }} символов
+								</div>
+								<div class="text-sm mt-2 mb-6" v-if="field.type === 'textarea' && field.placeholder">
 									<div class="mb-1.5 font-medium text-blue-500">Пример</div>
 									<p class="border-l-2 border-blue-500 pl-2" v-html="field.placeholder.replace(/\n/g, '<br />')"></p>
 								</div>
 							</div>
-
 						</div>
 
 						<button class="bg-blue-500 text-white rounded-md px-6 py-2.5 hover:bg-blue-600 transition-colors ml-auto flex" type="submit">Сохранить</button>
@@ -54,9 +81,8 @@
 
 		</div>
 
-		<div class="fixed top-6 bg-gray-50 right-6 shadow-lg px-8 py-4 rounded-lg overflow-hidden" v-show="savedSuccessful">
+		<div class="fixed top-6 text-gray-50 right-6 shadow-lg px-8 py-4 rounded-lg overflow-hidden bg-green-600" v-show="savedSuccessful">
 			Сохранено
-			<div class="w-0.5 absolute right-0 top-0 bottom-0 bg-green-600"></div>
 		</div>
 		<div class="fixed top-6 bg-gray-50 right-6 shadow-lg px-8 py-4 rounded-lg overflow-hidden" v-show="savingFailed">
 			Произошла ошибка
@@ -89,12 +115,19 @@ export default {
 			survey: null,
 			project: null,
 			savedSuccessful: false,
-			savingFailed: false
+			savingFailed: false,
+			validationProblems: [],
+			errorDialog: null
 		}
 	},
 	methods: {
 		saveSurveySection ({ target }) {
 			const formdata = new FormData(target)
+
+			if (this.validationProblems.length) {
+				this.errorDialog = this.validationProblems[0]
+				return
+			}
 
 			saveSurveyFields(formdata)
 				.then(() => this.setStatus(true))
@@ -115,6 +148,17 @@ export default {
 			}
 
 			return field.field_answers[0].content
+		},
+		validate (field) {
+			const problem = field.max_length < this.getAnswer(field).length
+
+			if (problem) {
+				this.validationProblems.push(field)
+			} else {
+				this.validationProblems = this.validationProblems.filter(({ id }) => id !== field.id)
+			}
+
+			return problem
 		}
 	}
 }
