@@ -37,14 +37,14 @@
 						url: 'https://getpods.deserve.ru',
 						image: require('~/static/image/project-getpods.png')
 					},
-					{
-						subtitle: 'YouTube, Instagram блогер',
-						name: 'Афоня TV',
-						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
-						url: 'https://lag.deserve.ru/',
-						image: require('~/static/image/project-afonya.png'),
-						mobileImage: require('~/static/image/project-afonya.png')
-					},
+					// {
+					// 	subtitle: 'YouTube, Instagram блогер',
+					// 	name: 'Афоня TV',
+					// 	desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
+					// 	url: 'https://lag.deserve.ru/',
+					// 	image: require('~/static/image/project-afonya.png'),
+					// 	mobileImage: require('~/static/image/project-afonya.png')
+					// },
 					{
 						subtitle: 'Хостинг-провайдер',
 						name: 'Hostrim.ru',
