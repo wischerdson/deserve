@@ -105,16 +105,16 @@ export default {
 		dir: '../public/client'
 	},
 
-	server: {
-		host: 'nodejs'
-	},
+	// server: {
+	// 	host: 'nodejs'
+	// },
 
-	watchers: {
-		webpack: {
-			aggregateTimeout: 300,
-			poll: 1000
-		}
-	},
+	// watchers: {
+	// 	webpack: {
+	// 		aggregateTimeout: 300,
+	// 		poll: 1000
+	// 	}
+	// },
 
 	router: {
 		routeNameSplitter: '.'

@@ -37,5 +37,9 @@ services:
       - default
 
   nodejs:
+    build: ./.docker/nodejs
+    volumes:
+      - .:/app
+    working_dir: /app
     restart: unless-stopped
     command: sh -c "npm run start"

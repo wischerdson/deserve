@@ -3,8 +3,9 @@ version: "3"
 # Only for development purposes
 
 services:
-  nodejs:
-    command: sh -c "npm install --no-audit && npm run dev"
+  php:
+    depends_on:
+      - mariadb
 
   nginx:
     volumes:
@@ -14,7 +15,7 @@ services:
       - 443:443
 
   mariadb:
-    image: mariadb:latest
+    image: mariadb:11.2.2
     volumes:
       - ./.runtime/mariadb:/var/lib/mysql
     environment:
@@ -24,10 +25,20 @@ services:
     ports:
       - 3306:3306
 
-  composer:
-    command: /bin/sh -c "composer install --no-interaction --prefer-dist --no-progress"
-
   queue:
     depends_on:
       - mariadb
     command: sh -c "php artisan queue:work"
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 8080:80
+    depends_on:
+      - mariadb
+    volumes:
+      - ./.docker/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:ro

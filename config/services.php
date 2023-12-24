@@ -18,6 +18,7 @@ return [
 		'domain' => env('MAILGUN_DOMAIN'),
 		'secret' => env('MAILGUN_SECRET'),
 		'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+		'scheme' => 'https',
 	],
 
 	'postmark' => [
@@ -30,19 +31,4 @@ return [
 		'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
 	],
 
-	'amocrm' => [
-		'client_id' => env('AMOCRM_CLIENT_ID'),
-		'client_secret' => env('AMOCRM_CLIENT_SECRET'),
-		'redirect_uri' => env('AMOCRM_REDIRECT_URI'),
-		'base_domain' => 'deserve.amocrm.ru',
-		'responsible_user_id' => 6855253
-	],
-
-	'telegram' => [
-		'chat_id' => env('TELEGRAM_CHAT_ID')
-	],
-
-	'telegram-bot-api' => [
-		'token' => env('TELEGRAM_BOT_TOKEN'),
-	],
 ];
