@@ -1,5 +1,3 @@
-version: "3"
-
 # For production purposes
 
 networks:
@@ -12,7 +10,6 @@ networks:
     driver: bridge
     name: database
     external: true
-
 
 services:
   php:
@@ -31,15 +28,15 @@ services:
   nginx:
     restart: unless-stopped
     volumes:
-      - ./.docker/nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
     networks:
       - proxy-manager
       - default
 
   nodejs:
-    build: ./.docker/nodejs
+    build: ./nodejs
     volumes:
-      - .:/app
+      - ../:/app
     working_dir: /app
     restart: unless-stopped
     command: sh -c "npm run start"

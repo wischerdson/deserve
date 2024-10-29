@@ -2,6 +2,9 @@
 	"name": "nuxtapp",
 	"version": "1.0.0",
 	"private": true,
+	"resolutions": {
+		"webpack-dev-middleware": "5.0.0"
+	},
 	"scripts": {
 		"dev": "nuxt client",
 		"build": "nuxt build client",

@@ -56,7 +56,7 @@ getInitCommand() {
 
 	result="docker compose "
 	for i in ${dockerComposeFiles[@]}; do
-		result+="-f $path/$i "
+		result+="-f $path/.docker/$i "
 	done
 
 	echo $result
@@ -66,7 +66,7 @@ runOrExec() {
 	service=$1
 	result="exec"
 
-	if [ -z `docker compose ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(docker compose ps -q $service)` ]; then
+	if [ -z `./corn ps -q $service` ] || [ -z `docker ps -q --no-trunc | grep $(./corn ps -q $service)` ]; then
 		result="run --rm"
 	fi
 
@@ -92,6 +92,8 @@ case $command in
 		payload="$(runOrExec php) php $@" ;;
 	"artisan" | "art" | "laravel" | "lara")
 		payload="$(runOrExec php) php php /app/artisan $@" ;;
+	"test")
+		payload="$(runOrExec php) php /app/vendor/bin/phpunit $@" ;;
 	"composer")
 		payload="$(runOrExec php) php composer $@" ;;
 	"yarn")
@@ -102,10 +104,6 @@ case $command in
 		payload="$(runOrExec nodejs) nodejs npx nuxi $@" ;;
 	"ngrok")
 		payload="run ngrok http host.docker.internal:80 --region=eu" ;;
-	"pint" | "pinte")
-		payload="$(runOrExec php) php ./vendor/bin/pinte $@" ;;
-	"pest")
-		payload="$(runOrExec php) php ./vendor/bin/pest $@" ;;
 	*)
 		payload="${command} $@" ;;
 esac
