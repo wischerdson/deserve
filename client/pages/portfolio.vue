@@ -37,21 +37,33 @@
 						url: 'https://getpods.deserve.ru',
 						image: require('~/static/image/project-getpods.png')
 					},
-					// {
-					// 	subtitle: 'YouTube, Instagram блогер',
-					// 	name: 'Афоня TV',
-					// 	desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
-					// 	url: 'https://lag.deserve.ru/',
-					// 	image: require('~/static/image/project-afonya.png'),
-					// 	mobileImage: require('~/static/image/project-afonya.png')
-					// },
 					{
-						subtitle: 'Хостинг-провайдер',
-						name: 'Hostrim.ru',
-						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
-						url: 'https://hostrim.ru',
-						image: require('~/static/image/project-hostrim.png'),
-						mobileImage: require('~/static/image/project-hostrim_m.png')
+						subtitle: 'Ремонт под ключ',
+						name: 'АБИС',
+						desc: 'Ремонт коммерческой недвижимости а-класса',
+						url: 'http://deservesite35886.uxp.ru',
+						image: require('~/static/image/project-abis.jpeg')
+					},
+					{
+						subtitle: 'Каршеринг',
+						name: 'Б2НЗИН',
+						desc: 'Аренда премиум авто в Горном Алтае',
+						url: 'http://deservesite19963.uxp.ru',
+						image: require('~/static/image/project-b2nzin.jpeg')
+					},
+					{
+						subtitle: 'Импортер',
+						name: 'PIERRE',
+						desc: 'Дистрибьютор итальянской и испанской плитки',
+						url: 'http://deservesite83129.uxp.ru',
+						image: require('~/static/image/project-pierre.jpeg')
+					},
+					{
+						subtitle: 'Управляющая компания',
+						name: 'Port PM',
+						desc: 'Сопровождение строительства и реконструкция зданий под отели',
+						url: 'http://deservesite84652.uxp.ru',
+						image: require('~/static/image/project-port-pm.jpeg')
 					},
 					{
 						subtitle: 'Instagram-блогер',

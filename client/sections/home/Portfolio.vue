@@ -30,63 +30,75 @@
 
 <script>
 
-	import gsap from 'gsap'
-	import { ScrollTrigger } from 'gsap/ScrollTrigger'
-	import PortfolioProject from '~/components/PortfolioProject'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import PortfolioProject from '~/components/PortfolioProject'
 
-	export default {
-		data () {
-			return {
-				projects: [
-					{
-						subtitle: 'Реселлер Apple',
-						name: 'GetPods.ru',
-						desc: 'Разработка интернет-магазина для официального реселлера Apple в России',
-						url: 'https://getpods.deserve.ru',
-						image: require('~/static/image/project-getpods.png')
-					},
-					{
-						subtitle: 'YouTube, Instagram блогер',
-						name: 'Афоня TV',
-						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
-						url: 'https://lag.deserve.ru/',
-						image: require('~/static/image/project-afonya.png'),
-						mobileImage: require('~/static/image/project-afonya.png')
-					},
-					{
-						subtitle: 'Хостинг-провайдер',
-						name: 'Hostrim.ru',
-						desc: 'Разработка сервиса с функцией услуг регистрации доменов и аренды выделенных серверов',
-						url: 'https://hostrim.ru',
-						image: require('~/static/image/project-hostrim.png'),
-						mobileImage: require('~/static/image/project-hostrim_m.png')
-					},
-					{
-						subtitle: 'Instagram-блогер',
-						name: 'Михаил Тимочко',
-						desc: 'Реализация telegram-бота для воронки продаж курса "Сайты, Деньги, 2 ствола"',
-						url: 'https://timochko.deserve.ru/',
-						image: require('~/static/image/project-timochko.png')
-					}
-				]
-			}
-		},
-		components: { PortfolioProject },
-		mounted () {
-			gsap.registerPlugin(ScrollTrigger)
-
-			const tl = gsap.timeline()
-			tl.fromTo(this.$refs.screenTitle, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, 0).addLabel('start')
-			tl.fromTo(this.$refs.viewAllWorksBtn, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, 'start-=60%')
-
-			ScrollTrigger.create({
-				animation: tl,
-				trigger: this.$refs.viewAllWorksScreen,
-				start: '-25% center',
-				end: '40% center',
-				scrub: true
-			})
+export default {
+	data () {
+		return {
+			projects: [
+				{
+					subtitle: 'Реселлер Apple',
+					name: 'GetPods.ru',
+					desc: 'Разработка интернет-магазина для официального реселлера Apple в России',
+					url: 'https://getpods.deserve.ru',
+					image: require('~/static/image/project-getpods.png')
+				},
+				{
+					subtitle: 'Ремонт под ключ',
+					name: 'АБИС',
+					desc: 'Ремонт коммерческой недвижимости а-класса',
+					url: 'http://deservesite35886.uxp.ru',
+					image: require('~/static/image/project-abis.jpeg')
+				},
+				{
+					subtitle: 'Каршеринг',
+					name: 'Б2НЗИН',
+					desc: 'Аренда премиум авто в Горном Алтае',
+					url: 'http://deservesite19963.uxp.ru',
+					image: require('~/static/image/project-b2nzin.jpeg')
+				},
+				{
+					subtitle: 'Импортер',
+					name: 'PIERRE',
+					desc: 'Дистрибьютор итальянской и испанской плитки',
+					url: 'http://deservesite83129.uxp.ru',
+					image: require('~/static/image/project-pierre.jpeg')
+				},
+				{
+					subtitle: 'Управляющая компания',
+					name: 'Port PM',
+					desc: 'Сопровождение строительства и реконструкция зданий под отели',
+					url: 'http://deservesite84652.uxp.ru',
+					image: require('~/static/image/project-port-pm.jpeg')
+				},
+				{
+					subtitle: 'Instagram-блогер',
+					name: 'Михаил Тимочко',
+					desc: 'Реализация telegram-бота для воронки продаж курса "Сайты, Деньги, 2 ствола"',
+					url: 'https://timochko.deserve.ru/',
+					image: require('~/static/image/project-timochko.png')
+				}
+			]
 		}
+	},
+	components: { PortfolioProject },
+	mounted () {
+		gsap.registerPlugin(ScrollTrigger)
+
+		const tl = gsap.timeline()
+		tl.fromTo(this.$refs.screenTitle, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, 0).addLabel('start')
+		tl.fromTo(this.$refs.viewAllWorksBtn, { opacity: 0, y: 40 }, { opacity: 1, y: 0 }, 'start-=60%')
+
+		ScrollTrigger.create({
+			animation: tl,
+			trigger: this.$refs.viewAllWorksScreen,
+			start: '-25% center',
+			end: '40% center',
+			scrub: true
+		})
 	}
+}
 
 </script>

@@ -20,9 +20,9 @@
 				</div>
 			</div>
 			<div>
-				<div ref="image" class="w-full relative after:block after:pt-[70%] will-change-transform">
+				<div ref="image" class="w-full relative after:block after:pt-[65%] will-change-transform">
 					<div class="absolute inset-0 rounded-3xl overflow-hidden">
-						<img class="w-full h-full object-contain object-center" :src="project.image" :alt="project.name">
+						<img class="w-full h-full object-cover object-center" :src="project.image" :alt="project.name">
 					</div>
 				</div>
 			</div>
@@ -50,86 +50,91 @@
 	</div>
 </template>
 
-
 <script>
 
-	import gsap from 'gsap'
-	import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-	const initScrollTrigger = function () {
-		gsap.registerPlugin(ScrollTrigger)
+const initScrollTrigger = function () {
+	gsap.registerPlugin(ScrollTrigger)
 
-		const $container = this.$refs.container
-		const $image = this.$refs.image
-		const containerImageWitdhsRatio = $container.offsetWidth/$image.offsetWidth
+	const $container = this.$refs.container
+	const $image = this.$refs.image
+	const containerImageWitdhsRatio = $container.offsetWidth/$image.offsetWidth
 
-		ScrollTrigger.matchMedia({
-			// Desktop animation
-			'(min-width: 1024px)': () => {
-				const timeline = gsap.timeline()
-				timeline.fromTo(
-					this.$refs.image,
-					{ opacity: 0 },
-					{ opacity: 1 },
-					0
-				).addLabel('start')
-				timeline.fromTo(
-					this.$refs.image,
-					{ scale: containerImageWitdhsRatio, transformOrigin: 'right center' },
-					{ scale: 1 },
-					'start-=70%'
-				)
-				timeline.fromTo(
-					this.$refs.title,
-					{ opacity: 0, x: -50 },
-					{ opacity: 1, x: 0 },
-					'start-=70%'
-				)
+	ScrollTrigger.matchMedia({
+		// Desktop animation
+		'(min-width: 1024px)': () => {
+			const timeline = gsap.timeline()
+			timeline.fromTo(
+				this.$refs.image,
+				{ opacity: 0 },
+				{ opacity: 1 },
+				0
+			).addLabel('start')
+			timeline.fromTo(
+				this.$refs.image,
+				{ filter: 'blur(28px)' },
+				{ filter: 'blur(0px)', duration: .225 },
+				0
+			)
+			timeline.fromTo(
+				this.$refs.image,
+				{ scale: containerImageWitdhsRatio, transformOrigin: 'right center' },
+				{ scale: 1 },
+				'start-=70%'
+			)
+			timeline.fromTo(
+				this.$refs.title,
+				{ opacity: 0, x: -75 },
+				{ opacity: 1, x: 0 },
+				'start-=70%'
+			)
 
-				ScrollTrigger.create({
-					animation: timeline,
-					trigger: this.$el,
-					start: 'center center',
-					end: 'bottom top',
-					scrub: true,
-					pin: true
-				})
-			},
-			// Mobile animation
-			'(max-width: 1023px)': () => {
-				const timeline = gsap.timeline()
-				timeline.fromTo(
-					this.$refs.mobileImage,
-					{ opacity: 0, scale: .95 },
-					{ opacity: 1, scale: 1 },
-					0
-				).addLabel('start');
-
-				timeline.fromTo(
-					this.$refs.mobileTitle,
-					{ opacity: 0, y: 50 },
-					{ opacity: 1, y: 0 },
-					'start-=70%'
-				);
-
-				ScrollTrigger.create({
-					animation: timeline,
-					trigger: this.$el,
-					start: 'top center',
-					end: '70% center',
-					scrub: true
-				})
-			}
-		})
-	}
-
-	export default {
-		props: {
-			project: Object
+			ScrollTrigger.create({
+				animation: timeline,
+				trigger: this.$el,
+				start: 'center center',
+				end: 'bottom top',
+				scrub: true,
+				pin: true
+			})
 		},
-		mounted () {
-			initScrollTrigger.call(this)
+		// Mobile animation
+		'(max-width: 1023px)': () => {
+			const timeline = gsap.timeline()
+			timeline.fromTo(
+				this.$refs.mobileImage,
+				{ opacity: 0, scale: .9, filter: 'blur(16px)' },
+				{ opacity: 1, scale: 1, filter: 'blur(0px)' },
+				0
+			).addLabel('start');
+
+			timeline.fromTo(
+				this.$refs.mobileTitle,
+				{ opacity: 0, y: 50 },
+				{ opacity: 1, y: 0 },
+				'start-=70%'
+			);
+
+			ScrollTrigger.create({
+				animation: timeline,
+				trigger: this.$el,
+				start: 'top center',
+				end: '70% center',
+				scrub: true
+			})
 		}
+	})
+}
+
+export default {
+	props: {
+		project: Object
+	},
+	mounted () {
+		initScrollTrigger.call(this)
 	}
+}
 
 </script>
