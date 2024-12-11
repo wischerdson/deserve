@@ -1,9 +1,11 @@
+name: deserve-site
+
 services:
   php:
     build: ./php
     volumes:
       - ../:/app
-      - ./../.runtime/cache/composer:/.composer/cache
+      - ../.runtime/cache/composer:/.composer/cache
     working_dir: /app
     user: $USER_ID:$GROUP_ID
     depends_on:

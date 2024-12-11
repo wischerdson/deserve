@@ -1,12 +1,9 @@
-@import 'font.scss';
-@import 'reset.scss';
-@import 'settings.scss';
-
-
-@import './ui-components/components.scss';
+@use 'font.scss';
+@use 'reset.scss';
+@use 'settings.scss';
+@use './ui-components/components.scss';
+@use './sections/header.scss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import './sections/header.scss';

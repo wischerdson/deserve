@@ -1,4 +1,4 @@
-#{$inputComponentSelector} {
+.ui-base-input {
 	&__label {
 		top: 13px;
 		transition: transform .25s ease, opacity .25s ease;
@@ -56,7 +56,7 @@
 		font-weight: 200;
 		letter-spacing: .05rem;
 
-		&:focus ~ #{$inputComponentSelector}__underline.focus {
+		&:focus ~ .ui-base-input__underline.focus {
 			animation: input_underline_enter .4s ease forwards;
 		}
 
@@ -76,8 +76,8 @@
 		}
 	}
 
-	&__input:focus ~ #{$inputComponentSelector}__label,
-	#{$inputComponentSelector}__label.at-top {
+	&__input:focus ~ .ui-base-input__label,
+	.ui-base-input__label.at-top {
 		transform: translateY(calc(-100% - 8px)) scale(.7);
 		opacity: .7;
 	}

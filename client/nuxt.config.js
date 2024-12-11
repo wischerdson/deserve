@@ -74,11 +74,6 @@ export default {
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components: false,
 
-	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-	buildModules: [
-		'@nuxt/postcss8'
-	],
-
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [
 		'@nuxtjs/axios'
@@ -89,16 +84,21 @@ export default {
 		extractCSS: true,
 		transpile: ['gsap'],
 		postcss: {
-			plugins: {
-				// https://tailwindcss.nuxtjs.org/options
-				tailwindcss: {
-					config: './client/tailwind.config.js',
-					// cssPath: resolve(__dirname, 'assets/tailwind.css'),
-					exposeConfig: true
+			postcssOptions: {
+				plugins: {
+					// https://tailwindcss.nuxtjs.org/options
+					tailwindcss: {
+						config: './client/tailwind.config.js',
+						// cssPath: resolve(__dirname, 'assets/tailwind.css'),
+						exposeConfig: true
+					},
+					autoprefixer: {},
 				},
-				autoprefixer: {},
-			},
-		},
+				sass: {
+					silenceDeprecations: ["legacy-js-api"]
+				}
+			}
+		}
 	},
 
 	generate: {

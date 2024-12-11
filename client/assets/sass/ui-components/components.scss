@@ -1,6 +1,3 @@
-$inputComponentSelector: '.ui-base-input';
-$actionComponentSelector: '.ui-action';
-
-@import 'container.scss';
-@import 'base-input.scss';
-@import 'action.scss';
+@use 'container.scss';
+@use 'base-input.scss';
+@use 'action.scss';
