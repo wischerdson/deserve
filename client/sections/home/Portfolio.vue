@@ -1,5 +1,5 @@
 <template>
-	<section class="space-y-40">
+	<section class="space-y-40 sm:space-y-28">
 		<portfolio-project
 			v-for="(project, idx) in projects"
 			:project="project"

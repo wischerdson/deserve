@@ -12,9 +12,8 @@
 						<v-action-pill
 							magnetic
 							class="mt-7"
-							text="Посмотреть работу"
-							:href="project.url"
-							target="_blank"
+							text="Обсудить ваш будущий проект"
+							@click="showSidebar"
 						/>
 					</div>
 				</div>
@@ -35,15 +34,14 @@
 					<img class="w-full h-full object-cover object-center" :src="project.mobileImage || project.image" :alt="project.name">
 				</div>
 			</div>
-			<div class="-mt-24" ref="mobileTitle">
+			<div class="mt-10" ref="mobileTitle">
 				<div class="text-6xl font-extralight tracking-wider">{{ project.name }}</div>
-				<hr class="w-32 mb-6 mt-5 bg-gray-700 h-px">
-				<p class="mt-8 text-gray-400 tracking-rr font-extralight text-sm leading-normal">{{ project.desc }}</p>
+				<hr class="w-32 mt-3 bg-gray-700 h-px">
+				<p class="mt-4 text-gray-400 tracking-rr font-extralight text-sm leading-normal">{{ project.desc }}</p>
 				<v-action-pill
 					class="mt-7"
-					text="Посмотреть работу"
-					:href="project.url"
-					target="_blank"
+					text="Обсудить ваш будущий проект"
+					@click="showSidebar"
 				/>
 			</div>
 		</div>
@@ -131,6 +129,11 @@ const initScrollTrigger = function () {
 export default {
 	props: {
 		project: Object
+	},
+	methods: {
+		showSidebar () {
+			window.openSidebar()
+		}
 	},
 	mounted () {
 		initScrollTrigger.call(this)
