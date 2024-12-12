@@ -93,28 +93,16 @@ export default {
 						exposeConfig: true
 					},
 					autoprefixer: {},
-				},
-				sass: {
-					silenceDeprecations: ["legacy-js-api"]
 				}
 			}
 		}
 	},
 
-	generate: {
-		dir: '../public/client'
+
+	server: {
+		host: process.env.HOST,
 	},
 
-	// server: {
-	// 	host: 'nodejs'
-	// },
-
-	// watchers: {
-	// 	webpack: {
-	// 		aggregateTimeout: 300,
-	// 		poll: 1000
-	// 	}
-	// },
 
 	router: {
 		routeNameSplitter: '.'
