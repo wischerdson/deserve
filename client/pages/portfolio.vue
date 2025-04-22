@@ -38,34 +38,6 @@
 						image: require('~/static/image/project-getpods.png')
 					},
 					{
-						subtitle: 'Ремонт под ключ',
-						name: 'АБИС',
-						desc: 'Ремонт коммерческой недвижимости а-класса',
-						url: 'http://deservesite35886.uxp.ru',
-						image: require('~/static/image/project-abis.jpeg')
-					},
-					{
-						subtitle: 'Каршеринг',
-						name: 'Б2НЗИН',
-						desc: 'Аренда премиум авто в Горном Алтае',
-						url: 'http://deservesite19963.uxp.ru',
-						image: require('~/static/image/project-b2nzin.jpeg')
-					},
-					{
-						subtitle: 'Импортер',
-						name: 'PIERRE',
-						desc: 'Дистрибьютор итальянской и испанской плитки',
-						url: 'http://deservesite83129.uxp.ru',
-						image: require('~/static/image/project-pierre.jpeg')
-					},
-					{
-						subtitle: 'Управляющая компания',
-						name: 'Port PM',
-						desc: 'Сопровождение строительства и реконструкция зданий под отели',
-						url: 'http://deservesite84652.uxp.ru',
-						image: require('~/static/image/project-port-pm.jpeg')
-					},
-					{
 						subtitle: 'Instagram-блогер',
 						name: 'Михаил Тимочко',
 						desc: 'Реализация telegram-бота для воронки продаж курса "Сайты, Деньги, 2 ствола"',

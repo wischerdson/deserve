@@ -7,13 +7,23 @@
 					<div ref="title">
 						<div class="text-gray-500 tracking-rr uppercase text-sm mb-6" v-if="project.subtitle">{{ project.subtitle }}</div>
 						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">{{ project.name }}</h2>
+						<a
+							class="inline-flex items-center bg-white/20 hover:bg-white/25 rounded-lg px-3 py-1.5 mt-3"
+							:href="project.instagram.href"
+							target="_blank"
+							v-if="'instagram' in project"
+						>
+							<v-icon name="instagram" width="22px" />
+							<span class="inline-block ml-3 mt-0.5 tracking-wider">{{ project.instagram.title }}</span>
+						</a>
 						<hr class="w-32 mt-3 h-px bg-gray-700">
 						<p class="mt-8 text-gray-400 tracking-widest font-extralight">{{ project.desc }}</p>
 						<v-action-pill
 							magnetic
 							class="mt-7"
-							text="Обсудить ваш будущий проект"
-							@click="showSidebar"
+							text="Посмотреть работу"
+							target="_blank"
+							:href="project.url"
 						/>
 					</div>
 				</div>
