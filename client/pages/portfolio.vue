@@ -62,7 +62,7 @@
 						subtitle: 'YouTube, Instagram блогер',
 						name: 'Афоня TV',
 						desc: 'Разработан сайт для проекта Like a God — онлайн-курса по личному брендингу и самопрезентации. Сайт выполнен в виде лендинга с акцентом на визуальный стиль, минимализм и эмоциональную подачу. Реализована адаптивная верстка, анимации и форма регистрации, обеспечивающие удобство использования на различных устройствах.',
-						url: 'https://likeagod.deserve.ru',
+						url: 'https://www.figma.com/design/hYoAFAAw4nRtn9eGVSVDHY/Like-A-God?node-id=0-1&t=jtrbPbPTwnwo8Q3u-1',
 						image: require('~/static/image/project-afonya.png'),
 						mobileImage: require('~/static/image/project-afonya.png'),
 						instagram: {
@@ -94,12 +94,12 @@
 						mobileImage: require('~/static/image/project-medlectoriy.jpg')
 					},
 					{
-						subtitle: 'СТУДИЯ АРХИТЕКТУРЫ И ДИЗАЙНА',
-						name: 'AN ARCHITECTS',
-						desc: 'Разработан сайт для архитектурной студии AN ARCHITECTS — команды, создающей уникальные проекты для бизнеса и частных клиентов. Реализована адаптивная платформа с акцентом на визуальное представление портфолио, включая коммерческие интерьеры, частные дома и архитектурные объекты. Сайт обеспечивает удобную навигацию, быструю загрузку и простую форму обратной связи для потенциальных клиентов.',
-						url: 'https://anarchitects.world',
-						image: require('~/static/image/project-architects.jpg'),
-						mobileImage: require('~/static/image/project-architects.jpg')
+						subtitle: 'магазин кроссовок',
+						name: 'Sneakerdark',
+						desc: 'Разработан сайт для мультибрендового магазина SNEAKERDARK — ритейлера премиум-одежды и обуви, основанного. Реализована адаптивная платформа с каталогом более 100 брендов, включая Nike, Stone Island и Maison Margiela. Сайт поддерживает онлайн-оплату, доставку по России и интеграцию с Telegram-ботом для отслеживания заказов.',
+						url: 'https://sneakerdark.deserve.ru',
+						image: require('~/static/image/project-sneakerdark.jpeg'),
+						mobileImage: require('~/static/image/project-sneakerdark.jpeg')
 					},
 					{
 						subtitle: 'Instagram-блогер',

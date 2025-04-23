@@ -102,12 +102,12 @@ export default {
 					mobileImage: require('~/static/image/project-medlectoriy.jpg')
 				},
 				{
-					subtitle: 'СТУДИЯ АРХИТЕКТУРЫ И ДИЗАЙНА',
-					name: 'AN ARCHITECTS',
-					desc: 'Разработан сайт для архитектурной студии AN ARCHITECTS — команды, создающей уникальные проекты для бизнеса и частных клиентов. Реализована адаптивная платформа с акцентом на визуальное представление портфолио, включая коммерческие интерьеры, частные дома и архитектурные объекты. Сайт обеспечивает удобную навигацию, быструю загрузку и простую форму обратной связи для потенциальных клиентов.',
-					url: 'https://anarchitects.world',
-					image: require('~/static/image/project-architects.jpg'),
-					mobileImage: require('~/static/image/project-architects.jpg')
+					subtitle: 'магазин кроссовок',
+					name: 'Sneakerdark',
+					desc: 'Разработан сайт для мультибрендового магазина SNEAKERDARK — ритейлера премиум-одежды и обуви, основанного. Реализована адаптивная платформа с каталогом более 100 брендов, включая Nike, Stone Island и Maison Margiela. Сайт поддерживает онлайн-оплату, доставку по России и интеграцию с Telegram-ботом для отслеживания заказов.',
+					url: 'https://sneakerdark.deserve.ru',
+					image: require('~/static/image/project-sneakerdark.jpeg'),
+					mobileImage: require('~/static/image/project-sneakerdark.jpeg')
 				},
 				{
 					subtitle: 'Instagram-блогер',
