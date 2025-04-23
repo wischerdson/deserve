@@ -28,7 +28,7 @@
 				<div class="flex justify-between items-start gap-20 md:block">
 					<div>
 						<h2 class="text-3xl font-medium tracking-widest uppercase temka-title md:text-2xl md:tracking-wider">Дорогие клиенты!</h2>
-						<div class="text-xl mt-6 text-gray-300 font-light">
+						<div class="text-xl md:text-base mt-6 text-gray-300 font-light">
 							<p class="temka-paragraph md:hyphens-auto"><img class="rounded-3xl max-w-[170px] hidden md:inline w-full float-right ml-2 mb-2" src="/image/deserve-founder.jpeg">Если у вас возникли вопросы, касающиеся разработки вашего будущего сайта, которые требуют более индивидуального подхода или касаются личных деталей, не стесняйтесь обращаться ко мне напрямую. Я всегда готов обсудить все нюансы, понять ваши особенности и предложить оптимальные решения для вашего проекта. <br>Буду рад помочь вам сделать сайт, который полностью будет отвечать вашим ожиданиям и потребностям.<br><br><span class="font-medium">С уважением, Артём <br>Основатель веб-студии Deserve</span></p>
 						</div>
 
