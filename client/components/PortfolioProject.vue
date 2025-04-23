@@ -45,7 +45,8 @@
 				</div>
 			</div>
 			<div class="mt-10" ref="mobileTitle">
-				<div class="text-6xl font-extralight tracking-wider" v-html="project.name"></div>
+				<div class="text-gray-500 tracking-rr uppercase text-sm mb-2" v-if="project.subtitle">{{ project.subtitle }}</div>
+				<div class="text-4xl font-extralight tracking-wider" v-html="project.name"></div>
 				<a
 					class="inline-flex items-center bg-white/20 hover:bg-white/25 rounded-lg px-3 py-1.5 mt-3"
 					:href="project.instagram.href"
