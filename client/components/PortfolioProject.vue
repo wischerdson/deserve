@@ -46,12 +46,22 @@
 			</div>
 			<div class="mt-10" ref="mobileTitle">
 				<div class="text-6xl font-extralight tracking-wider" v-html="project.name"></div>
-				<hr class="w-32 mt-3 bg-gray-700 h-px">
-				<p class="mt-4 text-gray-400 tracking-rr font-extralight text-sm leading-normal">{{ project.desc }}</p>
+				<a
+					class="inline-flex items-center bg-white/20 hover:bg-white/25 rounded-lg px-3 py-1.5 mt-3"
+					:href="project.instagram.href"
+					target="_blank"
+					v-if="'instagram' in project"
+				>
+					<v-icon name="instagram" width="22px" />
+					<span class="inline-block ml-3 mt-0.5 tracking-wider">{{ project.instagram.title }}</span>
+				</a>
+				<hr class="w-32 mt-3 bg-gray-700 h-px" v-if="!('instagram' in project)">
+				<p class="mt-4 text-gray-400 tracking-wider font-extralight leading-normal">{{ project.desc }}</p>
 				<v-action-pill
 					class="mt-7"
-					text="Обсудить ваш будущий проект"
-					@click="showSidebar"
+					text="Посмотреть работу"
+					target="_blank"
+					:href="project.url"
 				/>
 			</div>
 		</div>
@@ -113,8 +123,8 @@ const initScrollTrigger = function () {
 			const timeline = gsap.timeline()
 			timeline.fromTo(
 				this.$refs.mobileImage,
-				{ opacity: 0, scale: .9, filter: 'blur(16px)' },
-				{ opacity: 1, scale: 1, filter: 'blur(0px)' },
+				{ opacity: 0, scale: .9 },
+				{ opacity: 1, scale: 1 },
 				0
 			).addLabel('start');
 
