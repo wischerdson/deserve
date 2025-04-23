@@ -25,13 +25,24 @@
 
 		<section class="pt-20" ref="temka">
 			<div class="container">
-				<div class="flex justify-between items-start gap-20">
+				<div class="flex justify-between items-start gap-20 md:block">
 					<div>
-						<h2 class="text-3xl font-medium tracking-widest uppercase temka-title">Дорогие клиенты!</h2>
-						<p class="text-xl tracking-wider mt-6 text-gray-300 font-light temka-paragraph">Если у вас возникли вопросы, касающиеся разработки вашего будущего сайта, которые требуют более индивидуального подхода или касаются личных деталей, не стесняйтесь обращаться ко мне напрямую. Я всегда готов обсудить все нюансы, понять ваши особенности и предложить оптимальные решения для вашего проекта. <br>Буду рад помочь вам сделать сайт, который полностью будет отвечать вашим ожиданиям и потребностям. <br><br>С уважением, Артём <br>Основатель веб-студии Deserve</p>
+						<h2 class="text-3xl font-medium tracking-widest uppercase temka-title md:text-2xl md:tracking-wider">Дорогие клиенты!</h2>
+						<div class="text-xl mt-6 text-gray-300 font-light">
+							<p class="temka-paragraph md:hyphens-auto"><img class="rounded-3xl max-w-[170px] hidden md:inline w-full float-right ml-2 mb-2" src="/image/deserve-founder.jpeg">Если у вас возникли вопросы, касающиеся разработки вашего будущего сайта, которые требуют более индивидуального подхода или касаются личных деталей, не стесняйтесь обращаться ко мне напрямую. Я всегда готов обсудить все нюансы, понять ваши особенности и предложить оптимальные решения для вашего проекта. <br>Буду рад помочь вам сделать сайт, который полностью будет отвечать вашим ожиданиям и потребностям.<br><br><span class="font-medium">С уважением, Артём <br>Основатель веб-студии Deserve</span></p>
+						</div>
+
+						<a
+							class="inline-flex items-center bg-white/20 hover:bg-white/25 mt-8 rounded-lg px-3 py-1.5 temka-telega"
+							href="https://t.me/momsyakov"
+							target="_blank"
+						>
+							<v-icon name="telegram" width="22px" />
+							<span class="inline-block ml-3 mt-0.5 tracking-wider text-base">Мой Telegram</span>
+						</a>
 					</div>
 
-					<img class="rounded-3xl max-w-[380px] w-full flex-shrink-0 temka-photo sdf" src="/image/deserve-founder.jpeg">
+					<img class="rounded-3xl max-w-[330px] md:hidden w-full flex-shrink-0 temka-photo" src="/image/deserve-founder.jpeg">
 				</div>
 			</div>
 		</section>
@@ -46,21 +57,28 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const initTemkaScollTrigger = (component) => {
-	const timeline = gsap.timeline()
-
 	const $title = document.querySelector('.temka-title')
 	const $paragraph = document.querySelector('.temka-paragraph')
 	const $photo = document.querySelector('.temka-photo')
+	const $telega = document.querySelector('.temka-telega')
 
-	timeline.fromTo($title, { opacity: 0 }, { opacity: 1 }, '100%')
+	ScrollTrigger.matchMedia({
+		// Desktop animation
+		'(min-width: 1024px)': () => {
+			const tl = gsap.timeline()
+			tl.fromTo($title, { opacity: 0, x: -40 }, { opacity: 1, x: 0 }, 0).addLabel('start')
+			tl.fromTo($photo, { opacity: 0, x: 40 }, { opacity: 1, x: 0 }, 'start-=75%')
+			tl.fromTo($paragraph, { opacity: 0, x: -40 }, { opacity: 1, x: 0 }, 'start-=60%')
+			tl.fromTo($telega, { opacity: 0, x: -40 }, { opacity: 1, x: 0 }, 'start-=60%')
 
-	ScrollTrigger.create({
-		animation: timeline,
-		trigger: component.$refs.temka,
-		start: 'top center',
-		end: 'bottom center',
-		scrub: true,
-		markers: true
+			ScrollTrigger.create({
+				animation: tl,
+				trigger: component.$refs.temka,
+				start: '-35% center',
+				end: '40% center',
+				scrub: true
+			})
+		}
 	})
 }
 
@@ -100,7 +118,7 @@ export default {
 			scrub: true
 		})
 
-		// initTemkaScollTrigger(this)
+		initTemkaScollTrigger(this)
 	}
 }
 
