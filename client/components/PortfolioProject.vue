@@ -6,7 +6,7 @@
 				<div class="absolute left-10 inset-y-0 -right-24 flex items-center">
 					<div ref="title">
 						<div class="text-gray-500 tracking-rr uppercase text-sm mb-6" v-if="project.subtitle">{{ project.subtitle }}</div>
-						<h2 class="font-extralight text-7xl tracking-wider max-w-lg">{{ project.name }}</h2>
+						<h2 class="font-extralight text-7xl tracking-wider max-w-lg" v-html="project.name"></h2>
 						<a
 							class="inline-flex items-center bg-white/20 hover:bg-white/25 rounded-lg px-3 py-1.5 mt-3"
 							:href="project.instagram.href"
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 			<div class="mt-10" ref="mobileTitle">
-				<div class="text-6xl font-extralight tracking-wider">{{ project.name }}</div>
+				<div class="text-6xl font-extralight tracking-wider" v-html="project.name"></div>
 				<hr class="w-32 mt-3 bg-gray-700 h-px">
 				<p class="mt-4 text-gray-400 tracking-rr font-extralight text-sm leading-normal">{{ project.desc }}</p>
 				<v-action-pill
