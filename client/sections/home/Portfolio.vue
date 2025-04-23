@@ -70,7 +70,7 @@ export default {
 					subtitle: 'YouTube, Instagram блогер',
 					name: 'Афоня TV',
 					desc: 'Разработан сайт для проекта Like a God — онлайн-курса по личному брендингу и самопрезентации. Сайт выполнен в виде лендинга с акцентом на визуальный стиль, минимализм и эмоциональную подачу. Реализована адаптивная верстка, анимации и форма регистрации, обеспечивающие удобство использования на различных устройствах.',
-					url: 'https://likeagod.deserve.ru',
+					url: 'https://www.figma.com/design/hYoAFAAw4nRtn9eGVSVDHY/Like-A-God?node-id=0-1&t=jtrbPbPTwnwo8Q3u-1',
 					image: require('~/static/image/project-afonya.png'),
 					mobileImage: require('~/static/image/project-afonya.png'),
 					instagram: {
