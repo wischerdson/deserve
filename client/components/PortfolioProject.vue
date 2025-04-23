@@ -16,7 +16,7 @@
 							<v-icon name="instagram" width="22px" />
 							<span class="inline-block ml-3 mt-0.5 tracking-wider">{{ project.instagram.title }}</span>
 						</a>
-						<hr class="w-32 mt-3 h-px bg-gray-700">
+						<hr class="w-32 mt-3 h-px bg-gray-700" v-if="!('instagram' in project)">
 						<p class="mt-8 text-gray-400 tracking-widest font-extralight">{{ project.desc }}</p>
 						<v-action-pill
 							magnetic

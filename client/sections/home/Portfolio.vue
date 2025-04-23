@@ -53,8 +53,20 @@ export default {
 					image: require('~/static/image/project-afonya.png'),
 					mobileImage: require('~/static/image/project-afonya.png'),
 					instagram: {
-						title: '@mikhail.timochko',
-						href: 'https://www.instagram.com/mikhail.timochko'
+						title: '@afonyatv',
+						href: 'https://www.instagram.com/afonyatv'
+					}
+				},
+				{
+					subtitle: 'Психотерапевт',
+					name: 'Валерия Кумпф',
+					desc: 'Минималистичный и интуитивно понятный сайт для практикующего психолога. Проект включает индивидуальный дизайн, подчеркивающий атмосферу доверия и спокойствия, а также удобную структуру для записи на консультации и получения информации об услугах. Сайт адаптирован под все устройства и оптимизирован для продвижения в поисковых системах. Особое внимание уделено простоте обновления контента и быстрой навигации для пользователей.',
+					url: 'https://kumpfsmartpsychology.ru',
+					image: require('~/static/image/kumpf.jpg'),
+					mobileImage: require('~/static/image/kumpf.jpg'),
+					instagram: {
+						title: '@valeria_kumpf',
+						href: 'https://www.instagram.com/valeria_kumpf'
 					}
 				},
 				{
